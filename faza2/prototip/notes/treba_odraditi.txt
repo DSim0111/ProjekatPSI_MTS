@@ -1,0 +1,5 @@
+Treba napraviti stranice za: 
+1. Nasa kontakt stranica --- done 
+2. Pregled prijava prodavnica ---- wtf 
+3. Pregled prijava korisnika 
+4. Dodavanje proizvoda 

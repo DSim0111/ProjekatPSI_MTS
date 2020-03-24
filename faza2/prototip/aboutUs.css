@@ -1,0 +1,64 @@
+
+body{
+	margin:0;
+	padding:0;
+	background:url(images/giftChild.jpg);
+	background-size:cover;
+	background-position:center;
+	font-family:sans-serif;
+	
+}
+.myContainer{
+
+    background:rgba(0,0,0,0.5);
+    color:white; 
+    font-size:20dp; 
+    padding-left:25px !important;
+    padding-right:25px !important;
+    padding-top:25px !important;
+    padding-bottom:25px !important;
+    top:50%;
+	left:50%;
+	position:absolute;
+	transform:translate(-50%,-50%);
+
+}
+input{
+    border:none;
+	border-bottom:1px solid #fff;
+	background:transparent;
+	outline:none;
+	height:40px;
+	color:#fff;
+	font-size:16px;
+}
+
+textarea{
+    border:none;
+	border-bottom:1px solid #fff;
+	background:transparent;
+	outline:none;
+	height:40px;
+	color:#fff;
+	font-size:16px;
+}
+ 
+.logo{
+
+
+ 
+    font-style:oblique;
+}
+.usImage{
+
+
+width:200px; 
+height:200px; 
+}
+.usEnvelope{
+    padding:20px;
+    border:thin solid white; 
+    background-color: rgba(11, 30, 41, 0.753);
+    width:70%; 
+
+}

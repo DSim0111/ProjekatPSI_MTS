@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <title> Edit Data |Giftery</title>
+  
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="changeDataShop.css"> 
+    </head> 
+    <body> 
+        <div class="categoryList" id="categoryListDiv" align="center"> 
+            <br>
+            
+            <input type="text" placeholder="Search here" id="search_input"> 
+                    <img src="icons/search-icon.png" class="icons" > 
+                <br><br>        
+            <select class="custom-select text-center selectCategoryList" multiple>
+               <option class="categorySelect"> 
+                Category1
+               </option>
+               <option class="categorySelect"> 
+                Category2
+               </option>
+               <option class="categorySelect"> 
+                Category3
+               </option>
+               <option class="categorySelect"> 
+                Category4
+               </option>
+                <option class="categorySelect"> 
+                Category5
+               </option> 
+               <option class="categorySelect"> 
+                Category6
+               </option> 
+               <option class="categorySelect"> 
+                Category7
+               </option>
+               <option class="categorySelect"> 
+                Category1
+               </option>
+               <option class="categorySelect"> 
+                Category2
+               </option>
+               <option class="categorySelect"> 
+                Category3
+               </option>
+               <option class="categorySelect"> 
+                Category4
+               </option>
+                <option class="categorySelect"> 
+                Category5
+               </option> 
+               <option class="categorySelect"> 
+                Category6
+               </option> 
+               <option class="categorySelect"> 
+                Category7
+               </option>
+              </select>
+              <br>
+              <br>  
+            <button onClick="toggleCategoryListDiv()" class="btn btn-success">Add</button>
+
+        </div>
+        <div class="container myContainer">
+            <div class="row"> 
+                <div class="col-sm-12" align="center"> 
+                    <h4> Edit data</h4>
+                   <hr class="hrWhite">
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="offset-sm-2 col-sm-8 text-center"> 
+                    <br>
+                    <textarea class="text-center title">Shop 1</textarea>
+                  
+                </div>
+              
+            </div>
+            <br>
+            <div class="row "> 
+                <div class="col-sm-3 text-center"  align="center"> 
+                    
+                  
+                  <img src="shops/shop1.jpg" class="img-fluid shopImage text-left">
+                  <button class="btn btn-success"> Upload image</button>
+                </div>
+               
+            
+              <div class="col-sm-9">
+                    <h5 class="text-left">Description: </h5>
+                    <textarea class="shopDescription" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
+                    em Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has be
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
+                    em Ipsum is simply dummy text of the printing an
+                     </textarea>
+             </div>
+                     
+                   
+                    
+            </div>
+            <div class="row"> 
+                <div class="col-sm-12" align="center"> 
+                  &nbsp; 
+                </div>
+            </div>
+          
+            <div class="row"> 
+                <div class="col-sm-12" align="center"> 
+                  &nbsp; 
+                </div>
+            </div>
+            
+            <div class="row"> 
+                <div class="col-sm-12 tags">
+                    <img src="icons/tag.png" width="40px" height="40px">Tags <br> 
+                    <ul type="none"> 
+                        <li class="tag "> 
+                            CATEGORY1
+                            &nbsp; 
+                            <img src="icons/close.png" width="12px" height="12px">
+                        </li>
+                        <li class="tag "> 
+                            CATEGORY2
+                            &nbsp; 
+                            <img src="icons/close.png" width="12px" height="12px">
+                        </li>
+                        <li class="tag "> 
+                            CATEGORY3
+                            &nbsp; 
+                            <img src="icons/close.png" width="12px" height="12px">
+                        </li>
+                        <li class="tag "> 
+                            CATEGORY4
+                            &nbsp; 
+                            <img src="icons/close.png" width="12px" height="12px">
+                        </li>
+                        
+                        <li onClick="toggleCategoryListDiv()" class="addNewCategory">
+                            <img src="icons/add.png" width="30px" height="30px"> 
+                        </li>
+
+                    </ul>
+
+
+                </div>
+            </div>
+
+
+            <div class="row"> 
+                <div class="col-sm-12" align="center"> 
+                  &nbsp; 
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col-sm-12" > 
+                  <h4> Owner and shop data</h4> 
+                </div>
+            </div>
+            <div class="row rowBorder"> 
+                <div class=" col-sm-6"> 
+
+            <p>Owner's first name</p>
+			<input type="text" name="username" placeholder="Enter First name" value="Someone">
+			<p>Owner's last name</p>
+			<input type="text" name="username" placeholder="Enter Last name" value="Someone last">
+			<p>Shop's e-mail</p>
+			<input type="text" name="username" placeholder="Enter E-mail" value="someone@gmail.com">
+			<p>Shop's address</p>
+            <input type="text" name="username" placeholder="Enter Address" value="Some address somewhere">
+            </div>
+            <div class=" col-sm-6"> 
+			<p>Phone number</p>
+			<input type="text" name="username" placeholder="Enter phone number" value="+38155555555">
+			
+			<p>Password</p>
+			<input type="password" name="password" placeholder="Enter Password" value="passs">
+			<p>Confirm password</p>
+            <input type="password" name="password" placeholder="Enter Password" value="passs">
+            </div>
+			
+               
+            </div>
+            <div class="row"> 
+                <div class="col-sm-12" align="center"> 
+                  &nbsp; 
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col-sm-12" align="center"> 
+                    <button class="btn btn-success"> 
+                        Save changes
+                    </button>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col-sm-12" align="center"> 
+                  &nbsp; 
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col-sm-12" align="center"> 
+                    <p class="note"> Note: These changes must be approved by admin. It may take a 1-2 days for changes to be visible. </p>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="col-sm-12" align="center"> 
+                    &nbsp; 
+                </div>
+            </div>
+        
+
+
+                
+        </div>
+        <script>
+            function toggleCategoryListDiv(){
+                var x = document.getElementById("categoryListDiv");
+              if (x.style.display === "none") {
+                x.style.display = "block";
+              } else {
+                x.style.display = "none";
+              }
+
+
+            }
+        </script> 
+       
+    </body>
+</html>

@@ -1,0 +1,25 @@
+.product_image{
+
+
+    width:70%; 
+    border:thin solid gray; 
+    
+}
+.myContainer{
+    padding:20px; 
+    transform:translate(-50%, -50%);
+}
+
+#quantity{
+
+
+    background:transparent; 
+    color: white; 
+    border:none; 
+    border:thin solid gray; 
+    width:100px; 
+    height:40px; 
+    resize:none; 
+    outline: none; 
+
+}

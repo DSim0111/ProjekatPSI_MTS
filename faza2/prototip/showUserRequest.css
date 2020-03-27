@@ -8,6 +8,11 @@ body{
 	font-family:sans-serif;
 	
 }
+.float-right{
+	
+	margin-right:4px;
+	
+}
 .myContainer{
 
     background:rgba(0,0,0,0.5);

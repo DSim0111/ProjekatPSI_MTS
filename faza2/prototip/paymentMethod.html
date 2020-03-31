@@ -14,13 +14,70 @@
             <div class="row" align="center"> 
                 <div class="col-sm-12"> 
                     
-                  <h3>Choose a payment method</h3>
+                  <h3>Your bill</h3>
                   <hr class="hrGray"> 
                 </div>
             </div>
+			
+			<div class="row"> 
+			<div class="col-sm-6 " align="center">
+				<b>Products: </b>
+				<style>
+				#myTable{
+					width: 80%; 
+				}
+				</style>
+				<table class="table table-striped table-dark" id="myTable">
+				<style>
+					.thead-dark td{
+					
+					font-weight:bold;
+					color:lightgreen;   
+					}
+				</style>
+				<thead class="thead-dark">
+						<tr> 
+							<td>Product</td>
+							<td> Quantity</td>
+							<td> Total price</td>
+						</tr>
+						</thead>
+						
+						<tbody>
+						<tr> 
+							<td>Perfume #1234</td>
+							<td> 4</td>
+							<td> 4000</td>
+						</tr>
+						<tr> 
+							<td>Necklace #1234</td>
+							<td> 2</td>
+							<td> 3000</td>
+						</tr>
+						</tbody>
+						
+					</table>
+					</div>
+			
+			
+                <div class="col-sm-6"> 
+					
+				
+					
+                   
+                    <b>Additions:</b> Luxury chocolate (300RSD) , Rose (150 RSD) <br>
+                   <b> Wrapper:</b> Box ( 50RSD)
+				   <hr>
+				   <h5><b style="border:1px solid white">Total price: 7400RSD</b></h5>
+                
+                </div>
+            </div>
+			 <hr class="hrGray">
             
             <div class="row" > 
-                <div class="offset-sm-4 col-sm-4"> 
+                <div class="col-sm-12" font-size="30px"> 
+				<h3>Choose a payment method</h3>
+				
                     <input type="radio" name="payment"> P.O.D (Payment On Delivery)
                     <br>
                     <input type="radio" name="payment"> Credit card

@@ -43,10 +43,29 @@
                    
                 </div>
             </div>
-            
+			<div class="row"> 
+                <div class="col-sm-12"> 
+                    <a  id="logout" onclick="logout()" href=""> 
+                        Logout
+                    </a>
+                  
+                   
+                </div>
+            </div>
+            <script> 
+		
+		function logout(){
+		
+			var ret=confirm("Are you sure you want to logout?"); 
+			if(ret==true){
+				window.location.href="./welcome.html";
+			}
+		}
+		</script>
             
 
         </div>
+		
 
     </body>
 </html> 

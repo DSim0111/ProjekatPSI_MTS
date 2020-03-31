@@ -32,6 +32,24 @@
                      <a href="addRemoveCategory.html"> 
                          Add/remove category
                      </a>
+					 
+                    <a  id="logout" onclick="logout()" href=""> 
+                        Logout
+                    </a>
+                  
+                   
+               
+            
+            <script> 
+		
+		function logout(){
+		
+			var ret=confirm("Are you sure you want to logout?"); 
+			if(ret==true){
+				window.location.href="./welcome.html";
+			}
+		}
+		</script>
                  
                  </div>
              </div>

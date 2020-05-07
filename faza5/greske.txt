@@ -1,1 +1,0 @@
-1. Ispraviti sequence dijagram u registracija_novog_korisnika ! 

@@ -19,6 +19,41 @@ use App\Models\SystemUserModel;
 class Guest extends BaseController {
     //put your code here
      private static $existingRoles=["User", "Admininstrator", "Shop"]; 
+     private static $systemUserValidationRules=[
+                 
+            'username'=>'required|alpha_numeric|min_length[5]|max_length[40]', 
+            'password'=>'required|min_length[10]|max_length[50]', 
+            'confirmPassword'=>'required|min_length[10]|max_length[50]',
+            'email'=>'required|valid_email',
+            'name' => 'required|max_length[18]', 
+            'surname'=> 'required|max_length[18]', 
+            'phoneNum'=>'required|max_length[18]'
+     ];
+      private static $userValidationRules= [
+           'username'=>'required|alpha_numeric|min_length[5]|max_length[40]', 
+            'password'=>'required|min_length[10]|max_length[50]', 
+            'confirmPassword'=>'required|min_length[10]|max_length[50]',
+            'email'=>'required|valid_email',
+            'name' => 'required|max_length[18]', 
+            'surname'=> 'required|max_length[18]', 
+            'phoneNum'=>'required|max_length[18]', 
+          'address'=>"required"
+          
+      ]; 
+      private static $shopValidationRules=[
+          
+            'username'=>'required|alpha_numeric|min_length[5]|max_length[40]', 
+            'password'=>'required|min_length[10]|max_length[50]', 
+            'confirmPassword'=>'required|min_length[10]|max_length[50]',
+            'email'=>'required|valid_email',
+            'name' => 'required|max_length[18]', 
+            'surname'=> 'required|max_length[18]', 
+            'phoneNum'=>'required|max_length[18]', 
+             'address'=>"required", 
+             'shopName'=>'required|min_length[5]', 
+             'description'=>'required|min_length[10]|max_length[200]',
+             
+      ];
         private function showPage($page, $data=[]){
             
                 
@@ -28,19 +63,49 @@ class Guest extends BaseController {
                //echo view("templates/footer", $data); 
         }
         
+      
         
+        /**
+        @param array $validationRules Validation rules for particular user defined in static arrays ( for example: Guest::$userValidationRules)
+         * @return array Returns array of errors or null if success
+         * ["name" =>"Error message" ]
+         */
+        private function validateRegisterData($validationRules){
+             if( $this->validate($validationRules)){ // if validation is fine  check password match
+                 
+                   if(!$this->checkPasswords(
+                        $this->request->getVar("password"), 
+                        $this->request->getVar("confirmPassword"))){
+                    
+                    return ["password"=>"Passwords do not match", "confirmPassword"=>"Passwords do not match"];
+                    
+                }else{
+                    
+                    //SUCCESS !
+                    return null; 
+                }
+                      
+                    
+                    
+            }else{
+                
+                // validation failed 
+                return $this->validator->getErrors(); 
+            }
+         
+            
+           
+        }
         public function index(){
             
             
             $this->showPage("index_guest");
         }
-        
-        
         public function login($data=[]){
             
             return $this->showPage("login_guest", $data);
         }
-         public function submitLogin(){
+         public function loginSubmit(){
              
              if(! $this->validate([
                  
@@ -79,18 +144,22 @@ class Guest extends BaseController {
              }else{
                  
                  
-                 return $this->login(["error"=>"Failed login"]);
+                 return $this->login(["error"=>"Username, password or role don't match!"]);
              }
              
-             
-             
-             
-             
-             
          }
+         
+       public function logout(){
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();   
+       }
         
         public function registerUser( $data=[]){
             $this->showPage("registerUser_guest", $data); 
+        }
+        public function registerShop($data=[]){
+            
+            
+            $this->showPage("registerShop_guest", $data);
         }
         private function checkPasswords($password, $confirm){
             
@@ -99,35 +168,92 @@ class Guest extends BaseController {
         
         public function registerUserSubmit(){
                 
-                //check passwords 
-                if(!$this->checkPasswords(
-                        $this->request->getVar("password"), 
-                        $this->request->getVar("confirmPassword"))){
+               //validate input data 
+            $retVal=$this->validateRegisterData(Guest::$userValidationRules);
+               if( $retVal!=null){
+                   
+                   
+                   return $this->registerUser($retVal);
+               }
                     
-                    return $this->registerUser(["password"=>"Passwords do not match", "confirmPassword"=>"Passwords do not match"]);
-                    
-                        }
-                
+
                 $sysUser=new SystemUserModel ();
-                     $ret=$sysUser->insertUser(
-                        $this->request->getVar("username"), 
-                        $this->request->getVar("name"), 
-                        $this->request->getVar("surname"), 
-                        $this->request->getVar("password"), 
-                        $this->request->getVar("email"), 
-                        $this->request->getVar("phoneNum"), 
-                         $this->request->getVar("address")); 
+                $ret=$sysUser->insertUser(
+                $this->request->getVar("username"), 
+                $this->request->getVar("name"), 
+                $this->request->getVar("surname"), 
+                $this->request->getVar("password"), 
+                $this->request->getVar("email"), 
+                $this->request->getVar("phoneNum"), 
+                 $this->request->getVar("address")); 
                      
                   if($ret===0){
                       //Success 
                           return $this->login();
                       
                   }else{
+                      
+                      // username exists, email exist..
                        return $this->registerUser($ret);     
                   }
             
         }
         
+        
+        public function registerShopSubmit(){
+            
+            
+            $ret=$this->validateRegisterData(Guest::$shopValidationRules) ; 
+            if($ret==null){
+                //successful validation 
+                
+                //get image 
+                
+                $file= $this->request->getFile("image"); 
+                if($file==null){
+                    return $this->registerShop(["error"=>"File is not uploaded"]);
+                }
+                if($file->isValid()){
+                    $newName = $file->getRandomName();
+                     $file->move('./uploads', $newName);
+                 }else{
+                    return $this->registerShop(["error"=>"File is not valid"]);
+                }
+                
+                $sysUser=new SystemUserModel(); 
+               $retVal= $sysUser->insertShop( 
+                 $this->request->getVar("username"), 
+                $this->request->getVar("name"), 
+                $this->request->getVar("surname"), 
+                $this->request->getVar("password"), 
+                $this->request->getVar("email"), 
+                $this->request->getVar("phoneNum"), 
+                 $this->request->getVar("address"),
+
+                $this->request->getVar("description"),
+                $this->request->getVar("shopName"),
+                  'I', // I - inactive state 
+                $newName ); 
+                if($retVal!=0){
+                    
+                    return $this->registerShop($retVal);
+                    
+                }else{
+                    
+                    return redirect()->to(base_url("Shop/index")); 
+                }
+           
+         
+        }else{ 
+            //validation failed
+            
+            return $this->registerShop($ret);
+            
+        }
+            
+            
+        
+        }
     
 }
 

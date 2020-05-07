@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 7, 2020, 9:22:33 PM
+    Author     : Simona
+*/
+
+
+.upload-image-div{
+    position:relative;
+    width:100%; 
+    min-height:200px; 
+    border:1px solid white; 
+    
+    
+    
+}
+.centered-caption{
+    
+    position:absolute; 
+    height:20px; 
+    width:150px;
+    left:50%; 
+    transform:translateX(-50%);
+    top:90px; 
+}

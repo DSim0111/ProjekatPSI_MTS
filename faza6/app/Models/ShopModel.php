@@ -8,6 +8,8 @@
 
 namespace App\Models;
 
+
+use CodeIgniter\Model;
 /**
  * Description of ShopModel
  *
@@ -16,30 +18,29 @@ namespace App\Models;
 class ShopModel extends Model {
     //put your code here
 
-     protected $table      = 'user';
-    protected $primaryKey = 'idUser';
+     protected $table      = 'shop';
+    protected $primaryKey = 'id';
 
-
-
+    protected $allowedFields=['id', 'shopName', 'description', 'state', 'address'];
   
-    protected $validationRules    =["address"=>'required'];
-    protected $validationMessages = [];
-
-        protected $allowedFields=['idUser' , 'address']; 
-    
-  
-    public function insertUser($id, $address) {
-      
+    public function insertShop($id, $description, $shopName, $state, $address) {
+        helper("date");
+       $date= date("Y-m-d H:i", time()); 
         
-       $this->insert([
-           
-           "idUser"=> $id, 
-           "address" =>$address
-           
-       ], true); 
+        $this->insert(
+                [
+                    "id"=>$id, 
+                    "description"=>$description, 
+                    "state"=>$state, 
+                    "submitDate" =>$date, 
+                    "shopName"=>$shopName,
+                    "address"=>$address
+                    
+                ]
+                ); 
+        
+        
        return $id; 
-       
-       
        
     }
     

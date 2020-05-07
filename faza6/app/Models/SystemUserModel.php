@@ -59,7 +59,7 @@ class SystemUserModel extends Model
             $this->builder()->select("systemuser.id")->where("username", $username)->where("password", $password)->join($role." as role","role.id=systemuser.id" );
             return $this->builder()->get()->getRowObject(); 
     }
-    private function insertSystemUser($username, $firstName, $lastName, $password,  $email, $phone){
+    private function insertSystemUser($username, $firstName, $lastName, $password,  $email, $phone, $image=null){
        
          return $this->insert([
                   
@@ -68,7 +68,8 @@ class SystemUserModel extends Model
                 "name"=>$firstName, 
                 "surname"=>$lastName, 
                 "email"=>$email, 
-                "phoneNum"=>$phone
+                "phoneNum"=>$phone, 
+                  "image"=>$image
         ], true);
     }
 
@@ -91,21 +92,20 @@ class SystemUserModel extends Model
         
         
     }
-      public function insertShop($username, $firstName, $lastName, $password, $email, $phone, $address){
+      public function insertShop($username, $firstName, $lastName, $password, $email, $phone, $address, $description, $shopName, $state, $image){
           
           //TODO : not finished - izmeniti unos na stranici za registraciju  :) 
-        $id=$this->insertSystemUser($username, $firstName, $lastName, $password, $email, $phone); 
+        $id=$this->insertSystemUser($username, $firstName, $lastName, $password, $email, $phone, $image); 
         if($id==false || $id==null){
             
             return $this->errors(); 
         }else{
-            //TODO 
-            // transakcija, ne ovako 
-               $userModel= new ShopModel(); 
-               $ret=$userModel->insertShop($id, $address);
+           
+               $shopModel= new ShopModel(); 
+               $ret=$shopModel->insertShop($id, $description, $shopName, $state, $address);
             if($ret==false || $ret==null){
                 $this->delete($id); 
-                return $userModel->errors(); 
+                return $shopModel->errors(); 
             }
             return 0; //success
         }

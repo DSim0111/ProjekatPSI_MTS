@@ -29,7 +29,7 @@
                             }
                         ?> 
                         
-                        <form name="loginForm" method="POST" action="<?php  echo base_url("Guest/submitLogin")?>">
+                        <form name="loginForm" method="POST" action="<?php  echo base_url("Guest/loginSubmit")?>">
                             <div class="radioDiv" align="center">
                        <input type="radio" name="role" value="User" checked>User
                        <input type="radio" name="role" value="Shop">Shop

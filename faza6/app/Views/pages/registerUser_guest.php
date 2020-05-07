@@ -15,7 +15,7 @@
 <div class="container"> 
     <div class="row">
        
-		<div class="offset-lg-3 col-lg-6 offset-md-2 col-md-8 col-sm-12 ">
+		<div class="offset-lg-2 col-lg-8 offset-md-2 col-md-8 col-sm-12 ">
                     <br>
                     <br> 
                    
@@ -38,7 +38,7 @@
                          <?php
                                 if(isset($name))
                                      
-                                echo "<p style='color:red;'>".$name."</p><br> ";
+                                echo "<p style='color:red;'>".$name."</p> ";
                             ?>
                          
 			<p>Last name</p>
@@ -47,7 +47,7 @@
                           <?php
                                 if(isset($surname))
                                      
-                                echo "<p style='color:red;'>".$surname."</p><br> ";
+                                echo "<p style='color:red;'>".$surname."</p> ";
                             ?>
                         
 			<p>E-mail</p>
@@ -55,7 +55,7 @@
                           <?php
                                 if(isset($email))
                                      
-                                echo "<p style='color:red;'>".$email."</p><br> ";
+                                echo "<p style='color:red;'>".$email."</p>";
                             ?>
                          
 			<p>Address</p>
@@ -64,7 +64,7 @@
                          <?php
                                 if(isset($address))
                                      
-                                echo "<p style='color:red;'>".$address."</p><br> ";
+                                echo "<p style='color:red;'>".$address."</p> ";
                            ?>
                         
 			<p>Phone number</p>
@@ -72,21 +72,21 @@
                            <?php
                                 if(isset($phoneNum))
                                      
-                                echo "<p style='color:red;'>".$phoneNum."</p><br> ";
+                                echo "<p style='color:red;'>".$phoneNum."</p> ";
                            ?>
 			<p>Username</p>
 			<input type="text" name="username" value="<?php if(isset($_POST['username']))echo $_POST['username'];?>"   placeholder="Enter Username">
                            <?php
                                 if(isset($username))
                                      
-                                echo "<p style='color:red;'>".$username."</p><br> ";
+                                echo "<p style='color:red;'>".$username."</p> ";
                            ?>
 			<p>Password</p>
 			<input type="password" name="password" placeholder="Enter Password">
                           <?php
                                 if(isset($password))
                                      
-                                echo "<p style='color:red;'>".$password."</p><br> ";
+                                echo "<p style='color:red;'>".$password."</p> ";
                            ?>
 			<p>Confirm password</p>
 			<input type="password" name="confirmPassword" placeholder="Enter Password">
@@ -94,10 +94,12 @@
                          <?php
                                 if(isset($confirmPassword))
                                      
-                                echo "<p style='color:red;'>".$confirmPassword."</p><br> ";
+                                echo "<p style='color:red;'>".$confirmPassword."</p>";
                            ?>
+                        <br>
 			<input type="submit" name="submit" value="Register">
-			
+                        <br>
+                        <br>
 			</form>
                 </div>
                     <br> 

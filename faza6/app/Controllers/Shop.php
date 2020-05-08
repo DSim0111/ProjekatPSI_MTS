@@ -15,4 +15,16 @@ namespace App\Controllers;
  */
 class Shop  extends BaseController{
     //put your code here
+    
+      public function _remap($method, ...$params)
+        {
+            if($this->session->get("logged_in_as")!=="Shop"){
+                
+                return redirect()->to(base_url("Guest/login")); 
+            }
+            else
+            {
+                return $this->$method(...$params);
+            }
+        } 
 }

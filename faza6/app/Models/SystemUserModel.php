@@ -112,4 +112,26 @@ class SystemUserModel extends Model
         
         
     }
+    
+    
+     public function insertAdmin($username, $firstName, $lastName, $password, $email, $phone, $image){
+          
+          //TODO : not finished - izmeniti unos na stranici za registraciju  :) 
+        $id=$this->insertSystemUser($username, $firstName, $lastName, $password, $email, $phone, $image); 
+        if($id==false || $id==null){
+            
+            return $this->errors(); 
+        }else{
+           
+             $adminModel=new AdministratorModel();  
+             $ret=$adminModel->insertAdministrator($id); 
+            if($ret==false || $ret==null){
+                $this->delete($id); 
+                return $adminModel->errors(); 
+            }
+            return 0; //success
+        }
+        
+        
+    }
 }

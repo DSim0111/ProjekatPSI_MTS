@@ -15,4 +15,15 @@ namespace App\Controllers;
  */
 class User  extends BaseController{
     //put your code here
+      public function _remap($method, ...$params)
+        {
+            if($this->session->get("logged_in_as")!=="User"){
+                
+                return redirect()->to(base_url("Guest/login")); 
+            }
+            else
+            {
+                return $this->$method(...$params);
+            }
+        } 
 }

@@ -38,7 +38,7 @@
                          <?php
                                 if(isset($name))
                                      
-                                echo "<p style='color:red;'>".$name."</p> ";
+                                echo "<p class='errorMessage'>".$name."</p> ";
                             ?>
                          
 			<p>Last name</p>
@@ -47,7 +47,7 @@
                           <?php
                                 if(isset($surname))
                                      
-                                echo "<p style='color:red;'>".$surname."</p> ";
+                                echo "<p class='errorMessage'>".$surname."</p> ";
                             ?>
                         
 			<p>E-mail</p>
@@ -55,7 +55,7 @@
                           <?php
                                 if(isset($email))
                                      
-                                echo "<p style='color:red;'>".$email."</p>";
+                                echo "<p class='errorMessage'>".$email."</p>";
                             ?>
                          
 			<p>Address</p>
@@ -64,7 +64,7 @@
                          <?php
                                 if(isset($address))
                                      
-                                echo "<p style='color:red;'>".$address."</p> ";
+                                echo "<p class='errorMessage'>".$address."</p> ";
                            ?>
                         
 			<p>Phone number</p>
@@ -72,21 +72,21 @@
                            <?php
                                 if(isset($phoneNum))
                                      
-                                echo "<p style='color:red;'>".$phoneNum."</p> ";
+                                echo "<p class='errorMessage'>".$phoneNum."</p> ";
                            ?>
 			<p>Username</p>
 			<input type="text" name="username" value="<?php if(isset($_POST['username']))echo $_POST['username'];?>"   placeholder="Enter Username">
                            <?php
                                 if(isset($username))
                                      
-                                echo "<p style='color:red;'>".$username."</p> ";
+                                echo "<p class='errorMessage'>".$username."</p> ";
                            ?>
 			<p>Password</p>
 			<input type="password" name="password" placeholder="Enter Password">
                           <?php
                                 if(isset($password))
                                      
-                                echo "<p style='color:red;'>".$password."</p> ";
+                                echo "<p class='errorMessage'>".$password."</p> ";
                            ?>
 			<p>Confirm password</p>
 			<input type="password" name="confirmPassword" placeholder="Enter Password">
@@ -94,7 +94,7 @@
                          <?php
                                 if(isset($confirmPassword))
                                      
-                                echo "<p style='color:red;'>".$confirmPassword."</p>";
+                                echo "<p class='errorMessage'>".$confirmPassword."</p>";
                            ?>
                         <br>
 			<input type="submit" name="submit" value="Register">

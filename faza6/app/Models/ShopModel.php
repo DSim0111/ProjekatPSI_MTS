@@ -25,6 +25,9 @@ class ShopModel extends Model {
   
     public function insertShop($id, $description, $shopName, $state, $address) {
         helper("date");
+        
+        // TODO 
+        // wtf is this 
        $date= date("Y-m-d H:i", time()); 
         
         $this->insert(

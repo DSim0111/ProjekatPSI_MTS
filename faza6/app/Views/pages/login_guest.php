@@ -25,7 +25,7 @@
                             if(isset($error)){
                                 
                                 
-                                echo "<p style='color:red;'>".$error."</p>";
+                                echo "<p class='errorMessage'>".$error."</p>";
                             }
                         ?> 
                         

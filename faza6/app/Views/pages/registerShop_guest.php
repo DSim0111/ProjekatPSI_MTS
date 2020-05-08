@@ -46,7 +46,7 @@ Verzija: 1.0
                         <?php
                         if(isset($error)){
                             
-                                echo "<p style='color:red;'>".$error."</p><br>";
+                                echo "<p class='errorMessage'>".$error."</p><br>";
                             
                         }
                         
@@ -64,7 +64,7 @@ Verzija: 1.0
                          <?php
                                 if(isset($name))
                                      
-                                echo "<p style='color:red;'>".$name."</p> ";
+                                echo "<p class='errorMessage'>".$name."</p> ";
                             ?>
                          
 			<p>Owner's surname</p>
@@ -73,7 +73,7 @@ Verzija: 1.0
                           <?php
                                 if(isset($surname))
                                      
-                                echo "<p style='color:red;'>".$surname."</p> ";
+                                echo "<p class='errorMessage'>".$surname."</p> ";
                             ?>
                         
 			<p>E-mail</p>
@@ -81,7 +81,7 @@ Verzija: 1.0
                           <?php
                                 if(isset($email))
                                      
-                                echo "<p style='color:red;'>".$email."</p> ";
+                                echo "<p class='errorMessage'>".$email."</p> ";
                             ?>
                          
 			<p>Shop address</p>
@@ -90,7 +90,7 @@ Verzija: 1.0
                          <?php
                                 if(isset($address))
                                      
-                                echo "<p style='color:red;'>".$address."</p> ";
+                                echo "<p class='errorMessage'>".$address."</p> ";
                            ?>
                         
 			<p>Phone number</p>
@@ -98,21 +98,21 @@ Verzija: 1.0
                            <?php
                                 if(isset($phoneNum))
                                      
-                                echo "<p style='color:red;'>".$phoneNum."</p><br> ";
+                                echo "<p class='errorMessage'>".$phoneNum."</p> ";
                            ?>
 			<p>Username</p>
 			<input type="text" name="username" value="<?php if(isset($_POST['username']))echo $_POST['username'];?>"   placeholder="Enter Username">
                            <?php
                                 if(isset($username))
                                      
-                                echo "<p style='color:red;'>".$username."</p> ";
+                                echo "<p class='errorMessage'>".$username."</p> ";
                            ?>
 			<p>Password</p>
 			<input type="password" name="password" placeholder="Enter Password">
                           <?php
                                 if(isset($password))
                                      
-                                echo "<p style='color:red;'>".$password."</p> ";
+                                echo "<p class='errorMessage'>".$password."</p> ";
                            ?>
 			<p>Confirm password</p>
 			<input type="password" name="confirmPassword" placeholder="Enter Password">
@@ -120,7 +120,7 @@ Verzija: 1.0
                          <?php
                                 if(isset($confirmPassword))
                                      
-                                echo "<p style='color:red;'>".$confirmPassword."</p> ";
+                                echo "<p class='errorMessage'>".$confirmPassword."</p> ";
                            ?>
 			
                     </div>
@@ -141,7 +141,7 @@ Verzija: 1.0
                             <?php
                             if(isset($image)){
                                 
-                                echo "<p style='color:red;'>".$image."</p> ";
+                                echo "<p class='errorMessage'>".$image."</p> ";
                             }
                             ?> 
                             <br> 
@@ -153,7 +153,7 @@ Verzija: 1.0
                            <?php
                                 if(isset($shopName))
                                      
-                                echo "<p style='color:red;'>".$shopName."</p> ";
+                                echo "<p class='errorMessage'>".$shopName."</p> ";
                            ?>
                      
 			<p>Description</p>
@@ -162,7 +162,7 @@ Verzija: 1.0
                            <?php
                                 if(isset($description))
                                      
-                                echo "<p style='color:red;'>".$description."</p> ";
+                                echo "<p class='errorMessage'>".$description."</p> ";
                            ?>
                         
                             

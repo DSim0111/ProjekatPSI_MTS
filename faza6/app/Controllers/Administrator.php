@@ -7,7 +7,7 @@
  */
 
 namespace App\Controllers;
-
+use App\Models\SystemUserModel; 
 /**
  * Description of Administrator
  *
@@ -15,4 +15,59 @@ namespace App\Controllers;
  */
 class Administrator extends BaseController {
     //put your code here
+
+     public function _remap($method, ...$params)
+        {
+            if($this->session->get("logged_in_as")!=="Administrator"){
+                
+                return redirect()->to(base_url("Guest/login")); 
+            }
+            else
+            {
+                return $this->$method(...$params);
+            }
+        } 
+    
+    public function registerAdmin($data=[]){
+        
+        
+            
+        $this->showPage("registerAdmin_admin", $data );
+        
+        
+    }
+    public function registerAdminSubmit(){
+        
+        
+        
+              //validate input data 
+            $retVal=$this->validateRegisterData(BaseController::$userValidationRules);
+               if( $retVal!=null){
+                   
+                   
+                   return $this->registerUser($retVal);
+               }
+                    
+
+                $sysUser=new SystemUserModel ();
+                $ret=$sysUser->insertUser(
+                $this->request->getVar("username"), 
+                $this->request->getVar("name"), 
+                $this->request->getVar("surname"), 
+                $this->request->getVar("password"), 
+                $this->request->getVar("email"), 
+                $this->request->getVar("phoneNum"), 
+                 $this->request->getVar("address")); 
+                     
+                  if($ret===0){
+                      //Success 
+                          return $this->registerAdmin(["message"=>"Success!"]);
+                      
+                  }else{
+                      
+                      // username exists, email exist..
+                       return $this->registerAdmin($ret);     
+                  }
+            
+    }
 }

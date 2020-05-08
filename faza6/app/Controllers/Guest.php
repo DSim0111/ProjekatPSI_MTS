@@ -18,85 +18,11 @@ use App\Models\SystemUserModel;
  */
 class Guest extends BaseController {
     //put your code here
-     private static $existingRoles=["User", "Admininstrator", "Shop"]; 
-     private static $systemUserValidationRules=[
-                 
-            'username'=>'required|alpha_numeric|min_length[5]|max_length[40]', 
-            'password'=>'required|min_length[10]|max_length[50]', 
-            'confirmPassword'=>'required|min_length[10]|max_length[50]',
-            'email'=>'required|valid_email',
-            'name' => 'required|max_length[18]', 
-            'surname'=> 'required|max_length[18]', 
-            'phoneNum'=>'required|max_length[18]'
-     ];
-      private static $userValidationRules= [
-           'username'=>'required|alpha_numeric|min_length[5]|max_length[40]', 
-            'password'=>'required|min_length[10]|max_length[50]', 
-            'confirmPassword'=>'required|min_length[10]|max_length[50]',
-            'email'=>'required|valid_email',
-            'name' => 'required|max_length[18]', 
-            'surname'=> 'required|max_length[18]', 
-            'phoneNum'=>'required|max_length[18]', 
-          'address'=>"required"
-          
-      ]; 
-      private static $shopValidationRules=[
-          
-            'username'=>'required|alpha_numeric|min_length[5]|max_length[40]', 
-            'password'=>'required|min_length[10]|max_length[50]', 
-            'confirmPassword'=>'required|min_length[10]|max_length[50]',
-            'email'=>'required|valid_email',
-            'name' => 'required|max_length[18]', 
-            'surname'=> 'required|max_length[18]', 
-            'phoneNum'=>'required|max_length[18]', 
-             'address'=>"required", 
-             'shopName'=>'required|min_length[5]', 
-             'description'=>'required|min_length[10]|max_length[200]',
-             
-      ];
-        private function showPage($page, $data=[]){
-            
-                
-            
-              //  echo view("templates/header_guest", $data); 
-               echo  view("pages/".$page, $data); 
-               //echo view("templates/footer", $data); 
-        }
-        
+     private static $existingRoles=["User", "Administrator", "Shop"]; 
+  
       
-        
-        /**
-        @param array $validationRules Validation rules for particular user defined in static arrays ( for example: Guest::$userValidationRules)
-         * @return array Returns array of errors or null if success
-         * ["name" =>"Error message" ]
-         */
-        private function validateRegisterData($validationRules){
-             if( $this->validate($validationRules)){ // if validation is fine  check password match
-                 
-                   if(!$this->checkPasswords(
-                        $this->request->getVar("password"), 
-                        $this->request->getVar("confirmPassword"))){
-                    
-                    return ["password"=>"Passwords do not match", "confirmPassword"=>"Passwords do not match"];
-                    
-                }else{
-                    
-                    //SUCCESS !
-                    return null; 
-                }
-                      
-                    
-                    
-            }else{
-                
-                // validation failed 
-                return $this->validator->getErrors(); 
-            }
-         
-            
-           
-        }
-        public function index(){
+      
+         public function index(){
             
             
             $this->showPage("index_guest");
@@ -120,14 +46,14 @@ class Guest extends BaseController {
              $password=$this->request->getVar("password");
              $role=$this->request->getVar("role"); 
       
-            foreach ( Guest::$existingRoles as $value) {
+            foreach ( BaseController::$existingRoles as $value) {
                 if(strcmp($value, $role)==0){
                     $ok=true; 
                     break; 
                 }  
             }
             if($ok==false){
-                return $this-login(["error"=>"Please, stop trying to hack us!"]); 
+                return $this->login(["error"=>"Please, stop trying to hack us!"]); 
             }
         
              
@@ -140,6 +66,7 @@ class Guest extends BaseController {
                  $this->session->set("logged_in_as", $role); 
                  $this->session->set("user_id", $ret->id); 
                  $this->session->set("username", $username); 
+                   
                  return redirect()->to(base_url("".$role."/index"));
              }else{
                  
@@ -161,15 +88,12 @@ class Guest extends BaseController {
             
             $this->showPage("registerShop_guest", $data);
         }
-        private function checkPasswords($password, $confirm){
-            
-            return strcmp($password, $confirm)==0;
-        }
+     
         
         public function registerUserSubmit(){
                 
                //validate input data 
-            $retVal=$this->validateRegisterData(Guest::$userValidationRules);
+            $retVal=$this->validateRegisterData(BaseController::$userValidationRules);
                if( $retVal!=null){
                    
                    
@@ -203,7 +127,7 @@ class Guest extends BaseController {
         public function registerShopSubmit(){
             
             
-            $ret=$this->validateRegisterData(Guest::$shopValidationRules) ; 
+            $ret=$this->validateRegisterData(BaseController::$shopValidationRules) ; 
             if($ret==null){
                 //successful validation 
                 

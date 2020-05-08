@@ -12,6 +12,12 @@ h1{
 	font-size:22px;
 	
 }
+.errorMessage{
+    
+    font-size:14px; 
+    color:red; 
+    font-weight: 100; 
+}
 .log-box p{
 	margin:0;
 	padding:0;
@@ -21,7 +27,7 @@ h1{
 }
 .log-box input{
 	width:100%;
-	margin-bottom:15px;
+	margin-bottom:10px;
 	
 }
 a:link{

@@ -1,0 +1,138 @@
+
+.myContainer{
+
+    background:rgba(0,0,0,0.5);
+    color: white; 
+    font-size:20dp; 
+    padding:0;
+
+}
+.menu{
+    
+    
+    
+    margin-top: 10px; 
+    background:#1c8adb;
+}
+.menu_item{
+    width:100%; 
+    
+    padding:10px; 
+	color:#fff;
+}
+.menu_item:hover{
+    cursor:pointer;
+   background-color: #5aaae4; 
+}
+.icons{
+  
+    width:20px !important; 
+    height:20px !important; 
+}
+.icons:hover{
+    cursor:pointer;
+    background-color: rgb(176, 181, 189); 
+}
+#search_input{
+    width: 50%; 
+    border:none;
+	border-bottom:1px solid #fff;
+	background:transparent;
+    outline:none;
+    color: white; 
+}
+.search_row{
+    margin-top:10px; 
+}
+.filter span:hover{
+    cursor:pointer;
+    padding:5px; 
+    background-color: rgb(176, 181, 189); 
+
+
+}
+.shops_container{
+   
+   padding:0px;
+    margin-left:0; 
+    margin-right:0; 
+   
+
+    background-color:rgba(11, 30, 41, 0.753);
+}
+.shop{
+   padding:0;
+    border-width: 1px 1px 0px 1px;
+    border-style: solid;
+    border-color: white; 
+}
+.shop img{
+
+    width:200px; 
+    height: 200px;
+    margin:20px 20px 20px 20px; 
+}
+.shopRow{
+    padding:0px; 
+    
+    margin-left:0 !important; 
+    margin-right:0 !important;
+}
+.shop p{
+
+    height:175px;
+    overflow: hidden;
+}
+.shopRow:hover{  
+    cursor:pointer;
+    background-color: #5aaae4; 
+}
+.star{
+    font-size:20px;
+}
+.star:hover{
+    background-color: blue;
+}
+.shop_main_content{
+   border:0 0 1px 0;
+    border-style:solid; 
+    border-color:blue;
+}
+.shop_rating{
+    background-color: blueviolet;
+}
+
+.rating_icon{
+    float:left;
+    margin:0 !important; 
+
+    width:30px !important; 
+    height:30px !important; 
+}
+.rating p{
+    display: inline; 
+  
+    
+}
+.visit_shop{
+
+    margin:0 0 0 0 !important;
+    float:right; 
+}
+#filter_div{
+    padding:10px;
+    width:70%; 
+    float:right; 
+    background-color: #5aaae4;
+    display:none;
+}
+#filter_div input{
+    margin:1px 1px 1px 1px; 
+
+
+}
+.menu_item a{
+
+    color:white; 
+
+}

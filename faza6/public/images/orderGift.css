@@ -1,0 +1,95 @@
+body{
+	margin:0;
+	padding:0;
+	background:url(giftChild.jpg);
+	background-size:cover;
+	background-position:center;
+	font-family:sans-serif;
+	
+}
+
+.log-box{
+	width:640px;
+	height:60%; 
+	background:rgba(0,0,0,0.5);
+	margin: 20px 20px 20px 20px; 
+	color:#fff;
+	top:50%;
+	left:50%;
+	position:absolute;
+	transform:translate(-50%,-50%);
+	box-sizing:border-box;
+	padding:60px 30px;
+}
+
+h1{
+	margin:0;
+	padding: 0 0 20px;
+	text-align:center;
+	font-size:22px;
+	
+}
+.log-box p{
+	margin:0;
+	padding:0;
+	font-weight:bold;
+	
+	
+}
+.log-box input{
+	width:100%;
+	margin-bottom:20px;
+	
+}
+a:link{
+	color:	#FFFFE0;
+	
+}
+
+/* visited link */
+a:visited {
+  color: #FFFFE0;
+}
+
+/* mouse over link */
+a:hover {
+  color:red;
+}
+
+/* selected link */
+a:active {
+  color: #FFFFE0;
+}
+.log-box input[type="text"],input[type="password"]{
+	border:none;
+	border-bottom:1px solid #fff;
+	background:transparent;
+	outline:none;
+	height:40px;
+	color:#fff;
+	
+	font-size:16px;
+}
+.log-box input[type="submit"]{
+	border:none;
+	outline:none;
+	height:40px;
+	background:#1c8adb;
+	color:#fff;
+	font-size:18px;
+	border-radius:20px;
+}
+/*hover se odnosi na to sta se desava kada se prevuce mis preko te komponente*/
+.log-box input[type="submit"]:hover{
+	cursor:pointer;
+	background:#39dc79;
+	color:#000;
+}
+
+.avatar{
+	position: absolute;
+	width:100px; 
+	height: 100px; 
+
+}
+

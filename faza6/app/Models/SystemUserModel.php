@@ -23,7 +23,7 @@ class SystemUserModel extends Model
         protected $returnType = 'object';
         protected $validationRules=[
             'username'=>'required|alpha_numeric|min_length[5]|max_length[40]|is_unique[systemuser.username]', 
-            'password'=>'required|min_length[10]|max_length[50]', 
+            'password'=>'required|min_length[10]|max_length[255]', 
             'email'=>'required|valid_email|is_unique[systemuser.email]',
             'name' => 'required|max_length[18]', 
             'surname'=> 'required|max_length[18]', 
@@ -51,25 +51,38 @@ class SystemUserModel extends Model
         
  
 
-    protected $allowedFields=['id','username', 'password', 'name', 'surname', 'email', 'phoneNum'];
+    protected $allowedFields=['id','username', 'password', 'name', 'surname', 'email', 'phoneNum', 'image'];
 
 
     public function checkValidLogin($username, $password, $role){
         
-            $this->builder()->select("systemuser.id")->where("username", $username)->where("password", $password)->join($role." as role","role.id=systemuser.id" );
-            return $this->builder()->get()->getRowObject(); 
+            $this->builder()->select("systemuser.id, systemuser.password")->where("username", $username)->join($role." as role","role.id=systemuser.id" );
+            $obj= $this->builder()->get()->getRowObject(); 
+            if(!isset($obj)){
+                
+                return null; 
+            }
+            $val= password_verify($password,$obj->password); 
+            if($val==false){
+                
+                return null; 
+            }
+            else{
+                return $obj; 
+            }
     }
     private function insertSystemUser($username, $firstName, $lastName, $password,  $email, $phone, $image=null){
-       
+        $passwordHash=password_hash($password, PASSWORD_BCRYPT);
+        if($passwordHash==false){return null;} 
          return $this->insert([
                   
                 "username"=> $username, 
-                "password"=>$password, 
+                "password"=>$passwordHash, 
                 "name"=>$firstName, 
                 "surname"=>$lastName, 
                 "email"=>$email, 
                 "phoneNum"=>$phone, 
-                  "image"=>$image
+                 "image"=>$image
         ], true);
     }
 

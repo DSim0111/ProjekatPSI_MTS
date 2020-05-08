@@ -46,7 +46,7 @@ class Guest extends BaseController {
              $password=$this->request->getVar("password");
              $role=$this->request->getVar("role"); 
       
-            foreach ( BaseController::$existingRoles as $value) {
+            foreach ( Guest::$existingRoles as $value) {
                 if(strcmp($value, $role)==0){
                     $ok=true; 
                     break; 
@@ -137,12 +137,14 @@ class Guest extends BaseController {
                 if($file==null){
                     return $this->registerShop(["error"=>"File is not uploaded"]);
                 }
+                $newName="fileName"; 
                 if($file->isValid()){
                     $newName = $file->getRandomName();
                      $file->move('./uploads', $newName);
                  }else{
                     return $this->registerShop(["error"=>"File is not valid"]);
                 }
+                echo $newName;
                 
                 $sysUser=new SystemUserModel(); 
                $retVal= $sysUser->insertShop( 

@@ -16,17 +16,6 @@ use App\Models\SystemUserModel;
 class Administrator extends BaseController {
     //put your code here
 
-     public function _remap($method, ...$params)
-        {
-            if($this->session->get("logged_in_as")!=="Administrator"){
-                
-                return redirect()->to(base_url("Guest/login")); 
-            }
-            else
-            {
-                return $this->$method(...$params);
-            }
-        } 
     
     public function registerAdmin($data=[]){
         

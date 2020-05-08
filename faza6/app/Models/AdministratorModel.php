@@ -12,7 +12,7 @@ namespace App\Models;
  * Description of AdministratorModel
  *
  * @author Simona
- */
+ */ 
 class AdministratorModel  extends \CodeIgniter\Model{
     //put your code here
         public function insertAdministrator($id) {

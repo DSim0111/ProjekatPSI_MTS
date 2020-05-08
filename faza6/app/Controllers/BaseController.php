@@ -129,5 +129,31 @@ class BaseController extends Controller
                  $this->session = \Config\Services::session();
               
 	}
+        
+        // TO BE OVERRIDED 
+        /*
+            Lists all shops abailable in database 
+            
+        */
+        public function listShops(){
+            
+           $shopModel=new \App\Models\ShopModel(); 
+           
+           $shops=$shopModel->getAllShops();
+  
+           echo var_dump($shops[0]);
+         //return $this->showPage("shopList", ["shops"=> $shops, "controller"=>$this->request->uri->getSegment(1)]); 
+            
+            /*
+             $model = new \App\Models\SystemUserModel();
+             
+             $model->builder()->select('*'); 
+        $data = [
+            'users' => $model->paginate(10, 'group', 1),
+            'pager' => $model->pager
+        ];
 
+        echo view('pages/index_guest', $data);*/
+            
+        }
 }

@@ -20,7 +20,7 @@ class ShopModel extends Model {
 
      protected $table      = 'shop';
     protected $primaryKey = 'id';
-
+    protected $returnType="object";
     protected $allowedFields=['id', 'shopName', 'description', 'state', 'address'];
   
     public function insertShop($id, $description, $shopName, $state, $address) {
@@ -45,6 +45,23 @@ class ShopModel extends Model {
         
        return $id; 
        
+    }
+    
+    /**
+     * @return Array of objects containing all Shop data except password, submitDate and state */
+    public function getAllShops(){
+        
+            $this->builder()->select("Shop.id as id, description, shopName, address,S.username, S.name , S.surname , S.email , S.phoneNum , S.image ")->join("Systemuser as S", "S.id=Shop.id");
+            return $this->builder()->get()->getResultObject();
+    }
+    
+     /**
+     * @return Array of objects containing all Shop data except password*/
+    public function getAllInactiveShops(){
+         $this->builder()->select("Shop.id as id, description, shopName, address,S.username, S.name , S.surname , S.email , S.phoneNum , S.image, state, submitDate ")->where("state", 'I')->join("Systemuser as S", "S.id=Shop.id");
+           return $this->builder()->get()->getResultObject();
+        
+        
     }
     
     

@@ -180,6 +180,11 @@ class Guest extends BaseController {
             
         
         }
+        public function pageNotFound(){
+            throw new \CodeIgniter\Exceptions\PageNotFoundException(); 
+            
+            
+        }
     
 }
 

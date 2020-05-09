@@ -63,6 +63,29 @@ class ShopModel extends Model {
         
         
     }
+    public function getShops($search, $categories, $sortColumn, $sortOrder){
+       
+        $this->builder()->select("*, AVG(coalesce(rating, 0)) as rating")->
+                join("systemuser as S", "S.id=Shop.id")->
+                join("rating as r", "r.idShop=S.id", 'left')->like('shopName', $search); 
+        if(!empty($categories)){
+        $this->builder()->join("ShopCat as C", "C.idShop=S.id");
+        $this->builder()->groupStart(); 
+            foreach ($categories as $cat) {
+            
+            $this->builder()->orWhere("idC", $cat);
+        }
+          $this->builder()->groupEnd();
+        
+        
+       }
+       $this->builder()->groupBy("shop.id");
+       $this->builder()->orderBy($sortColumn, $sortOrder); 
+     
+       $res=$this->builder()->get()->getResultObject();
+     //print_r($this->db->getLastQuery());
+       return $res; 
+    }
     
     
 }

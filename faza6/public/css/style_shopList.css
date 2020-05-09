@@ -4,42 +4,41 @@
     background:rgba(0,0,0,0.5);
     color: white; 
     font-size:20dp; 
-    padding:0;
+    padding-top:10px;
+    min-height: 100%;
+
+
+   
 
 }
-.menu{
+.search_submit{
     
     
+}
+.search_input{
+         width:40%; 
+        border:none; 
+        padding:5px; 
+        background-color:rgba(0,0,0,0.2); 
+
+        border-radius:5px;
+        border-bottom: 1px solid lightgray;
+        margin-bottom:15px;
+        
     
-    margin-top: 10px; 
-    background:#1c8adb;
 }
-.menu_item{
-    width:100%; 
+.icon{
     
-    padding:10px; 
-	color:#fff;
+    width:25px; 
+    height:auto; 
 }
-.menu_item:hover{
-    cursor:pointer;
-   background-color: #5aaae4; 
-}
-.icons{
-  
-    width:20px !important; 
-    height:20px !important; 
-}
-.icons:hover{
-    cursor:pointer;
-    background-color: rgb(176, 181, 189); 
-}
-#search_input{
-    width: 50%; 
-    border:none;
-	border-bottom:1px solid #fff;
-	background:transparent;
-    outline:none;
-    color: white; 
+
+@media only screen and (max-width: 700px) {
+    
+    .search_input{
+        
+        width:60%; 
+    }
 }
 .search_row{
     margin-top:10px; 
@@ -51,57 +50,67 @@
 
 
 }
-.shops_container{
-   
-   padding:0px;
-    margin-left:0; 
-    margin-right:0; 
-   
+.icons{
+  
+    width:30px !important; 
+    height:30px !important; 
+}
 
-    background-color:rgba(11, 30, 41, 0.753);
-}
-.shop{
-   padding:0;
-    border-width: 1px 1px 0px 1px;
-    border-style: solid;
-    border-color: white; 
-}
-.shop img{
 
-    width:200px; 
-    height: 200px;
-    margin:20px 20px 20px 20px; 
+
+
+
+
+/* SIMONA DODAJE */
+
+.noPadding{
+    padding:0;
 }
-.shopRow{
-    padding:0px; 
+.addBorders{
+    border-radius: 5px;
     
-    margin-left:0 !important; 
-    margin-right:0 !important;
+    border: 1px solid white;
+    
 }
-.shop p{
-
-    height:175px;
-    overflow: hidden;
+.shop_img{
+    
+    width:30%; 
+    height:auto;
+    float:left;
+    margin-right:10px;
+    
 }
-.shopRow:hover{  
-    cursor:pointer;
-    background-color: #5aaae4; 
+@media only screen and (max-width: 620px) {
+   .shop_img{
+       float:none;
+       position:relative;
+       margin:auto;
+        width: 90%;
+  }
 }
-.star{
-    font-size:20px;
+.borderBottom{
+    border-bottom:1px solid white;
 }
-.star:hover{
-    background-color: blue;
+.description{
+  
+    text-align: justify;
+     word-break: break-all;
 }
-.shop_main_content{
-   border:0 0 1px 0;
-    border-style:solid; 
-    border-color:blue;
+.shop_content_wrapper {
+    
+    padding:10px;
+  
+   background-color:rgba(25, 25, 25, 0.853);
 }
-.shop_rating{
-    background-color: blueviolet;
+.shop_container{
+    
+    padding-left:20px; 
+    padding-right:20px;
 }
-
+.rating{
+    padding:10px;
+  
+}
 .rating_icon{
     float:left;
     margin:0 !important; 
@@ -119,20 +128,86 @@
     margin:0 0 0 0 !important;
     float:right; 
 }
-#filter_div{
+.set_height{
+    height:100%;
+}
+.addPadding{
+    padding:15px;
+}
+
+.filter_div_wrapper{
     padding:10px;
-    width:70%; 
-    float:right; 
-    background-color: #5aaae4;
-    display:none;
+    padding-top:0; 
+    padding-left:20px;
+}   
+
+.filter_div{
+    
+    
+   background-color:rgba(25, 25, 25, 0.853);
+    border-radius: 5px;
+    border:1px solid white; 
+    padding:5px;
+    
 }
-#filter_div input{
-    margin:1px 1px 1px 1px; 
-
-
-}
-.menu_item a{
-
+.sort_div select{
+     background-color:rgba(25, 25, 25, 0.853);
     color:white; 
+    
+}
+.sortOrder{
+       background-color:rgba(25, 25, 25, 0.853);
+    color:white;
+    border-radius:5px; 
+    border:1px solid white; 
+    padding:5px; 
+    
+}
+.filters_caption{
+    
+    border-bottom:1px solid white; 
 
+    padding-bottom: 5px;
+}
+.checkbox_div{
+    
+   margin-right:10px;
+}
+.shop_container{
+
+}
+.filter_submit_wrapper{
+    border-top:1px solid white; 
+    width: 100%; 
+    padding:10px;
+    margin-top:10px;
+}
+
+
+@media only screen and (max-width: 991.98px) {
+   .filter_div{
+    display:inline-block;
+    width:60%;
+   
+  }
+   .sort_div{
+   display:inline-block;
+    width:37%;
+      
+  }
+  .checkbox_div{
+      display:inline;
+  }
+}
+@media only screen and (max-width:575.98px){
+    
+    .filter_div{
+        width:100%; 
+        display:block; 
+    }
+    .sort_div{
+        width:100%; 
+        display:block;
+    }
+    
 }

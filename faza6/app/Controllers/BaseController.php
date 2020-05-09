@@ -67,6 +67,8 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = ['form', 'url'];
+        
+        
    private function checkPasswords($password, $confirm){
             
             return strcmp($password, $confirm)==0;
@@ -139,12 +141,36 @@ class BaseController extends Controller
             
            $shopModel=new \App\Models\ShopModel(); 
            
-           $shops=$shopModel->getAllShops();
-  
-           echo var_dump($shops[0]);
-         //return $this->showPage("shopList", ["shops"=> $shops, "controller"=>$this->request->uri->getSegment(1)]); 
+         
+           $r=$this->request; 
+           $search=$r->getVar("search"); 
+           $sortColumn=$r->getVar("sortColumn"); 
+           $sortOrder=$r->getVar("sortOrder"); 
+           $categories=$r->getVar("categories"); 
+           
+           if(!isset($search)){
+               
+               $search=''; // will search all names in existing db
+           }
+           if(!isset($categories)){
+               
+               $categories=[]; // will return all shops no matter categories of product they sell 
+           }
+           
+           if(!isset($sortColumn) || !isset($sortOrder)){
+               $sortOrder='desc'; 
+               $sortColumn='rating'; 
+           }
+           
+           
+           $shops=$shopModel->getShops($search, $categories, $sortColumn, $sortOrder);
+           $catModel=new \App\Models\CategoriesModel(); 
+           $allCategories=$catModel->getAllCategories(); 
+           
+         // echo var_dump($shops);
+           return $this->showPage("shopList", ["shops"=> $shops,"filters"=>$allCategories ,"controller"=>$this->request->uri->getSegment(1)]); 
             
-            /*
+            /* pagination 
              $model = new \App\Models\SystemUserModel();
              
              $model->builder()->select('*'); 

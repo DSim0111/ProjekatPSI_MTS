@@ -8,7 +8,9 @@ and open the template in the editor.
     Author     : Simona
 */
 
-
+html{
+  height:100%; 
+}
 body{
 	margin:0;
 	padding:0;
@@ -16,6 +18,8 @@ body{
 	background-size:cover;
 	background-position:center;
 	font-family:sans-serif;
+  height: 100%;
+   
 	
 }
 .log-box{

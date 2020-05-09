@@ -2,88 +2,97 @@
 <html>
     <head>
         <title> Shop list | Giftery </title>
-           
+   
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+                
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/style_common.css">
          
         <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/style_shopList.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
+   
     </head>
 
     <body> 
-        <div class="container myContainer"> 
-            <div class="row menu text-center "> 
-               
-                <div class="col-sm-3 menu_item"> 
-                    <a href="changeDataUser.html">
-                    Edit profile
-                    </a>
-                </div>
-
+        <div class="container-fluid myContainer">    
+            <form name="filterForm"  method="GET" action="<?php
+                echo base_url("".$controller."/listShops"); 
+            ?>"> 
             
-                <div class="col-sm-3 menu_item">
-                    <a href="contactUser.html">
-                     
-                    Contact
-                </a>
-                </div>
-
+            <div class="row"> 
+                
+                
             
-                <div class="col-sm-3 menu_item"> 
-                    <a href="aboutUs.html">
-                    About us
-                </a>
-                </div>
-            
-                <div class="col-sm-3 menu_item"> 
-                    Something
-                </div>
-            </div>
-            <div class="row search_row"> 
-                <div class="col-sm-2"> 
-                    Sort by:
-                    <form> 
-                        <select>
-                            <option>Rating ascending</option>
-                            <option>Rating descending</option>
-                        </select>
-                      
-                        
-                    </form>
-                </div>
-                <div class=" col-sm-8" align="center">
-                    <input type="text" placeholder="Search here" id="search_input"> 
-                    <img src="../icons/search-icon.png" class="icons" > 
-                </div> 
-                <div class="col-sm-2 filter" align="right"> 
-                   <span onClick="toggleFilter()">
-                    Filter
-                    <img src="../icons/filter.svg" class="icons">
-                 </span>
-                </div>
-            </div>
-            <br>
-        <div class="row filter_div_row">
-            <div class="offset-sm-5 col-sm-7" id="filter_div"> 
-                <form align="center"> 
-                    <input class="product_category" type="checkbox"> Kategorija 1 
-                    <input class="product_category" type="checkbox"> Kategorija 2 
-                    <input class="product_category" type="checkbox"> Kategorija 3   
-                    <br> 
-                    <input class="product_category" type="checkbox"> Kategorija 4  
-                    <input class="product_category" type="checkbox"> Kategorija 5  
-                    <input class="product_category" type="checkbox"> Kategorija 6 
-
-                    <br>
-                    <br>
-                    <button onClick="hideFilterDiv()" class="btn btn-primary filter_btn">Submit filter</button>
+                
+                <div class="offset-lg-2 col-lg-10 col-sm-12" align="center"> 
                     
-
-                </form>
+                    <input type="text" class="search_input" name="search" value="" placeholder="Search here"> 
+                    <button type="submit" class="btn search_submit"><img class="icon" id="search_icon" src="../images/icons/search-icon.png"></button>
+               </div>
             </div>
-            </div>
-            <br>
-            <div class="shops_container" align="center">
+            <div class="row h-100">
+                <div class="col-sm-12 col-lg-2 filter_div_wrapper">
+                        <div class='sort_div '>
+                            <div class="sortOrder">
+                              
+                        <div class="form-check">
+                              <input class="form-check-input" type="radio" name="sortOrder" id="exampleRadios1" value="desc" checked>
+                              <label class="form-check-label" for="exampleRadios1">
+                                Descending
+                              </label>
+                        </div>
+                         <div class="form-check">
+                              <input class="form-check-input" type="radio" name="sortOrder" id="exampleRadios2" value="asc">
+                              <label class="form-check-label" for="exampleRadios2">
+                                Ascending
+                              </label>
+                         </div>
+                            </div>
+                            <br>
+                    <select name='sortColumn' class="custom-select">
+                        <option  selected >Sort</option>
+                    <option name='sortColumn' value="rating">By rating</option>
+                    <option name='sortColumn' value="submitDate">By date</option>
+                    <option name='sortColumn' value="shopName">By name</option>
+                     </select>
+                        <br>
+                        <br>
+                    </div>
+                    <div  class="filter_div">
+                 
+                        <h6 class="filters_caption" style="font-weight: 700;">Filters</h6>
+                       
+                        
+                        <?php
+                        
+                                    foreach ($filters as $filter) {
+                                        echo '<div class="form-check d-sm-inline d-md-block checkbox_div">';
+                                        
+                                        echo "<input class=' form-check-input' type='checkbox' name='categories[".$filter->idC."]' value='".$filter->idC."' id='".$filter->idC.$filter->name."'"; 
+                                            if(isset($_POST["categories"]) && isset($_POST['categories']["".$filter->idC])){
+                                                
+                                                echo ' checked ';
+                                            }
+                                                
+                                                echo "   >";
+                                        echo '<label class="form-check-label" for="'.$filter->idC.$filter->name.'">'.$filter->name. '</label>';
+                                        
+                                        echo '</div>';
+                                        
+                                    }
+                        
+                        
+                        ?>
+                        <br>
+                        
+                        <div class='filter_submit_wrapper' align='center'>
+                    <button  class='btn btn-secondary'> Submit</button>   
+               
+                    </div>
+                    </div>
+                 </div>
+          
+                      
+                <div class="col-sm-12 col-lg-10 ">
+                <div class=" shop_container " align="center">
                 
                 
                 <?php
@@ -98,16 +107,19 @@
                         echo view("templates/shopInShopList", $data);
                         
                     }
+                    
                 
                 ?> 
                 
               
             
            
-            
+              </div>
+                  </form>  
             </div>
-
-        </div>
+                </div>
+            </div>
+        
 
         <!--HEHEHEHHEHE-->
         <script>

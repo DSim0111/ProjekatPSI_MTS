@@ -182,4 +182,14 @@ class BaseController extends Controller
         echo view('pages/index_guest', $data);*/
             
         }
+        public function shopPage(){
+            
+                $id=$this->request->getVar("shopId");
+                  $shopModel= new \App\Models\ShopModel(); 
+                 $shop= $shopModel->getShop($id); 
+                 $userRole=$this->session->get("logged_in_as");
+                
+                $this->showPage("shopPage", ["shop"=>$shop, "userRole"=>$userRole]); 
+            
+        }
 }

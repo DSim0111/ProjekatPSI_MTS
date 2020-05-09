@@ -18,15 +18,15 @@ class AdministratorModel  extends \CodeIgniter\Model{
         public function insertAdministrator($id) {
       
         
-       $this->insert([
-           
-           "id"=> $id, 
-        
-           
-       ], true); 
-       return $id; 
-       
-       
-       
-    }
+            $this->insert([
+
+                "id"=> $id, 
+
+
+            ], true); 
+            return $id; 
+
+
+
+         }
 }

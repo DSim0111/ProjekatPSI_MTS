@@ -147,4 +147,30 @@ class SystemUserModel extends Model
         
         
     }
+    /**
+
+     * @param string $role Can be user, administrator or shop --> else returns false
+     * @param int $id Id of user to be searched for  
+     * 
+     * @return True ( user exists) or false ( user doesn't exist)
+     *     */
+    public function existsAs($role, $id){
+         
+           
+            if($role!="User" && $role!="Shop" && $role!="Administrator"){
+                
+                    return false;
+                
+            }
+         
+            $this->builder()->select()->join($role." as R", "R.id=Systemuser.id")->where("R.id",intval($id)); 
+           
+            if($this->builder()->get()->getRow()==null){
+                    ///print_r( $this->db->getLastQuery());
+                return false;
+            }
+            return true; 
+            
+        
+    }
 }

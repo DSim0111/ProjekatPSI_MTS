@@ -87,6 +87,11 @@ class ShopModel extends Model {
        return $res; 
     }
     
-    
+    public function getShop($id){
+        
+        
+      $this->builder()->select()->join("systemuser as s", "Shop.id=s.id")->where("S.id", $id); 
+      return $this->builder()->get()->getFirstRow(); 
+    }
 }
 

@@ -33,7 +33,7 @@
                       <p> Buyer rating: <?php
                       echo round($shop->rating,2); // define when retrieving data  
                       ?></p>
-                      <a href="<?php echo $shopPageLink?>?shopId=<?php echo $shop->id?>"><button class="btn btn-success visit_shop" value="Visit">Visit</button> </a>
+                      <a href="<?php echo $shopPageLink?>?shopId=<?php echo $shop->id?>"><button type="button" class="btn btn-success visit_shop" value="Visit">Visit</button> </a>
             </div>
             </div>        
     </div>

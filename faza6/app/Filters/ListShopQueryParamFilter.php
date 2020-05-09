@@ -54,7 +54,8 @@ class ListShopQueryParamFilter implements FilterInterface{
           //sort not ok xD 
       }
       if($sortOk==false){
-          return redirect()->to(base_url("Guest/pageNotFound"));
+        
+    return redirect()->to(base_url("Guest/pageNotFound"));
          
           
       }

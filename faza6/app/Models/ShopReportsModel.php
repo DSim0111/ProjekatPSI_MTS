@@ -18,8 +18,8 @@ class ShopReportsModel extends Model {
         protected $table      = 'ShopReport';
         protected $primaryKey = ['idShop','idUser'];
         protected $returnType = 'object';
-        protected $allowedFields=["idShop", "idUser", "description", "submitDate"];
-        
+        protected $allowedFields=["idShop", "idUser", "description", "submitDate", "state"];
+        private static $status=["A", "I"]; // A- active, I -inactive
         public function getReport($shopId, $userId){
             
             $this->builder()->select()->where("idShop", $shopId)->where("idUser", $userId); 
@@ -27,6 +27,24 @@ class ShopReportsModel extends Model {
             
             
             
+        }
+        public function getAllReportsWithStatus($status){
+            if(!in_array($status, ShopReportsModel::$status)){
+                return ["error"=>"invalid status"];
+            }
+            return $this->builder()->select()->where("status", $status)->get()->getResultObject(); 
+            
+        }
+        public function getAllReportsForShop($idShop){
+            
+            $shopModel=new ShopModel(); 
+            $shop=$shopModel->find($idShop); 
+            if($shop==null){
+                
+                return ["error"=>"Shop doesn't exist"];
+            }
+            
+            return $this->builder()->select()->where("idShop", $idShop)->get()->getResultObject(); 
         }
         public function insertShopReport($shopId, $userId, $description){
             $date = date('Y-m-d H:i:s');
@@ -53,7 +71,8 @@ class ShopReportsModel extends Model {
                         "idShop"=>$shopId, 
                         "idUser"=>$userId, 
                         "description"=>$description, 
-                        "submitDate"=>$date
+                        "submitDate"=>$date, 
+                        "state"=>'A'
                     ];
                    
                     //echo $this->builder()->set($data)->getCompiledInsert('shopReport');

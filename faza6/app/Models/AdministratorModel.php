@@ -15,6 +15,11 @@ namespace App\Models;
  */ 
 class AdministratorModel  extends \CodeIgniter\Model{
     //put your code here
+     protected $table      = 'administrator';
+    protected $primaryKey = 'id';
+    protected $returnType="object";
+    protected $allowedFields=['id'];
+    
         public function insertAdministrator($id) {
       
         

@@ -64,14 +64,7 @@
                                 echo "<p class='errorMessage'>".$email."</p>";
                             ?>
                          
-			<p>Address</p>
-			<input type="text" name="address"  value="<?php if(isset($_POST['address']))echo $_POST['address'];?>"  placeholder="Enter Address">
-                        
-                         <?php
-                                if(isset($address))
-                                     
-                                echo "<p class='errorMessage'>".$address."</p> ";
-                           ?>
+			
                         
 			<p>Phone number</p>
 			<input type="text" name="phoneNum" value="<?php if(isset($_POST['phoneNum']))echo $_POST['phoneNum'];?>" placeholder="Enter phone number">

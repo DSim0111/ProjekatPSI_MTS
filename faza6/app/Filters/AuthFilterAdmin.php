@@ -4,11 +4,11 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class AuthFilterAdmnin implements FilterInterface
+class AuthFilterAdmin implements FilterInterface
 {
     public function before(RequestInterface $request)
     {
-        
+       
        $session= \Config\Services::session();
       
        

@@ -23,6 +23,7 @@ class Guest extends BaseController {
       
       
          public function index(){
+         
             
             
             $this->showPage("index_guest");

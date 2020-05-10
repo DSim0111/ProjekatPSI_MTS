@@ -34,19 +34,19 @@ class Administrator extends BaseController {
                if( $retVal!=null){
                    
                    
-                   return $this->registerUser($retVal);
+                   return $this->registerAdmin($retVal);
                }
                     
 
                 $sysUser=new SystemUserModel ();
-                $ret=$sysUser->insertUser(
+                $ret=$sysUser->insertAdmin(
                 $this->request->getVar("username"), 
                 $this->request->getVar("name"), 
                 $this->request->getVar("surname"), 
                 $this->request->getVar("password"), 
                 $this->request->getVar("email"), 
                 $this->request->getVar("phoneNum"), 
-                 $this->request->getVar("address")); 
+                 ""); 
                      
                   if($ret===0){
                       //Success 
@@ -58,5 +58,21 @@ class Administrator extends BaseController {
                        return $this->registerAdmin($ret);     
                   }
             
+    }
+    public function shopReports(){
+        $reportsModel=new \App\Models\ShopReportsModel(); 
+        $reports=$reportsModel->getAllReportsWithStatus('A'); 
+        
+        if(array_key_exists ( "error" , $reports )){
+                //there has been an error
+         
+              return $this->showPage("shopReports_admin", $reports);
+        }else{
+            return $this->showPage("shopReports_admin", ["reports"=>$reports]);
+            
+        }
+        
+      
+        
     }
 }

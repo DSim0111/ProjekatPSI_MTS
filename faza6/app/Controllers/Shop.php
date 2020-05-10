@@ -15,5 +15,4 @@ namespace App\Controllers;
  */
 class Shop  extends BaseController{
     //put your code here
-    
 }

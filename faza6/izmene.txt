@@ -1,0 +1,17 @@
+CONTROLLERS:
+	Administrator.php - shopApproval,accept,reject,showPage
+	User.php - checkCart, viewPage
+MODELS:
+	ProductModel.php - added getProductsById
+	ShopModel.php - updateShopID
+PAGES:
+	cart.php, shop_registration_approval, dump.php
+TEMPLATES:
+	cartProducts.php,shoprequest.php
+JS:
+	shopCart.js
+CSS:
+	3 css files
+
+
+	

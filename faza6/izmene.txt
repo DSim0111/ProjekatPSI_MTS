@@ -1,6 +1,6 @@
 CONTROLLERS:
 	Administrator.php - shopApproval,accept,reject,showPage
-	User.php - checkCart, viewPage
+	User.php - checkCart
 MODELS:
 	ProductModel.php - added getProductsById
 	ShopModel.php - updateShopID

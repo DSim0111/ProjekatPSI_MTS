@@ -12,22 +12,26 @@ namespace App\Models;
  * Description of AdministratorModel
  *
  * @author Simona
- */
-class AdministratorModel extends \CodeIgniter\Model {
-
+ */ 
+class AdministratorModel  extends \CodeIgniter\Model{
     //put your code here
-    protected $table = 'administrator';
+     protected $table      = 'administrator';
     protected $primaryKey = 'id';
-    protected $returnType = "object";
-    protected $allowedFields = ['id'];
+    protected $returnType="object";
+    protected $allowedFields=['id'];
+    
+        public function insertAdministrator($id) {
+      
+        
+            $this->insert([
 
-    public function insertAdministrator($id) {
+                "id"=> $id, 
 
 
-        $this->insert([
-            "id" => $id,
-                ], true);
-        return $id;
-    }
+            ], true); 
+            return $id; 
 
+
+
+         }
 }

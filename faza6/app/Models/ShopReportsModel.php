@@ -76,7 +76,8 @@ class ShopReportsModel extends Model {
                     ];
                    
                     //echo $this->builder()->set($data)->getCompiledInsert('shopReport');
-                  return   $this->builder()->select()->where("idShop", $shopId)->where("idUser", $userId)->get()->getFirstRow(); 
+                  return   $this->builder()->select()->
+                          where("idShop", $shopId)->where("idUser", $userId)->get()->getFirstRow(); 
                 }else{
                     
                     return ["error"=>"You have already reported this shop"]; 

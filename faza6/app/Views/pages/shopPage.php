@@ -1,20 +1,26 @@
 <!DOCTYPE html>
  <?php
+ // SIMONA 
             if(!isset($shop) || !isset($userRole)){
                 
                 echo "There has been an error, please return to the previous page and try again.";
+                return;
             }
-        
-        ?>
+    ?>
 <html> 
     <head> 
         <title> Products|Giftery</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?php echo base_url("css/style_common.css")?>">
         <link rel="stylesheet" href="<?php echo base_url("css/style_shopPage.css")?>"> 
+                <link rel="stylesheet" href="<?php echo base_url("css/style_comments.css")?>"> 
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head> 
     <body> 
-       
+      
         <div class="container-fluid myContainer">
             <div class="row"> 
                 <div class="col-sm-4 lighter"> 
@@ -30,7 +36,7 @@
                 <div class="col-sm-4"> 
                     <br>
                 
-                  
+                  <!--Simona-->
              
                     <?php
                         if(isset($userRole) && $userRole=="User"){
@@ -298,25 +304,32 @@
                         <a href="checkOrder.html"> <button class="btn btn-success order_btn">Check your cart</button> </a>
                     </div>
                 </div>
+            <!--SIMONA-->
+            <?php 
+            //if user is logged in 
+            if (isset($userRole) && $userRole=="User"): ?>
+            <?php 
+            if(!isset($commentError)):
+            ?>
+
+            <div class="row"> 
+                <div class="offset-sm-1 col-sm-10">
+                    <?php echo view("templates/commentsSection", $comments)?>
+                </div>
+            </div>
+              <?php else:
+                  // if there has been an error 
+                  echo "<p class='errorMessage'>".$error."</p>"; 
+                  ?>
+            
                 
+             <?php endif?>
+            <?php endif; ?>  
+            
+                <!--END_SIMONA-->
+            
         </div>
        
-        <script>
-            
-            function addToCart(){
-                alert("Product added to cart");
-               
-            }; 
-            function toggleRateDiv(){
-
-
-                var x = document.getElementById("rateDiv");
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
-        </script>
+        
     </body>
 </html>

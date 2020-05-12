@@ -19,12 +19,17 @@ class ProductModel  extends \CodeIgniter\Model{
     protected $returnType="object";
     protected $allowedFields=['idProduct', 'code', 'name', 'description', 'price', 'idShop','image'];
     //TODO[miki]: ERROR handling if there is no product with given id
+    // find returns null if no row is matched 
     public function getProductsById($ids){
-        $products = Array();
+        
+        
+        $this->builder()->select();
         foreach($ids as $id){
-            array_push($products,$this->find($id));
+            $this->builder()->orWhere("idProduct", $id); 
         }
-        return $products;
+        
+        return $this->builder()->get()->getResultObject() ;
+        
     }
 
 }

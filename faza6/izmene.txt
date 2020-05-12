@@ -1,11 +1,11 @@
 CONTROLLERS:
-	Administrator.php - shopApproval,accept,reject,showPage
-	User.php - checkCart
+	Administrator.php - shopApproval,accept,reject,showPage -- DONE ( sve osim showPage) 
+	User.php - checkCart   --DONE
 MODELS:
-	ProductModel.php - added getProductsById
-	ShopModel.php - updateShopID
+	ProductModel.php - added getProductsById   -- DONE
+	ShopModel.php - updateShopID --- DONE
 PAGES:
-	cart.php, shop_registration_approval, dump.php
+	cart.php, shop_registration_approval, dump.php --- DONE
 TEMPLATES:
 	cartProducts.php,shoprequest.php
 JS:

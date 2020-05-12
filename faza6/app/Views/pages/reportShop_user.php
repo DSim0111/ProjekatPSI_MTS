@@ -46,7 +46,7 @@
                                         echo "<p style='color:red;'>".$error."</p>";
                                     }else if(isset($success)){
                                         
-                                       echo "<p style='color:rgba(135, 211, 124, 1);font-weight:bold;'>".$success."</p>";
+                                       echo "<p class='successMessage'>".$success."</p>";
                                     }else{
                                          echo " You wanted to report this shop: ".$shop->shopName. "<br>"; 
                                     }
@@ -57,6 +57,7 @@
                                
                                  <br>
                                  <input type="hidden" name="shopId" value="<?php echo $shop->id?>">
+                                 
                                 <textarea type="text" class="commentText"  name="message" value='' placeholder="Enter your message to administrator..."></textarea>
                                 <br>
                                 <div align="center">

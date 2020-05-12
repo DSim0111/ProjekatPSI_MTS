@@ -4,7 +4,7 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('pages/shop_registration_approval');
+		return view('welcome_message');
 	}
 
 	//--------------------------------------------------------------------

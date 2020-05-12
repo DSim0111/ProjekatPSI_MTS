@@ -43,4 +43,15 @@ class UserModel extends \CodeIgniter\Model{
        
        
     }
+    /**
+     * TODO - Validate $username as alnum string 
+     *      */
+    public function getUserByUsername($username){
+        
+        
+        $this->builder()->select()->join("Systemuser s", "s.id=User.id")->where("username", $username); 
+        return $this->builder()->get()->getFirstRow();
+    }
+    
+    
 }

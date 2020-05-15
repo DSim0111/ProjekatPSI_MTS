@@ -47,6 +47,7 @@ class ShopModel extends Model {
        
     }
     
+    
     /**
      * @return Array of objects containing all Shop data except password, submitDate and state */
     public function getAllShops(){
@@ -63,11 +64,13 @@ class ShopModel extends Model {
         
         
     }
-    public function getShops($search, $categories, $sortColumn, $sortOrder){
+        private static $sortColumns=["rating", "shopName", "submitDate"]; 
+    private static $sortOrders=["asc", "desc"];
+ public function getShops($search, $categories, $sortColumn, $sortOrder){
        
         $this->builder()->select("*, AVG(coalesce(rating, 0)) as rating")->
                 join("systemuser as S", "S.id=Shop.id")->
-                join("rating as r", "r.idShop=S.id", 'left')->like('shopName', $search); 
+                join("rating as r", "r.idShop=S.id", 'left')->where("state", 'A')->like('shopName', $search); 
         if(!empty($categories)){
         $this->builder()->join("ShopCat as C", "C.idShop=S.id");
         $this->builder()->groupStart(); 
@@ -78,6 +81,14 @@ class ShopModel extends Model {
           $this->builder()->groupEnd();
         
         
+       }
+       if(!isset($sortColumn) ||  (!in_array($sortColumn, ShopModel::$sortColumns))){
+           $sortColumn="rating"; 
+           
+       }
+        if(!isset($sortOrder) ||  (!in_array($sortOrder, ShopModel::$sortOrders))){
+           $sortOrder="asc"; 
+           
        }
        $this->builder()->groupBy("shop.id");
        $this->builder()->orderBy($sortColumn, $sortOrder); 

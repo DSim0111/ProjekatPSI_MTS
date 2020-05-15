@@ -1,0 +1,54 @@
+body{
+	margin:0;
+    padding:0;
+    
+	background:url(../images/giftChild.jpg);
+	background-size:cover;
+	background-position:center;
+	font-family:sans-serif;
+	
+}
+.float-right{
+	
+	margin-right:4px;
+	
+}
+.myContainer{
+
+    background:rgba(0,0,0,0.5);
+    color:white; 
+    font-size:20dp; 
+    padding-left:25px !important;
+    padding-right:25px !important;
+    padding-top:25px !important;
+    padding-bottom:25px !important;
+   
+}
+.requestsContainer{
+
+    padding:20px; 
+
+}
+.requestEnvelope{
+
+    
+    background-color:rgba(11, 30, 41, 0.753);
+    border:thin solid white; 
+    padding:20px;
+    margin-bottom:20px;  
+
+}
+.productImage{
+
+
+    width: 100px; 
+    height:100px; 
+}
+
+.myTable{
+    vertical-align: middle;
+}
+.whiteHr{
+
+    border:thin solid white; 
+}

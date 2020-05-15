@@ -1,7 +1,20 @@
 
+.myContainer{
 
+    background:rgba(0,0,0,0.5);
+    color:white; 
+    font-size:20dp; 
+    min-height:100%;
+
+}
+.footer{
+    position:relative;
+   padding-left: 35%;
+   padding-bottom:25px;
+  
+}
 .product_envelope{
-
+padding-bottom:10px;
      background-color: white;
     border-width: thin;
     border-style:solid; 
@@ -59,10 +72,6 @@
 }
 .addToCartBtn{
 
-
-    position:absolute;
-    right:10px; 
-    bottom:10px; 
 }
 .lighter{
 

@@ -13,7 +13,7 @@ class Filters extends BaseConfig
              'authU'=>\App\Filters\AuthFilterUser::class, 
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
-            'listShopsFilter'=>\App\Filters\ListShopQueryParamFilter::class
+            
 	];
 
 	// Always applied before every request
@@ -41,7 +41,7 @@ class Filters extends BaseConfig
             'authA'=>['before'=>["Administrator/*"]],
             'authU'=>['before'=>["User/*"]],
             'authS'=>['before'=>["Shop/*"]],
-            'listShopsFilter'=>['before'=>["Guest/listShops", "Shop/listShops", "Administrator/listShops", "User/listShops"]]
+           
             
             
         ];

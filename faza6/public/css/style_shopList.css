@@ -1,8 +1,10 @@
 
 .myContainer{
-
+/*
     background:rgba(0,0,0,0.5);
+
     color: white; 
+*/
     font-size:20dp; 
     padding-top:10px;
     min-height: 100%;
@@ -19,7 +21,7 @@
          width:40%; 
         border:none; 
         padding:5px; 
-        background-color:rgba(0,0,0,0.2); 
+       background-color:#f0efeb; 
 
         border-radius:5px;
         border-bottom: 1px solid lightgray;
@@ -77,7 +79,8 @@
     width:30%; 
     height:auto;
     float:left;
-    margin-right:10px;
+    border-radius:5px;
+    margin-right:20px;
     
 }
 @media only screen and (max-width: 620px) {
@@ -85,48 +88,29 @@
        float:none;
        position:relative;
        margin:auto;
-        width: 90%;
+       
+       margin-top:25px;
+       width: 100%;
   }
 }
-.borderBottom{
-    border-bottom:1px solid white;
-}
+
 .description{
   
     text-align: justify;
      word-break: break-all;
 }
-.shop_content_wrapper {
-    
-    padding:10px;
-  
-   background-color:rgba(25, 25, 25, 0.853);
-}
+
 .shop_container{
     
     padding-left:20px; 
     padding-right:20px;
 }
-.rating{
-    padding:10px;
-  
-}
-.rating_icon{
-    float:left;
-    margin:0 !important; 
 
-    width:30px !important; 
-    height:30px !important; 
-}
-.rating p{
-    display: inline; 
-  
-    
-}
 .visit_shop{
 
-    margin:0 0 0 0 !important;
-    float:right; 
+   
+     background-color:#457b9d;;
+    color:white;
 }
 .set_height{
     height:100%;
@@ -134,48 +118,19 @@
 .addPadding{
     padding:15px;
 }
-
-.filter_div_wrapper{
-    padding:10px;
-    padding-top:0; 
-    padding-left:20px;
-}   
-
-.filter_div{
+.filters_caption{
     
-    
-   background-color:rgba(25, 25, 25, 0.853);
-    border-radius: 5px;
-    border:1px solid white; 
-    padding:5px;
-    
+    padding-bottom:10px;
+    border-bottom: 1px solid white; 
 }
+
 .sort_div select{
      background-color:rgba(25, 25, 25, 0.853);
     color:white; 
     
 }
-.sortOrder{
-       background-color:rgba(25, 25, 25, 0.853);
-    color:white;
-    border-radius:5px; 
-    border:1px solid white; 
-    padding:5px; 
-    
-}
-.filters_caption{
-    
-    border-bottom:1px solid white; 
 
-    padding-bottom: 5px;
-}
-.checkbox_div{
-    
-   margin-right:10px;
-}
-.shop_container{
 
-}
 .filter_submit_wrapper{
     border-top:1px solid white; 
     width: 100%; 
@@ -184,30 +139,83 @@
 }
 
 
-@media only screen and (max-width: 991.98px) {
-   .filter_div{
-    display:inline-block;
-    width:60%;
-   
-  }
-   .sort_div{
-   display:inline-block;
-    width:37%;
-      
-  }
-  .checkbox_div{
-      display:inline;
-  }
+/*NOVO 14.05.2020. SIMONA*/
+
+.shop_content{
+    background-color:#f0efeb;
+    padding:20px;
+    margin-bottom:20px;
 }
-@media only screen and (max-width:575.98px){
+.rating_div{
+    position:absolute; 
     
-    .filter_div{
-        width:100%; 
-        display:block; 
-    }
-    .sort_div{
-        width:100%; 
-        display:block;
-    }
+    top:10px; 
+    right:10px; 
+    
+    
+    
+}
+.rating_div img{
+    
+     float:left;
+   width:30px; 
+   height:30px;
+}
+.rating_div p{
+    display:inline; 
+    
+}
+.sort_button{
+    color:white;
+    background-color:#FF7F50;
+    border:1px solid white;
+    
+}
+.sort_button:hover{
+      border:1px solid white;
+     background-color:#db714b;
+     color:white;
+}
+.sort_button:active{
+      border:1px solid white;
+     color:white;
+      background-color:#db714b;
+}
+
+
+.show_filter{
+    width:40px; 
+    height:40px;
+    border-radius:5px;
+     color:#6c8594;
+    
+}
+.show_filter:hover{
+    cursor:pointer;
+   /* background-color:#e3e3e3;*/
+    background-color:#e63946;
+}
+.submit_button{
+    
+  /*  background-color: #b58d4e;*/
+ background-color:#FF7F50;
+    border:1px solid white;
+}
+.submit_button:hover{
+    
+  /*  background-color: #b58d4e;*/
+ background-color:#db714b;
+    border:1px solid white;
+}
+.filter_div{
+    /*#6c8594;*/
+/*    background-color:#f5bf69;*/
+/*background-color: #457b9d;*/
+background-color:#FF7F50;
+
+    border-radius: 5px;
+    border:1px solid white; 
+    padding:5px;
+    color:white;
     
 }

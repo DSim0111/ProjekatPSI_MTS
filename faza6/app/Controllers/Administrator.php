@@ -28,6 +28,20 @@ class Administrator extends BaseController {
         
         
     }
+    //SIMONA 
+    //
+    public function markAsRead($data=[]){
+        $idShop=$this->request->getVar("idShop"); 
+        $idUser=$this->request->getVar("idUser"); 
+        if(isset($idShop)&& isset($idUser)){
+        $reportModel= new \App\Models\ShopReportsModel(); 
+        $reportModel->markAsRead($idUser, $idShop);
+        
+        
+        
+        }
+        return redirect()->back();
+    }
     //SIMONA
     public function registerAdminSubmit(){
         
@@ -66,7 +80,15 @@ class Administrator extends BaseController {
     //SIMONA
     public function shopReports(){
         $reportsModel=new \App\Models\ShopReportsModel(); 
-        $reports=$reportsModel->getAllReportsWithStatus('A'); 
+        $unread= $this->request->getVar("unread"); 
+        if(isset($unread) && $unread=="true"){
+            $status='A';
+            
+        }
+        else{
+            $status=null;
+        }
+        $reports=$reportsModel->getAllReportsWithStatus($status); 
         
         if(array_key_exists ( "error" , $reports )){
                 //there has been an error

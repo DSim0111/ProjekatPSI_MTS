@@ -18,7 +18,7 @@ class ShopReportsModel extends Model {
         protected $table      = 'ShopReport';
         protected $primaryKey = ['idShop','idUser'];
         protected $returnType = 'object';
-        protected $allowedFields=["idShop", "idUser", "description", "submitDate", "state"];
+        protected $allowedFields=["idShop", "idUser", "description", "submitDate", "status"];
         private static $status=["A", "I"]; // A- active, I -inactive
         public function getReport($shopId, $userId){
             
@@ -29,10 +29,12 @@ class ShopReportsModel extends Model {
             
         }
         public function getAllReportsWithStatus($status){
-            if(!in_array($status, ShopReportsModel::$status)){
+            if(isset($status)&&!in_array($status, ShopReportsModel::$status)){
                 return ["error"=>"invalid status"];
             }
-            return $this->builder()->select()->where("status", $status)->get()->getResultObject(); 
+            $this->builder()->select(); 
+            if(isset($status)){$this->builder()->where("status", $status);}
+                    return $this->builder()->get()->getResultObject(); 
             
         }
         public function getAllReportsForShop($idShop){
@@ -59,14 +61,7 @@ class ShopReportsModel extends Model {
                    
                 $var=$this->getReport($shopId, $userId);
                 if(!isset($var)){
-                    $this->builder()->insert([
-                        
-                        "idShop"=>$shopId, 
-                        "idUser"=>$userId, 
-                        "description"=>$description, 
-                        "submitDate"=>$date
-                    ]);
-                    $data=[
+                      $data=[
                         
                         "idShop"=>$shopId, 
                         "idUser"=>$userId, 
@@ -74,6 +69,8 @@ class ShopReportsModel extends Model {
                         "submitDate"=>$date, 
                         "state"=>'A'
                     ];
+                    $this->builder()->insert($data);
+                  
                    
                     //echo $this->builder()->set($data)->getCompiledInsert('shopReport');
                   return   $this->builder()->select()->
@@ -87,5 +84,9 @@ class ShopReportsModel extends Model {
             }
             
             
+        }
+        public function markAsRead($idUser, $idShop){
+          return $this->builder()->where("idShop", $idShop)->where("idUser", $idUser)->update(["status"=>'I']);
+          
         }
 }

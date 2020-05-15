@@ -20,6 +20,24 @@ Verzija: 1.0
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     
     </head> 
+   
+     <style>
+            html{
+            height:100%; 
+          }
+          body{
+                  margin:0;
+                  padding:0;
+                  background: url("../images/giftChild.jpg");
+                  background-size:cover;
+                  background-position:center;
+                  font-family:sans-serif;
+            height: 100%;
+
+
+          }
+            
+        </style>
     <body> 
         
         

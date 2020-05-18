@@ -15,7 +15,7 @@
 
     <body> 
         <?php
-        if (isset($header)) {
+        if (isset($header)){
 
             echo view($header);
         }
@@ -58,7 +58,7 @@
                                 <button  class="dropdown-item" type="submit"  name="sort" value="date_desc">By date desc</button>
                                 <button  class="dropdown-item" type="submit"  name="sort" value="shopName_asc">By name asc</button>
                                 <button  class="dropdown-item" type="submit"   name="sort" value="shopName_desc">By name desc</button>
-                             
+
 
                             </div>
                         </div>
@@ -92,31 +92,11 @@
                             <br>
 
                             <div class='filter_submit_wrapper' align='center'>
-                                <button  class='btn btn-secondary submit_button'> Submit</button>   
-
+                               <button  class='btn btn-secondary submit_button'> Submit</button>   
                             </div>
                         </div>
-
-
-
-
-
-
                         <br>
-
-
-
-
-
-
-
-
-
-
-
                     </div>
-
-
                     <div class="col-sm-12 col-lg-10 ">
                         <div class=" row shop_container " align="center">
 
@@ -125,7 +105,9 @@
                             foreach ($shops as $shop) {
 
                                 $data = ["shop" => $shop,
-                                    "shopPageLink" => "" . base_url("" . $controller . "/" . "shopPage")
+                                    "shopPageLink" => "" . base_url("" . $controller . "/" . "shopPage"),
+                                    "userRole" => $role,
+                                    "controller" => $controller
                                 ];
 
 
@@ -156,11 +138,11 @@
 
         <!--HEHEHEHHEHE-->
         <script>
-                        function toggleFilter() {
-                            
-                            $("#filter_div").toggleClass("d-none");
-                        }
-                      
+                            function toggleFilter() {
+
+                                $("#filter_div").toggleClass("d-none");
+                            }
+
         </script>
     </body>
 </html>

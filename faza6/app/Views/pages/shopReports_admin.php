@@ -9,50 +9,40 @@
         <link rel="stylesheet" href="<?php echo base_url('css/style_shopReportsAdmin.css')?>">
          </head>
     <body> 
-        <?php
-        
-        if(isset($header)){
-            
-            echo view($header);
-        }
-        
-        ?>
-        <div class="container-fluid ">
+        <div class="container-fluid myContainer">
 
 
              
-                     <div class="  row">  
-                         <div class=" col-sm-12 col-md-2 col-lg-2"> 
-                             
-                               
-                                <div class="row options_div text-center" >
-                                    <div class="noPadding col-md-12  col-sm-6 col-6"> 
-                                        <a  href="<?php echo base_url('Administrator/shopReports?unread=true')?>">
-                                        <div class="options_item">
-                                       Unread report
-                                        </div>
-                                        </a>
-                                        </div>
-                                    <div class=" noPadding col-md-12  col-sm-6 col-6"> 
-                                         <a  href="<?php echo base_url('Administrator/shopReports')?>">
-                                        <div class="options_item">
-                                       All reports
-                                        </div>
-                                        </a>
+                     <div class=" row">  
+                         <div class="col-sm-12 col-md-2 col-lg-2"> 
+                             <div class="options_div">
+                                Options
+                                <div class="row">
+                                    <div class="col-md-12  col-sm-3 col-xs-3"> 
+                                        Sth
                                     </div>
-                                  
-                                    
+                                    <div class="col-md-12 col-xs-3 col-sm-3"> 
+                                        Sth
+                                    </div>
+                                    <div class="col-md-12 col-xs-3 col-sm-3"> 
+                                        Sth
+                                    </div>
+                                    <div class="col-md-12 col-xs-3 col-sm-3"> 
+                                        Sth
+                                    </div>
 
                                 </div>
                            
-                         
+                            </div>
 
                          </div>
                         <div class="col-lg-10 col-md-10 col-sm-12">
 
-                            <div class="row shop_report_container">
+                            <div class="shop_report_container">
                             <!--Shop report 1-->
-                            
+                            <h4>
+                                All active reports 
+                            </h4>
                             <?php
                                 if(isset($error)){
                                     

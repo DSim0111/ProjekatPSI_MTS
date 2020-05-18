@@ -15,23 +15,15 @@ if (!isset($shop)) {
         <link rel="stylesheet" href="<?php echo base_url("css/style_common.css") ?>">
         <link rel="stylesheet" href="<?php echo base_url("css/style_shopPage.css") ?>"> 
         <link rel="stylesheet" href="<?php echo base_url("css/style_comments.css") ?>"> 
-              <link rel="stylesheet" href="<?php echo base_url("css/style_navbar.css") ?>"> 
-         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="<?php echo base_url(); ?>/js/shopCart.js"></script>
 
     </head> 
-    <body> 
-                 <?php
-        if(isset($header)){
-            
-            echo view($header);
-        }
-        
-        ?>   
-        
-        <div class="container-fluid ">
+    <body onload="initShop(<?php echo $shop->id;?>)"> 
+        <div class="container myContainer">
             <div class="row"> 
                 <div class="col-sm-4 lighter"> 
                     <b>Address</b>: <?php echo $shop->address; ?> <br>
@@ -55,6 +47,11 @@ if (!isset($shop)) {
                     if (isset($userRole) && $userRole == "User") {
 
                         echo view("templates/reportShopBtn", ["shopId" => $shop->id]);
+                        echo view("templates/viewCartBtn", ["shopId" => $shop->id]);
+                    } else {
+                        if (isset($userRole) && $userRole == "Administrator") {
+                            echo view("templates/removeShopBtn", ["shopId" => $shop->id]);
+                        }
                     }
                     ?>
                     </a>
@@ -63,18 +60,22 @@ if (!isset($shop)) {
 
             <br>
 
-          <div class="row "> 
+            <div class="row "> 
                 <div class="col-sm-12 text-center" > 
-                    
-                 
-                  <img src="<?php echo base_url("images/uploads/" . $shop->image) ?>" class="img-fluid shopImage text-left">
-                 
-            
-              
+
+
+                    <img src="<?php echo base_url("uploads/" . $shop->image) ?>" class="img-fluid shopImage text-left">
+
+
+
                     <h5 class="text-left">Description: </h5>
-                    <p class="shopDescription"> <?php echo $shop->description; ?></p>
-                    </div>
-                    
+                    <p class="shopDescription"> 
+                        <?php
+                        echo $shop->description;
+                        ?>
+                    </p>
+                </div>
+
             </div>
             <div class="row"> 
                 <div class="col-sm-12">
@@ -89,7 +90,7 @@ if (!isset($shop)) {
 
 
 
-<?php $i = 0; ?>
+                    <?php $i = 0; ?>
                     <?php
                     foreach ($allProducts as $product) {
 
@@ -115,7 +116,7 @@ if (!isset($shop)) {
                                 <h3>$product->name</h3>
                                <p >$product->description</p>
                                <p>$product->price RSD</p>
-                               
+                               <input class='btn btn-success float-right' type='button' value='Dodaj u korpu'  onclick='addToCart({$product->idProduct},{$product->price},\"{$product->name}\");'>
                             </div>
                            </div>
                            <br>
@@ -134,40 +135,39 @@ if (!isset($shop)) {
 
 
             </div>  
-            
-        </div>
-            
-            <!--SIMONA-->
-            <?php
-            if (!isset($commentError)):
-                ?>
-            
-                <div class="row"> 
-                    <div class="offset-sm-1 col-sm-10">
+
+            <br>
+
+
+                <!--SIMONA-->
                 <?php
-                if ($userRole == "User") {
+                if (!isset($commentError)):
+                    ?>
 
-                    echo view("templates/commentsSection_User", $comments);
-                } else {
-                    echo view("templates/commentsSection", $comments);
-                }
-                ?>
-                          </div>
-                </div>
-
-
-<?php
-else:
-    // if there has been an error 
-    echo "<p class='errorMessage'>" . $error . "</p>";
-    ?>
+                    <div class="row"> 
+                        <div class="offset-sm-1 col-sm-10">
+                            <?php
+                            if ($userRole == "User") {
+                                echo view("templates/commentsSection_User", $comments);
+                            } else {
+                                echo view("templates/commentsSection", $comments);
+                            }
+                            ?>
+                        </div>
+                    </div>
 
 
-            <?php endif ?>
+                    <?php
+                else:
+                    // if there has been an error 
+                    echo "<p class='errorMessage'>" . $error . "</p>";
+                    ?>
 
 
-            <!--END_SIMONA-->
+                <?php endif ?>
 
+
+                <!--END_SIMONA-->
 
         </div>
     </body>

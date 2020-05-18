@@ -24,6 +24,9 @@ class AddOnModel extends Model
                 return ["error"=>"This is not a shop. Please, stop hacking."];
             }
         }
+        public function AddOnBelongsToCurrShop($idShop,$idA){
+            return $this->builder()->select()->where("idShop",$idShop)->where("idA",$idA)->get()->getResultObject();
+        }
 }
 
 

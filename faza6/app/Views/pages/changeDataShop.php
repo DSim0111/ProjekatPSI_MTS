@@ -4,6 +4,7 @@ if (!isset($shop)) {
     echo "There has been an error, please return to the previous page and try again.";
     return;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,12 @@ if (!isset($shop)) {
         <link rel="stylesheet" href="<?= base_url("css/changeDataShop.css")?>"> 
     </head> 
     <body> 
-       
+         <?php
+        if (isset($header)) {
+
+            echo view($header);
+        }
+        ?>  
         <div class="container myContainer">
             <div class="row"> 
                 <div class="col-sm-12" align="center"> 
@@ -29,18 +35,15 @@ if (!isset($shop)) {
                     <img src="<?=base_url("images/icons/tag.png")?>" width="40px" height="40px">Tags <br> 
                     <ul type="none"> 
                         <?php if(isset($myCategories))
-                        foreach($myCategories as $myCat){
-                            //ovde u echo mi isto treba IDShop
-                          echo  " <li class='tag'> ";
-                       echo    $myCat->name ;
-                          echo "&nbsp;<a href='";
-                         echo base_url("Shop/deleteCategory/{$myCat->idC}");
-                           echo "'><img src='";
-                          echo base_url("images/icons/close.png");
-                           echo "' width='12px' height='12px'>
+                        foreach($myCategories as $myCat){ ?>
+                          
+                        <li class='tag'> 
+                         <?php  echo $myCat->name?> &nbsp;
+                            <a href='<?= base_url("Shop/deleteCategory/{$myCat->idC}")?>'>
+                                <img src='<?=base_url("images/icons/close.png")?>' width='12px' height='12px'>
                             </a>
-                            </li>";
-                            }?>
+                            </li>
+                          <?php  }?>
                         <li onClick="toggleCategoryListDiv()" class="addNewCategory">
                             <a href="<?= base_url("Shop/showCategories")?>">
                             <img src="<?=base_url("images/icons/add.png")?>" width="30px" height="30px"> 
@@ -54,11 +57,12 @@ if (!isset($shop)) {
             <div class="row">
               <div class="categoryList col-sm-12" id="categoryListDiv" align="center"> 
                 <br>
-            
-                <input type="text" placeholder="Search here" id="search_input" >
-                
-                    <img src="<?= base_url("images/icons/search-icon.png")?>" class="icons" onlick="submitSearch()" > 
-                
+                <form method="POST"  id="search" action="<?= base_url("Shop/filterSearch")?>">
+                <input type="text" placeholder="Search here" id="search_input" name="search_input">
+                <a href="#" >
+                    <img src="<?= base_url("images/icons/search-icon.png")?>" onclick="send()"class="icons"> 
+                </a>
+                </form>
                 <br><br>  
                 <form method="POST" action="<?= base_url("Shop/addCategories")?>">
                 <select name=selected[]" class="custom-select text-center selectCategoryList" multiple>
@@ -66,10 +70,12 @@ if (!isset($shop)) {
                 <?php 
                
                 if(!empty($allCategories)){
+                 
                   echo '<script> document.getElementById("categoryListDiv").style.display = "block";</script>';
-                    
-                    foreach($allCategories as $category){
-                        echo " <option class='categorySelect form-control' value='$category->idC'>$category->name</option>";
+                 if($allCategories=="search")echo  "<option class='categorySelect form-control negative' value='' disabled>No results</option>";
+                 else foreach($allCategories as $category){
+                         
+                        echo " <option class='categorySelect form-control positive' value='$category->idC'>$category->name</option>";
                     }
               
                 }
@@ -82,7 +88,7 @@ if (!isset($shop)) {
                 </form>
         </div>
             </div>
-            <form method="POST" id="part1" action="<?= base_url("Shop/submitNewData")?>">
+            <form method="POST"   enctype="multipart/form-data" id="part1" action="<?= base_url("Shop/submitNewData")?>">
             <div class="row"> 
                 <div class="offset-sm-2 col-sm-8 text-center">  
                     <br>
@@ -96,8 +102,19 @@ if (!isset($shop)) {
                 <div class="col-sm-3 text-center"  align="center"> 
                     
                   
-                    <img src="<?php echo base_url("uploads/" . $shop->image) ?>" class="img-fluid shopImage text-left">
-                  <button class="btn btn-success"> Upload image</button>
+                   <!-- <img src="<?php //echo base_url("uploads/" . $shop->image) ?>" class="img-fluid shopImage text-left">-->
+                 
+                       <div class="upload-image-div" id="upload_image_div" align="center"> 
+                                <!--Image container-->
+                                <p id="upload_image_caption" class="centered-caption">
+                                    Upload image
+                                </p>
+                                   <img id="upload_img" src="<?php echo base_url("uploads/" . $shop->image) ?>" class="img-fluid shopImage text-left">
+                                   
+                                
+                          </div>
+                        <br>
+                         <input type="file" id="uploadedImage" name="image"> 
                 </div>
                
             
@@ -141,26 +158,23 @@ if (!isset($shop)) {
                     
                         <p>Owner's first name</p>
 			<input type="text" name="name" placeholder="Enter First name" value="<?php echo $shop->name;?>">
-                         <?php if(isset($name)) echo "<p style='color:red'>$name </p></center>";?>
+                         <?php if(isset($name)) echo "<p style='color:red'> $name</p></center>";?>
 			<p>Owner's last name</p>
 			<input type="text" name="surname" placeholder="Enter Last name" value="<?php echo $shop->surname;?>">
                          <?php if(isset($surname)) echo "<p style='color:red'>$surname </p></center>";?>
-			<p>Shop's e-mail</p>
-			<input type="text" name="email" placeholder="Enter E-mail" value="<?php echo $shop->email;?>">
-                         <?php if(isset($email)) echo "<p style='color:red'>$email</p></center>";?>
 			<p>Shop's address</p>
                         <input type="text" name="address" placeholder="Enter Address" value="<?php echo $shop->address;?>">
                          <?php if(isset($address)) echo "<p style='color:red'>$address</p></center>";?>
                  </div>
                  <div class=" col-sm-6"> 
 			<p>Phone number</p>
-			<input type="text" name="phone" placeholder="Enter phone number" value="<?php echo $shop->phoneNum;?>">
+			<input type="text" name="phoneNum" placeholder="Enter phone number" value="<?php echo $shop->phoneNum;?>">
 			 <?php if(isset($phone)) echo "<p style='color:red'>$phone </p></center>";?>
 			<p>Password</p>
-			<input type="password" name="password" placeholder="Enter Password" value="<?php echo $shop->password;?>">
+			<input type="password" name="password" placeholder="Enter Password" value="**********">
                         <?php if(isset($password)) echo "<p style='color:red'>$password </p></center>";?>
 			<p>Confirm password</p>
-                        <input type="password" name="confirmPassword" placeholder="Enter Password" value="<?php echo $shop->password;?>">
+                        <input type="password" name="confirmPassword" placeholder="Enter Password" value="**********">
                         <?php if(isset($confirmPassword)) echo "<p style='color:red'>$confirmPassword </p></center>";?>
                 </div>
 			
@@ -200,7 +214,50 @@ if (!isset($shop)) {
 
                 
         </div>
-        <script>
+      
+             <script> 
+            function send(){
+                
+                document.getElementById("search").submit();
+            }
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+		  //id gde hoces da ti se vidi slika kad uploud radis
+          reader.onload = function(e) {
+             $('#upload_img').attr('src', e.target.result).addClass("w-100");
+
+              $("#upload_image_caption").addClass("d-none");
+          };
+
+          reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+      }
+   
+    $("#uploadedImage").change(function() {
+        // get the file name, possibly with path (depends on browser)
+      
+         
+        var filename = $("#uploadedImage").val();
+
+        // Use a regular expression to trim everything before final dot
+        var extension = filename.replace(/^.*\./, '');
+        switch(extension){
+            case 'jpg': case 'png': case'gif': case'jpeg': case 'tiff': break; 
+            default: 
+            $('#upload_img').attr('src', '').addClass("w-100");
+
+            $("#upload_image_caption").empty().text("Only images allowed.").removeClass("d-none");
+            $("#uploadedImage").wrap('<form>').closest('form').get(0).reset();
+                $("#uploadedImage").unwrap();
+         
+            return; 
+        }
+
+      readURL(this);
+    });
+    
+     
            function toggleCategoryListDiv(){
              
                 var x = document.getElementById("categoryListDiv");

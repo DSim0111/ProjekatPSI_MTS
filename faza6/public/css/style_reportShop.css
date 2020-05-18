@@ -2,6 +2,7 @@
 .myContainer{
 
     
+    color:white; 
 	font-size:20dp; 
 	min-height:100%; 
    
@@ -20,16 +21,14 @@
     border-width:1px; 
     color:white; 
     border-color:white; 
-    border-radius: 7px;
-    padding:10px;
-    background-color: #1d3557; 
+    background-color: rgba(25, 25, 25, 0.853);; 
 
 
 }
 
 .inside_container{
-        
-	color:#1d3557;
+
+	background-color: rgba(0,0,0,0.5);
 	position: relative;
 	margin:auto; 
 	width:80%; 

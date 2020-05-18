@@ -15,7 +15,7 @@ class DeliveryRequestsModel extends Model{
 
     protected $returnType     = 'object';
 
-    protected $allowedFields=['idUser', 'idProduct','idShop','state','submitDate','payment','notes','address','submitTime'];
+    protected $allowedFields=['idUser', 'idProduct','idShop','state','submitDate','payment','notes','address','submitTime','receiverName','receiverSurname','deliverDate','deliverTime'];
    
     public function handledRequestForShopWithID($idShop){
          return  $this->builder()->select()->where("idShop",$idShop)->where("state IS NOT NULL")->join("user","user.id=deliveryrequest.idUser")->join("systemuser","systemuser.id=deliveryrequest.idUser")->get()->getResultObject();
@@ -31,6 +31,9 @@ class DeliveryRequestsModel extends Model{
       $obj=$this->builder()->select()->where("idDelReq",$idReq)->where("idShop",$idShop)->where("state IS NULL")->get()->getRow();
       if($obj!=null)return true;
       else return false;
+  }
+  public function insertData($data){
+      return $this->insert($data);
   }
   
 }

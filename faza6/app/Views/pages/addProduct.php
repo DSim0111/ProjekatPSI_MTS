@@ -1,4 +1,4 @@
-<?php if(isset($errorsRequired)) echo "<center><p style='color:red'>All marked fields must be filled out. </p></center>";?>
+<?php ?>
 
 
 
@@ -63,26 +63,22 @@
                     <span style='color:red'>*</span>
                     <br>
                     <input type="text" placeholder="Enter name" name="product_name" value="<?php echo set_value('product_name');?>">
-                    <?php if(isset($product_name)) echo "<p style='color:red'>$product_name </p></center>";?>
+                     <?php if(isset($product_name)) echo "<br><span style='color:red'>$product_name</span></center>";?>
+                    <br>
                     <br>
                     Product code
                     <span style='color:red'>*</span>
                     <br>
                     <input type="text" placeholder="Enter code" name="product_code" value="<?php echo set_value('product_code');?>">
-                  <?php if(isset($product_code)) echo "<p style='color:red'>$product_code </p></center>";?>
+                       <?php if(isset($product_code)) echo "<br><span style='color:red'>$product_code</span></center>";?>
+                     <?php if(isset($non_unique)) echo "<br><span style='color:red'>That code is already taken</span></center>";?>
                     <br>
-                    Available quantity
-                    <span style='color:red'>*</span>
                     <br>
-                    <input type="text" placeholder="Enter quantity" name="product_quantity" value="<?php echo set_value('product_quantity');?>">
-                   <?php if(isset($product_quantity)) echo "<p style='color:red'>$product_quantity </p></center>";?>
-                    <br>
-
                     Price
                     <span style='color:red'>*</span>
                     <br>
                     <input type="text" placeholder="Enter price" name="product_price" value="<?php echo set_value('product_price');?>">
-                   <?php if(isset($product_price)) echo "<p style='color:red'>$product_price</p></center>";?>
+                       <?php if(isset($product_price)) echo "<br><span style='color:red'>$product_price</span></center>";?>
                   
 
 

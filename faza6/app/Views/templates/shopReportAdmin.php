@@ -8,15 +8,10 @@
   
 
 ?>     
-<style>
-    
-    .report_padding{
-        
-        padding:10px;margin-bottom:20px;
-    }
-</style>
 
-                                <div class="col-sm-12 report_padding light_yellow data_box">  
+
+<div class="row shop_report">
+                                <div class="col-sm-10 noPadding">  
                                 <p>Date submitted: 
                                     <?php
                                         echo $report->submitDate; 
@@ -43,22 +38,9 @@
                                     echo $report->description; 
                                     ?>
                                 </p>
-                                <style>
-                                    .as_read{
-                                        
-                                            position:absolute; 
-                                            top:10px; 
-                                            right:10px;
-                                        
-                                    }
-                                    
-                                    
-                                </style><?php if($report->status=='A'){?>
-                                 <div class=" as_read"> 
+                                </div>
+                                <div class="col-sm-2 noPadding"> 
                                     <!--What to do here ????-->
-                                    <a href="<?php echo base_url("Administrator/markAsRead?idUser=".$report->idUser."&idShop=".$report->idShop)?>"
-                                    <button type='button' class="btn btn-danger float-right">Mark as read </button></a>
-                                </div><?php }?>
-                                </div> 
-                               
-                    
+                                    <button type='button' class="btn btn-danger float-right">Mark as read </button>
+                                </div>
+                      </div>

@@ -40,5 +40,8 @@ class ProductModel extends \CodeIgniter\Model {
             return $this->builder()->get()->getResultObject();
      
     }
+    public function alreadyExistsCode($id,$code){
+      return $this->builder()->select()->where("code",$code)->where("idShop",$id)->get()->getResultObject();
+    }
 
 }

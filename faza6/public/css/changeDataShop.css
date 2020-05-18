@@ -18,7 +18,15 @@ body{
     padding-right:25px !important;
 
 }
-
+.negative{
+    background-color:rgba(34, 34, 34, 0.705) !important; 
+    color:white; 
+    border:none;
+}
+.positive{
+     background-color:rgba(34, 34, 34, 0.705) !important; 
+    color:white; 
+}
 .tag a{
    text-decoration:none;
 }

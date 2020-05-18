@@ -19,7 +19,9 @@ class ProductModel extends \CodeIgniter\Model {
     protected $primaryKey = 'idProduct';
     protected $returnType = "object";
     protected $allowedFields = ['idProduct', 'code', 'name', 'description', 'price', 'idShop', 'image'];
-
+   public function alreadyExistsCode($id,$code){
+      return $this->builder()->select()->where("code",$code)->where("idShop",$id)->get()->getResultObject();
+    }
     //TODO[miki]: ERROR handling if there is no product with given id
     // find returns null if no row is matched 
     public function getProductsById($ids) {
@@ -39,9 +41,6 @@ class ProductModel extends \CodeIgniter\Model {
             $this->builder()->select()->where("idShop", $idShop);
             return $this->builder()->get()->getResultObject();
      
-    }
-    public function alreadyExistsCode($id,$code){
-      return $this->builder()->select()->where("code",$code)->where("idShop",$id)->get()->getResultObject();
     }
 
 }

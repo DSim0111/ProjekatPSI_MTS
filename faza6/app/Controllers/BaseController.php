@@ -126,10 +126,19 @@ class BaseController extends Controller {
     public function listShops() {
 
         $shopModel = new \App\Models\ShopModel();
+
+
         $r = $this->request;
         $search = $r->getVar("search");
         $sortColumn = $r->getVar("sortColumn");
-        $sortOrder = $r->getVar("sortOrder");
+       $sortOrder = $r->getVar("sortOrder");
+        $sort=$r->getVar("sort"); 
+        $sortDataArr= explode("_", $sort); 
+        if(count($sortDataArr)==2){
+        $sortColumn=$sortDataArr[0]; 
+        $sortOrder=$sortDataArr[1];
+        }
+       
         $categories = $r->getVar("categories");
 
         if (!isset($search)) {
@@ -150,9 +159,9 @@ class BaseController extends Controller {
         $shops = $shopModel->getShops($search, $categories, $sortColumn, $sortOrder);
         $catModel = new \App\Models\CategoriesModel();
         $allCategories = $catModel->getAllCategories();
-        $userRole = $this->session->get("logged_in_as");
+
         // echo var_dump($shops);
-        return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "role" => $userRole]);
+        return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1)]);
 
         /* pagination 
           $model = new \App\Models\SystemUserModel();
@@ -171,37 +180,20 @@ class BaseController extends Controller {
         $id = $this->request->getVar("shopId");
         $sysUserModel = new \App\Models\SystemUserModel();
         if (!isset($id) || !$sysUserModel->existsAs("Shop", $id)) {
+
             return $this->showPage("basicErrorPage", ["error" => "Sorry, there has been an error while loading this page."]);
         }
         $shopModel = new \App\Models\ShopModel();
         $shop = $shopModel->getShop($id);
         $productModel = new ProductModel();
         $allProducts = $productModel->getAllProductsForShop($id);
-        // QUESTION: da li ovde prosledjivati kontroler iz kog 
-        // se poziva ( ako je ulogovan kao korisnik a pozove Guest kontroler) 
 
         $commentsModel = new CommentsModel();
         $idShop = $this->request->getVar("shopId");
         $comments = $commentsModel->getAllCommentsForShop($idShop);
         $userRole = $this->session->get("logged_in_as");
-
+     //   var_dump( $allProducts);
         return $this->showPage("shopPage", array_merge(["shop" => $shop, "userRole" => $userRole], $data, ["comments" => $comments], ['allProducts' => $allProducts]));
     }
 
-    /*
-
-      public function showShopPage(){
-      $productModel=new ProductModel();
-      $allProducts=$productModel->findAll();
-      return $this->prikaz("shopPageUser",);
-      }
-      public function showAllProducts(){
-
-      $productModel=new ProductModel();
-      $allProducts=$productModel->findAll();
-
-
-      return   $this->showMyaddRemoveProductPage(['allProducts'=>$allProducts]);
-
-      } */
 }

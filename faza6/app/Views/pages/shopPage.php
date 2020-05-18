@@ -22,8 +22,16 @@ if (!isset($shop)) {
         <script src="<?php echo base_url(); ?>/js/shopCart.js"></script>
 
     </head> 
-    <body onload="initShop(<?php echo $shop->id;?>)"> 
-        <div class="container myContainer">
+   <body onload="initShop(<?php echo $shop->id;?>)"> 
+                 <?php
+        if(isset($header)){
+            
+            echo view($header);
+        }
+        
+        ?>   
+        
+        <div class="container-fluid ">
             <div class="row"> 
                 <div class="col-sm-4 lighter"> 
                     <b>Address</b>: <?php echo $shop->address; ?> <br>
@@ -90,7 +98,7 @@ if (!isset($shop)) {
 
 
 
-                    <?php $i = 0; ?>
+<?php $i = 0; ?>
                     <?php
                     foreach ($allProducts as $product) {
 
@@ -135,39 +143,40 @@ if (!isset($shop)) {
 
 
             </div>  
-
-            <br>
-
-
-                <!--SIMONA-->
+            
+        </div>
+            
+            <!--SIMONA-->
+            <?php
+            if (!isset($commentError)):
+                ?>
+            
+                <div class="row"> 
+                    <div class="offset-sm-1 col-sm-10">
                 <?php
-                if (!isset($commentError)):
-                    ?>
+                if ($userRole == "User") {
 
-                    <div class="row"> 
-                        <div class="offset-sm-1 col-sm-10">
-                            <?php
-                            if ($userRole == "User") {
-                                echo view("templates/commentsSection_User", $comments);
-                            } else {
-                                echo view("templates/commentsSection", $comments);
-                            }
-                            ?>
-                        </div>
-                    </div>
+                    echo view("templates/commentsSection_User", $comments);
+                } else {
+                    echo view("templates/commentsSection", $comments);
+                }
+                ?>
+                          </div>
+                </div>
 
 
-                    <?php
-                else:
-                    // if there has been an error 
-                    echo "<p class='errorMessage'>" . $error . "</p>";
-                    ?>
+<?php
+else:
+    // if there has been an error 
+    echo "<p class='errorMessage'>" . $error . "</p>";
+    ?>
 
 
-                <?php endif ?>
+            <?php endif ?>
 
 
-                <!--END_SIMONA-->
+            <!--END_SIMONA-->
+
 
         </div>
     </body>

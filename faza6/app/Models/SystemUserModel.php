@@ -11,7 +11,8 @@
  *
  * @author Simona
  */
-namespace App\Models;
+ namespace App\Models;
+
 use CodeIgniter\Model;
 
 class SystemUserModel extends Model

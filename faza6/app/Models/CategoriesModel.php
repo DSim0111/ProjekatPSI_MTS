@@ -23,11 +23,6 @@ class CategoriesModel extends Model{
 
     protected $allowedFields=['idC', 'name'];
     
-    public function search($src){
-    
-   return  $this->builder()->select("*")->like('name', "".$src)->get()->getResultObject();
-        
-    }
     
     public function getAllCategories(){
         

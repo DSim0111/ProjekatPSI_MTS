@@ -11,6 +11,7 @@ class Filters extends BaseConfig
                  'authA'=>\App\Filters\AuthFilterAdmin::class,
              'authS'=>\App\Filters\AuthFilterShop::class, 
              'authU'=>\App\Filters\AuthFilterUser::class, 
+            'guest'=>\App\Filters\GuestFilter::class,
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
             
@@ -41,6 +42,7 @@ class Filters extends BaseConfig
             'authA'=>['before'=>["Administrator/*"]],
             'authU'=>['before'=>["User/*"]],
             'authS'=>['before'=>["Shop/*"]],
+            'guest'=>['before'=>["Guest/*"]]
            
             
             

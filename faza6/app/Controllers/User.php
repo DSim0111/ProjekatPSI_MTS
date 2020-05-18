@@ -107,6 +107,8 @@ class User extends BaseController {
     }
 
     public function ratingSubmit() {
+
+
         $ratingModel = new \App\Models\RatingModel();
         $shop = $this->request->getVar("shopId");
         $user = $this->session->get("user_id");
@@ -123,10 +125,9 @@ class User extends BaseController {
         }
     }
 
-//MILAN
     //TODO[miki]: dump is just temporary
     public function index() {
-        $this->showPage('dump', []);
+        return parent::listShops();
     }
 
 //MILAN
@@ -140,7 +141,7 @@ class User extends BaseController {
             return redirect()->to(base_url("Guest/pageNotFound"));
         }
         //TODO[miki]: better ERROR handling 
-        if (isset($ids) and count($ids) > 0 and $ids[0] != "") {
+        if (isset($ids) and count($ids) > 0 and $ids[0] != ""){
             $products = $productModel->getProductsByID($ids);
         } else {
             $products = null;

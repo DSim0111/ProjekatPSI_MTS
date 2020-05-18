@@ -10,22 +10,19 @@ if (!isset($shop)) {
 <html> 
     <head> 
         <title> Products|Giftery</title>
-         <link  type="text/css" rel="stylesheet" href="<?php echo base_url("css/style_navbar.css"); ?>">
         <link rel="stylesheet" href="<?= base_url("css/shopPage_Tijana.css")?>"> 
             <link rel="stylesheet" href="<?php echo base_url("css/style_common.css")?>">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head> 
     <body> 
-          <?php
-        if (isset($header)) {
-
-            echo view($header);
-        }
-        ?>  
         <div class="container myContainer">
             <div class="row"> 
-               
-                <div class="offset-sm-4 col-sm-4 text-center"> 
+                <div class="col-sm-4 lighter"> 
+                    <b>Address</b>:  <?php echo $shop->address; ?> <br>
+                   <b> Phone</b>:  <?php echo $shop->phoneNum; ?> <br>
+                   <b>e-mail</b>:  <?php echo $shop->email; ?><br>
+                </div>
+                <div class=" col-sm-4 text-center"> 
                     <br>
                     <h2 class="text-center title"> <?php echo $shop->shopName; ?></h2>
                   
@@ -33,7 +30,7 @@ if (!isset($shop)) {
                 <div class="col-sm-4"> 
                     <br>
                     <a href="changeDataShop.html">
-                    <button class="float-right btn btn-info">
+                    <button class="float-right btn btn-success">
                         Edit data
                     </button>
                 </a>
@@ -45,30 +42,15 @@ if (!isset($shop)) {
             <div class="row "> 
                 <div class="col-sm-12 text-center" > 
                     
-                   <div class="row">
-                      <div class="col-sm-3">
-                        <img src="<?php echo base_url("uploads/" . $shop->image) ?>" class="img-fluid shopImage text-left">
                  
-                      </div>
-                      <div class="col-sm-8">
-                         <div class="row">
-                             <div class="col-sm-12 desc_div">
-                            <h5 class="text-left">Description: </h5>
-                            <p class="shopDescription"> <?php echo $shop->description; ?></p>
-                             </div>
-                         </div>
-                          <br>
-                          <br>
-                     <div class="row" > 
-                         <div class="col-sm-12 shop_info" align="left">
-                        <b>Address</b>:  <?php echo $shop->address; ?> <br>
-                        <b> Phone</b>:  <?php echo $shop->phoneNum; ?> <br>
-                        <b>e-mail</b>:  <?php echo $shop->email; ?><br>
-                         </div>
+                  <img src="<?php echo base_url("images/uploads/" . $shop->image) ?>" class="img-fluid shopImage text-left">
+                 
+            
+              
+                    <h5 class="text-left">Description: </h5>
+                    <p class="shopDescription"> <?php echo $shop->description; ?></p>
                     </div>
-                        </div>
-                   </div>
-                </div>  
+                    
             </div>
             <div class="row"> 
                 <div class="col-sm-12">
@@ -76,7 +58,7 @@ if (!isset($shop)) {
                     <h4> Pick a product</h4>
                 </div>
             </div>
-            <hr>
+
            <div class='row'> 
                   
                 <div class='col-sm-12 myCol'>

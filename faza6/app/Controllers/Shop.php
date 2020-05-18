@@ -26,6 +26,9 @@ class Shop extends BaseController {
 
     //put your code here
 
+    public function index() {
+        return $this->showMyPage();
+    }
 
     public function deleteProduct($id) {
 
@@ -37,42 +40,25 @@ class Shop extends BaseController {
     public function submitNewData() {
 
         if (!$this->validate([
-                    'password' => 'required|min_length[10]|max_length[255]',
-                    'confirmPassword' => 'required|min_length[10]|max_length[255]',
+                    'password' => 'required|min_length[10]|max_length[50]',
+                    'confirmPassword' => 'required|min_length[10]|max_length[50]',
+                    'email' => 'required|valid_email',
                     'name' => 'required|max_length[18]',
                     'surname' => 'required|max_length[18]',
-                    'phoneNum' => 'required|max_length[18]',
-                    'address' => 'required',
+                    'phone' => 'required|max_length[18]',
+                    'address' => "required",
                     'shopName' => 'required|min_length[5]',
-                    'description' => 'required|min_length[10]'
+                    'description' => 'required|min_length[10]|max_length[200]'
                 ])) {
-
 
             $idShop = $this->session->get("user_id");
             $shopModel = new ShopModel();
             $shop = $shopModel->getShop($idShop);
-            $err = $this->validator->getErrors();
-            return $this->showPage("changeDataShop", array_merge([$err, 'shop' => $shop]));
+
+            return $this->showMyCategories($shop);
         } else {
-
-            if (strcmp($this->request->getVar('password'), $this->request->getVar('confirmPassword')) == 0) {
-                $newName = "newfileName";
-
-                $file = $this->request->getFile("image");
-
-
-
-                if ($file != null) {
-
-                    if ($file->isValid()) {
-                        $newName = $file->getRandomName();
-                        $file->move('./uploads', $newName);
-                    }
-                }
-                $shopModel = new ShopModel();
-
-                $shopModel->updateDataShop($this->session->get("user_id"), $this->request->getVar('description'), $this->request->getVar('shopName'), $this->request->getVar('address'), $newName, $this->request->getVar('phoneNum'), $this->request->getVar('name'), $this->request->getVar('surname'), $this->request->getVar('password'));
-            }
+            $shopModel = new ShopModel();
+            $shopModel->insertShop($this->session->get("user_id"), $this->request->getVar("description"), $this->request->getVar("shopName"), $this->request->getVar("address"), $this->request->getFile("image"), $this->request->getVar("phone"), $this->request->getVar("email"), $this->request->getVar("name"), $this->request->getVar("surname"));
         }
         return $this->changeData();
     }
@@ -112,27 +98,16 @@ class Shop extends BaseController {
     }
 
     public function deleteAddOn($id) {
-
         $addOnModel = new AddOnModel();
-        if ($addOnModel->AddOnBelongsToCurrShop($this->session->get("user_id"), $id)) {
-            $addOnModel->delete($id);
-        }
+        $addOnModel->delete($id);
         return redirect()->to(base_url("Shop/showAllProducts"));
     }
 
-    public function filterSearch() {
-        $idShop = $this->session->get("user_id");
-        $shopModel = new ShopModel();
-        $shop = $shopModel->getShop($idShop);
-
-
+    public function filterSearch($tekst) {
+        $this->showMyCategories();
         $catModel = new CategoriesModel();
-        $tekst = $this->request->getVar('search_input');
-
         $result = $catModel->search($tekst);
-        if (empty($result))
-            $result = "search";
-        return $this->showMyCategories($shop, $result);
+        return $this->showPage("changeDataShop", ['allCategories' => $result]);
     }
 
     public function showCategories() {
@@ -199,6 +174,7 @@ class Shop extends BaseController {
     public function newProductSubmit() {
         $productModel = new ProductModel();
         $result = $productModel->alreadyExistsCode($this->session->get("user_id"), $this->request->getVar("product_code"));
+
 
         if (!$this->validate(['product_name' => 'required|max_length[18]',
                     'product_code' => 'required|max_length[12]',
@@ -296,7 +272,7 @@ class Shop extends BaseController {
             $requestedProducts[$request->idDelReq] = $DeliveryProductsModel->ShowProductsForRequestWithID($request->idDelReq);
             $requestedAddOns[$request->idDelReq] = $DeliveryAddOnsModel->ShowAddOnsForRequestWithID($request->idDelReq);
         }
-        return $this->showPage("showUserRequest", ['requests' => $requests, 'requestedProducts' => $requestedProducts, 'requestedAddOns' => $requestedAddOns, 'unhandled' => false]);
+        return $this->showPage("showUserRequest", ['requests' => $requests, 'requestedProducts' => $requestedProducts, 'requestedAddOns' => $requestedAddOns, 'unhandle' => false]);
     }
 
     public function showUnhandledDeliveryRequests() {
@@ -339,11 +315,6 @@ class Shop extends BaseController {
         } else {
             echo "There is no such request in your database.Please go back";
         }
-    }
-
-    public function showPage($page, $data = array()) {
-
-        parent::showPage($page, array_merge($data, ["header" => "templates/header_shop"]));
     }
 
 }

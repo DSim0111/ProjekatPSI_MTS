@@ -30,7 +30,7 @@ body{
 }
 .log-box{
 
-	background-color:rgba(2,2,20,0.65);
+	background-color:rgba(2,2,20,0.75);
         border-radius: 20px;
 	color:#fff;
         
@@ -108,5 +108,41 @@ body{
 .noPadding{
     
     padding:0;
+    
+}
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 14, 2020, 2:56:58 PM
+    Author     : Simona
+*/
+
+.myNav{
+    
+    
+ /*   background-color:#9bbccf; */
+     background-color:#457b9d;
+    color:white; 
+}
+.nav_button{
+    
+    color:white; 
+    /*background-color: #829aa8;*/
+    background-color:#1d3557;
+    border:1px solid white;
+    
+}
+.nav_button:hover{
+  /*  background-color: #c3d2db;*/
+
+   
+  color:white; 
+    
     
 }

@@ -1,27 +1,11 @@
-body{
-     background-color:#f2f2f2 !important
-       
-}
+
 .myContainer{
 
-   
-   color:#FF7F50 !important; 
+    background:rgba(0,0,0,0.5);
+    color:white; 
     font-size:20dp; 
     min-height:100%;
 
-}
-.desc_div {
-  /*background-color: rgba(69,123,157,0.6);*/
-
- color:#e8764d;
- 
-}
-hr{
-    
-    height: 0.5px !important;
-    border-width: 0;
-    color: black;
-    background-color:#FF7F50;
 }
 .footer{
     position:relative;
@@ -31,16 +15,17 @@ hr{
 }
 .product_envelope{
 padding-bottom:10px;
-color:black;
-     
-  
-    /*background-color:rgba(11, 30, 41, 0.753);*/
+     background-color: white;
+    border-width: thin;
+    border-style:solid; 
+    border-color:lightgray;
+    background-color:rgba(11, 30, 41, 0.753);
     width:100%; 
     height:auto; 
 }
 .product_envelope:hover{
 
-    background-color: rgba(69,123,157,0.6);
+    background-color: rgba(66, 85, 97, 0.664);
 }
 .product_image{
     width:90%; 

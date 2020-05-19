@@ -1,58 +1,79 @@
 .deleteBtn{
-position:relative;
-   float:right;
-   z-index:12 !important;
+    position: absolute;
+    left:83%;
+    top: 0px;
+    z-index: 1000;
+    float:right;
+
     visibility: visible;
 }
 body{
-	margin:0;
-	padding:0;
-	background:url(../images/giftChild.jpg);
-	background-size:cover;
-	background-position:center;
-	font-family:sans-serif;
-	
+    margin:0;
+    padding:0;
+    background-color:#f2f2f2 !important
+        /*background:url(../images/giftChild.jpg);*/
+        background-size:cover;
+    background-position:center;
+    font-family:sans-serif;
+    overflow-x:hidden !important;
+    color:#FF7F50 !important;
 }
 .myContainer{
+    /*background-color:rgba(69,123,157,0.6);*/
 
-    background:rgba(0,0,0,0.5);
-    color:white; 
+    /* background:rgba(0,0,0,0.5);*/
+
     font-size:20dp; 
     padding-left:25px !important;
     padding-right:25px !important;
 
 }
+hr{
 
+    height: 0.5px !important;
+    border-width: 0;
+    color: black;
+    background-color:#FF7F50;
+}
+.btn-danger,.functions{
+    background-color:#FF7F50 !important;
+}
 
 .product_envelope{
 
-     background-color: white;
-    border-width: thin;
+    color:black;
+    /*border-width: thin;
     border-style:solid; 
-    border-color:lightgray;
-    background-color:rgba(11, 30, 41, 0.753);
-  width:100%;
- 
-  margin:auto;
+    border-color:#FF7F50 !important;*/
+    /* border-color:lightgray;*/
+    /*  background-color:#457b9d;*/
+    background-color: white;
+    background-color:#f2f2f2 !important
+        /* background-color:rgba(11, 30, 41, 0.753);*/
+        /* background-color: rgba(66, 85, 97, 0.664);*/
+
+        width:100%;
+
+    margin:auto;
     height:auto; 
 }
 .product_envelope:hover{
-
-    background-color: rgba(66, 85, 97, 0.664);
+    background-color: rgba(69,123,157,0.6);
+    /* background-color: rgba(66, 85, 97, 0.664);*/
 }
 .product_image{
     width:90%; 
-    margin-top:-10px; 
+    /* margin-top:-10px; */
     border-width: thin;
     border-style:solid; 
     border-color:lightgray;
-   
-   z-index:-1 !important;
+
+    z-index:-1 !important;
 }
 
 .product_image_div{
     width:100%; 
-    padding:5px; 
+    padding:2%; 
 
 }
 .product_description{
@@ -72,7 +93,7 @@ body{
 }
 .shopDescription{
 
- 
+
     text-align: justify;
 }
 .shopImage{
@@ -82,5 +103,5 @@ body{
     width:300px; 
 }
 .title{
-    display:inline;
+
 }

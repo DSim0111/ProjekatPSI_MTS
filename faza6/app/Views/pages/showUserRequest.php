@@ -195,9 +195,6 @@
                          </h4>
                            <table class='table table-striped table-light text-center myTable'>
                             <thead class='thead'> 
-                                <th>
-                                    AddOn code 
-                                </th>
                                 <th> 
                                     AddOn image
                                 </th>
@@ -210,8 +207,7 @@
                        <tbody>
                            <?php foreach($requestedAddOns[$request->idDelReq] as $addOn){?>
                          <tr> 
-                             <td><?php echo $addOn->code; ?></td>
-                             <td>  <img src='<?= base_url('uploads'.$addOn->image)?>' class='productImage'> </td>
+                             <td>  <img src='<?= base_url('uploads/'.$addOn->image)?>' class='productImage'> </td>
                              <td> 
                                  <?php echo $addOn->name;?>
                              </td>

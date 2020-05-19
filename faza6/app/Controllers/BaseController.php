@@ -131,14 +131,14 @@ class BaseController extends Controller {
         $r = $this->request;
         $search = $r->getVar("search");
         $sortColumn = $r->getVar("sortColumn");
-       $sortOrder = $r->getVar("sortOrder");
-        $sort=$r->getVar("sort"); 
-        $sortDataArr= explode("_", $sort); 
-        if(count($sortDataArr)==2){
-        $sortColumn=$sortDataArr[0]; 
-        $sortOrder=$sortDataArr[1];
+        $sortOrder = $r->getVar("sortOrder");
+        $sort = $r->getVar("sort");
+        $sortDataArr = explode("_", $sort);
+        if (count($sortDataArr) == 2) {
+            $sortColumn = $sortDataArr[0];
+            $sortOrder = $sortDataArr[1];
         }
-       
+
         $categories = $r->getVar("categories");
 
         if (!isset($search)) {
@@ -159,9 +159,9 @@ class BaseController extends Controller {
         $shops = $shopModel->getShops($search, $categories, $sortColumn, $sortOrder);
         $catModel = new \App\Models\CategoriesModel();
         $allCategories = $catModel->getAllCategories();
-
+        $userRole = $this->session->get("logged_in_as");
         // echo var_dump($shops);
-        return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1)]);
+        return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "userRole" => $userRole]);
 
         /* pagination 
           $model = new \App\Models\SystemUserModel();
@@ -192,7 +192,7 @@ class BaseController extends Controller {
         $idShop = $this->request->getVar("shopId");
         $comments = $commentsModel->getAllCommentsForShop($idShop);
         $userRole = $this->session->get("logged_in_as");
-     //   var_dump( $allProducts);
+        //   var_dump( $allProducts);
         return $this->showPage("shopPage", array_merge(["shop" => $shop, "userRole" => $userRole], $data, ["comments" => $comments], ['allProducts' => $allProducts]));
     }
 

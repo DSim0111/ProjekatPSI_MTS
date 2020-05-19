@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="<?= base_url("css/shopPage_Tijana.css") ?>"> 
         <link rel="stylesheet" href="<?php echo base_url("css/style_common.css") ?>">
-        <link rel="stylesheet" href="<?php echo base_url("css/style_shopPage.css") ?>"> 
         <link rel="stylesheet" href="<?php echo base_url("css/style_comments.css") ?>"> 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -15,6 +14,13 @@
         <script src="<?php echo base_url(); ?>/js/shopCart.js"></script>
     </head> 
     <body onload="initBill();">
+        <?php
+        if (isset($header)) {
+
+            echo view($header);
+        }
+        ?>
+        <br>
         <div class="container myContainer">
 
 
@@ -51,7 +57,7 @@
                         </thead>
                         <!--Table for products Product | Quantity | Price-->
                         <tbody id="productsTable">
-                            
+
                         </tbody>
 
                     </table>
@@ -60,7 +66,7 @@
                     <b>Additions:</b> 
                     <!--Additions Name(price RSD), Name(price RSD)...-->
                     <span id="additions">
-                        
+
                     </span>
                     <br>
                     <hr>
@@ -90,7 +96,7 @@
             <div class="row" align="center"> 
                 <div class="col-sm-12"> 
 
-                    <a href="/User/order_gifts"><button class="btn btn-success" onClick="payment();">Continue with order</button></a>
+                    <a href="/User/order_gifts"><button class="btn btn-info" onClick="payment();">Continue with order</button></a>
                 </div>
             </div>
 

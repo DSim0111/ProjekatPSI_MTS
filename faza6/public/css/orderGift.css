@@ -1,12 +1,4 @@
-body{
-	margin:0;
-	padding:0;
-	background:url(images/giftChild.jpg);
-	background-size:cover;
-	background-position:center;
-	font-family:sans-serif;
-	
-}
+
 
 .log-box{
 	width:640px;
@@ -18,7 +10,7 @@ body{
 	left:50%;
 	position:absolute;
 	transform:translate(-50%,-50%);
-	box-sizing:border-box;
+	/*box-sizing:border-box;*/
 	padding:60px 30px;
 }
 

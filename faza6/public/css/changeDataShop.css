@@ -1,26 +1,52 @@
 body{
-	margin:0;
-	padding:0;
-	background:url(../images/giftChild.jpg);
-	background-size:cover;
-	background-position:center;
-	font-family:sans-serif;
-	
+    background-color:#f2f2f2 !important;
+    margin:0;
+    padding:0;
+    color:white;
+
+    background-size:cover;
+    background-position:center;
+    font-family:sans-serif;
+
+}
+.tags,h5,#upload_image_div,#uploadedImage{
+    color:#9d796e;
+}
+.SaveBtn{
+    background-color:#FF7F50 !important; 
+    color:white;
+}
+h4{
+    color:#FF7F50 !important; 
+}
+hr{
+
+    height: 0.5px !important;
+    border:thin solid #FF7F50; 
+    color: black;
+    background-color:#FF7F50;
 }
 .myContainer{
 
-    background:rgba(32, 32, 32, 0.5_);
-    color:white; 
-    background:rgba(0,0,0,0.5);
+
+
 
     font-size:20dp; 
     padding-left:25px !important;
     padding-right:25px !important;
 
 }
-
+.negative{
+    background-color:rgba(34, 34, 34, 0.705) !important; 
+    color:white; 
+    border:none;
+}
+.positive{
+    background-color:rgba(34, 34, 34, 0.705) !important; 
+    color:white; 
+}
 .tag a{
-   text-decoration:none;
+    text-decoration:none;
 }
 
 .shopDescription{
@@ -28,13 +54,14 @@ body{
     width:100%!important;
     margin:10px;
     height:147px; 
- 
+
     text-align: justify;
 
     border-style:solid; 
     border-width:1px; 
     border-color:gray; 
-    background-color:rgba(34, 34, 34, 0.705); 
+    background-color: rgba(69,123,157,0.6);
+    /* background-color:rgba(34, 34, 34, 0.705); */
 }
 .shopImage{
     margin-right:20px; 
@@ -43,37 +70,33 @@ body{
     width:300px; 
 }
 .title{
-   font-size: 24px;
-   padding:1px; 
-   height:40px; 
-   border-style:solid; 
+    font-size: 24px;
+    padding:1px; 
+    height:40px; 
+    border-style:solid; 
     border-width:1px; 
-    border-color:gray; 
-    background-color:rgba(34, 34, 34, 0.705); 
+    border-color:gray;  
+    background-color: rgba(69,123,157,0.6);
     color:white;
 
 }
 
-.hrWhite{
 
-
-    border:thin solid gray; 
-}
 .note{
     color:rgba(196, 185, 185, 0.822);
 }
 input{
     border:none;
     width:100%;
-	margin-bottom:5px !important;
+    margin-bottom:5px !important;
     border-bottom:1px solid rgb(209, 208, 208);
-    
-	background:transparent;
-	outline:none;
-	height:40px;
-	color:#fff;
-	
-	font-size:16px;
+
+    background:transparent;
+    outline:none;
+    height:40px;
+    color:#fff;
+
+    font-size:16px;
 }
 .col-sm-6 p{
     padding:0; 
@@ -81,17 +104,19 @@ input{
     margin-bottom:2px; 
 }
 .rowBorder{
-
+    background-color: rgba(69,123,157,0.6);
     padding-top:20px;
     padding-bottom:20px;
     border-top:thin solid gray;
     border-bottom:thin solid gray;
 }
+
 .tag{
     display:inline-block; 
-    background-color: rgba(84, 161, 206, 0.842);
+
+    /* background-color: rgba(84, 161, 206, 0.842);*/
     margin-right:12px; 
-   
+    color:white;
     padding:8px; 
     border:thin solid rgb(87, 90, 94); 
     border-radius: 5px;
@@ -108,12 +133,12 @@ input{
     display:none;
     padding:25px;
     position:relative; 
-     background-color:rgba(34, 34, 34, 0.705); 
+    background-color:rgba(34, 34, 34, 0.705); 
     color:white; 
     z-index: 1;
     height:50%; 
-   
-  
+
+
 }
 
 .selectCategoryList{
@@ -124,20 +149,20 @@ input{
 }
 
 select{
-  background-color:rgba(34, 34, 34, 0.1) !important;
-  border:none !important;
-    
+    background-color:rgba(34, 34, 34, 0.1) !important;
+    border:none !important;
+
 }
 .icons{
-  
+
     width:20px !important; 
     height:20px !important; 
 }
 #search_input{
     width: 50%; 
     border:none;
-	border-bottom:1px solid #fff;
-	background:transparent;
+    border-bottom:1px solid #fff;
+    background:transparent;
     outline:none;
     color: white; 
 }

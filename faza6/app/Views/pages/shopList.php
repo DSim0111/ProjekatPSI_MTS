@@ -96,27 +96,8 @@
 
                             </div>
                         </div>
-
-
-
-
-
-
                         <br>
-
-
-
-
-
-
-
-
-
-
-
                     </div>
-
-
                     <div class="col-sm-12 col-lg-10 ">
                         <div class=" row shop_container " align="center">
 
@@ -131,20 +112,7 @@
 
                                 echo view("templates/shopInShopList", $data);
                             }
-                            ?> 
-
-
-
-
-
-
-
-
-
-
-
-
-
+                            ?>
                         </div>
                         </form>  
                     </div>

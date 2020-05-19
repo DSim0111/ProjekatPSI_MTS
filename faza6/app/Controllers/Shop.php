@@ -16,6 +16,7 @@ use App\Models\ProductModel;
 use App\Models\DeliveryRequestsModel;
 use App\Models\DeliveryProductsModel;
 use App\Models\DeliveryAddOnsModel;
+use App\Models\CommentsModel;
 
 /**
  * Description of Shop
@@ -25,9 +26,9 @@ use App\Models\DeliveryAddOnsModel;
 class Shop extends BaseController {
 
     //put your code here
-
     public function index() {
-        return $this->showMyPage();
+
+        return $this->showAllProducts();
     }
 
     public function deleteProduct($id) {
@@ -40,25 +41,42 @@ class Shop extends BaseController {
     public function submitNewData() {
 
         if (!$this->validate([
-                    'password' => 'required|min_length[10]|max_length[50]',
-                    'confirmPassword' => 'required|min_length[10]|max_length[50]',
-                    'email' => 'required|valid_email',
+                    'password' => 'required|min_length[10]|max_length[255]',
+                    'confirmPassword' => 'required|min_length[10]|max_length[255]',
                     'name' => 'required|max_length[18]',
                     'surname' => 'required|max_length[18]',
-                    'phone' => 'required|max_length[18]',
-                    'address' => "required",
+                    'phoneNum' => 'required|max_length[18]',
+                    'address' => 'required',
                     'shopName' => 'required|min_length[5]',
-                    'description' => 'required|min_length[10]|max_length[200]'
+                    'description' => 'required|min_length[10]'
                 ])) {
+
 
             $idShop = $this->session->get("user_id");
             $shopModel = new ShopModel();
             $shop = $shopModel->getShop($idShop);
 
-            return $this->showMyCategories($shop);
+            return $this->showPage("changeDataShop", array_merge($this->validator->getErrors(), ['shop' => $shop]));
         } else {
-            $shopModel = new ShopModel();
-            $shopModel->insertShop($this->session->get("user_id"), $this->request->getVar("description"), $this->request->getVar("shopName"), $this->request->getVar("address"), $this->request->getFile("image"), $this->request->getVar("phone"), $this->request->getVar("email"), $this->request->getVar("name"), $this->request->getVar("surname"));
+
+            if (strcmp($this->request->getVar('password'), $this->request->getVar('confirmPassword')) == 0) {
+                $newName = "newfileName";
+
+                $file = $this->request->getFile("image");
+
+
+
+                if ($file != null) {
+
+                    if ($file->isValid()) {
+                        $newName = $file->getRandomName();
+                        $file->move('./uploads', $newName);
+                    }
+                }
+                $shopModel = new ShopModel();
+
+                $shopModel->updateDataShop($this->session->get("user_id"), $this->request->getVar('description'), $this->request->getVar('shopName'), $this->request->getVar('address'), $newName, $this->request->getVar('phoneNum'), $this->request->getVar('name'), $this->request->getVar('surname'), $this->request->getVar('password'));
+            }
         }
         return $this->changeData();
     }
@@ -140,7 +158,13 @@ class Shop extends BaseController {
         $shopModel = new ShopModel();
         $shop = $shopModel->getShop($idShop);
 
-        return $this->showPage("shopPageShop", array_merge(['allProducts' => $allProducts], ['shop' => $shop]));
+        $commentsModel = new CommentsModel();
+        $idShop = $this->session->get("user_id");
+        $comments = $commentsModel->getAllCommentsForShop($idShop);
+
+        $userRole = $this->session->get("logged_in_as");
+
+        return $this->showPage("shopPageShop", array_merge(['allProducts' => $allProducts], ['shop' => $shop], ['comments' => $comments], ['userRole' => $userRole]));
     }
 
     public function showAllProducts() {
@@ -174,23 +198,21 @@ class Shop extends BaseController {
     public function newProductSubmit() {
         $productModel = new ProductModel();
         $result = $productModel->alreadyExistsCode($this->session->get("user_id"), $this->request->getVar("product_code"));
-
-
         if (!$this->validate(['product_name' => 'required|max_length[18]',
                     'product_code' => 'required|max_length[12]',
                     'product_desc' => 'max_length[200]',
-                    'product_quantity' => 'required|integer',
                     'product_price' => 'required|decimal'])) {
 
-
             if (!empty($result)) {
-                return $this->showPage('addProduct', [$this->validator->getErrors(), 'non_unique' => 'true']);
+                return $this->showPage('addProduct', array_merge($this->validator->getErrors(), ['non_unique' => 'true']));
             } else {
+
                 return $this->showPage('addProduct', $this->validator->getErrors());
             }
         }
         if (!empty($result)) {
-            return $this->showPage('addProduct', [$this->validator->getErrors(), 'non_unique' => 'true']);
+
+            return $this->showPage('addProduct', array_merge($this->validator->getErrors(), ['non_unique' => 'true']));
         }
         $newName = "newfileName";
         $file = $this->request->getFile("image");
@@ -207,7 +229,6 @@ class Shop extends BaseController {
 
         ///////////////////////////////////////////////////////////////
 
-        $productModel = new ProductModel();
         $productModel->save([
             'name' => $this->request->getVar('product_name'),
             'code' => $this->request->getVar('product_code'),
@@ -272,7 +293,7 @@ class Shop extends BaseController {
             $requestedProducts[$request->idDelReq] = $DeliveryProductsModel->ShowProductsForRequestWithID($request->idDelReq);
             $requestedAddOns[$request->idDelReq] = $DeliveryAddOnsModel->ShowAddOnsForRequestWithID($request->idDelReq);
         }
-        return $this->showPage("showUserRequest", ['requests' => $requests, 'requestedProducts' => $requestedProducts, 'requestedAddOns' => $requestedAddOns, 'unhandle' => false]);
+        return $this->showPage("showUserRequest", ['requests' => $requests, 'requestedProducts' => $requestedProducts, 'requestedAddOns' => $requestedAddOns, 'unhandled' => false]);
     }
 
     public function showUnhandledDeliveryRequests() {
@@ -315,6 +336,11 @@ class Shop extends BaseController {
         } else {
             echo "There is no such request in your database.Please go back";
         }
+    }
+
+    public function showPage($page, $data = array()) {
+
+        parent::showPage($page, array_merge($data, ["header" => "templates/header_shop"]));
     }
 
 }

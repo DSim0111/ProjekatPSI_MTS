@@ -4,6 +4,6 @@
         <input id="num" type="hidden" name="numItems">
         <input id="products" type="hidden" name="products">
         <input id="shopId" type="hidden" name="shopId" value="<?php echo $shopId;?>">
-        <input class='btn btn-success' id="butt" type="button" value="Korpa" >
+        <input class='btn btn-info' id="butt" type="button" value="Cart" >
     </form>
 </div>

@@ -150,5 +150,11 @@ class ShopModel extends Model {
         } else
             $systemUserModel->update($idShop, ['name' => $name, 'surname' => $surname, 'phoneNum' => $phoneNum]);
     }
+    public function existShop($id,$state){
+        $this->builder()->select()->where("Shop.id", $id)->where("state",$state);
+        $shop = $this->builder()->get()->getFirstRow();
+        if ($shop!=null)return true;
+        else return false;
+    }
 
 }

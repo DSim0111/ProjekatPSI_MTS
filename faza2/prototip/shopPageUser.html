@@ -5,6 +5,12 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="shopPage.css"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head> 
     <body> 
         <div class="container myContainer">
@@ -288,6 +294,97 @@
                     </div>
                     
                     
+                </div>
+                <div class="row">
+                    <div class="offset-sm-1 col-sm-10 "> 
+                        <hr> 
+                     
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Komentari</a>
+                          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Dodaj komentar</a>
+                          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Oceni</a>
+                        </div>
+                      </nav>
+                      <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" name="comment_content_div" role="tabpanel" aria-labelledby="nav-home-tab"><br><div class="comment_wrapper"><h6 class="comment_person d-inline">Jelena Nikolic</h6><b class="comment_date">15.04.2020.</b><br><p class="comment_text text-justify">I can't wait to come to this place again. In this quarantine time, a little bit of meditation is all I need. xD</p></div><br><div class="comment_wrapper comment_wrapper_bright"><h6 class="comment_person d-inline">Marko Tomic</h6><b class="comment_date">05.03.2020.</b><br><p class="comment_text text-justify">It was great! Pured my soul! I'm gonna keep coming! Great experience.</p></div></div>
+    
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <br>
+    
+                            <div class="add_comment_content">
+                                    <!-- treba proveriti da li je prisustvovao ili ne-->
+                                   
+                                    <form class="was_there"> 
+    
+                                        Upisite komentar: 
+                                        <br>
+                                        <textarea name="add_comment_area" class="add_comment_area" cols="120" rows="5"></textarea>
+                                        <br>
+    
+                                        <!--WEEEEEEEEEEEEEEEE it works-->
+                                        <button class="btn btn-primary margin-auto" data-rel="back" type="button" onclick="addCommentForUser()">Potvrdi</button>
+                                    </form>
+                           
+    
+                          </div>
+    
+    
+    
+                        </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <br>
+    
+                            <div class="add_comment_content">
+                           
+                            <form class="was_there "> 
+                                Rate this shop:
+    
+                                                    <!-- Default unchecked -->
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="rating1" value="1" name="rating">
+                                        <label class="custom-control-label" for="rating1">1</label>
+                                    </div>
+                        
+                
+                                    <!-- Default unchecked -->
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="rating2" value="2" name="rating">
+                                        <label class="custom-control-label" for="rating2">2</label>
+                                    </div>
+                                    <!-- Default unchecked -->
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="rating3" value="3" name="rating">
+                                        <label class="custom-control-label" for="rating3">3</label>
+                                     </div>
+    
+                                        <!-- Default unchecked -->
+                                        <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="rating4" value="4" name="rating">
+                                        <label class="custom-control-label" for="rating4">4</label>
+                                         </div>
+                                       <!-- Default checked -->
+                                       <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="rating5" value="5" name="rating" checked="">
+                                        <label class="custom-control-label" for="rating5">5</label>
+                                         </div>
+                                <button class="btn btn-primary margin-auto" data-rel="back" type="button" onclick="addRating()">Potvrdi</button>
+                            </form>
+                        </div>
+    
+    
+                        </div>
+                      </div>
+    
+                       <br>
+                       <br>
+                       <br>
+                       
+                       <br>
+                       <br>
+                       <br>
+                 </div>
+
                 </div>
                 <div class="row"> 
                     <div class="col-sm-12"> 

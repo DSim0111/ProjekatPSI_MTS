@@ -67,7 +67,7 @@ class ShopReportsModel extends Model {
                         "idUser"=>$userId, 
                         "description"=>$description, 
                         "submitDate"=>$date, 
-                        "state"=>'A'
+                        "status"=>'A'
                     ];
                     $this->builder()->insert($data);
                   

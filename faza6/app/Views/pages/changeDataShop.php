@@ -7,7 +7,7 @@ if (!isset($shop)) {
 ?>
 
 <!DOCTYPE html>
-<html> 
+<html>
     <head> 
         <title> Edit Data |Giftery</title>
         <link  type="text/css" rel="stylesheet" href="<?php echo base_url("css/style_navbar.css"); ?>">

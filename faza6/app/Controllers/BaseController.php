@@ -123,7 +123,7 @@ class BaseController extends Controller {
       Lists all shops abailable in database
 
      */
-    public function listShops() {
+    public function listShops($message = null) {
 
         $shopModel = new \App\Models\ShopModel();
 
@@ -161,7 +161,10 @@ class BaseController extends Controller {
         $allCategories = $catModel->getAllCategories();
         $userRole = $this->session->get("logged_in_as");
         // echo var_dump($shops);
-        return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "userRole" => $userRole]);
+        if ($message == null)
+            return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "userRole" => $userRole]);
+        else
+            return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "userRole" => $userRole, "message" => $message]);
 
         /* pagination 
           $model = new \App\Models\SystemUserModel();

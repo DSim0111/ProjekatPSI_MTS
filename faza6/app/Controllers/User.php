@@ -21,7 +21,7 @@ class User extends BaseController {
 
     protected static $orderValidationRules = [
         'name' => 'required|alpha_numeric|min_length[2]|max_length[40]',
-        'surname' => 'required|min_length[2]|max_length[50]',
+        'surname' => 'required|alpha_numeric',
         'address' => 'required',
         'note' => 'required',
         'date' => 'required',
@@ -125,7 +125,6 @@ class User extends BaseController {
         }
     }
 
-    //TODO[miki]: dump is just temporary
     public function index() {
         return parent::listShops();
     }
@@ -140,8 +139,7 @@ class User extends BaseController {
         if (!isset($shopId) || !$sysUserModel->existsAs("Shop", $shopId)) {
             return redirect()->to(base_url("Guest/pageNotFound"));
         }
-        //TODO[miki]: better ERROR handling 
-        if (isset($ids) and count($ids) > 0 and $ids[0] != ""){
+        if (isset($ids) and count($ids) > 0 and $ids[0] != "") {
             $products = $productModel->getProductsByID($ids);
         } else {
             $products = null;
@@ -166,7 +164,7 @@ class User extends BaseController {
     }
 
 //MILAN
-    public function listShop() {
+    public function listFavShops($error = null) {
 
         $shopModel = new \App\Models\ShopModel();
         $r = $this->request;
@@ -194,17 +192,21 @@ class User extends BaseController {
         $catModel = new \App\Models\CategoriesModel();
         $allCategories = $catModel->getAllCategories();
         $userRole = $this->session->get("logged_in_as");
-
-        // echo var_dump($shops);
-        return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "role" => $userRole]);
+        if ($error == null)
+            return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "role" => $userRole,"fav"=>true]);
+        else
+            return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "role" => $userRole, "error" => $error,"fav"=>true]);
     }
 
     //MILAN
-    //TODO[miki]:If there is no products?
     public function pick_wrapper() {
         $addOnModel = new AddOnModel();
         $sysUserModel = new \App\Models\SystemUserModel();
         $shopId = $this->request->getVar("shopId");
+        $numItems = $this->request->getVar("numCartItem");
+        if ($numItems == 0) {
+            return $this->showPage('cart', ["no_products" => "You didn't buy any products!", "shopId" => $shopId]);
+        }
         if (!isset($shopId) || !$sysUserModel->existsAs("Shop", $shopId)) {
             return redirect()->to(base_url("Guest/pageNotFound"));
         }
@@ -223,20 +225,22 @@ class User extends BaseController {
     }
 
     public function validDate($date) {
-        $dateF = explode('.', $date);
-
-        if ($dateF[0] < 0 || $dateF[0] > 31)
+        $dateF = explode('-', $date);
+        if (count($dateF) != 3)
+            return false;
+        if ($dateF[0] < 2020)
             return false;
         if ($dateF[1] < 0 || $dateF[1] > 12)
             return false;
-        if ($dateF[2] < 2020)
+        if ($dateF[2] < 0 || $dateF[2] > 31)
             return false;
         return true;
     }
 
     public function validTime($time) {
         $timeF = explode(':', $time);
-
+        if (count($timeF) != 2)
+            return false;
         if ($timeF[0] < 0 || $timeF[0] > 24)
             return false;
         if ($timeF[1] < 0 || $timeF[1] > 59)
@@ -244,11 +248,11 @@ class User extends BaseController {
         return true;
     }
 
-    //TODO[miki]:check formats
+    //TODO[miki]:date time?
     public function order() {
         $retVal = $this->validate(User::$orderValidationRules);
         if (!$retVal != null) {
-            return $this->showPage('order_gifts', ['messages' => $retVal]);
+            return $this->showPage('order_gifts', $this->validator->getErrors());
         }
         $sysUserModel = new \App\Models\SystemUserModel();
         $name = $this->request->getVar('name');
@@ -264,22 +268,24 @@ class User extends BaseController {
         $shopId = $this->request->getVar("shopId");
         
         if (!$this->validDate($date)) {
-            echo "Bad Date";
-            return $this->showPage('order_gifts', ['messages' => ['badDate'=>'Incorrect date!']]);
+
+            return $this->showPage('order_gifts', array_merge($this->validator->getErrors(), ['bad_date' => 'Date is not valid!']));
         }
-        
+
         if (!$this->validTime($time)) {
-            echo "Bad Time";
-            return $this->showPage('order_gifts', ['messages' => ['badTime'=>'Incorrect time!']]);
+
+            return $this->showPage('order_gifts', array_merge($this->validator->getErrors(), ['bad_time' => 'Time should be in hh:mm format!']));
         }
-
+        date_default_timezone_set('Europe/Belgrade');
+        $today = date('Y-m-d');
+        if ($today > $date) {
+            return $this->showPage('order_gifts', array_merge($this->validator->getErrors(), ['bad_date' => 'We cannot deliver in past!']));
+        }
         // If products exists and they belong to shopId shop
-        // Date and Time in right format
-        // If $products.length==0
         // if $shopId exists
-        // echo  $name . " " . $surname . " " . $address . " " . $note . " " . $date . " " . $time . "<br>";
-        // echo  implode('-',$products) . " " . implode('-',$numItems) . " " . implode('-',$addOns) . " " . $shopId . " " . $payment . "<br>";
-
+        if ($products == null) {
+            return $this->showPage('order_gifts', array_merge($this->validator->getErrors(), ['no_products' => 'ERROR: There is no products!']));
+        }
         if (!isset($shopId) || !$sysUserModel->existsAs("Shop", $shopId)) {
             return redirect()->to(base_url("Guest/pageNotFound"));
         }
@@ -287,19 +293,37 @@ class User extends BaseController {
         $deliveryRequestModel = new \App\Models\DeliveryRequestsModel;
         $deliveryProductsModel = new \App\Models\DeliveryProductsModel;
         $deliveryAddOn = new \App\Models\DeliveryAddOnsModel;
-        $i = 0;
+        
+
+        $productModel = new ProductModel();
+        $addOnModel = new AddOnModel();
+        foreach ($products as $product) {
+            if (!$productModel->exists($shopId, $product)) {
+                return $this->listShops("ERROR: products and shop missmatch!");
+            }
+        }
+        if ($addOns != null && $addOns != "" && $addOns[0] != "") {
+            foreach ($addOns as $addOn) {
+                if (!$addOnModel->AddOnBelongsToCurrShop($shopId, $addOn)) {
+                    return $this->listShops("ERROR: add ons and shop missmatch!");
+                }
+            }
+        }
         $data = ['idUser' => $idUser, 'idShop' => $shopId,
             'state' => 'A', 'payment' => $payment, 'notes' => $note, 'address' => $address, 'receiverName' => $name,
             'receiverSurname' => $surname, 'deliverDate' => $date, 'deliverTime' => $time];
         $id = $deliveryRequestModel->insertData($data);
+        $i = 0;
+        echo "$id ";
         foreach ($products as $product) {
-            $deliveryProductsModel->insertData(['idDelReq' => $id, 'idProduct' => $product, 'quantity' => $numItems[$i]]);
+            echo $product." ";
+            $deliveryProductsModel->save(['idDelReq' => $id, 'idProduct' => $product, 'quantity' => $numItems[$i]]);
             $i++;
         }
         foreach ($addOns as $addOn) {
             $deliveryAddOn->insertData(['idDelReq' => $id, 'idA' => $addOn]);
         }
-        return $this->listShops();
+        return $this->listShops("Your order is sent!");
     }
 
 }

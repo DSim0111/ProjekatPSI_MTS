@@ -1,6 +1,3 @@
-//TODO[miki]: to add information about current shop and shop whose products are in cart
-//TODO[miki]: what happenes if user switch to another shop but there are some products in the basket from previous store?
-//Alert that asks if you want to delete all current products from cart?
 $(document).ready(function () {
     $('#butt').click(function () {
         if (localStorage.getItem('products') == null) {
@@ -16,7 +13,7 @@ $(document).ready(function () {
     });
 });
 function initShop(shopId) {
-    // Shop whose products are in cart
+    //Shop whose products are in cart
     localStorage.setItem('shopId', shopId);
 }
 function init() {
@@ -26,9 +23,26 @@ function init() {
     localStorage.removeItem('prices', "");
     localStorage.removeItem('productNames', "");
     localStorage.setItem('totalPrice', '0');
+    localStorage.setItem('numCartItems', '0');
+    localStorage.setItem('numAddOnItems', '0');
+    localStorage.removeItem('currShop', "");
+    localStorage.removeItem('addOnNames', "");
+    localStorage.removeItem('addOnPrices', "");
+    localStorage.removeItem('addOnIds', "");
 }
 
 function addToCart(id, price, productName) {
+    if (localStorage.getItem('currShop') == null) {
+        localStorage.setItem('currShop', localStorage.getItem('shopId'));
+    } else {
+        if (localStorage.getItem('currShop') != localStorage.getItem('shopId')) {
+            if (confirm("You already have items from another shop in you cart. Are you sure you want to delete them?")) {
+                init();
+            } else {
+                return;
+            }
+        }
+    }
     if (localStorage.getItem('products') == null) {
         cartItems = [];
         numCartItems = [];
@@ -51,6 +65,7 @@ function addToCart(id, price, productName) {
     } else {
         numCartItems[i] = parseInt(numCartItems[i]) + 1;
     }
+    localStorage.setItem('numCartItems', parseInt(localStorage.getItem('numCartItems')) + 1);
     localStorage.setItem('totalPrice', parseInt(localStorage.getItem('totalPrice')) + price);
     localStorage.setItem('products', cartItems.join('-'));
     localStorage.setItem('numItems', numCartItems.join('-'));
@@ -72,6 +87,7 @@ function decrease(id) {
     }
     numCartItems[i] = parseInt(numCartItems[i]) - 1;
     localStorage.setItem('totalPrice', parseInt(localStorage.getItem('totalPrice')) - parseInt(prices[i]));
+    localStorage.setItem('numCartItems', parseInt(localStorage.getItem('numCartItems')) - 1);
     if (numCartItems[i] == 0) {
         cartItems.splice(i, 1);
         numCartItems.splice(i, 1);
@@ -98,28 +114,31 @@ function decrease(id) {
 
 }
 function emptyCart() {
-    localStorage.removeItem('products', "");
-    localStorage.removeItem('numItems', "");
-    localStorage.removeItem('prices', "");
-    localStorage.removeItem('productNames', "");
-    localStorage.removeItem('addOns', "");
+    init();
     localStorage.setItem('totalPrice', '0');
+    $("#products").val(JSON.stringify([]));
+    $("#num").val(JSON.stringify([]));
+    $("#sendForm").submit();
+    return;
 }
-//TODO[miki]: if there is no addOns selected
+
 function addOns() {
     additions = document.querySelectorAll('input[name=additions]:checked');
     addOnIds = [];
     addOnNames = [];
     addOnPrices = [];
+    numAddOns = 0;
     additions.forEach((addition) => {
         let addOns = addition.value.split('-');
         addOnIds.push(addOns[0]);
         addOnNames.push(addOns[1]);
         addOnPrices.push(addOns[2]);
+        numAddOns++;
     });
     addOnIds = addOnIds.join('-');
     addOnNames = addOnNames.join('-');
     addOnPrices = addOnPrices.join('-');
+    localStorage.setItem('numAddOnItems',numAddOns);
     localStorage.setItem('addOnIds', addOnIds);
     localStorage.setItem('addOnNames', addOnNames);
     localStorage.setItem('addOnPrices', addOnPrices);
@@ -154,11 +173,11 @@ function initBill() {
     addOnPrices = localStorage.getItem('addOnPrices').split('-');
     let additions = "";
     let addOnSum = 0;
-    for (let i = 0; i < addOnIds.length - 1; i++) {
+    for (let i = 0; i < parseInt(localStorage.getItem('numAddOnItems')) - 1; i++) {
         additions = additions + addOnNames[i] + "(" + addOnPrices[i] + " RSD), ";
         addOnSum += parseInt(addOnPrices[i]);
     }
-    if (addOnIds.length > 0) {
+    if (parseInt(localStorage.getItem('numAddOnItems')) > 0) {
         additions = additions + addOnNames[addOnNames.length - 1] + "(" + addOnPrices[addOnNames.length - 1] + " RSD)";
         addOnSum += parseInt(addOnPrices[addOnPrices.length - 1])
     }
@@ -170,20 +189,25 @@ function initBill() {
 function payment() {
     var selected = $("input[name=payment]:checked").val();
     if (selected) {
-        localStorage.setItem()('payment', selected);
+        localStorage.setItem('payment', selected);
     }
 }
 function addRest() {
-
-
     let cartItems = localStorage.getItem('products').split('-');
     let numCartItems = localStorage.getItem('numItems').split('-');
     let addOns = localStorage.getItem('addOnIds').split('-');
-    
+
     $("#shopId").val(localStorage.getItem('shopId'));
     $("#quantity").val(JSON.stringify(numCartItems));
     $("#products").val(JSON.stringify(cartItems));
     $("#payment").val(localStorage.getItem('payment'));
     $("#addOns").val(JSON.stringify(addOns));
 }
-
+function checkNumItems(){
+    let num = localStorage.getItem("numCartItems");
+    $("#numCartItem").val(num);
+    if (localStorage.getItem("shopId")!=localStorage.getItem("currShop")){
+        $("#shopIdSend").val(localStorage.getItem("currShop"));
+        localStorage.setItem("shopId",localStorage.getItem("currShop"));
+    }
+}

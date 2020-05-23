@@ -8,12 +8,16 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/css/style_common.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/css/style_shopList.css">
         <link  type="text/css" rel="stylesheet" href="<?php echo base_url("css/style_navbar.css"); ?>">
-
-
-
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="<?php echo base_url(); ?>/js/shopCart.js"></script>
     </head>
 
-    <body> 
+    <body <?php if (isset($message)) {
+    echo "onLoad=init();";
+} ?>> 
         <?php
         if (isset($header)) {
 
@@ -23,8 +27,10 @@
         <div class="container-fluid myContainer">    
 
             <form name="filterForm"  method="GET" action="<?php
-            echo base_url("" . $controller . "/listShops");
-            ?>"> 
+                  if(isset($fav))
+                      echo base_url("" . $controller . "/listFavShops");
+                  else echo base_url("" . $controller . "/listShops");
+                  ?>"> 
 
                 <div class="row"> 
 
@@ -37,7 +43,7 @@
                     </div> 
 
                     <div class="offset-lg-4  col-lg-6 col-sm-8  col-8 noPadding" align="center"> 
-
+<?php if (isset($message)) echo "<br><span style='color:red'>$$message</span></center>"; ?>
                         <input type="text" class="search_input" name="search" value="" placeholder="Search here"> 
                         <button type="submit" class="btn search_submit"><img class="icon" id="search_icon" src="../images/icons/search-icon.png"></button>
 
@@ -58,7 +64,7 @@
                                 <button  class="dropdown-item" type="submit"  name="sort" value="date_desc">By date desc</button>
                                 <button  class="dropdown-item" type="submit"  name="sort" value="shopName_asc">By name asc</button>
                                 <button  class="dropdown-item" type="submit"   name="sort" value="shopName_desc">By name desc</button>
-                             
+
 
                             </div>
                         </div>
@@ -124,11 +130,11 @@
 
         <!--HEHEHEHHEHE-->
         <script>
-                        function toggleFilter() {
-                            
-                            $("#filter_div").toggleClass("d-none");
-                        }
-                      
+                            function toggleFilter() {
+
+                                $("#filter_div").toggleClass("d-none");
+                            }
+
         </script>
     </body>
 </html>

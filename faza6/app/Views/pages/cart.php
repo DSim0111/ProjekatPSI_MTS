@@ -30,7 +30,7 @@
             <div class="row" align="center"> 
 
                 <div class="col-sm-12"> 
-
+                    <?php if(isset($no_products)) echo "<br><span style='color:red'>$no_products</span></center>";?>
                     <br>
                     <h3>You ordered these items:</h3>
                     <div class="row">
@@ -79,8 +79,9 @@
                 </div>
                 <div class="col-sm-6" align="center"> 
                     <form id="continue" method="POST" action="<?php echo base_url(); ?>/User/pick_wrapper">
-                        <input id="shopId" type="hidden" name="shopId" value="<?php echo $shopId; ?>">
-                        <button class="btn btn-info">Continue with order</button>
+                        <input id="shopIdSend" type="hidden" name="shopId" value="<?php echo $shopId; ?>">
+                        <input id="numCartItem" type="hidden" name="numCartItem">
+                        <button class="btn btn-info" onClick="checkNumItems();">Continue with order</button>
                     </form>
 
                 </div>

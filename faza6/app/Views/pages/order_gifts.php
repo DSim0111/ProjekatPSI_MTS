@@ -22,23 +22,34 @@
         }
         ?>
         <br>
+        
         <div class="container myContainer"> 
 
             <div class="row" > 
                 <div class="offset-sm-4 col-sm-4 log-box-center rowBorder"> 
+                    <?php if(isset($no_products)) echo "<br><span style='color:red'>$no_products</span></center>";?>
                     <form method="POST" action="/User/order">
                         <p>Person's name</p>
                         <input type="text" name="name" placeholder="Enter first name">
+                        <?php if(isset($name)) echo "<br><span style='color:red'>$name</span></center>";?>
                         <p>Person's surname</p>
                         <input type="text" name="surname" placeholder="Enter last name">
+                        <?php if(isset($surname)) echo "<br><span style='color:red'>$surname</span></center>";?>
                         <p>Address</p>
                         <input type="text" name="address" placeholder="Enter address">
+                        <?php if(isset($address)) echo "<br><span style='color:red'>$address</span></center>";?>
                         <p>Note</p>
                         <input type="text" name="note" placeholder="Enter note">
-                        <p>Date of delivery</p>
+                        <?php if(isset($note)) echo "<br><span style='color:red'>$note</span></center>";?>
+                        <p>Date of delivery [yyyy-mm-dd]</p>
                         <input type="text" name="date" placeholder="Enter date">
-                        <p>Time of delivery</p>
+                        <?php if(isset($date)) echo "<br><span style='color:red'>$date</span></center>";?>
+                        <?php if(isset($bad_date)) echo "<br><span style='color:red'>$bad_date</span></center>";?>
+                        <p>Time of delivery [hh:mm]</p>
                         <input type="text" name="time" placeholder="Enter time">
+                        
+                        <?php if(isset($time)) echo "<br><span style='color:red'>$time</span></center>";?>
+                        <?php if(isset($bad_time)) echo "<br><span style='color:red'>$bad_time</span></center>";?>
 
 
                         <input type="hidden" name="shopId" id="shopId">

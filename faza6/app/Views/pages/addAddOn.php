@@ -52,8 +52,6 @@
                             Upload image
                         </p>
                         <img id="upload_img">
-
-
                     </div>
                     <br>
                     <input type="file" id="uploadedImage" name="image"> 
@@ -63,21 +61,14 @@
                         echo "<p style='color:red;'>" . $image . "</p> ";
                     }
                     ?> 
-
-
-
                 </div>
-
-
-
+                
                 <div class="col-sm-4">
-
                     Product name 
                     <span style='color:red'>*</span>
                     <br>
                     <input type="text" placeholder="Enter name" name="addOn_name" value="<?php echo set_value('product_name'); ?>">
                     <?php if (isset($addOn_name)) echo "<p style='color:red'>$addOn_name </p></center>"; ?>
-
 
                     <br>
                     Price
@@ -85,16 +76,8 @@
                     <br>
                     <input type="text" placeholder="Enter price" name="addOn_price" value="<?php echo set_value('product_price'); ?>">
                     <?php if (isset($addOn_price)) echo "<p style='color:red'>$addOn_price</p></center>"; ?>
-
-
-
                 </div>
             </div>
-
-
-
-
-
             <div class="row">
                 <div class="col-sm-12">
 

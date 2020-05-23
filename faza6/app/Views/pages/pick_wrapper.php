@@ -27,29 +27,27 @@
                     <br>
 
                     <h5> Pick addition</h5> 
-
-                    <?php
-                    if (isset($addons) and (count($addons) > 0)) {
-                        $addOnsPerRow = array(array(), array(), array(), array());
-                        $i = 0;
-                        $j = 0;
-                        foreach ($addons as $addon) {
-                            array_push($addOnsPerRow[$i % 4], $addon);
-                            $i++;
-                        }
-                        for ($i = 0; $i < 4; $i++) {
-                            echo "<div class='col-sm-3 myCol'>";
+                    <div class="row">
+                        <?php
+                        if (isset($addons) and (count($addons) > 0)) {
+                            $addOnsPerRow = array(array(), array(), array(), array());
+                            $i = 0;
                             $j = 0;
-                            foreach ($addOnsPerRow[$i] as $addon) {
-                                $data = ['addOn' => $addon];
-                                echo view('templates/addOn', $data);
-                                $j++;
+                            foreach ($addons as $addon) {
+                                array_push($addOnsPerRow[$i % 4], $addon);
+                                $i++;
                             }
-                            echo "</div>";
+                            for ($i = 0; $i < 4; $i++) {
+                                echo "<div class='col-sm-3 myCol'>";
+                                foreach ($addOnsPerRow[$i] as $addon) {
+                                    $data = ['addOn' => $addon];
+                                    echo view('templates/addOn', $data);
+                                }
+                                echo "</div>";
+                            }
                         }
-                    }
-                    ?>
-
+                        ?>
+                    </div>
 
                     <form id="wrapperForm" method="POST" action="/User/payment_method">
                         <br><br>

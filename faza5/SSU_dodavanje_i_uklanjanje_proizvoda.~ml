@@ -2329,13 +2329,12 @@
 <XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="G8tdD66JsE+ibjgEMQDB7wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">204</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">208</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">496</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">697</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">248</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">233</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Funkcije se pozivaju sa stranice addRemoveProductShop -nakon uspešnog dodavanja Shop ce biti vracen na tu stranicu gde ce mu se nalaziti
-izlistani svi dodaci i proizvodi koje nudi (tu se vidi i novi proizvod)-povratak i izlistavanje se vrše pomocu fje showAllProducts i metoda 
-getAllAddOnsForShop (AddOnModel)  i getAllProductsForShop(ProductModel)
+izlistani svi dodaci i proizvodi koje nudi (tu se vidi i novi proizvod)-povratak i izlistavanje se vrše pomocu fje showAllProducts
 Dodavanje:
 =======================================================================
 Kada prodavnice klike na dugme addProduct poziva se metoda ShopControllera-addProduct koji

@@ -414,7 +414,7 @@
 <XPD:OBJ name="OwnedViews[0]" type="UMLClassView" guid="MU7k/2xBpEOhpW1BUpgtTQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">392</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">388</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">165</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
@@ -422,7 +422,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="vLGF9XEsRkSzR0TN5zSoWQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="nliADq1gKU606X03vkPq6wAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">cpProductsOverview.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">cpShopPage.html</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="alBEmcg1fU6vCT1xasSioQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -454,7 +454,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="AJfnB2o83UiJvTzSN3FEUAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="XyzKNIzCREOsGDSa4Ct1tAAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">cpCart.html</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="wXnLYoPusU2uQVjWPuCNhgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -486,7 +486,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="2lWqkEXuw0utN/Hfy84HWQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="p1o1Shk8/kqa7ahJpUjlgAAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">spUSerController.php</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">spUserController.php</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="HcsGjaioXUK9Ykr3Fi1yvQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -511,7 +511,7 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">424</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">484</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">216</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">217</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">Tmkcr1imvkqRqJYg0qCrOAAA</XPD:REF>
@@ -541,7 +541,7 @@
 <XPD:OBJ name="OwnedViews[4]" type="UMLAssociationView" guid="lCH+UFLEdkuPWsxdXOEFxwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">487,95;507,172</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">484,95;506,172</XPD:ATTR>
 <XPD:REF name="Model">NuV6A/TZzkOzlIDlf7g5JwAA</XPD:REF>
 <XPD:REF name="Head">JcdliYbbSEasIIYCpnZ7jwAA</XPD:REF>
 <XPD:REF name="Tail">MU7k/2xBpEOhpW1BUpgtTQAA</XPD:REF>
@@ -625,7 +625,7 @@
 <XPD:OBJ name="OwnedViews[5]" type="UMLAssociationView" guid="spxSFJ0K9UCUxRj/Blh67QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">521,267;529,484</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">521,267;530,484</XPD:ATTR>
 <XPD:REF name="Model">tfNKK7bNOk2ZKHLcqq52igAA</XPD:REF>
 <XPD:REF name="Head">sTKUHgouoE6Vq9QoO6iEbgAA</XPD:REF>
 <XPD:REF name="Tail">JcdliYbbSEasIIYCpnZ7jwAA</XPD:REF>
@@ -878,7 +878,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedElements" type="integer">14</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="SkW5Kj4iM0W365sy7JIuFgAA">
-<XPD:ATTR name="Name" type="string">cpProductsOverview.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cpShopPage.html</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">WAE</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">client page (stereotype)</XPD:ATTR>
 <XPD:REF name="Namespace">cgcD/b93tkmDGpYDnKy6BAAA</XPD:REF>
@@ -889,7 +889,7 @@
 <XPD:REF name="Views[3]">hecIzfa4AUOcvFrrbLMMoQAA</XPD:REF>
 <XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="6Q4djHd+Z0mAp2Q4D7R27QAA">
-<XPD:ATTR name="Name" type="string">viewCart</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Cart</XPD:ATTR>
 <XPD:REF name="Owner">SkW5Kj4iM0W365sy7JIuFgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">4</XPD:ATTR>
@@ -920,7 +920,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[3]" type="UMLClass" guid="U5kZsXKmMEOHgFgIfAU4/QAA">
-<XPD:ATTR name="Name" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cpCart.html</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">WAE</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">client page (stereotype)</XPD:ATTR>
 <XPD:REF name="Namespace">cgcD/b93tkmDGpYDnKy6BAAA</XPD:REF>
@@ -931,14 +931,14 @@
 <XPD:REF name="Views[3]">SiiTBwJh2UaC4ZPBtEUx+wAA</XPD:REF>
 <XPD:ATTR name="#Operations" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="g4kFYtYc6ke0c/Vw5UkvrgAA">
-<XPD:ATTR name="Name" type="string">deleteAllItems</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">emptyCart</XPD:ATTR>
 <XPD:REF name="Owner">U5kZsXKmMEOHgFgIfAU4/QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Operations[1]" type="UMLOperation" guid="z0KV/L9YZEilmyBYIztpwwAA">
-<XPD:ATTR name="Name" type="string">deleteItem</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">decrease</XPD:ATTR>
 <XPD:REF name="Owner">U5kZsXKmMEOHgFgIfAU4/QAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="6AcSMpVyL028KckB5LAVnQAA">
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="s8/FUa1DJ0u02rzntyHTgQAA">
 <XPD:ATTR name="Name" type="string">item</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">integer</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">z0KV/L9YZEilmyBYIztpwwAA</XPD:REF>
@@ -1014,7 +1014,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[8]" type="UMLClass" guid="NBcnvF9XHUK6lMO42W3JXQAA">
-<XPD:ATTR name="Name" type="string">spUSerController.php</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">spUserController.php</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">WAE</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">server page (stereotype)</XPD:ATTR>
 <XPD:REF name="Namespace">cgcD/b93tkmDGpYDnKy6BAAA</XPD:REF>
@@ -1025,10 +1025,10 @@
 <XPD:REF name="Views[3]">ZlAEiEHbTECErBEk/E5vvQAA</XPD:REF>
 <XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="Ds20iqohYEKd+7kXu8cZ3AAA">
-<XPD:ATTR name="Name" type="string">getCartProducts</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">checkCart</XPD:ATTR>
 <XPD:REF name="Owner">NBcnvF9XHUK6lMO42W3JXQAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="bRY/GMWGpkO+jqNwRImrawAA">
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="oTpKFh3r00isXK9WH6K28gAA">
 <XPD:ATTR name="Name" type="string">products</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">integer[0..*]</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">Ds20iqohYEKd+7kXu8cZ3AAA</XPD:REF>
@@ -1052,10 +1052,10 @@
 <XPD:REF name="Views[3]">lmxX7KHtZEaR9WUFQA4OnQAA</XPD:REF>
 <XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="1Xomx3RnbkeWK7Oy+jsAAQAA">
-<XPD:ATTR name="Name" type="string">getCartProducts</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">getProductsById</XPD:ATTR>
 <XPD:REF name="Owner">Tmkcr1imvkqRqJYg0qCrOAAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="rOHl825JF0qE8OFi+uDfiAAA">
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="DkjfSWGBtUSmUmlQ4YPsswAA">
 <XPD:ATTR name="Name" type="string">products</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">integer[0..*]</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">1Xomx3RnbkeWK7Oy+jsAAQAA</XPD:REF>
@@ -1234,7 +1234,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="+6sLtMeAik2ZpPUV57I5wAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="L2Vjc/0DkUCdJ76QAQrPAgAA">
 <XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">cpProductsOverview.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">cpShopPage.html</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="QVvXF32uG0axHA0IWnG5oAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -1258,7 +1258,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="tlIrzdmPp0KINUZmCY9BOQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="qIgS34cGNEmrt7Jsk14DswAA">
 <XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">cpCart.html</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="95lFmAqZUEaBssvjHqSyAwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -1330,7 +1330,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="puGlsvTt2UWN2N/Se4Og6gAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">1 : viewCarrt()</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">1 : cart()</XPD:ATTR>
 <XPD:REF name="Model">wHH8JE7deU2VjKvWDWX48AAA</XPD:REF>
 <XPD:REF name="HostEdge">lGVrTULbHEmktSzBiFh0ywAA</XPD:REF>
 </XPD:OBJ>
@@ -1364,9 +1364,9 @@
 <XPD:REF name="Head">C5+PMWK1CEyiOEviILn1eQAA</XPD:REF>
 <XPD:REF name="Tail">X2c1EfBN006eqCFWWgQKWQAA</XPD:REF>
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="PgkZYhKKp02qQjLuZEkITQAA">
-<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
-<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">2 : getCartProducts()</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-4.64108157266954</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">14.0356688476182</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">2 : checkCart()</XPD:ATTR>
 <XPD:REF name="Model">vjVaruddok6CrZo7/a4cdQAA</XPD:REF>
 <XPD:REF name="HostEdge">D8VzP7bM8E264yugcvqmNQAA</XPD:REF>
 </XPD:OBJ>
@@ -1402,7 +1402,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="5McbeX6XKk61U6iq0pp8HgAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">3 : getCartProducts()</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">3 : getProductsById()</XPD:ATTR>
 <XPD:REF name="Model">MbXT7gRSyUqa1Ufn+jfGagAA</XPD:REF>
 <XPD:REF name="HostEdge">sgszAtgdgU+gQkfktsRT2QAA</XPD:REF>
 </XPD:OBJ>
@@ -1438,7 +1438,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="IOgAy6xdIkmUTR9fokV+3QAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">4 : cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">4 : cartProducts[0..*]</XPD:ATTR>
 <XPD:REF name="Model">p/n26G9ia0+/U+bvMJ4etwAA</XPD:REF>
 <XPD:REF name="HostEdge">pNQFK+qyVkSRKpkL32CWOQAA</XPD:REF>
 </XPD:OBJ>
@@ -1475,7 +1475,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="oS2IL0qzTEKn3vfFeletdgAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">5 : cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">5 : cpCart.html</XPD:ATTR>
 <XPD:REF name="Model">yO/g3WDJfEapX+yFTuJSQQAA</XPD:REF>
 <XPD:REF name="HostEdge">JH4S/YX1z022RPgwyMyLvgAA</XPD:REF>
 </XPD:OBJ>
@@ -1512,7 +1512,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="KFBQr+p6ME+uR1sqdskNbgAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">6 : cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">6 : cpCart.html</XPD:ATTR>
 <XPD:REF name="Model">7d8QamhYD0WRRVmd6brxOwAA</XPD:REF>
 <XPD:REF name="HostEdge">vEeiXMdaFUqrf+9Jhrh0uAAA</XPD:REF>
 </XPD:OBJ>
@@ -1549,7 +1549,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="q1nygSF5kkmbTjNm5lbVngAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">7 : deleteItem()</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">7 : decrease()</XPD:ATTR>
 <XPD:REF name="Model">L/vvNp+DR0uQras7cM/vLgAA</XPD:REF>
 <XPD:REF name="HostEdge">1ZSuj95TjEe2OGk3xm1yNgAA</XPD:REF>
 </XPD:OBJ>
@@ -1615,7 +1615,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#ParticipatingStimuli" type="integer">8</XPD:ATTR>
 <XPD:OBJ name="ParticipatingStimuli[0]" type="UMLStimulus" guid="wHH8JE7deU2VjKvWDWX48AAA">
-<XPD:ATTR name="Name" type="string">viewCarrt</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cart</XPD:ATTR>
 <XPD:REF name="Sender">nWruUEfKX0OIe6JCRqh9LAAA</XPD:REF>
 <XPD:REF name="Receiver">wi/hd1K7tEKUptLIij7KbAAA</XPD:REF>
 <XPD:OBJ name="Action" type="UMLCallAction" guid="la6WBFGOy0+rnMn0fFJ67QAA">
@@ -1629,7 +1629,7 @@
 <XPD:REF name="Views[3]">Bu+uoy3fz0mkykR1d6NnSwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingStimuli[1]" type="UMLStimulus" guid="vjVaruddok6CrZo7/a4cdQAA">
-<XPD:ATTR name="Name" type="string">getCartProducts</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">checkCart</XPD:ATTR>
 <XPD:ATTR name="Arguments" type="string">products: integer[0..*]</XPD:ATTR>
 <XPD:REF name="Sender">wi/hd1K7tEKUptLIij7KbAAA</XPD:REF>
 <XPD:REF name="Receiver">VINWEGBYj0moZ7Qs06rsBAAA</XPD:REF>
@@ -1644,7 +1644,7 @@
 <XPD:REF name="Views[3]">51FSeLtKE0+4vtduMw2CGQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingStimuli[2]" type="UMLStimulus" guid="MbXT7gRSyUqa1Ufn+jfGagAA">
-<XPD:ATTR name="Name" type="string">getCartProducts</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">getProductsById</XPD:ATTR>
 <XPD:ATTR name="Arguments" type="string">products: integer[0..*]</XPD:ATTR>
 <XPD:REF name="Sender">VINWEGBYj0moZ7Qs06rsBAAA</XPD:REF>
 <XPD:REF name="Receiver">6h/4I/XiL0GCPsFKvFl2gQAA</XPD:REF>
@@ -1659,7 +1659,7 @@
 <XPD:REF name="Views[3]">ajOUpjrhIkSFppE2zrFYEAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingStimuli[3]" type="UMLStimulus" guid="p/n26G9ia0+/U+bvMJ4etwAA">
-<XPD:ATTR name="Name" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cartProducts[0..*]</XPD:ATTR>
 <XPD:REF name="Sender">6h/4I/XiL0GCPsFKvFl2gQAA</XPD:REF>
 <XPD:REF name="Receiver">VINWEGBYj0moZ7Qs06rsBAAA</XPD:REF>
 <XPD:OBJ name="Action" type="UMLReturnAction" guid="UgwVa1Sn00OIuXoN6wPjFQAA">
@@ -1673,7 +1673,7 @@
 <XPD:REF name="Views[3]">rbuqmQ7ctEGAbJhQmBYflQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingStimuli[4]" type="UMLStimulus" guid="yO/g3WDJfEapX+yFTuJSQQAA">
-<XPD:ATTR name="Name" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cpCart.html</XPD:ATTR>
 <XPD:REF name="Sender">VINWEGBYj0moZ7Qs06rsBAAA</XPD:REF>
 <XPD:REF name="Receiver">wi/hd1K7tEKUptLIij7KbAAA</XPD:REF>
 <XPD:OBJ name="Action" type="UMLReturnAction" guid="4Hn/4C9PJU2BtPxPoubbpgAA">
@@ -1687,7 +1687,7 @@
 <XPD:REF name="Views[3]">LRk1pLcq2EiiisTOQ3pVhgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingStimuli[5]" type="UMLStimulus" guid="7d8QamhYD0WRRVmd6brxOwAA">
-<XPD:ATTR name="Name" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cpCart.html</XPD:ATTR>
 <XPD:REF name="Sender">wi/hd1K7tEKUptLIij7KbAAA</XPD:REF>
 <XPD:REF name="Receiver">nWruUEfKX0OIe6JCRqh9LAAA</XPD:REF>
 <XPD:OBJ name="Action" type="UMLReturnAction" guid="241Dba7/f0+aF5u1T3n0jgAA">
@@ -1701,7 +1701,7 @@
 <XPD:REF name="Views[3]">+dqsgTNj8EuX+j/6Rivh0AAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingStimuli[6]" type="UMLStimulus" guid="L/vvNp+DR0uQras7cM/vLgAA">
-<XPD:ATTR name="Name" type="string">deleteItem</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">decrease</XPD:ATTR>
 <XPD:ATTR name="Arguments" type="string">item: integer</XPD:ATTR>
 <XPD:REF name="Sender">nWruUEfKX0OIe6JCRqh9LAAA</XPD:REF>
 <XPD:REF name="Receiver">7UflXWBH1Eu0nPeTKht1ywAA</XPD:REF>
@@ -1744,7 +1744,7 @@
 <XPD:REF name="ReceivingStimuli[1]">iit/12zgTEm7drNpghO2WwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingInstances[1]" type="UMLObject" guid="wi/hd1K7tEKUptLIij7KbAAA">
-<XPD:ATTR name="Name" type="string">cpProductsOverview.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cpShopPage.html</XPD:ATTR>
 <XPD:REF name="CollaborationInstanceSet">s7oy7i5uKka2YyVTM7czxwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
 <XPD:REF name="Views[0]">oY+cmJrAg0STa84mYMnMEQAA</XPD:REF>
@@ -1757,7 +1757,7 @@
 <XPD:REF name="ReceivingStimuli[1]">yO/g3WDJfEapX+yFTuJSQQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingInstances[2]" type="UMLObject" guid="7UflXWBH1Eu0nPeTKht1ywAA">
-<XPD:ATTR name="Name" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cpCart.html</XPD:ATTR>
 <XPD:REF name="CollaborationInstanceSet">s7oy7i5uKka2YyVTM7czxwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
 <XPD:REF name="Views[0]">1rCKH2Lg0E2hEjrZpK5bPgAA</XPD:REF>
@@ -1841,7 +1841,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="D718YKkbjk+7Xs+jMaFzLwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="AgKmtiGteU249JanLKGrwQAA">
 <XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">cpProductsOverview.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">cpShopPage.html</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="g8h5CBHXIE+8eoc5I6rBTQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -1865,7 +1865,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="yWIMwhi5P0SzIek8qgKLiwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="e3BK+EFTWkC3iEtrZXV9JwAA">
 <XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">cpCart.html</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="g/JH0PTSr06cVLtDL0yFUwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -1889,7 +1889,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="0RdZghIuIkGaTQZPU2W0yQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="rdBe80oqpEy7emo0gnLHNQAA">
 <XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">spUSerController.php</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">spUserController.php</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="XyXLvh8zT0G+gZNmWZcD5AAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -1937,7 +1937,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="b8cl6C3jJEKwaWRrNc/fQgAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">1 : viewCarrt()</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">1 : cart()</XPD:ATTR>
 <XPD:REF name="Model">k1KXV8of9ECTu1s9DTj1xQAA</XPD:REF>
 <XPD:REF name="HostEdge">uP7F/uJZU0yHFXpZ+Xx0YAAA</XPD:REF>
 </XPD:OBJ>
@@ -1973,7 +1973,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="1yLpet9/H0C6UQHriB4dCQAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">2 : getCartProducts()</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">2 : checkCart()</XPD:ATTR>
 <XPD:REF name="Model">7F5tZNFC9EqqKxggrUcUuQAA</XPD:REF>
 <XPD:REF name="HostEdge">FBB3T1nXf0qguPVIbfMJSAAA</XPD:REF>
 </XPD:OBJ>
@@ -2009,7 +2009,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="4BMThAAcY0ihJHKfDMUtRwAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">3 : getCartProducts()</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">3 : getProductsById()</XPD:ATTR>
 <XPD:REF name="Model">TsDzD8QHrUeKYaLKrZO19AAA</XPD:REF>
 <XPD:REF name="HostEdge">0timbuvJd0aCpuo7P+Bj8wAA</XPD:REF>
 </XPD:OBJ>
@@ -2045,7 +2045,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="vunmqGi4cU+SAmpzVpbw9gAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">4 : cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">4 : cartProducts[0..*]</XPD:ATTR>
 <XPD:REF name="Model">xHpdMexl40eb5kGfeX9TkgAA</XPD:REF>
 <XPD:REF name="HostEdge">cLvTQTKf8Eakc558bPqUYQAA</XPD:REF>
 </XPD:OBJ>
@@ -2082,7 +2082,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="nlfVpXoAF0KYBLf3wK1TIgAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">5 : cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">5 : cpCart.html</XPD:ATTR>
 <XPD:REF name="Model">hfCTZUAUu0qYIimWtuXocwAA</XPD:REF>
 <XPD:REF name="HostEdge">3clzQ49Ii0CVoPyoETcjAwAA</XPD:REF>
 </XPD:OBJ>
@@ -2119,7 +2119,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="VGBahAgzWEqkX0Kn1Vv/qgAA">
 <XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">6 : cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">6 : cpCart.html</XPD:ATTR>
 <XPD:REF name="Model">hNs+yNS1ik68dSVZYQJ6TgAA</XPD:REF>
 <XPD:REF name="HostEdge">p53mVxzvKk25Qms6L3f1RgAA</XPD:REF>
 </XPD:OBJ>
@@ -2222,7 +2222,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#ParticipatingStimuli" type="integer">8</XPD:ATTR>
 <XPD:OBJ name="ParticipatingStimuli[0]" type="UMLStimulus" guid="k1KXV8of9ECTu1s9DTj1xQAA">
-<XPD:ATTR name="Name" type="string">viewCarrt</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cart</XPD:ATTR>
 <XPD:REF name="Sender">eslYPt0iyE2qDTQG6qFLKAAA</XPD:REF>
 <XPD:REF name="Receiver">/aNIgjebl0OPjwB4/cL+3gAA</XPD:REF>
 <XPD:OBJ name="Action" type="UMLCallAction" guid="sK6X5FKbzkG3Z+mMudyb9gAA">
@@ -2236,7 +2236,7 @@
 <XPD:REF name="Views[3]">hkAjXcbv8EanWx+o2N2otwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingStimuli[1]" type="UMLStimulus" guid="7F5tZNFC9EqqKxggrUcUuQAA">
-<XPD:ATTR name="Name" type="string">getCartProducts</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">checkCart</XPD:ATTR>
 <XPD:ATTR name="Arguments" type="string">products: integer[0..*]</XPD:ATTR>
 <XPD:REF name="Sender">/aNIgjebl0OPjwB4/cL+3gAA</XPD:REF>
 <XPD:REF name="Receiver">4ZMpKPwaNEuVXWierizuigAA</XPD:REF>
@@ -2251,7 +2251,7 @@
 <XPD:REF name="Views[3]">v1Loy4wkt0G5F+NPYIuEswAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingStimuli[2]" type="UMLStimulus" guid="TsDzD8QHrUeKYaLKrZO19AAA">
-<XPD:ATTR name="Name" type="string">getCartProducts</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">getProductsById</XPD:ATTR>
 <XPD:ATTR name="Arguments" type="string">products: integer[0..*]</XPD:ATTR>
 <XPD:REF name="Sender">4ZMpKPwaNEuVXWierizuigAA</XPD:REF>
 <XPD:REF name="Receiver">XBggoXGQr0mTJglINlfMaAAA</XPD:REF>
@@ -2266,7 +2266,7 @@
 <XPD:REF name="Views[3]">JmSJb2CaX0Kl6m4zM9T+7wAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingStimuli[3]" type="UMLStimulus" guid="xHpdMexl40eb5kGfeX9TkgAA">
-<XPD:ATTR name="Name" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cartProducts[0..*]</XPD:ATTR>
 <XPD:REF name="Sender">XBggoXGQr0mTJglINlfMaAAA</XPD:REF>
 <XPD:REF name="Receiver">4ZMpKPwaNEuVXWierizuigAA</XPD:REF>
 <XPD:OBJ name="Action" type="UMLReturnAction" guid="+pTuRxnKak2cJ4Ra0a4VGAAA">
@@ -2280,7 +2280,7 @@
 <XPD:REF name="Views[3]">BcyU4X9aAUizZ3XjmcIMawAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingStimuli[4]" type="UMLStimulus" guid="hfCTZUAUu0qYIimWtuXocwAA">
-<XPD:ATTR name="Name" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cpCart.html</XPD:ATTR>
 <XPD:REF name="Sender">4ZMpKPwaNEuVXWierizuigAA</XPD:REF>
 <XPD:REF name="Receiver">/aNIgjebl0OPjwB4/cL+3gAA</XPD:REF>
 <XPD:OBJ name="Action" type="UMLReturnAction" guid="/aV9tafV1UmZy5r2C2PbvwAA">
@@ -2294,7 +2294,7 @@
 <XPD:REF name="Views[3]">WIwEN9hAT0K7tCWw6d1IWAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingStimuli[5]" type="UMLStimulus" guid="hNs+yNS1ik68dSVZYQJ6TgAA">
-<XPD:ATTR name="Name" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cpCart.html</XPD:ATTR>
 <XPD:REF name="Sender">/aNIgjebl0OPjwB4/cL+3gAA</XPD:REF>
 <XPD:REF name="Receiver">eslYPt0iyE2qDTQG6qFLKAAA</XPD:REF>
 <XPD:OBJ name="Action" type="UMLReturnAction" guid="LuBgRUukZ0Gg29lkx5TTzgAA">
@@ -2350,7 +2350,7 @@
 <XPD:REF name="ReceivingStimuli[1]">+UrTGM4BQ0eV0dObsAGiLAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingInstances[1]" type="UMLObject" guid="/aNIgjebl0OPjwB4/cL+3gAA">
-<XPD:ATTR name="Name" type="string">cpProductsOverview.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cpShopPage.html</XPD:ATTR>
 <XPD:REF name="CollaborationInstanceSet">nWcdKHfrLkKuLWPeALHmpgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
 <XPD:REF name="Views[0]">ZXxViV4/9ka92FFBKG1oKgAA</XPD:REF>
@@ -2363,7 +2363,7 @@
 <XPD:REF name="ReceivingStimuli[1]">hfCTZUAUu0qYIimWtuXocwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingInstances[2]" type="UMLObject" guid="4WULQtt0hESR8xJcINVPOwAA">
-<XPD:ATTR name="Name" type="string">cpCartView.html</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">cpCart.html</XPD:ATTR>
 <XPD:REF name="CollaborationInstanceSet">nWcdKHfrLkKuLWPeALHmpgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
 <XPD:REF name="Views[0]">1LVCgSi/GUiwjvfHcH4Q4AAA</XPD:REF>
@@ -2374,7 +2374,7 @@
 <XPD:REF name="ReceivingStimuli[0]">eL9ht6LIXk6eSQfaaQNvPgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingInstances[3]" type="UMLObject" guid="4ZMpKPwaNEuVXWierizuigAA">
-<XPD:ATTR name="Name" type="string">spUSerController.php</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">spUserController.php</XPD:ATTR>
 <XPD:REF name="CollaborationInstanceSet">nWcdKHfrLkKuLWPeALHmpgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
 <XPD:REF name="Views[0]">J0pWbL8bNkuE2wSAw67nagAA</XPD:REF>

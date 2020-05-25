@@ -617,9 +617,18 @@
 <XPD:REF name="Views[2]">4zIVYp3DWESteJDTrmmpeAAA</XPD:REF>
 <XPD:REF name="Views[3]">Y+Up+bPUVkSEyJ6lgP47bwAA</XPD:REF>
 </XPD:OBJ>
+<XPD:ATTR name="#OwnedFrames" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedFrames[0]" type="UMLFrame" guid="ZOXZaeTF7kmP8e2I+CAppQAA">
+<XPD:ATTR name="Name" type="string">Frame1</XPD:ATTR>
+<XPD:ATTR name="FrameKind" type="string">sd</XPD:ATTR>
+<XPD:REF name="InteractionInstanceSet">tZGA5JDDPEK/0XKrjOYEjAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:ATTR name="#ParticipatingInstances" type="integer">2</XPD:ATTR>
-<XPD:OBJ name="ParticipatingInstances[0]" type="UMLObject" guid="ew3nglkyKE+zXGayk8X7FgAA">
+</XPD:OBJ>
+<XPD:ATTR name="#ParticipatingInstances" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="ParticipatingInstances[0]" type="UMLObject" guid="KDnTav1yXkyUzRF5ef+uMwAA">
+<XPD:REF name="CollaborationInstanceSet">O3IHEVHxT0Cf2OwCSmjHqgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingInstances[1]" type="UMLObject" guid="ew3nglkyKE+zXGayk8X7FgAA">
 <XPD:ATTR name="Name" type="string">cpShopPage.html</XPD:ATTR>
 <XPD:REF name="CollaborationInstanceSet">O3IHEVHxT0Cf2OwCSmjHqgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
@@ -630,7 +639,7 @@
 <XPD:ATTR name="#ReceivingStimuli" type="integer">1</XPD:ATTR>
 <XPD:REF name="ReceivingStimuli[0]">+Z508MtJU0msQTHRuWbwtwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="ParticipatingInstances[1]" type="UMLObject" guid="wmy02hFjPkK5xslnoCS5vgAA">
+<XPD:OBJ name="ParticipatingInstances[2]" type="UMLObject" guid="wmy02hFjPkK5xslnoCS5vgAA">
 <XPD:REF name="Classifier">aXqCBpy+FU23wK2Hadvi9AAA</XPD:REF>
 <XPD:REF name="CollaborationInstanceSet">O3IHEVHxT0Cf2OwCSmjHqgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>

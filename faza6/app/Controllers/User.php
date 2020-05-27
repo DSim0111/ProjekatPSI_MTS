@@ -316,14 +316,13 @@ class User extends BaseController {
         $i = 0;
         echo "$id ";
         foreach ($products as $product) {
-            echo $product." ";
             $deliveryProductsModel->save(['idDelReq' => $id, 'idProduct' => $product, 'quantity' => $numItems[$i]]);
             $i++;
         }
         foreach ($addOns as $addOn) {
             $deliveryAddOn->insertData(['idDelReq' => $id, 'idA' => $addOn]);
         }
-        return $this->listShops("Your order is sent!");
+        return redirect()->to(base_url("/User/listShops"));//$this->listShops("Your order is sent!");
     }
 
 }

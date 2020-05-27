@@ -43,6 +43,7 @@ function addToCart(id, price, productName) {
             }
         }
     }
+    let n = parseInt($("#num" + id).val());
     if (localStorage.getItem('products') == null) {
         cartItems = [];
         numCartItems = [];
@@ -59,14 +60,14 @@ function addToCart(id, price, productName) {
         i++;
     if (i == cartItems.length) {
         cartItems.push(id);
-        numCartItems.push(1);
+        numCartItems.push(n);
         prices.push(price);
         names.push(productName);
     } else {
-        numCartItems[i] = parseInt(numCartItems[i]) + 1;
+        numCartItems[i] = parseInt(numCartItems[i]) + n;
     }
     localStorage.setItem('numCartItems', parseInt(localStorage.getItem('numCartItems')) + 1);
-    localStorage.setItem('totalPrice', parseInt(localStorage.getItem('totalPrice')) + price);
+    localStorage.setItem('totalPrice', parseInt(localStorage.getItem('totalPrice')) + n*parseInt(price));
     localStorage.setItem('products', cartItems.join('-'));
     localStorage.setItem('numItems', numCartItems.join('-'));
     localStorage.setItem('prices', prices.join('-'));

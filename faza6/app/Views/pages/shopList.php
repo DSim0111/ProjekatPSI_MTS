@@ -43,7 +43,7 @@
                     </div> 
 
                     <div class="offset-lg-4  col-lg-6 col-sm-8  col-8 noPadding" align="center"> 
-<?php if (isset($message)) echo "<br><span style='color:red'>$$message</span></center>"; ?>
+<?php if (isset($message)) echo "<br><span style='color:red'>$message</span></center><br>"; ?>
                         <input type="text" class="search_input" name="search" value="" placeholder="Search here"> 
                         <button type="submit" class="btn search_submit"><img class="icon" id="search_icon" src="../images/icons/search-icon.png"></button>
 

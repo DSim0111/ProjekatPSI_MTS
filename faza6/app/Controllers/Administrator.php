@@ -19,6 +19,11 @@ use App\Models\SystemUserModel;
 class Administrator extends BaseController {
 
     //put your code here
+
+    public function showPage($page, $data = []) {
+        parent::showPage($page, array_merge($data, ["header" => "templates/header_administrator"]));
+    }
+
     //SIMONA
     public function registerAdmin($data = []) {
 
@@ -93,6 +98,10 @@ class Administrator extends BaseController {
         }
     }
 
+    public function index() {
+        return parent::listShops();
+    }
+
     //MILAN
     public function shopApproval() {
         $shopModel = new ShopModel();
@@ -105,10 +114,10 @@ class Administrator extends BaseController {
         $shopModel = new ShopModel();
         $id = $this->request->getVar('id');
         $data = ['state' => 'A'];
-        if ($shopModel->existShop($id,'I')) {
+        if ($shopModel->existShop($id, 'I')) {
             $shopModel->updateShopID($id, $data);
         } else {
-            return $this->showPage('basicErrorPage',["error"=>"Shop doesn't exist or shop doesn't wait for approval!"]);
+            return $this->showPage('basicErrorPage', ["error" => "Shop doesn't exist or shop doesn't wait for approval!"]);
         }
         return redirect()->to(base_url("Administrator/shopApproval"));
     }
@@ -118,10 +127,10 @@ class Administrator extends BaseController {
         $shopModel = new ShopModel();
         $id = $this->request->getVar('id');
         $data = ['state' => 'B'];
-        if ($shopModel->existShop($id,'I')) {
+        if ($shopModel->existShop($id, 'I')) {
             $shopModel->updateShopID($id, $data);
         } else {
-            return $this->showPage('basicErrorPage',["error"=>"Shop doesn't exist or shop doesn't wait for approval!"]);
+            return $this->showPage('basicErrorPage', ["error" => "Shop doesn't exist or shop doesn't wait for approval!"]);
         }
         return redirect()->to(base_url("Administrator/shopApproval"));
     }
@@ -134,10 +143,10 @@ class Administrator extends BaseController {
             return redirect()->to(base_url("Guest/pageNotFound"));
         }
         $data = ["state" => "B"];
-        if ($shopModel->existShop($id,'A')) {
+        if ($shopModel->existShop($id, 'A')) {
             $shopModel->updateShopID($id, $data);
         } else {
-            return $this->showPage('basicErrorPage',["error"=>"Shop doesn't exist or shop is not active!"]);
+            return $this->showPage('basicErrorPage', ["error" => "Shop doesn't exist or shop is not active!"]);
         }
         return redirect()->to(base_url("Administrator/listShops"));
     }

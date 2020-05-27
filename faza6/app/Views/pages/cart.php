@@ -42,6 +42,7 @@
                             $i = 0;
                             $j = 0;
                             foreach ($products as $product) {
+                                
                                 array_push($productsPerRow[$i % 4], $product);
                                 array_push($numItemsPerRow[$i % 4], $numItems[$i]);
                                 $sum += $numItems[$i] * $product->price;
@@ -51,6 +52,7 @@
                                 echo "<div class='col-sm-3 myCol'>";
                                 $j = 0;
                                 foreach ($productsPerRow[$i] as $product) {
+                                    
                                     $data = ['product' => $product, 'numItems' => $numItemsPerRow[$i][$j]];
                                     echo view('templates/cartProduct', $data);
                                     $j++;

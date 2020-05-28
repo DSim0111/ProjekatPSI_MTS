@@ -99,7 +99,7 @@ class Administrator extends BaseController {
     }
 
     public function index() {
-        return parent::listShops();
+        return parent::listShopsPaging();
     }
 
     //MILAN

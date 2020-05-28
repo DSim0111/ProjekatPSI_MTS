@@ -93,7 +93,65 @@ class ShopModel extends Model {
         return $res;
     }
 
-    public function getShopsFav($search, $categories, $sortColumn, $sortOrder, $idUser) {
+    public function getShopsPaging($search, $categories, $sortColumn, $sortOrder, $page) {
+
+        $this->builder()->select("*, AVG(coalesce(rating, 0)) as rating")->
+                join("systemuser as S", "S.id=Shop.id")->
+                join("rating as r", "r.idShop=S.id", 'left')->where("state", 'A')->like('shopName', $search);
+
+        if (!empty($categories)) {
+            $this->builder()->join("ShopCat as C", "C.idShop=S.id");
+            $this->builder()->groupStart();
+            foreach ($categories as $cat) {
+
+                $this->builder()->orWhere("idC", $cat);
+            }
+            $this->builder()->groupEnd();
+        }
+        if (!isset($sortColumn) || (!in_array($sortColumn, ShopModel::$sortColumns))) {
+            $sortColumn = "rating";
+        }
+        if (!isset($sortOrder) || (!in_array($sortOrder, ShopModel::$sortOrders))) {
+            $sortOrder = "asc";
+        }
+        $this->builder()->groupBy("shop.id");
+        $this->builder()->orderBy($sortColumn, $sortOrder);
+        //$this->builder()->limit(2)->offset(($page - 1) * 2);
+        $res = $this->builder()->get()->getResultObject();
+        //print_r($this->db->getLastQuery());
+        //$resPaging = Array();
+        //if (count($res)>2){
+        //for ($i = 0;$i < 2;$i++){
+        //array_push($resPaging,$res[($page-1)*2 + $i]);
+        //}
+        //}else $resPaging = $res;
+
+        return $res;
+    }
+
+    public function getShopsFav($search, $categories, $sortColumn, $sortOrder, $idUser, $page) {
+
+        $this->builder()->select("*, AVG(coalesce(rating, 0)) as rating")->
+                join("systemuser as S", "S.id=Shop.id")->
+                join("rating as r", "r.idShop=S.id", 'left')->join("favshop as f", "f.idUser=$idUser and f.idShop=S.id")->like('shopName', $search);
+        if (!empty($categories)) {
+            $this->builder()->join("ShopCat as C", "C.idShop=S.id");
+            $this->builder()->groupStart();
+            foreach ($categories as $cat) {
+
+                $this->builder()->orWhere("idC", $cat);
+            }
+            $this->builder()->groupEnd();
+        }
+        $this->builder()->groupBy("shop.id");
+        $this->builder()->orderBy($sortColumn, $sortOrder);
+        //$this->builder()->limit(2)->offset(($page - 1) * 2);
+        $res = $this->builder()->get()->getResultObject();
+        //print_r($this->db->getLastQuery());
+        return $res;
+    }
+
+    public function getShopsFavCopy($search, $categories, $sortColumn, $sortOrder, $idUser) {
 
         $this->builder()->select("*, AVG(coalesce(rating, 0)) as rating")->
                 join("systemuser as S", "S.id=Shop.id")->
@@ -150,11 +208,14 @@ class ShopModel extends Model {
         } else
             $systemUserModel->update($idShop, ['name' => $name, 'surname' => $surname, 'phoneNum' => $phoneNum]);
     }
-    public function existShop($id,$state){
-        $this->builder()->select()->where("Shop.id", $id)->where("state",$state);
+
+    public function existShop($id, $state) {
+        $this->builder()->select()->where("Shop.id", $id)->where("state", $state);
         $shop = $this->builder()->get()->getFirstRow();
-        if ($shop!=null)return true;
-        else return false;
+        if ($shop != null)
+            return true;
+        else
+            return false;
     }
 
 }

@@ -12,10 +12,12 @@ $(document).ready(function () {
         $("#productsData").submit();
     });
 });
+
 function initShop(shopId) {
     //Shop whose products are in cart
     localStorage.setItem('shopId', shopId);
 }
+
 function init() {
 
     localStorage.removeItem('products', "");
@@ -67,11 +69,13 @@ function addToCart(id, price, productName) {
         numCartItems[i] = parseInt(numCartItems[i]) + n;
     }
     localStorage.setItem('numCartItems', parseInt(localStorage.getItem('numCartItems')) + 1);
-    localStorage.setItem('totalPrice', parseInt(localStorage.getItem('totalPrice')) + n*parseInt(price));
+    localStorage.setItem('totalPrice', parseInt(localStorage.getItem('totalPrice')) + n * parseInt(price));
     localStorage.setItem('products', cartItems.join('-'));
     localStorage.setItem('numItems', numCartItems.join('-'));
     localStorage.setItem('prices', prices.join('-'));
     localStorage.setItem('productNames', names.join('-'));
+
+    alert("You added " + n + " products " + productName);
 }
 
 function decrease(id) {
@@ -139,7 +143,7 @@ function addOns() {
     addOnIds = addOnIds.join('-');
     addOnNames = addOnNames.join('-');
     addOnPrices = addOnPrices.join('-');
-    localStorage.setItem('numAddOnItems',numAddOns);
+    localStorage.setItem('numAddOnItems', numAddOns);
     localStorage.setItem('addOnIds', addOnIds);
     localStorage.setItem('addOnNames', addOnNames);
     localStorage.setItem('addOnPrices', addOnPrices);
@@ -204,11 +208,96 @@ function addRest() {
     $("#payment").val(localStorage.getItem('payment'));
     $("#addOns").val(JSON.stringify(addOns));
 }
-function checkNumItems(){
+function checkNumItems() {
     let num = localStorage.getItem("numCartItems");
     $("#numCartItem").val(num);
-    if (localStorage.getItem("shopId")!=localStorage.getItem("currShop")){
+    if (localStorage.getItem("shopId") != localStorage.getItem("currShop")) {
         $("#shopIdSend").val(localStorage.getItem("currShop"));
-        localStorage.setItem("shopId",localStorage.getItem("currShop"));
+        localStorage.setItem("shopId", localStorage.getItem("currShop"));
     }
+}
+
+
+function newPage(page) {
+    let data = {"page": page}
+    let fav = $("#fav").val();
+    let url = window.location.href;
+    url = url.split('/');
+    url = "/" + url[3] + "/" + url[4];
+    let options = {
+        type: 'POST',
+        url: url,
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+    };
+    $.ajax(options).done(function (data) {
+        //alert(data);
+        let prevPage = parseInt(page) - 1;
+        if (prevPage <= 0)
+            prevPage = 1;
+        let max = $("#max").val();
+        let nextPage = parseInt(page) + 1;
+        if (nextPage > parseInt(max))
+            nextPage = parseInt(max);
+        $("#previous").attr('onclick', 'newPage(' + prevPage + ');');
+        $("#next").attr('onclick', 'newPage(' + nextPage + ');');
+
+        if (parseInt(page) > 1) {
+            $("#first").attr('onclick', 'newPage(' + prevPage + ');');
+            $("#first").text(prevPage);
+            $("#middle").attr('onclick', 'newPage(' + page + ');');
+            $("#middle").text(page);
+            if (page < max) {
+                $("#last").attr('onclick', 'newPage(' + nextPage + ');');
+                $("#last").show();
+                $("#leftPages").show();
+            } else {
+                $("#leftPages").hide();
+                $("#last").hide();
+            }
+            $("#last").text(nextPage);
+        } else {
+            $("#first").attr('onclick', 'newPage(1);');
+            $("#first").text(1);
+            if (max > 1) {
+                $("#middle").attr('onclick', 'newPage(2);');
+                $("#middle").text(2);
+            }
+            if (max>2) {
+                $("#last").attr('onclick', 'newPage(3);');
+                $("#last").text(3);
+                $("#last").show();
+                if (max>3)
+                    $("#leftPages").show();
+                else
+                    $("#leftPages").hide();
+            } else {
+                $("#leftPages").hide();
+                $("#last").hide();
+            }
+        }
+
+        let shops = data["shops"];
+        let controller = data["controller"];
+        for (let i = 0; i < shops.length; i++) {
+            let id = shops[i]["id"];
+            let description = shops[i]["description"];
+            let name = shops[i]["shopName"];
+            let image = shops[i]["image"];
+            let rating = shops[i]["rating"];
+            $("#img" + i).attr('src', '/uploads/' + image);
+            $("#name" + i).text(name);
+            $("#rating" + i).text(rating);
+            $("#description" + i).text(description);
+            $("#addToFav" + i).attr('href', "/" + controller + "/addToFav?shopId=" + id);
+            $("#pageLink" + i).attr('href', "/" + controller + "/shopPage?shopId=" + id);
+        }
+        if (shops.length < 2) {
+            $("#shopContent1").hide();
+        } else {
+            $("#shopContent1").show();
+        }
+    });
+
 }

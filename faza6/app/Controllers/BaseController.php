@@ -126,14 +126,13 @@ class BaseController extends Controller {
     public function listShops($message = null) {
 
         $shopModel = new \App\Models\ShopModel();
-
-
         $r = $this->request;
         $search = $r->getVar("search");
         $sortColumn = $r->getVar("sortColumn");
         $sortOrder = $r->getVar("sortOrder");
         $sort = $r->getVar("sort");
         $sortDataArr = explode("_", $sort);
+
         if (count($sortDataArr) == 2) {
             $sortColumn = $sortDataArr[0];
             $sortOrder = $sortDataArr[1];
@@ -155,7 +154,6 @@ class BaseController extends Controller {
             $sortColumn = 'rating';
         }
 
-
         $shops = $shopModel->getShops($search, $categories, $sortColumn, $sortOrder);
         $catModel = new \App\Models\CategoriesModel();
         $allCategories = $catModel->getAllCategories();
@@ -166,6 +164,85 @@ class BaseController extends Controller {
         else
             return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "userRole" => $userRole, "message" => $message]);
 
+        /* pagination 
+          $model = new \App\Models\SystemUserModel();
+
+          $model->builder()->select('*');
+          $data = [
+          'users' => $model->paginate(10, 'group', 1),
+          'pager' => $model->pager
+          ];
+
+          echo view('pages/index_guest', $data); */
+    }
+
+    public function listShopsPaging($message = null) {
+
+        $shopModel = new \App\Models\ShopModel();
+        $r = $this->request;
+        $search = $r->getVar("search");
+        $sortColumn = $r->getVar("sortColumn");
+        $sortOrder = $r->getVar("sortOrder");
+        $sort = $r->getVar("sort");
+        $sortDataArr = explode("_", $sort);
+
+        $input = file_get_contents('php://input');
+        $jsonData = json_decode($input);
+
+
+        if (!isset($jsonData) || $jsonData == null) {
+            $page = 1;
+        } else {
+            $page = $jsonData->page;
+        }
+
+        if (count($sortDataArr) == 2) {
+            $sortColumn = $sortDataArr[0];
+            $sortOrder = $sortDataArr[1];
+        }
+
+        $categories = $r->getVar("categories");
+
+        if (!isset($search)) {
+
+            $search = ''; // will search all names in existing db
+        }
+        if (!isset($categories)) {
+
+            $categories = []; // will return all shops no matter categories of product they sell 
+        }
+
+        if (!isset($sortColumn) || !isset($sortOrder)) {
+            $sortOrder = 'desc';
+            $sortColumn = 'rating';
+        }
+        $shops = $shopModel->getShopsPaging($search, $categories, $sortColumn, $sortOrder, $page);
+        $catModel = new \App\Models\CategoriesModel();
+        $allCategories = $catModel->getAllCategories();
+        $userRole = $this->session->get("logged_in_as");
+        $n = min([count($shops), 2]);
+        $tmp = [];
+        for ($i = 0; $i < $n; $i++) {
+            if ((($page - 1) * 2 + $i) >= count($shops))
+                break;
+            array_push($tmp, $shops[($page - 1) * 2 + $i]);
+        }
+        $maxPage = intval(count($shops) / 2);
+        if (count($shops) % 2 != 0)
+            $maxPage += 1;
+        
+        $data = [
+            "userRole" => $userRole,
+            "controller" => $this->request->uri->getSegment(1),
+            "shops" => $tmp,
+            "maxPage" => $maxPage
+        ];
+
+        if (!isset($jsonData) || $jsonData == null)
+            return $this->showPage("shopList", ["shops" => $tmp, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "userRole" => $userRole, "maxPage" => $maxPage]);
+        else
+            echo json_encode($data);
+        // echo var_dump($shops);
         /* pagination 
           $model = new \App\Models\SystemUserModel();
 

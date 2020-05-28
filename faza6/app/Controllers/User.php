@@ -126,7 +126,7 @@ class User extends BaseController {
     }
 
     public function index() {
-        return parent::listShops();
+        return parent::listShopsPaging();
     }
 
 //MILAN
@@ -160,7 +160,7 @@ class User extends BaseController {
         if (!($favShopModel->exists($idUser, $idShop))) {
             $favShopModel->add($idUser, $idShop);
         }
-        return redirect()->to(base_url("/User/listShops"));
+        return redirect()->to(base_url("/User/listShopsPaging"));
     }
 
 //MILAN
@@ -172,6 +172,16 @@ class User extends BaseController {
         $sortColumn = $r->getVar("sortColumn");
         $sortOrder = $r->getVar("sortOrder");
         $categories = $r->getVar("categories");
+
+        $input = file_get_contents('php://input');
+        $jsonData = json_decode($input);
+
+
+        if (!isset($jsonData) || $jsonData == null) {
+            $page = 1;
+        } else {
+            $page = $jsonData->page;
+        }
 
         if (!isset($search)) {
 
@@ -188,14 +198,34 @@ class User extends BaseController {
         }
 
         $idUser = $this->session->get("user_id");
-        $shops = $shopModel->getShopsFav($search, $categories, $sortColumn, $sortOrder, $idUser);
+        $shops = $shopModel->getShopsFav($search, $categories, $sortColumn, $sortOrder, $idUser, $page);
+        $s = "";
+
+        echo $s;
         $catModel = new \App\Models\CategoriesModel();
         $allCategories = $catModel->getAllCategories();
         $userRole = $this->session->get("logged_in_as");
-        if ($error == null)
-            return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "role" => $userRole,"fav"=>true]);
+        $n = min([count($shops), 2]);
+        $tmp = [];
+        for ($i = 0; $i < $n; $i++) {
+            if ((($page - 1) * 2 + $i) >= count($shops))
+                break;
+            array_push($tmp, $shops[($page - 1) * 2 + $i]);
+        }
+        $maxPage = intval(count($shops) / 2);
+        if (count($shops) % 2 != 0)
+            $maxPage += 1;
+        $data = [
+            "userRole" => $userRole,
+            "controller" => $this->request->uri->getSegment(1),
+            "shops" => $tmp,
+            "maxPage" => $maxPage
+        ];
+
+        if (!isset($jsonData) || $jsonData == null)
+            return $this->showPage("shopList", ["shops" => $tmp, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "userRole" => $userRole, "maxPage" => $maxPage, "fav"=>"true"]);
         else
-            return $this->showPage("shopList", ["shops" => $shops, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "role" => $userRole, "error" => $error,"fav"=>true]);
+            echo json_encode($data);
     }
 
     //MILAN
@@ -266,7 +296,7 @@ class User extends BaseController {
         $addOns = json_decode(stripslashes($this->request->getVar('addOns')));
         $payment = $this->request->getVar('payment');
         $shopId = $this->request->getVar("shopId");
-        
+
         if (!$this->validDate($date)) {
 
             return $this->showPage('order_gifts', array_merge($this->validator->getErrors(), ['bad_date' => 'Date is not valid!']));
@@ -293,7 +323,7 @@ class User extends BaseController {
         $deliveryRequestModel = new \App\Models\DeliveryRequestsModel;
         $deliveryProductsModel = new \App\Models\DeliveryProductsModel;
         $deliveryAddOn = new \App\Models\DeliveryAddOnsModel;
-        
+
 
         $productModel = new ProductModel();
         $addOnModel = new AddOnModel();
@@ -322,7 +352,7 @@ class User extends BaseController {
         foreach ($addOns as $addOn) {
             $deliveryAddOn->insertData(['idDelReq' => $id, 'idA' => $addOn]);
         }
-        return redirect()->to(base_url("/User/listShops"));//$this->listShops("Your order is sent!");
+        return redirect()->to(base_url("/User/listShopsPaging")); //$this->listShops("Your order is sent!");
     }
 
 }

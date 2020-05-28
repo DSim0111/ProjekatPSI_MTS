@@ -13,22 +13,15 @@ if (!isset($shop)) {
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="<?= base_url("css/shopPage_Tijana.css") ?>"> 
         <link rel="stylesheet" href="<?php echo base_url("css/style_common.css") ?>">
+        <link rel="stylesheet" href="<?php echo base_url("css/style_shopPage.css") ?>"> 
         <link rel="stylesheet" href="<?php echo base_url("css/style_comments.css") ?>"> 
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="<?php echo base_url(); ?>/js/shopCart.js"></script>
+         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
 
     </head> 
-    <body onload="initShop(<?php echo $shop->id; ?>)"> 
-        <?php
-        if (isset($header)) {
-
-            echo view($header);
-        }
-        ?>
-        <br>
+    <body> 
         <div class="container myContainer">
             <div class="row"> 
                 <div class="col-sm-4 lighter"> 
@@ -53,11 +46,6 @@ if (!isset($shop)) {
                     if (isset($userRole) && $userRole == "User") {
 
                         echo view("templates/reportShopBtn", ["shopId" => $shop->id]);
-                        echo view("templates/viewCartBtn", ["shopId" => $shop->id]);
-                    } else {
-                        if (isset($userRole) && $userRole == "Administrator") {
-                            echo view("templates/removeShopBtn", ["shopId" => $shop->id]);
-                        }
                     }
                     ?>
                     </a>
@@ -70,7 +58,7 @@ if (!isset($shop)) {
                 <div class="col-sm-12 text-center" > 
 
 
-                    <img src="<?php echo base_url("uploads/" . $shop->image) ?>" class="img-fluid shopImage text-left">
+                    <img src="<?php echo base_url("images/uploads/" . $shop->image) ?>" class="img-fluid shopImage text-left">
 
 
 
@@ -78,8 +66,7 @@ if (!isset($shop)) {
                     <p class="shopDescription"> 
                         <?php
                         echo $shop->description;
-                        ?>
-                    </p>
+                        ?></p>
                 </div>
 
             </div>
@@ -96,7 +83,7 @@ if (!isset($shop)) {
 
 
 
-                    <?php $i = 0; ?>
+<?php $i = 0; ?>
                     <?php
                     foreach ($allProducts as $product) {
 
@@ -122,15 +109,14 @@ if (!isset($shop)) {
                                 <h3>$product->name</h3>
                                <p >$product->description</p>
                                <p>$product->price RSD</p>
-                               <input id='num{$product->idProduct}' type=number value='1' min='1' col='2' style='width: 50px'>
-                               <input class='btn btn-info float-right' type='button' value='Add to cart'  onclick='addToCart({$product->idProduct},{$product->price},\"{$product->name}\");'>
+                               
                             </div>
                            </div>
                            <br>
                            <br>
                     </div>
                        ";
-                        if ($i % 4 == 3 || ($i+1)== count($allProducts)) {
+                        if ($i % 4 == 3) {
                             echo "</div>";
                         }
                         $i++;
@@ -142,39 +128,40 @@ if (!isset($shop)) {
 
 
             </div>  
-
-            <br>
-
-
+            
+        </div>
+            
             <!--SIMONA-->
             <?php
             if (!isset($commentError)):
                 ?>
-
+            
                 <div class="row"> 
                     <div class="offset-sm-1 col-sm-10">
-                        <?php
-                        if ($userRole == "User") {
-                            echo view("templates/commentsSection_User", $comments);
-                        } else {
-                            echo view("templates/commentsSection", $comments);
-                        }
-                        ?>
-                    </div>
+                <?php
+                if ($userRole == "User") {
+
+                    echo view("templates/commentsSection_User", $comments);
+                } else {
+                    echo view("templates/commentsSection", $comments);
+                }
+                ?>
+                          </div>
                 </div>
 
 
-                <?php
-            else:
-                // if there has been an error 
-                echo "<p class='errorMessage'>" . $error . "</p>";
-                ?>
+<?php
+else:
+    // if there has been an error 
+    echo "<p class='errorMessage'>" . $error . "</p>";
+    ?>
 
 
             <?php endif ?>
 
 
             <!--END_SIMONA-->
+
 
         </div>
     </body>

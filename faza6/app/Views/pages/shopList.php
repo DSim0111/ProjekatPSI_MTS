@@ -134,17 +134,28 @@
                         </form>  
                     </div>
                 </div>
+                <style>
+                    
+                    .myList{
+                     
+                        display:inline-flex;
+                       
+                        width:auto!important; 
+                    }
+                    
+                </style>
                 <div class="row">
-                    <div class="offset-sm-3 col-sm-6" align="center">
-                        <ul class="pagination">
-                            <li class="page-item"><a id='firstPage' onclick="newPage(1);" class="pagelink" href="#">First page</a></li>
-                            <li class="page-item"><a id='previous' onclick="newPage(1);" class="pagelink" href="#">Previous</a></li>
-                            <li class='page-item'><a id='first' onclick='newPage(1);' class='pagelink' href='#'>1</a></li>
-                            <?php if ($maxPage > 1) echo "<li class='page-item'><a id='middle' onclick='newPage(2);' class='pagelink' href='#'>2</a></li>"; ?>
-                            <?php if ($maxPage > 2) echo "<li class='page-item'><a id='last' onclick='newPage(3);' class='pagelink' href='#'>3</a></li>"; ?>
+                    <div class="offset-lg-2 col-sm-12 col-lg-10" align="center">
+                        <div class="d-lg-block" align="center">
+                        <ul class="list-group list-group-horizontal myList">
+                            <li class="list-group-item"><a id='firstPage' onclick="newPage(1);" class="pagelink" href="#">First page</a></li>
+                            <li class="list-group-item"><a id='previous' onclick="newPage(1);" class="pagelink" href="#">Previous</a></li>
+                            <li class="list-group-item"><a id='first' onclick='newPage(1);' class='pagelink' href='#'>1</a></li>
+                            <?php if ($maxPage > 1) echo "<li class='list-group-item'><a id='middle' onclick='newPage(2);' class='pagelink' href='#'>2</a></li>"; ?>
+                            <?php if ($maxPage > 2) echo "<li class='list-group-item'><a id='last' onclick='newPage(3);' class='pagelink' href='#'>3</a></li>"; ?>
                             <?php if ($maxPage > 3) echo "<li id='leftPages'>...</li>"; ?>
-                            <li class="page-item"><a id='lastPage' onclick="newPage(<?php echo $maxPage;?>);" class="pagelink" href="#">Last page</a></li>
-                            <li class="page-item"><a id='next' onclick="newPage(2);" class="pagelink" href="#">Next</a></li>
+                            <li class="list-group-item"><a id='lastPage' onclick="newPage(<?php echo $maxPage;?>);" class="pagelink" href="#">Last page</a></li>
+                            <li class="list-group-item"><a id='next' onclick="newPage(2);" class="pagelink" href="#">Next</a></li>
                         </ul>
                         <input id='max' type='hidden' value='<?php echo $maxPage; ?>'>
                         <input id='fav' type='hidden' value='<?php
@@ -153,7 +164,9 @@
                                else
                                    echo 0;
                                ?>'>
-                    </div></div>
+                        </div>
+                    </div>
+                </div>
 
         </div>
 

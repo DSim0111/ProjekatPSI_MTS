@@ -153,7 +153,7 @@
                             <li class="list-group-item"><a id='first' onclick='newPage(1);' class='pagelink' href='#'>1</a></li>
                             <?php if ($maxPage > 1) echo "<li class='list-group-item'><a id='middle' onclick='newPage(2);' class='pagelink' href='#'>2</a></li>"; ?>
                             <?php if ($maxPage > 2) echo "<li class='list-group-item'><a id='last' onclick='newPage(3);' class='pagelink' href='#'>3</a></li>"; ?>
-                            <?php if ($maxPage > 3) echo "<li id='leftPages'>...</li>"; ?>
+                            <?php if ($maxPage > 3) echo "<li id='leftPages' class='list-group-item'>...</li>"; ?>
                             <li class="list-group-item"><a id='lastPage' onclick="newPage(<?php echo $maxPage;?>);" class="pagelink" href="#">Last page</a></li>
                             <li class="list-group-item"><a id='next' onclick="newPage(2);" class="pagelink" href="#">Next</a></li>
                         </ul>

@@ -34,7 +34,7 @@
 		<h3 class="transient_quote"><i>Shape it till you make it!</i></h3>
 			<a href="<?php echo base_url('Guest/whoAreYou')?>"><button class="RegisterBtn hoverBtn"><b>New here? Register</b></button></a>
 			<a href="<?php echo base_url('Guest/login')?>"><button class="LoginBtn hoverBtn"><b>Sign in</b></button></a>
-			<a href="<?php echo base_url('Guest/listShops')?>"><button class="GuestBtn hoverBtn"><b>Continue as guest</b></button></a>
+			<a href="<?php echo base_url('Guest/listShopsPaging')?>"><button class="GuestBtn hoverBtn"><b>Continue as guest</b></button></a>
 			</div>
 		
 	</body>

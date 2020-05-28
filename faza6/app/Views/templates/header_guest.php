@@ -5,7 +5,7 @@
     $(document).ready(function() {
     $(".dropdown-toggle").dropdown();
 });
-  </script>
+</script>
 
 <nav class="navbar navbar-expand-lg navbar-dark myNav">
 <a class="navbar-brand" href="#">

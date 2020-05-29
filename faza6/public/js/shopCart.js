@@ -264,11 +264,11 @@ function newPage(page) {
                 $("#middle").attr('onclick', 'newPage(2);');
                 $("#middle").text(2);
             }
-            if (max>2) {
+            if (max > 2) {
                 $("#last").attr('onclick', 'newPage(3);');
                 $("#last").text(3);
                 $("#last").show();
-                if (max>3)
+                if (max > 3)
                     $("#leftPages").show();
                 else
                     $("#leftPages").hide();
@@ -293,11 +293,14 @@ function newPage(page) {
             $("#addToFav" + i).attr('href', "/" + controller + "/addToFav?shopId=" + id);
             $("#pageLink" + i).attr('href', "/" + controller + "/shopPage?shopId=" + id);
         }
-        if (shops.length < 2) {
-            $("#shopContent1").hide();
-        } else {
-            $("#shopContent1").show();
+        for (let i = 0; i < 6; i++) {
+            if (i >= shops.length) {
+                $("#shopContent" + i).hide();
+            } else {
+                $("#shopContent" + i).show();
+            }
         }
+
     });
 
 }

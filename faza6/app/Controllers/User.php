@@ -205,12 +205,12 @@ class User extends BaseController {
         $catModel = new \App\Models\CategoriesModel();
         $allCategories = $catModel->getAllCategories();
         $userRole = $this->session->get("logged_in_as");
-        $n = min([count($shops), 2]);
+        $n = min([count($shops), 6]);
         $tmp = [];
         for ($i = 0; $i < $n; $i++) {
-            if ((($page - 1) * 2 + $i) >= count($shops))
+            if ((($page - 1) * 6 + $i) >= count($shops))
                 break;
-            array_push($tmp, $shops[($page - 1) * 2 + $i]);
+            array_push($tmp, $shops[($page - 1) * 6 + $i]);
         }
         $maxPage = intval(count($shops) / 2);
         if (count($shops) % 2 != 0)

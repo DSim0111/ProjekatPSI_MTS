@@ -52,9 +52,9 @@ class BaseController extends Controller {
         'name' => 'required|max_length[18]',
         'surname' => 'required|max_length[18]',
         'phoneNum' => 'required|max_length[18]',
-        'address' => "required|max_length[60] ",
-        'shopName' => 'required|min_length[5]|max_length[40]',
-        'description' => 'required|min_length[10]|max_length[400]',
+        'address' => "required",
+        'shopName' => 'required|min_length[5]',
+        'description' => 'required|min_length[10]|max_length[200]',
     ];
 
     /**
@@ -220,15 +220,15 @@ class BaseController extends Controller {
         $catModel = new \App\Models\CategoriesModel();
         $allCategories = $catModel->getAllCategories();
         $userRole = $this->session->get("logged_in_as");
-        $n = min([count($shops), 2]);
+        $n = min([count($shops), 6]);
         $tmp = [];
         for ($i = 0; $i < $n; $i++) {
-            if ((($page - 1) * 2 + $i) >= count($shops))
+            if ((($page - 1) * 6 + $i) >= count($shops))
                 break;
-            array_push($tmp, $shops[($page - 1) * 2 + $i]);
+            array_push($tmp, $shops[($page - 1) * 6 + $i]);
         }
-        $maxPage = intval(count($shops) / 2);
-        if (count($shops) % 2 != 0)
+        $maxPage = intval(count($shops) / 6);
+        if (count($shops) % 6 != 0)
             $maxPage += 1;
         
         $data = [
@@ -274,13 +274,6 @@ class BaseController extends Controller {
         $userRole = $this->session->get("logged_in_as");
         //   var_dump( $allProducts);
         return $this->showPage("shopPage", array_merge(["shop" => $shop, "userRole" => $userRole], $data, ["comments" => $comments], ['allProducts' => $allProducts]));
-    }
-    
-    public function aboutUs(){
-        
-        
-        return $this->showPage("aboutUs");
-        
     }
 
 }

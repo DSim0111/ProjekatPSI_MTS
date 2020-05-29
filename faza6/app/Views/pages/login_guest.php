@@ -6,23 +6,6 @@
                 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/style_common.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/style_login.css">
 	</head>
-        <style>
-            html{
-            height:100%; 
-          }
-          body{
-                  margin:0;
-                  padding:0;
-                  background: url("../images/giftChild.jpg");
-                  background-size:cover;
-                  background-position:center;
-                  font-family:sans-serif;
-            height: 100%;
-
-
-          }
-            
-        </style>
 	<body>
             <div class="container">
             <div class="row">
@@ -59,9 +42,9 @@
                         <div class="w-100" align="center">
 			<a href="user_index.html"><input class="w-100" type="submit" name="submit" value="Login"></a>
                         </div>
-                        
-                        
-			
+                        <br>
+                        <!--TODO-->
+			<a href="#">Forgot password?</a>
 			</form>
 			
 		</div>

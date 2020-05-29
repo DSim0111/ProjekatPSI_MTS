@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use CodeIgniter\Model;
 
 /**
@@ -9,25 +8,23 @@ use CodeIgniter\Model;
  *
  * @author Simona
  */
-class DeliveryAddOnsModel extends Model {
-
+class DeliveryAddOnsModel extends Model{
     //put your code here
-    protected $table = 'deliveryaddon';
+    protected $table      = 'deliveryaddon';
     protected $primaryKey = 'idDelAdd';
-    protected $returnType = 'object';
-    protected $allowedFields = ['idA', 'idDelReq'];
 
-    /* public function ShowProductsForRequestWithID($id){
+    protected $returnType     = 'object';
 
-      return  $this->builder()->select()->where("idDelReq",$id)->join("product","product.idProduct=deliveryproduct.idProduct")->get()->getResultObject();
-      } */
-
-    public function ShowAddOnsForRequestWithID($id) {
-        return $this->builder()->select()->where("idDelReq", $id)->join("addon", "addon.idA=deliveryaddon.idA")->get()->getResultObject();
+    protected $allowedFields=['idA','idDelReq'];
+    
+   /* public function ShowProductsForRequestWithID($id){
+       
+       return  $this->builder()->select()->where("idDelReq",$id)->join("product","product.idProduct=deliveryproduct.idProduct")->get()->getResultObject();
+    }*/
+    public function ShowAddOnsForRequestWithID($id){
+        return $this->builder()->select()->where("idDelReq",$id)->join("addon","addon.idA=deliveryaddon.idA")->get()->getResultObject();
+        
     }
-
-    public function insertData($data) {
-        return $this->insert($data);
-    }
-
+   
 }
+

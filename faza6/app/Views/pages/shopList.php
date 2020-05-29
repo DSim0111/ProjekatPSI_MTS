@@ -3,33 +3,27 @@
     <head>
         <title> Shop list | Giftery </title>
 
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/css/style_common.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/css/style_shopList.css">
         <link  type="text/css" rel="stylesheet" href="<?php echo base_url("css/style_navbar.css"); ?>">
-        <script src = "<?php echo base_url(); ?>/js/jQuery.js"></script>
-        <script src="<?php echo base_url(); ?>/js/shopCart.js"></script>
+
+
+
     </head>
 
-    <body <?php
-    if (isset($message)) {
-        echo "onLoad=init();";
-    }
-    ?>> 
-            <?php
-            if (isset($header)) {
+    <body> 
+        <?php
+        if (isset($header)) {
 
-                echo view($header);
-            }
-            ?>    
+            echo view($header);
+        }
+        ?>    
         <div class="container-fluid myContainer">    
 
             <form name="filterForm"  method="GET" action="<?php
-            if (isset($fav))
-                echo base_url("" . $controller . "/listFavShops");
-            else
-                echo base_url("" . $controller . "/listShopsPaging");
+            echo base_url("" . $controller . "/listShops");
             ?>"> 
 
                 <div class="row"> 
@@ -43,7 +37,7 @@
                     </div> 
 
                     <div class="offset-lg-4  col-lg-6 col-sm-8  col-8 noPadding" align="center"> 
-                        <?php if (isset($message)) echo "<br><span style='color:red'>$message</span></center><br>"; ?>
+
                         <input type="text" class="search_input" name="search" value="" placeholder="Search here"> 
                         <button type="submit" class="btn search_submit"><img class="icon" id="search_icon" src="../images/icons/search-icon.png"></button>
 
@@ -57,29 +51,22 @@
                                 Sort
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenubutton">
+
                                 <button class="dropdown-item" type="submit" name="sort" value="rating_asc">By rating asc</button>
                                 <button  class="dropdown-item" type="submit"  name="sort" value="rating_desc">By rating desc</button>
                                 <button  class="dropdown-item" type="submit"  name="sort" value="date_asc">By date asc</button>
                                 <button  class="dropdown-item" type="submit"  name="sort" value="date_desc">By date desc</button>
                                 <button  class="dropdown-item" type="submit"  name="sort" value="shopName_asc">By name asc</button>
                                 <button  class="dropdown-item" type="submit"   name="sort" value="shopName_desc">By name desc</button>
+                             
+
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="row h-100">
-                    <div class="col-sm-12 col-lg-2 filter_div_wrapper">  
-                        <style>
-                            .reset_filter{
-                                position:absolute;
-                                top:5px;
-                                right:15px;
-                            }
-                        </style>
-                        <br>
-                        <a class="reset_filter  d-lg-block" href="<?php echo base_url($controller . "/listShopsPaging") ?>">
-                            <button type="button" class="btn btn-info ">Reset</button>
-                        </a>
+                    <div class="col-sm-12 col-lg-2 filter_div_wrapper">                    
 
                         <div  class="filter_div  d-lg-block    " id='filter_div'>
 
@@ -109,75 +96,71 @@
 
                             </div>
                         </div>
+
+
+
+
+
+
                         <br>
+
+
+
+
+
+
+
+
+
+
+
                     </div>
+
+
                     <div class="col-sm-12 col-lg-10 ">
                         <div class=" row shop_container " align="center">
 
 
                             <?php
-                            $i = 0;
-                            for ($i = 0; $i < count($shops); $i++) {
-                                $data = [
-                                    "shop" => $shops[$i],
-                                    "userRole" => $userRole,
-                                    "i" => $i,
+                            foreach ($shops as $shop) {
+
+                                $data = ["shop" => $shop,
                                     "shopPageLink" => "" . base_url("" . $controller . "/" . "shopPage")
                                 ];
-                                if (!isset($shops))
-                                    echo view("templates/shopInShopList", $data);
-                                else
-                                    echo view("templates/shopInShopPaging", $data);
+
+
+                                echo view("templates/shopInShopList", $data);
                             }
-                            ?>
+                            ?> 
+
+
+
+
+
+
+
+
+
+
+
+
+
                         </div>
                         </form>  
                     </div>
                 </div>
-                <style>
-                    
-                    .myList{
-                     
-                        display:inline-flex;
-                       
-                        width:auto!important; 
-                    }
-                    
-                </style>
-                <div class="row">
-                    <div class="offset-lg-2 col-sm-12 col-lg-10" align="center">
-                        <div class="d-lg-block" align="center">
-                        <ul class="list-group list-group-horizontal myList">
-                            <li class="list-group-item"><a id='firstPage' onclick="newPage(1);" class="pagelink" href="#">First page</a></li>
-                            <li class="list-group-item"><a id='previous' onclick="newPage(1);" class="pagelink" href="#">Previous</a></li>
-                            <li class="list-group-item"><a id='first' onclick='newPage(1);' class='pagelink' href='#'>1</a></li>
-                            <?php if ($maxPage > 1) echo "<li class='list-group-item'><a id='middle' onclick='newPage(2);' class='pagelink' href='#'>2</a></li>"; ?>
-                            <?php if ($maxPage > 2) echo "<li class='list-group-item'><a id='last' onclick='newPage(3);' class='pagelink' href='#'>3</a></li>"; ?>
-                            <?php if ($maxPage > 3) echo "<li id='leftPages' class='list-group-item'>...</li>"; ?>
-                            <li class="list-group-item"><a id='lastPage' onclick="newPage(<?php echo $maxPage;?>);" class="pagelink" href="#">Last page</a></li>
-                            <li class="list-group-item"><a id='next' onclick="newPage(2);" class="pagelink" href="#">Next</a></li>
-                        </ul>
-                        <input id='max' type='hidden' value='<?php echo $maxPage; ?>'>
-                        <input id='fav' type='hidden' value='<?php
-                               if (isset($fav))
-                                   echo 1;
-                               else
-                                   echo 0;
-                               ?>'>
-                        </div>
-                    </div>
-                </div>
-
         </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
         <!--HEHEHEHHEHE-->
         <script>
-            function toggleFilter() {
-
-                $("#filter_div").toggleClass("d-none");
-                $(".reset_filter").toggleClass("d-none");
-            }
-
+                        function toggleFilter() {
+                            
+                            $("#filter_div").toggleClass("d-none");
+                        }
+                      
         </script>
     </body>
 </html>

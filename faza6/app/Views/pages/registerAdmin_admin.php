@@ -6,34 +6,13 @@
 		
          <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/style_common.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/style_register.css">
-         <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/registerAdmin.css">
     </head> 
-  
-     <style>
-            html{
-            height:100%; 
-          }
-          body{
-                  margin:0;
-                  padding:0;
-                 
-    background-color:#f2f2f2 !important;
-
-                  background-size:cover;
-                  background-position:center;
-                  font-family:sans-serif;
-            height: 100%;
-
-
-          }
-            
-        </style>
     <body> 
         
         
         
 
-<div class="container-fluid"> 
+<div class="container"> 
     <div class="row">
        
 		<div class="offset-lg-2 col-lg-8 offset-md-2 col-md-8 col-sm-12 ">
@@ -117,8 +96,7 @@
                                 echo "<p class='errorMessage'>".$confirmPassword."</p>";
                            ?>
                         <br>
-                       
-			<input class="btn my_button" type="submit" name="submit" value="Register">
+			<input type="submit" name="submit" value="Register">
                         <br>
                         <br>
 			</form>

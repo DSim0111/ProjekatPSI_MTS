@@ -1,29 +1,43 @@
+  
+<?php
 
-<div id="<?php echo "shopContent$i";?>" class="col-sm-12 data_box shop_content"> 
-
-    <!--image-->
-    <img id="<?php echo "img$i";?>" class="shop_img">
-
-
-    <div class="rating_div"> 
-
-        <img src="<?php echo base_url("images/icons/rating.png") ?>"  class="rating_icon icons">
-        <p>Rating: <b id="<?php echo "rating$i";?>"></b></p>
-    </div>
-
-    <h3 id="<?php echo "name$i";?>">
-    </h3>
-    <p id="<?php echo "description$i";?>" class="description">
-    </p>
-
-    <a id="<?php echo "pageLink$i";?>"><button type="button" class="btn  visit_shop right_corner" value="Visit">Visit</button> </a>
-    <!--miki-->
-    <?php
-    if (isset($userRole) && $userRole == "User") {
-        echo "<a id='addToFav$i' method='POST'><button type='button' class='btn btn-info visit_shop right_corner_second' value='Add to favorite'>Add to favorite</button> </a>";
+    if(!isset($shop)){
+        
+        echo "Error"; 
+        return;
     }
-    ?>
+?>
 
-</div> 
+<div class="row">
+    <div class="col-sm-12   addBorders rounded shop_content_wrapper  ">
+      
+        <div class="row addPadding" >
+            <div class="col-sm-12  borderBottom addPadding">
+         <img src="<?php echo base_url("uploads/".$shop->image)?>" class="rounded shop_img" width="80%">
+                        <h1><?php
+                        
+                        echo $shop->shopName;
+                        ?></h1>
+                        <p class="description">
+                            
+                            
+                            <?php
+                            echo $shop->description; 
+                            ?>
+                        </p>
+            </div>
+        </div>
+        <div class="row  text-left addPadding">
+            <div class="col-sm-12 rating">
+         <img src="<?php echo base_url("images/icons/rating.png")?>"  class="rating_icon icons">
+                      <p> Buyer rating: <?php
+                      echo round($shop->rating,2); // define when retrieving data  
+                      ?></p>
+                      <a href="<?php echo $shopPageLink?>?shopId=<?php echo $shop->id?>"><button type="button" class="btn btn-success visit_shop" value="Visit">Visit</button> </a>
+            </div>
+            </div>        
+    </div>
+</div>
+<br>
 
 

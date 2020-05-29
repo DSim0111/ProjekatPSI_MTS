@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use CodeIgniter\Model;
 
 /**
@@ -9,21 +8,19 @@ use CodeIgniter\Model;
  *
  * @author Simona
  */
-class DeliveryProductsModel extends Model {
-
+class DeliveryProductsModel extends Model{
     //put your code here
-    protected $table = 'deliveryproduct';
+    protected $table      = 'deliveryproduct';
     protected $primaryKey = 'idDelProduct';
-    protected $returnType = 'object';
-    protected $allowedFields = ['quantity', 'idDelReq', 'idProduct'];
 
-    public function ShowProductsForRequestWithID($id) {
+    protected $returnType     = 'object';
 
-        return $this->builder()->select()->where("idDelReq", $id)->join("product", "product.idProduct=deliveryproduct.idProduct")->get()->getResultObject();
+    protected $allowedFields=['quantity','idDelReq','idProduct'];
+    
+    public function ShowProductsForRequestWithID($id){
+       
+       return  $this->builder()->select()->where("idDelReq",$id)->join("product","product.idProduct=deliveryproduct.idProduct")->get()->getResultObject();
     }
-
-    public function insertData($data) {
-        return $this->insert($data);
-    }
-
+   
 }
+

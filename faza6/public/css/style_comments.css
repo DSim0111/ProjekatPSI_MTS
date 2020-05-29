@@ -30,14 +30,14 @@ and open the template in the editor.
     box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.3) inset, 0 6px 15px 0 rgba(0, 0, 0, 0.4) inset;
     border:1px solid rgba(4, 1, 43, 0.222);
     border-radius:10px; 
-        /*rgba(0, 100, 207, 0.2) ;*/
+    background-color:rgb(151, 169, 191);    /*rgba(0, 100, 207, 0.2) ;*/
     padding:10px; 
     width:90%; 
     margin:auto;
 
 }
 .comment_wrapper_bright{
- /*   background-color:rgb(200, 212, 227);rgba(103, 120, 136, 0.11);*/
+    background-color:rgb(200, 212, 227);/*rgba(103, 120, 136, 0.11);*/
 
 
 }

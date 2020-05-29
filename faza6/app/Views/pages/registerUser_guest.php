@@ -7,24 +7,6 @@
          <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/style_common.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/style_register.css">
     </head> 
-   
-     <style>
-            html{
-            height:100%; 
-          }
-          body{
-                  margin:0;
-                  padding:0;
-                  background: url("../images/giftChild.jpg");
-                  background-size:cover;
-                  background-position:center;
-                  font-family:sans-serif;
-            height: 100%;
-
-
-          }
-            
-        </style>
     <body> 
         
         
@@ -117,9 +99,7 @@
                         <br>
 			<input type="submit" name="submit" value="Register">
                         <br>
-                                             <a  href="<?php echo base_url('Guest/login')?>" style='color:#e0d490'>Have an account? Login here</a>
-                            <br>
-                            <br>
+                        <br>
 			</form>
                 </div>
                     <br> 

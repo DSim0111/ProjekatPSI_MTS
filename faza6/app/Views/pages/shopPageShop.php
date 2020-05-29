@@ -32,7 +32,7 @@ if (!isset($shop)) {
                 </div>
                 <div class="col-sm-4"> 
                     <br>
-                    <a href="<?php echo base_url("Shop/changeData") ?>">
+                    <a href="changeDataShop.html">
                     <button class="float-right btn btn-info">
                         Edit data
                     </button>
@@ -47,7 +47,7 @@ if (!isset($shop)) {
                     
                    <div class="row">
                       <div class="col-sm-3">
-                        <img src="<?php echo base_url("uploads/" . $shop->image); ?>" class="img-fluid shopImage text-left">
+                        <img src="<?php echo base_url("uploads/" . $shop->image) ?>" class="img-fluid shopImage text-left">
                  
                       </div>
                       <div class="col-sm-8">

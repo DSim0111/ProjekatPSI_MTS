@@ -30,7 +30,14 @@
         </style>
     <body> 
         
-        
+       <?php
+       
+       if($header){
+           
+           echo view($header);
+       }
+       
+       ?>
         
 
 <div class="container-fluid"> 

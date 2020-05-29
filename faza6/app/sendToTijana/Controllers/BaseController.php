@@ -46,6 +46,10 @@ class BaseController extends Controller
           'address'=>"required"
           
       ]; 
+      
+      
+      
+      
       protected static $shopValidationRules=[
           
             'username'=>'required|alpha_numeric|min_length[5]|max_length[40]', 

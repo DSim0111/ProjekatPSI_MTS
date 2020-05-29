@@ -32,6 +32,8 @@
             <li class="nav-item ">
                 <a class="nav-link" href="<?php echo base_url('Administrator/registerAdmin') ?>">Add new admin account</a>
             </li>
+       
+     
         </ul>
         <?php
         $session = \Config\Services::session();

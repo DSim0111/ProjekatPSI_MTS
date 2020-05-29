@@ -26,6 +26,7 @@ use App\Models\CommentsModel;
 class Shop extends BaseController {
 
     //put your code here
+ //put your code here
     public function index() {
 
         return $this->showMyPage();
@@ -40,7 +41,7 @@ class Shop extends BaseController {
        
         return redirect()->to(base_url("Shop/showAllProducts"));
     }
-    
+
     public function submitNewData() {
 
         if (!$this->validate([
@@ -49,8 +50,8 @@ class Shop extends BaseController {
                     'name' => 'required|max_length[18]',
                     'surname' => 'required|max_length[18]',
                     'phoneNum' => 'required|max_length[18]',
-                    'address' => 'required',
-                    'shopName' => 'required|min_length[5]',
+                    'address' => 'required|max_length[60]',
+                    'shopName' => 'required|min_length[5]|max_length[40]',
                     'description' => 'required|min_length[10]'
                 ])) {
 
@@ -85,7 +86,8 @@ class Shop extends BaseController {
     }
 
     public function addCategories() {
-      $shop_catModel = new Shop_CategoryModel();
+        //////////////////////////////////////
+        $shop_catModel = new Shop_CategoryModel();
         $newTags = $this->request->getVar("selected");
         if (isset($newTags))
             foreach ($newTags as $elem) {
@@ -105,16 +107,19 @@ class Shop extends BaseController {
         $idShop = $this->session->get("user_id");
 
 
+        //==================================ovde sam dodala idShop==============================================
         return $this->showPage("changeDataShop", ['myCategories' => $shop_catModel->findMyCategories($idShop), 'shop' => $shop, 'allCategories' => $data]);
     }
 
     public function deleteCategory($id) {
         $shop_catModel = new Shop_CategoryModel();
+
+        //==================================ovde sam dodala idShop==============================================
         $shop_catModel->where("idC", $id)->where("idShop", $this->session->get("user_id"))->delete();
         return redirect()->to(base_url("Shop/changeData"));
     }
 
-    public function deleteAddOn($id) {
+     public function deleteAddOn($id) {
         $addOnModel = new AddOnModel();
         if($addOnModel->AddOnBelongsToCurrShop($this->session->get("user_id"), $id)){
         $addOnModel->delete($id);
@@ -122,7 +127,7 @@ class Shop extends BaseController {
         return redirect()->to(base_url("Shop/showAllProducts"));
     }
 
-    public function filterSearch() {
+  public function filterSearch(){
          $idShop=$this->session->get("user_id");
           $shopModel=new ShopModel();
       $shop=$shopModel->getShop($idShop);
@@ -134,6 +139,7 @@ class Shop extends BaseController {
         $result=$catModel->search($tekst);
         if (empty($result))$result="search";
         return  $this->showMyCategories($shop,$result);
+   
     }
 
     public function showCategories() {
@@ -145,7 +151,7 @@ class Shop extends BaseController {
         $catModel = new CategoriesModel();
         $allCategories = $catModel->findAll();
         $this->showMyCategories($shop, $allCategories);
-       
+        // 
         //return $this->showPage("changeDataShop",['allCategories'=>$all]);
     }
 
@@ -206,9 +212,9 @@ class Shop extends BaseController {
     public function newProductSubmit() {
         $productModel = new ProductModel();
         $result = $productModel->alreadyExistsCode($this->session->get("user_id"), $this->request->getVar("product_code"));
-        if (!$this->validate(['product_name' => 'required|max_length[18]',
+        if (!$this->validate(['product_name' => 'required|max_length[40]',
                     'product_code' => 'required|max_length[12]',
-                    'product_desc' => 'max_length[200]',
+                    'product_desc' => 'max_length[400]',
                     'product_price' => 'required|decimal'])) {
 
             if (!empty($result)) {
@@ -251,7 +257,7 @@ class Shop extends BaseController {
 
     public function newAddOnSubmit() {
 
-        if (!$this->validate(['addOn_name' => 'required|max_length[18]',
+        if (!$this->validate(['addOn_name' => 'required|max_length[40]',
                     'addOn_price' => 'required|decimal'])) {
 
             return $this->showPage('addAddOn', $this->validator->getErrors());

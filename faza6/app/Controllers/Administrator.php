@@ -50,9 +50,8 @@ class Administrator extends BaseController {
 
 
         //validate input data 
-        $retVal = $this->validateRegisterData(BaseController::$userValidationRules);
+        $retVal = $this->validateRegisterData(BaseController::$systemUserValidationRules);
         if ($retVal != null) {
-
 
             return $this->registerAdmin($retVal);
         }
@@ -70,11 +69,15 @@ class Administrator extends BaseController {
 
         if ($ret === 0) {
             //Success 
-            return $this->registerAdmin(["message" => "Success!"]);
+         //   echo "Success";
+           return $this->registerAdmin(["message" => "Success!"]);
         } else {
 
             // username exists, email exist..
-            return $this->registerAdmin($ret);
+           
+
+            var_dump($ret);
+       return $this->registerAdmin($ret);
         }
     }
 

@@ -33,7 +33,7 @@ class CategoriesModel extends Model{
         return $this->find($id);
         
     }
-     public function search($src){
+    public function search($src){
     
    return  $this->builder()->select("*")->like('name', "".$src)->get()->getResultObject();
         

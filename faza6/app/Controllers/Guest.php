@@ -162,7 +162,7 @@ class Guest extends BaseController {
                 return $this->registerShop($retVal);
             } else {
 
-                return redirect()->to(base_url("Shop/index"));
+                return redirect()->to(base_url("Guest/login"));
             }
         } else {
             //validation failed

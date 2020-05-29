@@ -52,9 +52,9 @@ class BaseController extends Controller {
         'name' => 'required|max_length[18]',
         'surname' => 'required|max_length[18]',
         'phoneNum' => 'required|max_length[18]',
-        'address' => "required",
-        'shopName' => 'required|min_length[5]',
-        'description' => 'required|min_length[10]|max_length[200]',
+        'address' => "required|max_length[60] ",
+        'shopName' => 'required|min_length[5]|max_length[40]',
+        'description' => 'required|min_length[10]|max_length[400]',
     ];
 
     /**
@@ -274,6 +274,13 @@ class BaseController extends Controller {
         $userRole = $this->session->get("logged_in_as");
         //   var_dump( $allProducts);
         return $this->showPage("shopPage", array_merge(["shop" => $shop, "userRole" => $userRole], $data, ["comments" => $comments], ['allProducts' => $allProducts]));
+    }
+    
+    public function aboutUs(){
+        
+        
+        return $this->showPage("aboutUs");
+        
     }
 
 }

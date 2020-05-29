@@ -34,7 +34,10 @@
         <a class="nav-link" href="<?php echo base_url('Shop/showDeliveryRequests')?>">Delivery Requests</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('Shop/listShopsPaging')?>">Other pages</a>
+        <a class="nav-link" href="<?php echo base_url('Shop/listShopsPaging')?>">Other shops</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('Shop/aboutUs')?>">About us</a>
       </li>
      
     </ul>

@@ -24,9 +24,9 @@
                         echo "There has been an error while retrieving comments";
                         return; 
                             
-                    }
-                    foreach ($comments as $comment) {
-                            echo view("templates/comment", ["comment"=>$comment]); 
+                    }$i=0; 
+                    foreach ($comments as $comment) {$i++;
+                            echo view("templates/comment", ["comment"=>$comment, "i"=>$i]); 
                     }
                     ?>
                         

@@ -19,31 +19,35 @@ class ProductModel extends \CodeIgniter\Model {
     protected $primaryKey = 'idProduct';
     protected $returnType = "object";
     protected $allowedFields = ['idProduct', 'code', 'name', 'description', 'price', 'idShop', 'image'];
- public function productBelongsToCurrShop($idShop,$idP){
-            return $this->builder()->select()->where("idShop",$idShop)->where("idProduct",$idP)->get()->getResultObject();
-        }
-    //TODO[miki]: ERROR handling if there is no product with given id
-    // find returns null if no row is matched 
+
+    public function alreadyExistsCode($id, $code) {
+        return $this->builder()->select()->where("code", $code)->where("idShop", $id)->get()->getResultObject();
+    }
+    
     public function getProductsById($ids) {
-
-
-        $this->builder()->select();
+        $products = [];
         foreach ($ids as $id) {
-            $this->builder()->orWhere("idProduct", $id);
+            array_push($products,$this->find($id));
         }
-
-        return $this->builder()->get()->getResultObject();
+        return $products;
     }
 
     public function getAllProductsForShop($idShop) {
 
-       
-            $this->builder()->select()->where("idShop", $idShop);
-            return $this->builder()->get()->getResultObject();
-     
+
+        $this->builder()->select()->where("idShop", $idShop);
+        return $this->builder()->get()->getResultObject();
     }
-    public function alreadyExistsCode($id,$code){
-      return $this->builder()->select()->where("code",$code)->where("idShop",$id)->get()->getResultObject();
+
+    public function exists($shopId, $product) {
+        $products = $this->builder()->select()->where("idProduct", $product)->where("idShop", $shopId)->get()->getResultObject();
+        if ($products == null)
+            return false;
+        else
+            return true;
+    }
+    public function productBelongsToCurrShop($idShop,$idP){
+            return $this->builder()->select()->where("idShop",$idShop)->where("idProduct",$idP)->get()->getResultObject();
     }
 
 }

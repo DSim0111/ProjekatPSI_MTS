@@ -12,6 +12,7 @@
  * @author Simona
  */
  namespace App\Models;
+
 use CodeIgniter\Model;
 
 class SystemUserModel extends Model
@@ -154,16 +155,16 @@ class SystemUserModel extends Model
      * @return True ( user exists) or false ( user doesn't exist)
      *     */
     public function existsAs($role, $id){
-        
+         
+           
             if($role!="User" && $role!="Shop" && $role!="Administrator"){
                 
                     return false;
                 
             }
          
-        $this->builder()->select()->join($role." as R", "R.id=Systemuser.id")->where("R.id",intval($id)); 
-       //     $this->builder()->select()->join($role." as R", "R.id=Systemuser.id")->where("R.id",7); 
-          // var_dump($this->builder()->get()->getRow());
+            $this->builder()->select()->join($role." as R", "R.id=Systemuser.id")->where("R.id",intval($id)); 
+           
             if($this->builder()->get()->getRow()==null){
                     ///print_r( $this->db->getLastQuery());
                 return false;

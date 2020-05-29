@@ -16,14 +16,24 @@
         
          <link rel="stylesheet" href="<?php echo base_url("css/style_common.css")?>">
         <link rel="stylesheet" href="<?php echo base_url("css/style_reportShop.css")?>">
+        <link rel="stylesheet" href="<?php echo base_url("css/style_navbar.css")?>">
       
     </head>
     <body> 
+        <?php
+        
+        if(isset($header)){
+            
+            echo view($header);
+            
+        }
+        
+        ?>
         <style> 
             
         </style>
         <div class="container-fluid myContainer">
-            <div class="container inside_container">
+            <div class="container inside_container light_yellow">
            
                  
             
@@ -51,18 +61,18 @@
                                          echo " You wanted to report this shop: ".$shop->shopName. "<br>"; 
                                     }
                                 ?>
-                            <br>
-                            <br>
+                                <br>
+                            
                             <form name="reportForm" method="POST" action="<?php echo base_url('User/reportShopSubmit')?>"> 
                                
-                                 <br>
+                           
                                  <input type="hidden" name="shopId" value="<?php echo $shop->id?>">
                                  
                                 <textarea type="text" class="commentText"  name="message" value='' placeholder="Enter your message to administrator..."></textarea>
                                 <br>
                                 <div align="center">
                                     
-                                    <button  type="submit" class="btn btn-success"> 
+                                    <button  type="submit" class="btn btn-danger orange"> 
                                       Submit
                                    </button>
                                  

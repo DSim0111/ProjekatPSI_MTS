@@ -28,16 +28,19 @@ class Shop extends BaseController {
     //put your code here
     public function index() {
 
-        return $this->showAllProducts();
+        return $this->showMyPage();
     }
 
     public function deleteProduct($id) {
 
         $productModel = new ProductModel();
-        $productModel->delete($id);
+         if($productModel->productBelongsToCurrShop($this->session->get("user_id"), $id)){
+          $productModel->delete($id); 
+         }
+       
         return redirect()->to(base_url("Shop/showAllProducts"));
     }
-
+    
     public function submitNewData() {
 
         if (!$this->validate([
@@ -82,8 +85,7 @@ class Shop extends BaseController {
     }
 
     public function addCategories() {
-        //////////////////////////////////////
-        $shop_catModel = new Shop_CategoryModel();
+      $shop_catModel = new Shop_CategoryModel();
         $newTags = $this->request->getVar("selected");
         if (isset($newTags))
             foreach ($newTags as $elem) {
@@ -103,29 +105,35 @@ class Shop extends BaseController {
         $idShop = $this->session->get("user_id");
 
 
-        //==================================ovde sam dodala idShop==============================================
         return $this->showPage("changeDataShop", ['myCategories' => $shop_catModel->findMyCategories($idShop), 'shop' => $shop, 'allCategories' => $data]);
     }
 
     public function deleteCategory($id) {
         $shop_catModel = new Shop_CategoryModel();
-
-        //==================================ovde sam dodala idShop==============================================
         $shop_catModel->where("idC", $id)->where("idShop", $this->session->get("user_id"))->delete();
         return redirect()->to(base_url("Shop/changeData"));
     }
 
     public function deleteAddOn($id) {
         $addOnModel = new AddOnModel();
+        if($addOnModel->AddOnBelongsToCurrShop($this->session->get("user_id"), $id)){
         $addOnModel->delete($id);
+        }
         return redirect()->to(base_url("Shop/showAllProducts"));
     }
 
-    public function filterSearch($tekst) {
-        $this->showMyCategories();
-        $catModel = new CategoriesModel();
-        $result = $catModel->search($tekst);
-        return $this->showPage("changeDataShop", ['allCategories' => $result]);
+    public function filterSearch() {
+         $idShop=$this->session->get("user_id");
+          $shopModel=new ShopModel();
+      $shop=$shopModel->getShop($idShop);
+      
+     
+        $catModel=new CategoriesModel();
+        $tekst=$this->request->getVar('search_input');
+        
+        $result=$catModel->search($tekst);
+        if (empty($result))$result="search";
+        return  $this->showMyCategories($shop,$result);
     }
 
     public function showCategories() {
@@ -137,7 +145,7 @@ class Shop extends BaseController {
         $catModel = new CategoriesModel();
         $allCategories = $catModel->findAll();
         $this->showMyCategories($shop, $allCategories);
-        // 
+       
         //return $this->showPage("changeDataShop",['allCategories'=>$all]);
     }
 

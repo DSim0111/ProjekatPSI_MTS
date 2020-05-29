@@ -1,23 +1,36 @@
 body{
-     background-color:#f2f2f2 !important
-       
+    background-color:#f2f2f2 !important
+
+}
+.deleteBtn{
+    position: absolute;
+    left:83%;
+    top: 0px;
+    z-index: 1000;
+    float:right;
+    background-color: #FF7F50 !important; 
+    visibility: visible;
+}
+.emptyCartBtn{
+    background-color: #FF7F50 !important; 
+    visibility: visible;
 }
 .myContainer{
 
-   
-   color:#FF7F50 !important; 
+
+    color:#FF7F50 !important; 
     font-size:20dp; 
     min-height:100%;
 
 }
 
 .shop_info {
-   
 
-color:#9d796e;
-padding:5px;
-padding-bottom:1px;
-padding-top:1px;
+
+    color:#9d796e;
+    padding:5px;
+    padding-bottom:1px;
+    padding-top:1px;
 
 
 }
@@ -27,24 +40,24 @@ padding-top:1px;
 }
 
 hr{
-    
-    height: 0.5px !important;
+
+    height: 0.5px;
     border-width: 0;
     color: black;
     background-color:#FF7F50;
 }
 .footer{
     position:relative;
-   padding-left: 35%;
-   padding-bottom:25px;
-  
+    padding-left: 35%;
+    padding-bottom:25px;
+
 }
 .product_envelope{
-padding-bottom:10px;
-color:black;
-     
-  
-    /*background-color:rgba(11, 30, 41, 0.753);*/
+    padding-bottom:10px;
+    color:black;
+
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+    background-color:#f2f2f2;
     width:100%; 
     height:auto; 
 }
@@ -58,8 +71,8 @@ color:black;
     border-width: thin;
     border-style:solid; 
     border-color:lightgray;
-   
-   
+
+
 }
 .product_image_div{
     width:100%; 
@@ -83,7 +96,7 @@ color:black;
 }
 .shopDescription{
 
- 
+
     text-align: justify;
 }
 .shopImage{
@@ -124,7 +137,7 @@ a:visited{
     border-radius: 5px;
 }
 #rateDiv{
-    
+
     position:absolute; 
     width:250px; 
     display:none; 

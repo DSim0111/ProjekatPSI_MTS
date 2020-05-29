@@ -10,9 +10,11 @@ if (!isset($shop)) {
 <html> 
     <head> 
         <title> Products|Giftery</title>
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
        <link  type="text/css" rel="stylesheet" href="<?php echo base_url("css/style_navbar.css"); ?>">
         <link rel="stylesheet"   type="text/css" href="<?= base_url("css/addRemoveProductsShop.css")?>"> 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+       
     </head> 
     
     <body> 
@@ -89,7 +91,7 @@ if (!isset($shop)) {
                             <div class='product_description text-left'> 
                                 <h3 align='center'><?php echo $addOn->name; ?></h3>
                                
-                               <p align='center'><?php echo $addOn->price; ?> RSD </p>
+                               <p align='center'> <?php echo $addOn->price; ?> RSD </p>
                                
                             </div>
                            
@@ -164,7 +166,7 @@ if (!isset($shop)) {
                     <br>
                    </div>
                  <?php
-                  if($i%4==3){
+                  if($i%4==3 || ($i+1)== count($allProducts)){
                     echo "</div>";
                     
                   }

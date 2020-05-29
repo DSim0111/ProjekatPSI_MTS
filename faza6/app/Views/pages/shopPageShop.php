@@ -10,6 +10,9 @@ if (!isset($shop)) {
 <html> 
     <head> 
         <title> Products|Giftery</title>
+        <link rel="stylesheet" href="<?php echo base_url("css/style_common.css") ?>">
+        <link rel="stylesheet" href="<?php echo base_url("css/style_comments.css") ?>"> 
+        
          <link  type="text/css" rel="stylesheet" href="<?php echo base_url("css/style_navbar.css"); ?>">
         <link rel="stylesheet" href="<?= base_url("css/shopPage_Tijana.css")?>"> 
             <link rel="stylesheet" href="<?php echo base_url("css/style_common.css")?>">
@@ -32,7 +35,7 @@ if (!isset($shop)) {
                 </div>
                 <div class="col-sm-4"> 
                     <br>
-                    <a href="changeDataShop.html">
+                    <a href="<?php echo base_url("Shop/changeData") ?>">
                     <button class="float-right btn btn-info">
                         Edit data
                     </button>
@@ -47,7 +50,7 @@ if (!isset($shop)) {
                     
                    <div class="row">
                       <div class="col-sm-3">
-                        <img src="<?php echo base_url("uploads/" . $shop->image) ?>" class="img-fluid shopImage text-left">
+                        <img src="<?php echo base_url("uploads/" . $shop->image); ?>" class="img-fluid shopImage text-left">
                  
                       </div>
                       <div class="col-sm-8">
@@ -116,7 +119,7 @@ if (!isset($shop)) {
                            <br>
                     </div>
                        ";
-                  if($i%4==3){
+                  if($i%4==3 || ($i+1)== count($allProducts)){
                     echo "</div>";
                     
                   }

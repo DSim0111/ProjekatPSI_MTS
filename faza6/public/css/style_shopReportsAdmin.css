@@ -33,10 +33,15 @@
      padding:5px;
  }*/
  .options_div{
-    border: 1px solid white; 
-    padding:10px;
-     border-radius:5px;
-    background-color:rgba(25, 25, 25,0.853);
+      position:relative; 
+        width:90%;
+        margin:auto;
+  background-color:#FF7F50;
+
+    border-radius: 5px;
+    border:1px solid white; 
+    padding:0px;
+    color:white;
 
  }
  @media only screen and (max-width:768px){
@@ -47,4 +52,17 @@
         margin:auto;
     }
 
+ }
+ .options_item{
+     padding:7px;
+ }
+ .options_item:hover{
+     cursor:pointer;
+     background-color:#d16943;
+ }
+ .options_div a{
+     
+     text-decoration:none; 
+     color:inherit;
+     
  }

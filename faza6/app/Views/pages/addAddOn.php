@@ -67,14 +67,14 @@
                     Product name 
                     <span style='color:red'>*</span>
                     <br>
-                    <input type="text" placeholder="Enter name" name="addOn_name" value="<?php echo set_value('product_name'); ?>">
+                    <input type="text" placeholder="Enter name" name="addOn_name" value=" <?php if(isset($_POST['addOn_name']))echo $_POST['addOn_name']; ?>">
                     <?php if (isset($addOn_name)) echo "<p style='color:red'>$addOn_name </p></center>"; ?>
 
                     <br>
                     Price
                     <span style='color:red'>*</span>
                     <br>
-                    <input type="text" placeholder="Enter price" name="addOn_price" value="<?php echo set_value('product_price'); ?>">
+                    <input type="text" placeholder="Enter price" name="addOn_price" value="<?php  if(isset($_POST['addOn_price']))echo $_POST['addOn_price']; ?>">
                     <?php if (isset($addOn_price)) echo "<p style='color:red'>$addOn_price</p></center>"; ?>
                 </div>
             </div>

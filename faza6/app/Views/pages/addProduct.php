@@ -69,14 +69,14 @@
                     Product name 
                     <span style='color:red'>*</span>
                     <br>
-                    <input type="text" placeholder="Enter name" name="product_name" value="<?php echo set_value('product_name');?>">
+                    <input type="text" placeholder="Enter name" name="product_name" value="<?php if(isset($_POST['product_name']))echo $_POST['product_name'];?>">
                      <?php if(isset($product_name)) echo "<br><span style='color:red'>$product_name</span></center>";?>
                     <br>
                     <br>
                     Product code
                     <span style='color:red'>*</span>
                     <br>
-                    <input type="text" placeholder="Enter code" name="product_code" value="<?php echo set_value('product_code');?>">
+                    <input type="text" placeholder="Enter code" name="product_code" value="<?php if(isset($_POST['product_code']))echo $_POST['product_code'];?>">
                        <?php if(isset($product_code)) echo "<br><span style='color:red'>$product_code</span></center>";?>
                      <?php if(isset($non_unique)) echo "<br><span style='color:red'>That code is already taken</span></center>";?>
                     <br>
@@ -84,7 +84,7 @@
                     Price
                     <span style='color:red'>*</span>
                     <br>
-                    <input type="text" placeholder="Enter price" name="product_price" value="<?php echo set_value('product_price');?>">
+                    <input type="text" placeholder="Enter price" name="product_price" value="<?php if(isset($_POST['product_price']))echo $_POST['product_price'];?>">
                        <?php if(isset($product_price)) echo "<br><span style='color:red'>$product_price</span></center>";?>
                   
 
@@ -99,7 +99,7 @@
                 <div class="row text-left col-sm-9" align="center">
                     <br>
                     
-                    <textarea placeholder="Enter description" name="product_desc" value="<?php echo set_value('product_desc')?>"></textarea>
+                    <textarea placeholder="Enter description" name="product_desc" value=""><?php if(isset($_POST['product_desc']))echo $_POST['product_desc'];?></textarea>
                     
                    <?php if(isset($product_desc)) echo "<p style='color:red'>$product_desc </p></center>";?>
                 </div>

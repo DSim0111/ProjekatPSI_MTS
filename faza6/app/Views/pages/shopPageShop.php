@@ -10,13 +10,16 @@ if (!isset($shop)) {
 <html> 
     <head> 
         <title> Products|Giftery</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
         <link rel="stylesheet" href="<?php echo base_url("css/style_common.css") ?>">
         <link rel="stylesheet" href="<?php echo base_url("css/style_comments.css") ?>"> 
         
          <link  type="text/css" rel="stylesheet" href="<?php echo base_url("css/style_navbar.css"); ?>">
         <link rel="stylesheet" href="<?= base_url("css/shopPage_Tijana.css")?>"> 
             <link rel="stylesheet" href="<?php echo base_url("css/style_common.css")?>">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link rel="stylesheet" href="<?= base_url("css/changeDataShop.css") ?>"> 
+   
     </head> 
     <body> 
           <?php
@@ -74,6 +77,27 @@ if (!isset($shop)) {
                    </div>
                 </div>  
             </div>
+            <div class="row"> 
+                <div class="col-sm-12 tags">
+                    <img src="<?= base_url("images/icons/tag.png") ?>" width="40px" height="40px">Tags <br> 
+                    <ul type="none"> 
+                        <?php if (isset($myCategories))
+                            foreach ($myCategories as $myCat) {
+                                ?>
+
+                                <li class='tag btn-info'> 
+                                    <?php echo $myCat->name ?> &nbsp;
+                                    
+                                </li>
+                            <?php } ?>
+                      
+                    </ul>
+
+
+                </div>
+            </div>
+            
+            
             <div class="row"> 
                 <div class="col-sm-12">
                     <br>

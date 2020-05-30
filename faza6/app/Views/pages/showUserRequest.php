@@ -1,6 +1,10 @@
 <?php ?>
 
 <!DOCTYPE html> 
+<?php
+
+//tvar_dump($requests); return; 
+?>
 <html>
     <head> 
         <title> 
@@ -93,7 +97,7 @@
                                         <?php echo $request->surname; ?>
                                     </td>
                                     <td>
-                                        <?php echo $request->address; ?>
+                                        <?php echo $request->UserAddress; ?>
                                     </td>
                                       <td>
                                         <?php echo $request->phoneNum; ?>
@@ -185,7 +189,7 @@
                                             <td><?php echo $request->receiverName; ?></td>
                                             <td><?php echo $request->receiverSurname; ?></td>
                                             <td> 
-                                                <?php echo $request->address; ?>
+                                                <?php echo $request->dAddress; ?>
                                             </td>
                                             <td>
                                                 <?php echo $request->deliverDate; ?>

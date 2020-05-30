@@ -45,5 +45,10 @@ class ProductModel extends \CodeIgniter\Model {
     public function alreadyExistsCode($id,$code){
       return $this->builder()->select()->where("code",$code)->where("idShop",$id)->get()->getResultObject();
     }
-
+ public function exists($shopId, $product) {
+        $products = $this->builder()->select()->where("idProduct", $product)->where("idShop", $shopId)->get()->getResultObject();
+        if ($products == null)
+            return false;
+        else
+ return true;}
 }

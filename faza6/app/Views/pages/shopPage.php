@@ -83,6 +83,26 @@ if (!isset($shop)) {
                 </div>
 
             </div>
+             <div class="row"> 
+                <div class="col-sm-12 tags">
+                    <img src="<?= base_url("images/icons/tag.png") ?>" width="40px" height="40px">Tags <br> 
+                    <ul type="none"> 
+                        <?php if (isset($myCategories))
+                            foreach ($myCategories as $myCat) {
+                                ?>
+
+                                <li class='tag btn-info'> 
+                                    <?php echo $myCat->name ?> &nbsp;
+                                    
+                                </li>
+                            <?php } ?>
+                      
+                    </ul>
+
+
+                </div>
+            </div>
+            
             <div class="row"> 
                 <div class="col-sm-12">
                     <br>

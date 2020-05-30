@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: May 29, 2020 at 11:04 PM
--- Server version: 8.0.18
+-- Generation Time: May 30, 2020 at 05:15 PM
+-- Server version: 5.7.28
 -- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -30,14 +30,14 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `addon`;
 CREATE TABLE IF NOT EXISTS `addon` (
-  `name` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `name` varchar(40) NOT NULL,
   `price` float NOT NULL,
   `idA` int(11) NOT NULL AUTO_INCREMENT,
   `image` varchar(100) DEFAULT NULL,
   `idShop` int(11) NOT NULL,
   PRIMARY KEY (`idA`),
   KEY `R_48` (`idShop`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `addon`
@@ -59,7 +59,7 @@ DROP TABLE IF EXISTS `administrator`;
 CREATE TABLE IF NOT EXISTS `administrator` (
   `id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `administrator`
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `idC` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(18) NOT NULL,
   PRIMARY KEY (`idC`)
-) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `category`
@@ -180,7 +180,14 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`idComment`),
   KEY `R_46` (`idUser`),
   KEY `R_47` (`idShop`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`idUser`, `idShop`, `commentField`, `idComment`, `submitDate`) VALUES
+(16, 11, 'Coffe here is amazing!', 2, '2020-05-30 11:43:17');
 
 -- --------------------------------------------------------
 
@@ -196,7 +203,18 @@ CREATE TABLE IF NOT EXISTS `deliveryaddon` (
   PRIMARY KEY (`idDelAdd`),
   KEY `R_53` (`idA`),
   KEY `R_54` (`idDelReq`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `deliveryaddon`
+--
+
+INSERT INTO `deliveryaddon` (`idA`, `idDelReq`, `idDelAdd`) VALUES
+(0, 1, 1),
+(0, 2, 2),
+(0, 3, 3),
+(0, 4, 4),
+(0, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -213,7 +231,26 @@ CREATE TABLE IF NOT EXISTS `deliveryproduct` (
   PRIMARY KEY (`idDelProduct`),
   KEY `R_51` (`idProduct`),
   KEY `R_52` (`idDelReq`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `deliveryproduct`
+--
+
+INSERT INTO `deliveryproduct` (`idProduct`, `idDelReq`, `idDelProduct`, `quantity`) VALUES
+(160, 1, 1, 2),
+(158, 1, 2, 3),
+(160, 2, 3, 2),
+(158, 2, 4, 5),
+(157, 2, 5, 3),
+(160, 3, 6, 1),
+(157, 3, 7, 1),
+(113, 4, 8, 2),
+(118, 4, 9, 2),
+(158, 5, 10, 3),
+(163, 5, 11, 1),
+(166, 5, 12, 1),
+(175, 5, 13, 1);
 
 -- --------------------------------------------------------
 
@@ -233,11 +270,24 @@ CREATE TABLE IF NOT EXISTS `deliveryrequest` (
   `notes` varchar(200) DEFAULT NULL,
   `address` varchar(30) NOT NULL,
   `submitTime` time NOT NULL,
+  `receiverName` varchar(40) NOT NULL,
+  `receiverSurname` varchar(40) NOT NULL,
+  `deliverDate` date NOT NULL,
+  `deliverTime` time NOT NULL,
   PRIMARY KEY (`idDelReq`),
   KEY `R_38` (`idUser`),
   KEY `R_39` (`idProduct`),
   KEY `R_40` (`idShop`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `deliveryrequest`
+--
+
+INSERT INTO `deliveryrequest` (`idDelReq`, `idUser`, `idProduct`, `idShop`, `state`, `submitDate`, `payment`, `notes`, `address`, `submitTime`, `receiverName`, `receiverSurname`, `deliverDate`, `deliverTime`) VALUES
+(3, 16, 0, 11, 'A', '2020-04-20', 'pbd', 'Happy holidays!', 'Pozeska 115', '14:00:00', 'Marko', 'Pantelic', '2020-06-05', '12:00:00'),
+(4, 16, 0, 13, 'A', '2020-05-30', 'pod', 'Enjoy!', 'Ace Joksimovica 55', '12:23:09', 'Tijana', 'Leontijevic', '2020-06-05', '14:00:00'),
+(5, 16, 0, 11, 'A', '2020-05-30', 'pbd', 'Happy holidays!', 'Ace Joksimovica 2', '18:54:13', 'Tijana', 'Pantelic', '2020-06-07', '14:00:00');
 
 -- --------------------------------------------------------
 
@@ -251,7 +301,14 @@ CREATE TABLE IF NOT EXISTS `favshop` (
   `idShop` int(11) NOT NULL,
   PRIMARY KEY (`idUser`,`idShop`),
   KEY `R_35` (`idShop`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `favshop`
+--
+
+INSERT INTO `favshop` (`idUser`, `idShop`) VALUES
+(16, 11);
 
 -- --------------------------------------------------------
 
@@ -263,14 +320,14 @@ DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
   `idProduct` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(12) NOT NULL,
-  `name` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `description` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `description` varchar(400) NOT NULL,
   `price` float NOT NULL,
   `idShop` int(11) NOT NULL,
   `image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idProduct`),
   KEY `R_23` (`idShop`)
-) ENGINE=MyISAM AUTO_INCREMENT=220 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=220 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
@@ -339,10 +396,10 @@ INSERT INTO `product` (`idProduct`, `code`, `name`, `description`, `price`, `idS
 (62, '0tvf', 'Go Bananas Set', 'They’ll go bananas for this fragrantly fruity haircare duo. Our creamy Shampoo and Conditioner leaves normal to dry hair feeling softer and nourished with the addictive aroma of ripe bananas and woody coconut. Complete with a monkey hair wrap, this super-cute gift set is perfect for any occasion.', 2630, 7, '1590769211_9cddb677248f9c262be8.png'),
 (63, '13344', 'AKG-15 headphones', 'Wireless headphones, 100 hours of playtime. ', 4000, 8, '1590770421_c55cd23af686d2dbd584.png'),
 (64, 'utfhgbbvc', 'AKG-K92 headphones', 'Wireless, bluetooth headphones with 120 hours of play. ', 4800, 8, '1590770458_4efd41dc5c6f209eaafb.png'),
-(69, '3254ufgb', 'Arctic Monkeys record', 'Album: AM ', 3000, 8, '1590770722_48e80a8e02ce80fac7bc.png'),
 (66, 'C_P112134', 'Gramophone', 'Unique home decor item\r\nTable space filler\r\nBest for both indoor and outdoor use\r\n', 10000, 8, '1590770566_45df3a58d6508adb4d28.png'),
 (67, 'sdffewr', 'Crosley Grapmophone', 'Crosley Gramophone blue \r\nUnique home decor item,\r\nTable space filler,\r\nBest for both indoor and outdoor use,\r\n', 10000, 8, '1590770608_54cce321a9f92dc1ffbd.png'),
 (68, '5457', 'Ed Sheeran record', 'Album \"X\" of famous singer Ed Sheeran. ', 2000, 8, '1590770687_3157eeff82262317f3ea.png'),
+(69, '3254ufgb', 'Arctic Monkeys record', 'Album: AM ', 3000, 8, '1590770722_48e80a8e02ce80fac7bc.png'),
 (70, 'fgjibnv', 'Wonder Wipes ', 'Wonder wipes for cleaning your guitar strings. ', 500, 8, '1590770765_6245abe16613b78a0fd8.png'),
 (71, '36fgb', 'Electrical Guitar ', 'Gibson-Les-Paul electrical guitar. ', 63000, 8, '1590770808_bbb2123cf576c6b3d21c.png'),
 (72, 'vdr543fc', 'Acoustic Guitar', 'Hohner-HC02', 35000, 8, '1590770849_75ad703b2f387f888995.png'),
@@ -367,17 +424,17 @@ INSERT INTO `product` (`idProduct`, `code`, `name`, `description`, `price`, `idS
 (91, '145QW', 'Platform Sandals', '', 2800, 9, '1590772936_b59a1873da0ebd8bb075.png'),
 (92, 'WER123', 'Male Boots', 'Dark green male boots.', 4500, 9, '1590772998_9c8f565a396559d6edbd.png'),
 (93, '558P', 'Yellow Dress', '', 2500, 9, '1590773042_7368ab79a3cb6246742b.png'),
-(108, '145JKU', 'Super Mario', '64GB', 1200, 10, '1590775286_abe2db043bb7707cebf8.jpg'),
 (95, 'QXC12', 'Gold Flash', '64GB', 600, 10, '1590774378_f8199fd2fb6f22e5a214.jpg'),
-(101, 'UI12SX', 'GoldBrick Flash', '32GB', 920, 10, '1590774787_8f23b0ad6b4ab53d2511.jpg'),
-(100, '12LFGM', 'Neo Flash', '64GB', 1800, 10, '1590774705_28af058b020d237085f3.jpg'),
 (99, '44LKM1', 'Balisong Knife', '32GB', 450, 10, '1590774628_42bedc15993b1b9435af.jpg'),
+(100, '12LFGM', 'Neo Flash', '64GB', 1800, 10, '1590774705_28af058b020d237085f3.jpg'),
+(101, 'UI12SX', 'GoldBrick Flash', '32GB', 920, 10, '1590774787_8f23b0ad6b4ab53d2511.jpg'),
 (102, 'PPO23', 'Rainbow Pony', '16GB', 450, 10, '1590774872_ef989008d094e0ce1d3e.jpg'),
 (103, '11LJKM', 'Camera Flash', '32GB', 950, 10, '1590774921_5f98b8acd7a3f94d9667.jpg'),
 (104, '1YH34', 'Tiffany Bag', '16GB', 600, 10, '1590774979_34cd3935146678739851.jpg'),
 (105, 'MMG18', 'Golden Robot', '128GB', 1500, 10, '1590775052_b92561407317c6843716.jpg'),
 (106, '556AKJ', 'Diamond Flash', '64GB', 1900, 10, '1590775150_b3b65cff496a2872576e.jpg'),
 (107, 'NMZ1', 'Gun Flash', '128GB', 2600, 10, '1590775226_e69d47151d4ded168948.jpg'),
+(108, '145JKU', 'Super Mario', '64GB', 1200, 10, '1590775286_abe2db043bb7707cebf8.jpg'),
 (109, '145FGD', 'Guitar Flash', '32GB', 1000, 10, '1590775345_87c04187280009d7faa5.jpg'),
 (110, '423JKV', 'Turtle Flash', '32GB', 2100, 10, '1590775421_a0e210e841d1498a3122.jpg'),
 (111, 'YU1243', 'Jar Flash', '8GB', 1400, 10, '1590775473_dae1aaa2a6645633172e.jpg'),
@@ -463,8 +520,8 @@ INSERT INTO `product` (`idProduct`, `code`, `name`, `description`, `price`, `idS
 (191, '#133', 'National Symphony', 'National Symphony orchestra Beethoven at 250 Noseda conducts Missa Solemnis, Concert Hall Oct. 8, 2 tickets', 15000, 14, '1590788609_6d68a112584296169ea2.jpg'),
 (192, '#134', 'National Symphony', 'National Symphony orchestra Beethoven at 250 with Noseda & Ehnes Concert Hall Oct. 1, 2 tickets.', 12000, 14, '1590788687_db341c9d09b3ec101777.jpg'),
 (193, '#135', 'Fidelio ', 'Washington National Opera Beethoven Fidelio  Concert Hall, Oct. 24, 2 tickets.', 35000, 14, '1590788729_b75a71b1d93256dcc346.jpg'),
+(195, '#140', 'Ballet Rehearsal', 'Working Rehearsal - American Ballet Theatre Opera House, Dance scholars explains the art of ballet, Feb. 11 2021', 2500, 14, '1590788818_22cad96a78747f59157c.jpg'),
 (196, '#141', 'DON GIOVANNI', 'WOLFGANG AMADEUS MOZART DON GIOVANNI in Metropolitan, Sep. 19, 2 x Orchestra Premium seats', 48000, 14, '1590788885_1115d407321b81bd6e46.jpg'),
-(195, '#140', 'Ballet Rehearsal', 'Working Rehearsal - American Ballet Theatre Opera House, Dance scholars explains the art of ballet, Feb. 11 2021', 0, 14, '1590788818_22cad96a78747f59157c.jpg'),
 (197, '#100', 'Aerosmith', 'Aerosmith Park Theater at Park MGM · Las Vegas Jul 01 2020 2 tickets', 19000, 15, '1590789218_488df5cb33ad5a3a5f32.jpg'),
 (198, '#101', 'Elton John', 'Elton John American Airlines Arena, Miami Sep 29 2020 2 tickets', 25000, 15, '1590789248_011e65971a853739faa0.jpg'),
 (199, '#102', 'Billy Joel', 'Billy Joel New Era Field · Orchard Park Aug. 15 2020, 2 tickets', 26000, 15, '1590789278_715c57d004a14ad8a743.jpg'),
@@ -502,7 +559,7 @@ CREATE TABLE IF NOT EXISTS `rating` (
   `rating` int(11) NOT NULL,
   PRIMARY KEY (`idUser`,`idShop`),
   KEY `R_14` (`idShop`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -513,13 +570,13 @@ CREATE TABLE IF NOT EXISTS `rating` (
 DROP TABLE IF EXISTS `shop`;
 CREATE TABLE IF NOT EXISTS `shop` (
   `id` int(11) NOT NULL,
-  `description` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `shopName` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `description` varchar(400) NOT NULL,
+  `shopName` char(40) NOT NULL,
   `state` char(18) NOT NULL,
   `submitDate` date NOT NULL,
-  `address` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `address` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `shop`
@@ -533,11 +590,11 @@ INSERT INTO `shop` (`id`, `description`, `shopName`, `state`, `submitDate`, `add
 (8, ' Skippy\'s music shop is a company that sells musical instruments and accompanying equipment, sound systems for all types of events as well as for personal use.As part of our business, we also design and equip all types of premises that need sound systems - discos, cafes, clubs, business premises, mega markets, health facilities, schools, swimming pools, indoor and outdoor spaces.', 'Skippy\'s music shop', 'A', '0000-00-00', '11102 Briar Forest Dr Ste C, Houston, SAD'),
 (9, 'We are a family of brands, driven by our desire to make great design available to everyone in a sustainable way.', 'HM club', 'A', '0000-00-00', 'Geller Street, New York'),
 (10, 'We are a team of enthusiastic developers and entrepreneurs who decided to convert their common experience into this web store. We hope you’ll like it as much as we do and have a great shopping experience here.', 'FunnyFlash', 'A', '0000-00-00', '123 Neigh\'s Dr Street C, Houston, SAD'),
-(11, 'Bean Box hand picks coffee from Seattle’s world-renowned roasters. ', 'Bean Box', 'I', '0000-00-00', 'Santa Monica wn'),
-(12, 'From green tea to Rooibos, you will find over 120 varieties.', 'Harney and Sons Tea House', 'I', '0000-00-00', 'Malibu beach house'),
-(13, 'Godiva was appointed an official chocolatier to the Royal Court of Belgium.', 'GODIVA', 'I', '0000-00-00', 'Malibu beach house'),
-(14, 'Arts & Theatre Tickets - Buy tickets to an event they\'ll love.', 'Ticket Master', 'I', '0000-00-00', 'Malibu room'),
-(15, 'Buy tickets for upcoming concert tours and events, including rock, electronic, pop, festivals and more.', 'Concert Tickets', 'I', '0000-00-00', 'West Coast');
+(11, 'Bean Box hand picks coffee from Seattle’s world-renowned roasters. ', 'Bean Box', 'A', '0000-00-00', 'Santa Monica wn'),
+(12, 'From green tea to Rooibos, you will find over 120 varieties.', 'Harney and Sons Tea House', 'A', '0000-00-00', 'Malibu beach house'),
+(13, 'Godiva was appointed an official chocolatier to the Royal Court of Belgium.', 'GODIVA', 'A', '0000-00-00', 'Malibu beach house'),
+(14, 'Arts & Theatre Tickets - Buy tickets to an event they\'ll love.', 'Ticket Master', 'A', '0000-00-00', 'Malibu room'),
+(15, 'Buy tickets for upcoming concert tours and events, including rock, electronic, pop, festivals and more.', 'Concert Tickets', 'A', '0000-00-00', 'West Coast');
 
 -- --------------------------------------------------------
 
@@ -551,7 +608,7 @@ CREATE TABLE IF NOT EXISTS `shopcat` (
   `idShop` int(11) NOT NULL,
   PRIMARY KEY (`idC`,`idShop`),
   KEY `R_37` (`idShop`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `shopcat`
@@ -559,29 +616,31 @@ CREATE TABLE IF NOT EXISTS `shopcat` (
 
 INSERT INTO `shopcat` (`idC`, `idShop`) VALUES
 (1, 4),
-(1, 6),
-(1, 9),
-(2, 6),
-(2, 9),
 (6, 4),
 (14, 4),
+(29, 4),
+(47, 4),
+(48, 4),
+(37, 5),
+(77, 5),
+(78, 5),
+(1, 6),
+(2, 6),
+(24, 6),
+(28, 6),
+(36, 6),
+(46, 6),
+(47, 6),
+(73, 6),
+(1, 9),
+(2, 9),
+(24, 9),
+(35, 9),
 (14, 10),
 (19, 10),
-(24, 6),
-(24, 9),
-(28, 6),
-(29, 4),
 (32, 10),
-(35, 9),
-(36, 6),
-(37, 5),
-(46, 6),
-(47, 4),
-(47, 6),
-(48, 4),
-(73, 6),
-(77, 5),
-(78, 5);
+(3, 11),
+(48, 11);
 
 -- --------------------------------------------------------
 
@@ -595,10 +654,17 @@ CREATE TABLE IF NOT EXISTS `shopreport` (
   `description` varchar(200) NOT NULL,
   `idShop` int(11) NOT NULL,
   `submitDate` date NOT NULL,
-  `status` char(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `status` char(2) NOT NULL,
   PRIMARY KEY (`idUser`,`idShop`),
   KEY `R_19` (`idShop`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `shopreport`
+--
+
+INSERT INTO `shopreport` (`idUser`, `description`, `idShop`, `submitDate`, `status`) VALUES
+(16, 'They did not deliver ordered gift on time!They were 2 days late!', 12, '2020-05-30', 'I');
 
 -- --------------------------------------------------------
 
@@ -617,7 +683,7 @@ CREATE TABLE IF NOT EXISTS `systemuser` (
   `phoneNum` char(18) NOT NULL,
   `image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `systemuser`
@@ -638,7 +704,9 @@ INSERT INTO `systemuser` (`id`, `username`, `password`, `name`, `surname`, `emai
 (12, 'alanharper', '$2y$10$iRKARh7363XfhvXplSCjb.eft3P8H4b2RjJkIewlkJGaFETnS55X2', 'Alan', 'Harper', 'alan.harper@gmail.com', '0665432345', '1590784519_715f012e112a67c01256.jpg'),
 (13, 'jakeharper', '$2y$10$ji8ncZi8ZeDrj465S0zWQOYQamBzkNxyWVYFuPs2GfAAMRyFkUorO', 'Jake', 'Harper', 'jake.H@gmail.com', '0665432345', '1590784889_227ed76ab765d517daae.png'),
 (14, 'evelyn', '$2y$10$.8uMW1aJeYDKQnHxrlLNrOzNHH0H9/jD623Bdfem43MawKUoqAit6', 'Evelyn', 'Harper', 'evelyn@gmail.com', '0665432345', '1590787809_aaa4970c3d069c3086f8.jpg'),
-(15, 'bertaxD', '$2y$10$LUSNgpHPsWqdqKuuqgNaiuftqrfH1mbKbyZPN.tXUnWxaKTBlEyNe', 'Berta', 'Cleaner', 'berta.xD@gmail.com', '0665432345', '1590789165_b70b288a06d55e984f91.jpg');
+(15, 'bertaxD', '$2y$10$LUSNgpHPsWqdqKuuqgNaiuftqrfH1mbKbyZPN.tXUnWxaKTBlEyNe', 'Berta', 'Cleaner', 'berta.xD@gmail.com', '0665432345', '1590789165_b70b288a06d55e984f91.jpg'),
+(16, 'petrica89', '$2y$10$lK23PblQB0U6chejNxJO.uIt4fR8cyf1RsAZFG3apoFZHhtrXivYm', 'Petra', 'Hristovski', 'petrica@gmail.com', '065148972', NULL),
+(17, 'pavle23', '$2y$10$AdPTMBNwK61LzRFAgWWqsOdmmL0j6PHflsg/3DGFPpctx63NQr292', 'Pavle', 'Mitrovic', 'mitrovicP23@gmail.com', '062418755', NULL);
 
 -- --------------------------------------------------------
 
@@ -651,7 +719,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL,
   `address` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `address`) VALUES
+(16, 'Ratka Mitrovica 112'),
+(17, 'Veljka Petrovica 12b');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -341,7 +341,7 @@ class User extends BaseController {
         }
         $data = ['idUser' => $idUser, 'idShop' => $shopId,
             'state' => 'A', 'payment' => $payment, 'notes' => $note, 'address' => $address, 'receiverName' => $name,
-            'receiverSurname' => $surname, 'deliverDate' => $date, 'deliverTime' => $time];
+            'receiverSurname' => $surname, 'deliverDate' => $date, 'deliverTime' => $time, 'submitDate'=> $today , 'submitTime'=>date('H:i:s')];
         $id = $deliveryRequestModel->insertData($data);
         $i = 0;
         echo "$id ";

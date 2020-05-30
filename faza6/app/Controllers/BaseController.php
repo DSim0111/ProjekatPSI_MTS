@@ -17,7 +17,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\CommentsModel;
 use App\Models\ProductModel;
-
+use App\Models\Shop_CategoryModel;
 /**
  * author: Simona Denic 17/338 
  * 
@@ -267,13 +267,13 @@ class BaseController extends Controller {
         $shop = $shopModel->getShop($id);
         $productModel = new ProductModel();
         $allProducts = $productModel->getAllProductsForShop($id);
-
+        $shop_catModel = new Shop_CategoryModel();
         $commentsModel = new CommentsModel();
         $idShop = $this->request->getVar("shopId");
         $comments = $commentsModel->getAllCommentsForShop($idShop);
         $userRole = $this->session->get("logged_in_as");
         //   var_dump( $allProducts);
-        return $this->showPage("shopPage", array_merge(["shop" => $shop, "userRole" => $userRole], $data, ["comments" => $comments], ['allProducts' => $allProducts]));
+        return $this->showPage("shopPage", array_merge(["shop" => $shop, "userRole" => $userRole], $data, ['myCategories' => $shop_catModel->findMyCategories($idShop)],["comments" => $comments], ['allProducts' => $allProducts]));
     }
 
 }

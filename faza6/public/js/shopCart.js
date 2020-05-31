@@ -69,7 +69,7 @@ function addToCart(id, price, productName) {
     } else {
         numCartItems[i] = parseInt(numCartItems[i]) + n;
     }
-    localStorage.setItem('numCartItems', parseInt(localStorage.getItem('numCartItems')) + 1);
+    localStorage.setItem('numCartItems', parseInt(localStorage.getItem('numCartItems')) + n);
     localStorage.setItem('totalPrice', parseInt(localStorage.getItem('totalPrice')) + n * parseInt(price));
     localStorage.setItem('products', cartItems.join('-'));
     localStorage.setItem('numItems', numCartItems.join('-'));

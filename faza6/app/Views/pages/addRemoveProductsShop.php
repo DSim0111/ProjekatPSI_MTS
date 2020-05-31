@@ -107,7 +107,7 @@ if (!isset($shop)) {
                   
                   $i++;
                    } 
-                   if(($i%4!=3) && $i!=0)echo '</div>';
+                   if(($i%4!=3) || ($i+1)== count($allAddOns))echo '</div>';
                    ?>
                    
                 </div>
@@ -119,11 +119,11 @@ if (!isset($shop)) {
                 <div class='col-sm-12'>
                     <br>
                     <h4> Existing products</h4>
+                     
                 </div>
             </div>
         
             <hr>
-                    
         <div class='row'> 
                   
                 <div class='col-sm-12 myCol'>

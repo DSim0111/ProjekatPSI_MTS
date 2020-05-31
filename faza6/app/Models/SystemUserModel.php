@@ -73,6 +73,7 @@ class SystemUserModel extends Model
     }
     private function insertSystemUser($username, $firstName, $lastName, $password,  $email, $phone, $image=null){
         $passwordHash=password_hash($password, PASSWORD_BCRYPT);
+        
         if($passwordHash==false){return null;} 
          return $this->insert([
                   

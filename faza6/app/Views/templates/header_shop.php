@@ -47,10 +47,16 @@
       echo "<span class='d-md-block d-none'>Hello, ".$username."! &nbsp; &nbsp; &nbsp;</span>"; 
               ?>
     <a href="<?php echo base_url('BaseController/logout')?>">
-      <button class='btn btn-info'>
+      <button onclick="resetLocalStorage()" class='btn btn-info'>
           Logout
           
       </button>
+        <script>
+            function resetLocalStorage(){
+                
+                localStorage.clear();
+            }
+            </script>
     </a>
   </div>
 </nav>

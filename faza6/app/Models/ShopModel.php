@@ -29,7 +29,7 @@ class ShopModel extends Model {
 
         // TODO 
         // wtf is this 
-          $date = date('Y-m-d H:i:s');
+    $date=date('Y-m-d');
 
         $this->insert(
                 [

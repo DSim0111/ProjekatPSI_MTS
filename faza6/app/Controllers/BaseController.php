@@ -275,5 +275,8 @@ class BaseController extends Controller {
         //   var_dump( $allProducts);
         return $this->showPage("shopPage", array_merge(["shop" => $shop, "userRole" => $userRole], $data, ['myCategories' => $shop_catModel->findMyCategories($idShop)],["comments" => $comments], ['allProducts' => $allProducts]));
     }
-
+public function aboutUs(){
+    
+    $this->showPage("aboutUs");
+}
 }

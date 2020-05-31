@@ -67,7 +67,7 @@
                     Product name 
                     <span style='color:red'>*</span>
                     <br>
-                    <input type="text" placeholder="Enter name" name="addOn_name" value=" <?php if(isset($_POST['addOn_name']))echo $_POST['addOn_name']; ?>">
+                    <input type="text" placeholder="Enter name" name="addOn_name" value="<?php if(isset($_POST['addOn_name']))echo $_POST['addOn_name']; ?>">
                     <?php if (isset($addOn_name)) echo "<p style='color:red'>$addOn_name </p></center>"; ?>
 
                     <br>

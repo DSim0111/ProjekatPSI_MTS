@@ -30,9 +30,7 @@
          <li class="nav-item ">
         <a class="nav-link" href="<?php echo base_url('User/aboutUs')?>">About us</a>
       </li>
-         <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('Shop/aboutUs')?>">About us</a>
-      </li>
+      
      
     
     </ul>

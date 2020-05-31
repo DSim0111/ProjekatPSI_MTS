@@ -115,7 +115,7 @@ class Guest extends BaseController {
 
         if ($ret === 0) {
             //Success 
-            return $this->login();
+            return redirect()->to("Guest/login");
         } else {
 
             // username exists, email exist..

@@ -40,6 +40,7 @@ function addToCart(id, price, productName) {
         if (localStorage.getItem('currShop') != localStorage.getItem('shopId')) {
             if (confirm("You already have items from another shop in you cart. Are you sure you want to delete them?")) {
                 init();
+                localStorage.setItem('currShop', localStorage.getItem('shopId'));
             } else {
                 return;
             }

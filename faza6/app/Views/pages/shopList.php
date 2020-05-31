@@ -59,8 +59,8 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenubutton">
                                 <button class="dropdown-item" type="submit" name="sort" value="rating_asc">By rating asc</button>
                                 <button  class="dropdown-item" type="submit"  name="sort" value="rating_desc">By rating desc</button>
-                                <button  class="dropdown-item" type="submit"  name="sort" value="date_asc">By date asc</button>
-                                <button  class="dropdown-item" type="submit"  name="sort" value="date_desc">By date desc</button>
+                                <button  class="dropdown-item" type="submit"  name="sort" value="submitDate_asc">By date asc</button>
+                                <button  class="dropdown-item" type="submit"  name="sort" value="submitDate_desc">By date desc</button>
                                 <button  class="dropdown-item" type="submit"  name="sort" value="shopName_asc">By name asc</button>
                                 <button  class="dropdown-item" type="submit"   name="sort" value="shopName_desc">By name desc</button>
                             </div>

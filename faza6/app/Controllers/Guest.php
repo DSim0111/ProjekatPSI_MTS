@@ -157,6 +157,7 @@ class Guest extends BaseController {
                     $this->request->getVar("shopName"),
                     'I', // I - inactive state 
                     $newName);
+            
             if ($retVal != 0) {
 
                 return $this->registerShop($retVal);
@@ -167,8 +168,9 @@ class Guest extends BaseController {
         } else {
             //validation failed
 
-            return $this->registerShop($ret);
+           return $this->registerShop($ret);
         }
+    
     }
 
     public function pageNotFound() {

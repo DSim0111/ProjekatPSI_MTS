@@ -18,7 +18,7 @@ class DeliveryRequestsModel extends Model {
     protected $allowedFields = ['idUser', 'idProduct', 'idShop', 'state', 'submitDate', 'payment', 'notes', 'address', 'submitTime', 'receiverName', 'receiverSurname', 'deliverDate', 'deliverTime'];
 
     public function handledRequestForShopWithID($idShop) {
-        return $this->builder()->select("*, User.address as UserAddress")->where("idShop", $idShop)->where("state!=", "A")->join("user", "user.id=deliveryrequest.idUser")->join("systemuser", "systemuser.id=deliveryrequest.idUser")->get()->getResultObject();
+        return $this->builder()->select("*,  DeliveryRequest.address as dAddress, User.address as UserAddress")->where("idShop", $idShop)->where("state!=", "A")->join("user", "user.id=deliveryrequest.idUser")->join("systemuser", "systemuser.id=deliveryrequest.idUser")->get()->getResultObject();
     }
 
     public function unhandledRequestForShopWithID($idShop) {

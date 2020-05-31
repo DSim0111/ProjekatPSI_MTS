@@ -100,14 +100,14 @@ if (!isset($shop)) {
                     <br>
                    </div>
                       <?php
-                  if($i%4==3){
+                  if($i%4==3 || ($i+1)== count($allAddOns)){
                     echo "</div>";
                     
                   }
                   
                   $i++;
                    } 
-                   if(($i%4!=3) || ($i+1)== count($allAddOns))echo '</div>';
+                 
                    ?>
                    
                 </div>

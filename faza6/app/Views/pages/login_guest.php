@@ -5,7 +5,6 @@
 	
                 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/style_common.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/style_login.css">
-                <script src="<?php echo base_url(); ?>/js/shopCart.js"></script>
 	</head>
         <style>
             html{
@@ -58,12 +57,16 @@
 			<p>Password</p>
 			<input type="password" name="password" placeholder="Enter Password">
                         <div class="w-100" align="center">
-			<a onclick="init();" href="user_index.html"><input class="w-100" type="submit" name="submit" value="Login"></a>
+			<a href="user_index.html"><input class="w-100" type="submit" name="submit" value="Login"></a>
                         </div>
                         
                         
 			
 			</form>
+                        <br>
+                        
+                        <a href="<?php echo base_url('Guest/whoAreYou')?>">Register here</a><br>
+                          <a href="<?php echo base_url('Guest/listShopsPaging')?>">Home page</a>
 			
 		</div>
                  

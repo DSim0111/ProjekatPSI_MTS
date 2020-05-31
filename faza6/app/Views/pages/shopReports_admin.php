@@ -8,7 +8,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/css/style_common.css">
         <link rel="stylesheet" href="<?php echo base_url('css/style_shopReportsAdmin.css')?>">
          </head>
-    <body> 
+    <body style="background-color:#f2f2f2 !important"> 
         <?php
         
         if(isset($header)){
@@ -19,9 +19,10 @@
         ?>
         <div class="container-fluid ">
 
-
+       
              
-                     <div class="  row">  
+                     <div class="  row"> 
+                         
                          <div class=" col-sm-12 col-md-2 col-lg-2"> 
                              
                                
@@ -52,7 +53,9 @@
 
                             <div class="row shop_report_container">
                             <!--Shop report 1-->
-                            
+                            <div class="col-sm-12">
+                                     <h4 style="color:black"> Requests for new shop accounts</h4>
+                            </div>
                             <?php
                                 if(isset($error)){
                                     

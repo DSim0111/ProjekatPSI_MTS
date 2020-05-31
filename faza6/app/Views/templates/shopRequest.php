@@ -1,10 +1,22 @@
 
-<?php echo "<p>Date submitted: " . $shop->submitDate . "</p>"; ?>
-<div class='row shopReport'>
-    <div class='col-sm-12'>
+
+<div class='row '>
+    <div class='col-sm-12 requestEnvelopeMiki'>
+        <?php echo "<p style='color:black'>Date submitted: " . $shop->submitDate . "</p>"; ?>
         <h3>Information</h3>
-        <table class='table table-striped table-light text-center myTable'> 
-            <thead class='thead'> 
+        <style>
+            .myTableColor{
+                background-color: gray;
+            }
+            .myTHead{
+                
+                background-color:#457b9d; 
+                color:white;
+            }
+            
+        </style>
+        <table class='table  table-light text-center myTable'> 
+            <thead class='thead myTHead'> 
             <th> 
                 First name
             </th>
@@ -54,4 +66,5 @@
 
     </div>
 </div>
+<br>
 

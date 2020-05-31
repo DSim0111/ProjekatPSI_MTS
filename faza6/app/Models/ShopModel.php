@@ -22,7 +22,7 @@ class ShopModel extends Model {
     protected $table = 'shop';
     protected $primaryKey = 'id';
     protected $returnType = "object";
-    protected $allowedFields = ['id', 'shopName', 'description', 'state', 'address'];
+    protected $allowedFields = ['id', 'shopName', 'description', 'state', 'address', 'submitDate'];
 
     public function insertShop($id, $description, $shopName, $state, $address) {
         helper("date");
@@ -30,18 +30,18 @@ class ShopModel extends Model {
         // TODO 
         // wtf is this 
     $date=date('Y-m-d');
-
+    //echo $cut;
         $this->insert(
                 [
                     "id" => $id,
                     "description" => $description,
                     "state" => $state,
-                    "submitDate" => $date,
+                   
                     "shopName" => $shopName,
-                    "address" => $address
+                    "address" => $address,
+                     "submitDate" => $date
                 ]
         );
-
 
         return $id;
     }
@@ -85,6 +85,7 @@ class ShopModel extends Model {
         if (!isset($sortOrder) || (!in_array($sortOrder, ShopModel::$sortOrders))) {
             $sortOrder = "asc";
         }
+        echo $sortColumn;
         $this->builder()->groupBy("shop.id");
         $this->builder()->orderBy($sortColumn, $sortOrder);
 
@@ -108,17 +109,20 @@ class ShopModel extends Model {
             }
             $this->builder()->groupEnd();
         }
+        //  echo $sortColumn;
         if (!isset($sortColumn) || (!in_array($sortColumn, ShopModel::$sortColumns))) {
             $sortColumn = "rating";
         }
         if (!isset($sortOrder) || (!in_array($sortOrder, ShopModel::$sortOrders))) {
             $sortOrder = "asc";
         }
+          //echo $sortColumn;
         $this->builder()->groupBy("shop.id");
         $this->builder()->orderBy($sortColumn, $sortOrder);
+       
         //$this->builder()->limit(2)->offset(($page - 1) * 2);
         $res = $this->builder()->get()->getResultObject();
-        //print_r($this->db->getLastQuery());
+     //   print_r($this->db->getLastQuery());
         //$resPaging = Array();
         //if (count($res)>2){
         //for ($i = 0;$i < 2;$i++){

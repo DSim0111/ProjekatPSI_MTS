@@ -32,7 +32,7 @@ class BaseController extends Controller {
         'email' => 'required|valid_email',
         'name' => 'required|max_length[18]',
         'surname' => 'required|max_length[18]',
-        'phoneNum' => 'required|max_length[18]'
+        'phoneNum' => 'required|max_length[18]|numeric'
     ];
     protected static $userValidationRules = [
         'username' => 'required|alpha_numeric|min_length[5]|max_length[40]',
@@ -41,7 +41,7 @@ class BaseController extends Controller {
         'email' => 'required|valid_email',
         'name' => 'required|max_length[18]',
         'surname' => 'required|max_length[18]',
-        'phoneNum' => 'required|max_length[18]',
+        'phoneNum' => 'required|max_length[18]|numeric',
         'address' => "required"
     ];
     protected static $shopValidationRules = [
@@ -51,7 +51,7 @@ class BaseController extends Controller {
         'email' => 'required|valid_email',
         'name' => 'required|max_length[18]',
         'surname' => 'required|max_length[18]',
-        'phoneNum' => 'required|max_length[18]',
+        'phoneNum' => 'required|max_length[18]|numeric',
         'address' => "required",
         'shopName' => 'required|min_length[5]',
         'description' => 'required|min_length[10]|max_length[200]',
@@ -238,10 +238,18 @@ class BaseController extends Controller {
             "maxPage" => $maxPage
         ];
 
+        
+        
         if (!isset($jsonData) || $jsonData == null)
             return $this->showPage("shopList", ["shops" => $tmp, "filters" => $allCategories, "controller" => $this->request->uri->getSegment(1), "userRole" => $userRole, "maxPage" => $maxPage]);
         else
             echo json_encode($data);
+        
+        
+        
+        
+        
+        
         // echo var_dump($shops);
         /* pagination 
           $model = new \App\Models\SystemUserModel();

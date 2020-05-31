@@ -151,7 +151,7 @@ class Administrator extends BaseController {
         } else {
             return $this->showPage('basicErrorPage', ["error" => "Shop doesn't exist or shop is not active!"]);
         }
-        return redirect()->to(base_url("Administrator/listShops"));
+        return redirect()->to(base_url("Administrator/listShopsPaging"));
     }
 
 }

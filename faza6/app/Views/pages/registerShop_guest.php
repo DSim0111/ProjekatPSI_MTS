@@ -166,7 +166,7 @@ Verzija: 1.0
                             <br>
                             <br>
                             <p>Shop name</p>
-			<input type="text" name="shopName" value="<?php if(isset($_POST['shopName']))echo $_POST['shopName'];?>" placeholder="Enter description">
+			<input type="text" name="shopName" value="<?php if(isset($_POST['shopName']))echo $_POST['shopName'];?>" placeholder="Enter shop name">
                         
                            <?php
                                 if(isset($shopName))

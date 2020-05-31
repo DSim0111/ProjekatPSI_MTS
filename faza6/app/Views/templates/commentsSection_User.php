@@ -48,7 +48,7 @@
                                     Enter comment here: 
                                     <br>
                                     <input type="hidden" name="shopId" value="<?php echo $shop->id;?>" >
-                                    <input type="text" maxlength='200' name="commentField" class="add_comment_area" cols="120" rows="5">
+                                    <input type="text" maxlength='200' name="commentField" class="add_comment_area lighter_blue" cols="120" rows="5">
                                    <?php if(isset($commentField))echo "<p class='errorMessage'>".$commentField."</p>"; ?><br><br>
                                   
                                     <button type="submit" class="btn btn-primary margin-auto"  >Submit</button>

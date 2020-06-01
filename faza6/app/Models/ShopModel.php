@@ -22,7 +22,7 @@ class ShopModel extends Model {
     protected $table = 'shop';
     protected $primaryKey = 'id';
     protected $returnType = "object";
-    protected $allowedFields = ['id', 'shopName', 'description', 'state', 'address', 'submitDate'];
+    protected $allowedFields = ['id', 'shopName', 'description', 'state', 'address', 'submitDate','password'];
 
     public function insertShop($id, $description, $shopName, $state, $address) {
         helper("date");
@@ -203,10 +203,11 @@ class ShopModel extends Model {
 
         $systemUserModel = new SystemUserModel();
         if ($password != "**********") {
+            $passwordHash=password_hash($password, PASSWORD_BCRYPT);
             if ($image != "newfileName") {
-                $systemUserModel->update($idShop, ['name' => $name, 'surname' => $surname, 'phoneNum' => $phoneNum, 'image' => $image, 'password' => $password]);
+                $systemUserModel->update($idShop, ['name' => $name, 'surname' => $surname, 'phoneNum' => $phoneNum, 'image' => $image, 'password' => $passwordHash]);
             } else
-                $systemUserModel->update($idShop, ['name' => $name, 'surname' => $surname, 'phoneNum' => $phoneNum, 'password' => $password]);
+                $systemUserModel->update($idShop, ['name' => $name, 'surname' => $surname, 'phoneNum' => $phoneNum, 'password' => $passwordHash]);
         } else if ($image != "newfileName") {
             $systemUserModel->update($idShop, ['name' => $name, 'surname' => $surname, 'phoneNum' => $phoneNum, 'image' => $image]);
         } else

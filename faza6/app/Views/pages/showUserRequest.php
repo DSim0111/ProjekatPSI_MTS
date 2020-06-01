@@ -56,7 +56,7 @@
 
                                     </a>
                                 <?php }else{ ?>
-                                    <span class=' btn-danger inline float-right'><?php echo $request->state; ?></span>
+                                    <span class='btn-danger inline float-right'><?php echo $request->state; ?></span>
                              <?php   } ?>
                                 <br>
                                 <br>

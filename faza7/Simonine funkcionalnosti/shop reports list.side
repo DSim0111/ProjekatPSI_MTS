@@ -1,0 +1,156 @@
+{
+  "id": "d2085fef-2df4-4d4c-8246-f28c11dacd77",
+  "version": "2.0",
+  "name": "shop reports list",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "83a81129-6a67-48c5-abbb-db86b7d31a33",
+    "name": "shop reports list",
+    "commands": [{
+      "id": "033817cd-c5e5-4a59-bc58-0b426e12d73a",
+      "comment": "",
+      "command": "open",
+      "target": "/Guest/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2e5e1317-9e88-4edc-92a0-815d4758cd09",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7edfc9f9-8eac-4ec6-a4d2-9dbc339f2999",
+      "comment": "",
+      "command": "click",
+      "target": "css=.radioDiv > input:nth-child(3)",
+      "targets": [
+        ["css=.radioDiv > input:nth-child(3)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d5a6ddba-7068-460b-b57b-f94c316ec73b",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=form > input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7948da16-c0d1-424f-b7e1-f2dce8f66ebe",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=form > input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "lm170392d"
+    }, {
+      "id": "ddb9b6ef-ca13-4507-b89a-88b8333e6db4",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "545aa8b1-f46a-4a4c-9fd9-44822ae4f4b5",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form/input[2]", "xpath:position"]
+      ],
+      "value": "password123"
+    }, {
+      "id": "4c96ce4d-1483-4e00-87ce-12c0ff62efef",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form/input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "361d412a-7645-48d7-b6db-57fd8ac4ac34",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Reported shops",
+      "targets": [
+        ["linkText=Reported shops", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Reported shops')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Administrator/shopReports']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Reported shops')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "450714a2-a167-4ca6-abbc-bd3bc7814ef5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Mark as read",
+      "targets": [
+        ["linkText=Mark as read", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(text(),'Mark as read')]", "xpath:link"],
+        ["xpath=//a[@type='button']", "xpath:attributes"],
+        ["xpath=//a[@href='http://localhost:8080/Administrator/markAsRead?idUser=16&idShop=10']", "xpath:href"],
+        ["xpath=//div[5]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Mark as read')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb19d931-5448-4693-9bfd-490b70592052",
+      "comment": "",
+      "command": "click",
+      "target": "css=.noPadding:nth-child(1) .options_item",
+      "targets": [
+        ["css=.noPadding:nth-child(1) .options_item", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b8af4519-4d10-44fc-8966-e301dddc5d4e",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "fe7b0f2b-ba2e-4d9b-971c-d60b1c2ca35e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["83a81129-6a67-48c5-abbb-db86b7d31a33"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}

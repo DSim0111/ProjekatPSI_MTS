@@ -78,7 +78,8 @@ class Shop extends BaseController {
                 $shopModel = new ShopModel();
 
                 $shopModel->updateDataShop($this->session->get("user_id"), $this->request->getVar('description'), $this->request->getVar('shopName'), $this->request->getVar('address'), $newName, $this->request->getVar('phoneNum'), $this->request->getVar('name'), $this->request->getVar('surname'), $this->request->getVar('password'));
-            }else return $this->showPage("changeDataShop", array_merge(['confirmPassword'=>"Password and Confirm Password must be the same length"],['password'=>"Password and Confirm Password must be the same length"], ['shop' => $shop]));
+            }else
+                return $this->showPage("changeDataShop", array_merge(['confirmPassword'=>"Password and Confirm Password do not match"],['password'=>"Password and Confirm Password do not match"], ['shop' => $shop]));
 
         }
       //  return $this->changeData();

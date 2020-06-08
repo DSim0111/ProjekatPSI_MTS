@@ -1,0 +1,137 @@
+{
+  "id": "515453b9-1a0b-4169-b9fc-9a5f8412aa96",
+  "version": "2.0",
+  "name": "Dodavanje i uklanjanje kategorija",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "b3e5db62-71b8-4b66-a92e-d264a23b913d",
+    "name": "Dodavanje kategorija",
+    "commands": [{
+      "id": "81fe178d-6d68-4797-bd00-a515b888ec29",
+      "comment": "",
+      "command": "open",
+      "target": "/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b878fe63-e4f7-43b5-a4be-54cd3479527b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x642",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "29b7f576-0962-47d2-870c-85824a95e607",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Edit Data",
+      "targets": [
+        ["linkText=Edit Data", "linkText"],
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Edit Data')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/changeData']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edit Data')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc58489d-ea2b-4e3d-b3a8-634d5c2f8dbe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.addNewCategory img",
+      "targets": [
+        ["css=.addNewCategory img", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost:8080/images/icons/add.png')]", "xpath:img"],
+        ["xpath=//li[3]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "885ecc0e-4825-4828-bb88-d194affaf292",
+      "comment": "",
+      "command": "addSelection",
+      "target": "name=selected[]\"",
+      "targets": [
+        ["name=selected[]\"", "name"],
+        ["css=.custom-select", "css:finder"],
+        ["xpath=//select[@name='selected[]\"']", "xpath:attributes"],
+        ["xpath=//div[@id='categoryListDiv']/form[2]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=female"
+    }, {
+      "id": "ea3c2fa0-d70a-43bf-835c-272b9b307593",
+      "comment": "",
+      "command": "addSelection",
+      "target": "name=selected[]\"",
+      "targets": [
+        ["name=selected[]\"", "name"],
+        ["css=.custom-select", "css:finder"],
+        ["xpath=//select[@name='selected[]\"']", "xpath:attributes"],
+        ["xpath=//div[@id='categoryListDiv']/form[2]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=male"
+    }, {
+      "id": "d7d5dab3-4d32-4bd9-a04b-fa6c764810fb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@onclick='toggleCategoryListDiv()']", "xpath:attributes"],
+        ["xpath=//div[@id='categoryListDiv']/form[2]/button", "xpath:idRelative"],
+        ["xpath=//form[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6eaed19e-419f-45c2-ab81-6480f264cade",
+    "name": "Uklanjanje kategorija",
+    "commands": [{
+      "id": "f518d3e3-558a-4ee0-a1aa-76df0e6927e3",
+      "comment": "",
+      "command": "open",
+      "target": "/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "68092f05-a7bb-4829-9636-24301e4b90a1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Edit Data",
+      "targets": [
+        ["linkText=Edit Data", "linkText"],
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Edit Data')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/changeData']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edit Data')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6aaa9f6-1eaa-4f44-9e01-39b7023fb39b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.tag:nth-child(1) img",
+      "targets": [
+        ["css=.tag:nth-child(1) img", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost:8080/images/icons/close.png')]", "xpath:img"],
+        ["xpath=//li/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f625cd7b-d9c4-48b3-b9c0-c9a8530ccfd9",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/Shop/index"],
+  "plugins": []
+}

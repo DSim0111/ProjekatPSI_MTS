@@ -1,0 +1,202 @@
+{
+  "id": "b55ddd1f-d704-4256-9608-8d9dc456af83",
+  "version": "2.0",
+  "name": "Pregled proizvoda u prodavnici ",
+  "url": "http://localhost:8080/Administrator/index",
+  "tests": [{
+    "id": "ceb6a920-69e6-4aef-953b-9ddd4562b85e",
+    "name": "Pregled - Gost",
+    "commands": [{
+      "id": "b63623db-0224-4d30-aa09-937d8c0bff85",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Guest/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca9a8d45-9128-4c77-bff2-24a7f94d29f1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9836b99e-1986-48fe-8b43-8b5a88bc0906",
+      "comment": "",
+      "command": "click",
+      "target": "css=.GuestBtn > b",
+      "targets": [
+        ["css=.GuestBtn > b", "css:finder"],
+        ["xpath=//a[3]/button/b", "xpath:position"],
+        ["xpath=//b[contains(.,'Continue as guest')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d4ea638-57ad-4c86-989b-3a33e5c1c1a2",
+      "comment": "",
+      "command": "click",
+      "target": "id=middle",
+      "targets": [
+        ["id=middle", "id"],
+        ["linkText=2", "linkText"],
+        ["css=#middle", "css:finder"],
+        ["xpath=//a[contains(text(),'2')]", "xpath:link"],
+        ["xpath=//a[@id='middle']", "xpath:attributes"],
+        ["xpath=(//a[contains(@href, '#')])[5]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b663ac62-609c-4a1f-af21-05f405fcddb7",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3e376bc9-7d34-4ed5-8d18-a1759f96f3cc",
+      "comment": "",
+      "command": "click",
+      "target": "css=#pageLink0 > .btn",
+      "targets": [
+        ["css=#pageLink0 > .btn", "css:finder"],
+        ["xpath=//button[@value='Visit']", "xpath:attributes"],
+        ["xpath=//a[@id='pageLink0']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Visit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "7ed253a1-a68d-454c-b13c-7bbd7b3adfcf",
+    "name": "Pregled - Registrovani korisnik",
+    "commands": [{
+      "id": "d0967872-52fc-4f35-bb98-2bcbd5e737ad",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/User/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2dc7f197-321f-4489-a7e3-edc0f0fcfe55",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "40d19395-95d6-4986-8afb-7eb58afcb448",
+      "comment": "",
+      "command": "click",
+      "target": "id=middle",
+      "targets": [
+        ["id=middle", "id"],
+        ["linkText=2", "linkText"],
+        ["css=#middle", "css:finder"],
+        ["xpath=//a[contains(text(),'2')]", "xpath:link"],
+        ["xpath=//a[@id='middle']", "xpath:attributes"],
+        ["xpath=(//a[contains(@href, '#')])[5]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "225046fe-4ad7-4117-a654-e9e9087e0251",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dd84dead-9904-4dac-977c-2d7e59c96cae",
+      "comment": "",
+      "command": "click",
+      "target": "css=#pageLink0 > .btn",
+      "targets": [
+        ["css=#pageLink0 > .btn", "css:finder"],
+        ["xpath=//button[@value='Visit']", "xpath:attributes"],
+        ["xpath=//a[@id='pageLink0']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Visit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "267313bc-7d84-4b71-b4fa-da9cbd9e2489",
+    "name": "Pregled - Administrator",
+    "commands": [{
+      "id": "5b4a2585-3e5b-4997-9d5e-0cb9f16c6482",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Administrator/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a82d8ccf-03ca-4dfd-b2d7-53e779823bf6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x660",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "585ac3e2-7aea-4a70-a248-54a946a67ab6",
+      "comment": "",
+      "command": "click",
+      "target": "css=#pageLink0 > .btn",
+      "targets": [
+        ["css=#pageLink0 > .btn", "css:finder"],
+        ["xpath=//button[@value='Visit']", "xpath:attributes"],
+        ["xpath=//a[@id='pageLink0']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Visit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4ffe84e-e4fd-4548-9c1f-4565bbc762ca",
+      "comment": "",
+      "command": "click",
+      "target": "id=middle",
+      "targets": [
+        ["id=middle", "id"],
+        ["linkText=2", "linkText"],
+        ["css=#middle", "css:finder"],
+        ["xpath=//a[contains(text(),'2')]", "xpath:link"],
+        ["xpath=//a[@id='middle']", "xpath:attributes"],
+        ["xpath=(//a[contains(@href, '#')])[5]", "xpath:href"],
+        ["xpath=//div/div/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a8ae6f8-66c6-44cc-913f-b6f2c1169ac5",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d6afac61-b1ba-4a32-8a5b-e29ada96d751",
+      "comment": "",
+      "command": "click",
+      "target": "css=#pageLink2 > .btn",
+      "targets": [
+        ["css=#pageLink2 > .btn", "css:finder"],
+        ["xpath=(//button[@value='Visit'])[3]", "xpath:attributes"],
+        ["xpath=//a[@id='pageLink2']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/a/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "fa642e5f-2365-416d-b3bd-eca900c5e45f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/Administrator/index"],
+  "plugins": []
+}

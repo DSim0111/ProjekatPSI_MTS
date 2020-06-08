@@ -1,0 +1,127 @@
+{
+  "id": "f3bc9496-7af4-4f3a-9558-614cb3a7bee6",
+  "version": "2.0",
+  "name": "Pregled pristiglih porudzbina",
+  "url": "localhost:8080/Shop/index",
+  "tests": [{
+    "id": "de549a4f-88e5-415f-b7d0-548ddc3881a0",
+    "name": "Prihvatanje",
+    "commands": [{
+      "id": "9c39dbc8-db0c-4686-9ea8-e326ba2444c3",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8279ed72-61dd-4def-b7dc-84175eb34820",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x642",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d461dab4-4b94-43a2-99f8-ca7f969f0b62",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Delivery Requests",
+      "targets": [
+        ["linkText=Delivery Requests", "linkText"],
+        ["css=.nav-item:nth-child(4) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Delivery Requests')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/showDeliveryRequests']", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Delivery Requests')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dff6e9f0-1824-41d4-afad-cfd113de9977",
+      "comment": "",
+      "command": "click",
+      "target": "css=.acceptBtn",
+      "targets": [
+        ["css=.acceptBtn", "css:finder"],
+        ["xpath=//div/a[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Marked as delivered')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6b4f4042-c118-468f-bd58-511de73ab524",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(2) > .btn",
+      "targets": [
+        ["css=a:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Handeled requests')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "5ddf72f5-e058-4ecf-b8e2-87ca6b95a119",
+    "name": "Odbijanje",
+    "commands": [{
+      "id": "0ace08d9-cf1b-4906-871a-905063345207",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "135d9a03-3faa-4db8-bce2-7d65f8594d8b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x642",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b95be9a-ecec-45a7-b23c-d7be6ff8e765",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Delivery Requests",
+      "targets": [
+        ["linkText=Delivery Requests", "linkText"],
+        ["css=.nav-item:nth-child(4) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Delivery Requests')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/showDeliveryRequests']", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Delivery Requests')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d601fc4f-63f2-478f-8bc7-ff7d7e4c740b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.declineBtn",
+      "targets": [
+        ["css=.declineBtn", "css:finder"],
+        ["xpath=//div/div/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Decline')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "000c9e27-2002-4b0d-b5af-23ef276e27d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(2) > .btn",
+      "targets": [
+        ["css=a:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Handeled requests')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "5762c304-ea0d-4a9f-a8e1-734c8c749872",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": [],
+  "plugins": []
+}

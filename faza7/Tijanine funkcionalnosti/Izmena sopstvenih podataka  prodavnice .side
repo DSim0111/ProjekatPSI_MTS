@@ -1,0 +1,442 @@
+{
+  "id": "9c7bea1d-9f17-4fe1-ae07-62cd68ddf8f1",
+  "version": "2.0",
+  "name": "Izmena sopstvenih podataka ( prodavnice) ",
+  "url": "localhost:8080/Shop/index",
+  "tests": [{
+    "id": "916317a1-8852-459a-9c5c-885f62f547f2",
+    "name": "Izmena podataka - uspesan scenario",
+    "commands": [{
+      "id": "f6c45952-7b6c-4503-80f2-63a0be4189b0",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5a3a91af-16db-4db5-a72e-7864c66e3f11",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2809de25-e9b1-49a0-bc20-496b31622baa",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Edit Data",
+      "targets": [
+        ["linkText=Edit Data", "linkText"],
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Edit Data')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/changeData']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edit Data')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c764921-cdad-400d-bf86-271089eafbcb",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-sm-6:nth-child(1) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "779d3c12-e899-45dc-9d6e-77d307460900",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-sm-6:nth-child(1) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": "Simona"
+    }, {
+      "id": "87e94f88-abc3-4dc7-a279-9673e6314771",
+      "comment": "",
+      "command": "click",
+      "target": "css=.SaveBtn:nth-child(1)",
+      "targets": [
+        ["css=.SaveBtn:nth-child(1)", "css:finder"],
+        ["xpath=//form[@id='part1']/div[9]/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save changes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "ddfebc74-7e8a-43ac-a0e0-e0a4706ca266",
+    "name": "Izmena podataka - neko od obaveznih polja je prazno",
+    "commands": [{
+      "id": "d34c83ff-4592-4b7a-a123-9ad498338c7e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "395951dd-134f-4bbb-9f3a-bb3f8dd39c42",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x642",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "293cc2dd-78de-4db1-a199-34e219ca4bd1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Edit Data",
+      "targets": [
+        ["linkText=Edit Data", "linkText"],
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Edit Data')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/changeData']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edit Data')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc635fec-959e-43cd-baf2-f0ff246dc702",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-sm-6:nth-child(1) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "da257713-6ab5-4a13-bc60-83799dbaf89b",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-sm-6:nth-child(1) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c189a90-2619-4af5-b361-a7a6dc2b942d",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-sm-6:nth-child(1) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8303c798-c281-4399-9cfd-60a669434a94",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-sm-6:nth-child(1) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "646270b9-a825-4e68-82ab-be7a2e74fd42",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-sm-6:nth-child(1) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "81a57876-e545-49c5-b350-37d988760141",
+      "comment": "",
+      "command": "click",
+      "target": "css=.SaveBtn:nth-child(1)",
+      "targets": [
+        ["css=.SaveBtn:nth-child(1)", "css:finder"],
+        ["xpath=//form[@id='part1']/div[9]/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save changes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d8d9095f-6e69-4264-b899-07c146861013",
+    "name": "Izmena podatka - lozinke se ne slazu",
+    "commands": [{
+      "id": "48b46abf-04c1-429c-9ceb-c3f721b12804",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "39ba2210-d7c7-49da-af87-3ead79e3b3b4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x660",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8acc5f82-377e-4ffd-81e9-9b3893155bf8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Edit Data",
+      "targets": [
+        ["linkText=Edit Data", "linkText"],
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Edit Data')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/changeData']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edit Data')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9346198c-8e42-45b8-aabc-8b349a3e3300",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.col-sm-6:nth-child(2) > input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div[2]/input[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79761396-be60-4193-94c8-5e5ac7639b74",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.col-sm-6:nth-child(2) > input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div[2]/input[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6aeea638-6ef8-4ec3-86cd-f61f66abfd14",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.col-sm-6:nth-child(2) > input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div[2]/input[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d46ed334-1a8f-4fc6-83ce-ad9b290acf28",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.col-sm-6:nth-child(2) > input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div[2]/input[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[2]", "xpath:position"]
+      ],
+      "value": "simonica123"
+    }, {
+      "id": "4dadace6-6d48-47f3-8b9f-cac3ef9ec694",
+      "comment": "",
+      "command": "type",
+      "target": "name=confirmPassword",
+      "targets": [
+        ["name=confirmPassword", "name"],
+        ["css=.col-sm-6:nth-child(2) > input:nth-child(6)", "css:finder"],
+        ["xpath=//input[@name='confirmPassword']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div[2]/input[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[3]", "xpath:position"]
+      ],
+      "value": "simonice123"
+    }, {
+      "id": "856f9019-2da5-4160-829d-6a4068e8dfc8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.SaveBtn:nth-child(1)",
+      "targets": [
+        ["css=.SaveBtn:nth-child(1)", "css:finder"],
+        ["xpath=//form[@id='part1']/div[9]/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save changes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2360bf9b-924a-4bbe-ad4a-1890951226dc",
+    "name": "Izmena podataka - polje nije odgovarajuceg tipa",
+    "commands": [{
+      "id": "4d86aa79-a496-4537-add3-00e84e2e78be",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/changeData",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "af3d8481-bb11-42f5-8ba8-f6ea27db1f93",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x660",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1cae8742-2d1d-42f4-b405-0253a4fb1593",
+      "comment": "",
+      "command": "click",
+      "target": "name=phoneNum",
+      "targets": [
+        ["name=phoneNum", "name"],
+        ["css=.col-sm-6:nth-child(2) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='phoneNum']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd292cf3-fcfa-415b-9816-d2eaef39322f",
+      "comment": "",
+      "command": "type",
+      "target": "name=phoneNum",
+      "targets": [
+        ["name=phoneNum", "name"],
+        ["css=.col-sm-6:nth-child(2) > input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='phoneNum']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "066a5432345"
+    }, {
+      "id": "ed042c8b-2f1c-481a-93f0-6fec3e97e7fa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.SaveBtn:nth-child(1)",
+      "targets": [
+        ["css=.SaveBtn:nth-child(1)", "css:finder"],
+        ["xpath=//form[@id='part1']/div[9]/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save changes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "115e780f-dbd2-4f8f-a4bc-e7bafdbe9e6f",
+    "name": "Izmena podataka - duzina polja nije odgovarajuca ",
+    "commands": [{
+      "id": "96e64acc-1725-4562-b34a-b18aaacc76ba",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3576deb4-a6e3-4d90-8c3d-62fadd8a0baf",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x660",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98982417-94d0-4b39-aefc-14a95273751c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.float-right",
+      "targets": [
+        ["css=.float-right", "css:finder"],
+        ["xpath=//div[2]/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Edit data')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "798e190b-f90a-4a18-847c-3002ab557fee",
+      "comment": "",
+      "command": "click",
+      "target": "css=.rowBorder",
+      "targets": [
+        ["css=.rowBorder", "css:finder"],
+        ["xpath=//form[@id='part1']/div[7]", "xpath:idRelative"],
+        ["xpath=//div[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7710352-e377-43ec-8fc4-f02291e7b5da",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.col-sm-6:nth-child(2) > input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div[2]/input[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[2]", "xpath:position"]
+      ],
+      "value": "simona"
+    }, {
+      "id": "8517b0b6-1013-4b7b-813a-0ae3ddc9f388",
+      "comment": "",
+      "command": "type",
+      "target": "name=confirmPassword",
+      "targets": [
+        ["name=confirmPassword", "name"],
+        ["css=.col-sm-6:nth-child(2) > input:nth-child(6)", "css:finder"],
+        ["xpath=//input[@name='confirmPassword']", "xpath:attributes"],
+        ["xpath=//form[@id='part1']/div[7]/div[2]/input[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/input[3]", "xpath:position"]
+      ],
+      "value": "simona"
+    }, {
+      "id": "8e02411f-d698-4a74-9bb2-bd51179100c5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.SaveBtn:nth-child(1)",
+      "targets": [
+        ["css=.SaveBtn:nth-child(1)", "css:finder"],
+        ["xpath=//form[@id='part1']/div[9]/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save changes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "6a6e8665-4427-4b7e-8529-4de2b3e1777c",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["localhost:8080/Shop/index"],
+  "plugins": []
+}

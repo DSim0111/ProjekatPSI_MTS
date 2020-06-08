@@ -1,0 +1,225 @@
+{
+  "id": "88e14cb3-d614-452d-b0af-a4ef789284dc",
+  "version": "2.0",
+  "name": "Filtriranje kategorija ",
+  "url": "localhost:8080/Shop/index",
+  "tests": [{
+    "id": "98b765f8-1188-4592-b4bf-602202f02265",
+    "name": "Postoji kategorija koja sadrzi string za pretragu",
+    "commands": [{
+      "id": "7df8250f-d1e0-45d6-b73c-64d128135fff",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "62a33556-6b8a-4a53-95e2-7dc16dd31035",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2b8b43d4-a611-4b3b-a0b4-3fe7f1ec0eee",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Edit Data",
+      "targets": [
+        ["linkText=Edit Data", "linkText"],
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Edit Data')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/changeData']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edit Data')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b1105a53-45f6-4486-b90b-a15d749e648a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.addNewCategory img",
+      "targets": [
+        ["css=.addNewCategory img", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost:8080/images/icons/add.png')]", "xpath:img"],
+        ["xpath=//li[2]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c7c47bb-8ce0-4bf1-89cc-b68615f209ae",
+      "comment": "",
+      "command": "click",
+      "target": "id=search_input",
+      "targets": [
+        ["id=search_input", "id"],
+        ["name=search_input", "name"],
+        ["css=#search_input", "css:finder"],
+        ["xpath=//input[@id='search_input']", "xpath:attributes"],
+        ["xpath=//form[@id='search']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "86c691a4-056b-4eed-92b0-34e4d1a4d8d5",
+      "comment": "",
+      "command": "type",
+      "target": "id=search_input",
+      "targets": [
+        ["id=search_input", "id"],
+        ["name=search_input", "name"],
+        ["css=#search_input", "css:finder"],
+        ["xpath=//input[@id='search_input']", "xpath:attributes"],
+        ["xpath=//form[@id='search']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tra"
+    }, {
+      "id": "c47777cb-0318-4120-b6e3-f18c838f5092",
+      "comment": "",
+      "command": "click",
+      "target": "css=.icons",
+      "targets": [
+        ["css=.icons", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost:8080/images/icons/search-icon.png')]", "xpath:img"],
+        ["xpath=//img[@onclick='send()']", "xpath:attributes"],
+        ["xpath=//form[@id='search']/a/img", "xpath:idRelative"],
+        ["xpath=//form/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f173b67-6d56-42f1-9ac1-723a516f1554",
+      "comment": "",
+      "command": "addSelection",
+      "target": "name=selected[]\"",
+      "targets": [
+        ["name=selected[]\"", "name"],
+        ["css=.custom-select", "css:finder"],
+        ["xpath=//select[@name='selected[]\"']", "xpath:attributes"],
+        ["xpath=//div[@id='categoryListDiv']/form[2]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=travel books"
+    }, {
+      "id": "3faeefa6-b3ee-4e4e-8a0f-7d438fde72c0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@onclick='toggleCategoryListDiv()']", "xpath:attributes"],
+        ["xpath=//div[@id='categoryListDiv']/form[2]/button", "xpath:idRelative"],
+        ["xpath=//form[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "aa288f95-45d9-4c10-a575-6c51afde0bac",
+    "name": "Ne postoji kategorija koja sadrzi string za pretragu",
+    "commands": [{
+      "id": "fe0d10da-7597-4d87-accb-a9e253e156dc",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "99d5833a-b5e7-4859-8087-6f0a4775780e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x660",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cacb95db-50f4-42fb-8944-2f38ffad13cb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Edit Data",
+      "targets": [
+        ["linkText=Edit Data", "linkText"],
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Edit Data')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/changeData']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edit Data')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0ec687c3-ad68-4880-a3f3-25c0ecbeb57a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.addNewCategory img",
+      "targets": [
+        ["css=.addNewCategory img", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost:8080/images/icons/add.png')]", "xpath:img"],
+        ["xpath=//li[3]/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8539b1ba-97b3-4430-a9f3-ef5819fbf93b",
+      "comment": "",
+      "command": "click",
+      "target": "id=search_input",
+      "targets": [
+        ["id=search_input", "id"],
+        ["name=search_input", "name"],
+        ["css=#search_input", "css:finder"],
+        ["xpath=//input[@id='search_input']", "xpath:attributes"],
+        ["xpath=//form[@id='search']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cfa78604-43cd-419f-a274-db953dcf4cad",
+      "comment": "",
+      "command": "type",
+      "target": "id=search_input",
+      "targets": [
+        ["id=search_input", "id"],
+        ["name=search_input", "name"],
+        ["css=#search_input", "css:finder"],
+        ["xpath=//input[@id='search_input']", "xpath:attributes"],
+        ["xpath=//form[@id='search']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "dfasffasfasfsa"
+    }, {
+      "id": "81ed0fbb-0e2e-45a9-a8b5-a1b3723be6c8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.icons",
+      "targets": [
+        ["css=.icons", "css:finder"],
+        ["xpath=//img[contains(@src,'http://localhost:8080/images/icons/search-icon.png')]", "xpath:img"],
+        ["xpath=//img[@onclick='send()']", "xpath:attributes"],
+        ["xpath=//form[@id='search']/a/img", "xpath:idRelative"],
+        ["xpath=//form/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bebc2a23-542f-4ce0-b5c1-c4cf8cb3b788",
+      "comment": "",
+      "command": "click",
+      "target": "css=#for_hiding > img",
+      "targets": [
+        ["css=#for_hiding > img", "css:finder"],
+        ["xpath=(//img[contains(@src,'http://localhost:8080/images/icons/close.png')])[3]", "xpath:img"],
+        ["xpath=//a[@id='for_hiding']/img", "xpath:idRelative"],
+        ["xpath=//div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "63bf3e4a-d7a9-40b7-89ae-7deebed20858",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["localhost:8080/Shop/index"],
+  "plugins": []
+}

@@ -1,0 +1,648 @@
+{
+  "id": "ef3f1102-3d5f-419b-8245-66c41755d459",
+  "version": "2.0",
+  "name": "Dodavanje i uklanjanje prozivoda ",
+  "url": "http://localhost:8080/Shop/index",
+  "tests": [{
+    "id": "db718f17-5592-4142-b99f-460c2c6eb2fe",
+    "name": "Dodavanje proizvoda",
+    "commands": [{
+      "id": "d332169f-8da1-49c3-b269-a860cd87debf",
+      "comment": "",
+      "command": "open",
+      "target": "/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "17e14a1a-8054-46b6-90e9-8c12aabf2452",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x642",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e1e4e516-3e1d-449f-9fb0-6349e9490991",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add products & addons",
+      "targets": [
+        ["linkText=Add products & addons", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Add products & addons')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/showAllProducts']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add products & addons')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f024df29-18e9-440e-802c-56ce9148e25b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(2) .float-right",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) .float-right", "css:finder"],
+        ["xpath=//div[2]/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4760ae0e-3655-451d-9533-525c003fb21c",
+      "comment": "",
+      "command": "click",
+      "target": "name=product_name",
+      "targets": [
+        ["name=product_name", "name"],
+        ["css=.col-sm-4:nth-child(2) > input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='product_name']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "15c830ff-ccd9-475c-8ed4-b8008dddc597",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_name",
+      "targets": [
+        ["name=product_name", "name"],
+        ["css=.col-sm-4:nth-child(2) > input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='product_name']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Earrings"
+    }, {
+      "id": "070a99bf-01fc-4dca-9e0a-60bd7d4ff0cd",
+      "comment": "",
+      "command": "click",
+      "target": "name=product_code",
+      "targets": [
+        ["name=product_code", "name"],
+        ["css=input:nth-child(8)", "css:finder"],
+        ["xpath=//input[@name='product_code']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "89c7333d-b9fd-4802-8e6a-8ea9d36f1972",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_code",
+      "targets": [
+        ["name=product_code", "name"],
+        ["css=input:nth-child(8)", "css:finder"],
+        ["xpath=//input[@name='product_code']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "111A2"
+    }, {
+      "id": "dbec0c4e-ab65-4a9c-aa08-270cef0e9140",
+      "comment": "",
+      "command": "click",
+      "target": "name=product_price",
+      "targets": [
+        ["name=product_price", "name"],
+        ["css=input:nth-child(13)", "css:finder"],
+        ["xpath=//input[@name='product_price']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e72375fb-e015-4569-a818-d6636db79229",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_price",
+      "targets": [
+        ["name=product_price", "name"],
+        ["css=input:nth-child(13)", "css:finder"],
+        ["xpath=//input[@name='product_price']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "3000"
+    }, {
+      "id": "00b7f42a-250e-480b-83db-0bdbfa81183b",
+      "comment": "",
+      "command": "click",
+      "target": "name=product_desc",
+      "targets": [
+        ["name=product_desc", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='product_desc']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "778c2616-b75d-4a87-aa9b-39d984083a21",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_desc",
+      "targets": [
+        ["name=product_desc", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='product_desc']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Some description"
+    }, {
+      "id": "dae9a039-d188-4e21-9cd7-987f5ed412cf",
+      "comment": "",
+      "command": "click",
+      "target": "id=uploadedImage",
+      "targets": [
+        ["id=uploadedImage", "id"],
+        ["name=image", "name"],
+        ["css=#uploadedImage", "css:finder"],
+        ["xpath=//input[@id='uploadedImage']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b46cb4ed-ce01-49c8-bca1-cddf5408a22d",
+      "comment": "",
+      "command": "type",
+      "target": "id=uploadedImage",
+      "targets": [
+        ["id=uploadedImage", "id"],
+        ["name=image", "name"],
+        ["css=#uploadedImage", "css:finder"],
+        ["xpath=//input[@id='uploadedImage']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "D:\\6. semestar\\psi\\projekat\\testiranje"
+    }, {
+      "id": "efc7fda6-6ab4-40da-a155-bc6b8451761e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.SaveBtn",
+      "targets": [
+        ["css=.SaveBtn", "css:finder"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "742cc08e-c663-4ac5-ae71-fffe63cb05df",
+    "name": "Uklanjanje proizvoda",
+    "commands": [{
+      "id": "57cb9599-0ca4-4f5a-ae5c-e5ef9a606f60",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "75da9e1a-f52f-4996-994b-3b972ef24ed2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x642",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5d6d2935-ac31-4c2c-9069-4a3aa7bc55de",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add products & addons",
+      "targets": [
+        ["linkText=Add products & addons", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Add products & addons')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/showAllProducts']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add products & addons')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a19eeaf-5c49-4e7a-a537-3bfa5388666e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(6) > .col-lg-3:nth-child(2) .bi",
+      "targets": [
+        ["css=.row:nth-child(6) > .col-lg-3:nth-child(2) .bi", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2cf5e262-fe61-480f-bb32-13a25b892a86",
+    "name": "Dodavanje proizvoda - prazno polje",
+    "commands": [{
+      "id": "2571e24f-7715-4f14-8684-ba90ba7dce88",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f7eb70a-2065-403a-9c7f-6fd7e6cb56c2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f475cb81-da4b-4dbe-843f-7f5a87cee1ed",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add products & addons",
+      "targets": [
+        ["linkText=Add products & addons", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Add products & addons')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/showAllProducts']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add products & addons')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4ae4311-e9fe-4192-ad25-5bff966dead1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(2) .float-right",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) .float-right", "css:finder"],
+        ["xpath=//div[2]/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1de0a3fc-cccf-40eb-a774-a56349db61d1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.SaveBtn",
+      "targets": [
+        ["css=.SaveBtn", "css:finder"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "a01538e4-1986-4731-b72c-0b6c8335a08d",
+    "name": "Dodavanje proizvoda - duzina polja",
+    "commands": [{
+      "id": "bdc12cd1-9ab6-4400-80ff-37bf1d57d77f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "179a7a76-da28-4369-8b2e-8468d115b6b5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x642",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "358a7421-515c-4780-9d9a-52d702819fd5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add products & addons",
+      "targets": [
+        ["linkText=Add products & addons", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Add products & addons')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/showAllProducts']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add products & addons')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "00eaf3b7-1983-494a-ae75-5253ab995db7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(2) .float-right",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) .float-right", "css:finder"],
+        ["xpath=//div[2]/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb32377c-992b-4723-8644-ea814f51395c",
+      "comment": "",
+      "command": "click",
+      "target": "name=product_code",
+      "targets": [
+        ["name=product_code", "name"],
+        ["css=input:nth-child(8)", "css:finder"],
+        ["xpath=//input[@name='product_code']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c0795252-2462-48d8-b695-00d17e251380",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_code",
+      "targets": [
+        ["name=product_code", "name"],
+        ["css=input:nth-child(8)", "css:finder"],
+        ["xpath=//input[@name='product_code']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "asdasdasdasdasdasdasdasdasdasdasd"
+    }, {
+      "id": "9b927880-d7ca-474e-806f-20e188d9c0d0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.SaveBtn",
+      "targets": [
+        ["css=.SaveBtn", "css:finder"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d72d0aab-83fd-48bf-9c4e-ea726f9d3537",
+    "name": "Dodavanje proizvoda - polje nije odgovarajuceg tipa ",
+    "commands": [{
+      "id": "ef63e870-5e0b-42fa-928f-b9726db5183a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "67943a9f-8c15-4626-8669-99d0826f1b21",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x642",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "090ca9e1-f08f-4929-80a8-64724c2b799e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add products & addons",
+      "targets": [
+        ["linkText=Add products & addons", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Add products & addons')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/showAllProducts']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add products & addons')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb3c21c3-d7b6-4b4d-a8d9-adba6266a1da",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(2) .float-right",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) .float-right", "css:finder"],
+        ["xpath=//div[2]/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c7f40f9-850d-487b-a707-2b0bcbd7132d",
+      "comment": "",
+      "command": "click",
+      "target": "name=product_name",
+      "targets": [
+        ["name=product_name", "name"],
+        ["css=.col-sm-4:nth-child(2) > input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='product_name']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "546914f8-d152-4b15-a078-b96b58fb982e",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_name",
+      "targets": [
+        ["name=product_name", "name"],
+        ["css=.col-sm-4:nth-child(2) > input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='product_name']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Earrings"
+    }, {
+      "id": "40de621d-2921-4c75-950b-93a427b48608",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_code",
+      "targets": [
+        ["name=product_code", "name"],
+        ["css=input:nth-child(8)", "css:finder"],
+        ["xpath=//input[@name='product_code']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "112A"
+    }, {
+      "id": "c2a5d9f9-ac50-4a86-9108-5f64d3ec27b0",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_price",
+      "targets": [
+        ["name=product_price", "name"],
+        ["css=input:nth-child(13)", "css:finder"],
+        ["xpath=//input[@name='product_price']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "kjsd32"
+    }, {
+      "id": "a60d73c4-a46b-4903-9b64-daf45c352d13",
+      "comment": "",
+      "command": "click",
+      "target": "name=product_desc",
+      "targets": [
+        ["name=product_desc", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='product_desc']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f43dda0e-eaa6-4f87-b883-8956ba16ede0",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_desc",
+      "targets": [
+        ["name=product_desc", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='product_desc']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Some description. "
+    }, {
+      "id": "c3bc638a-bbb2-4381-9e0b-c25f34df1da8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.SaveBtn",
+      "targets": [
+        ["css=.SaveBtn", "css:finder"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "f7fdb519-82c6-4f17-a465-daae2f89edad",
+    "name": "Dodavanje proizvoda - isti kod proizvoda",
+    "commands": [{
+      "id": "519a395d-f17f-4cc1-bbb5-c1fed7f2a544",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Shop/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "78040ccc-e15f-4a29-be18-b96b75f264a2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x642",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "716d4603-3196-40e0-abd7-7254fc0767e3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add products & addons",
+      "targets": [
+        ["linkText=Add products & addons", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Add products & addons')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Shop/showAllProducts']", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add products & addons')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "768d0a04-7913-484f-a1f5-b9d05c29b175",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(2) .float-right",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) .float-right", "css:finder"],
+        ["xpath=//div[2]/a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "928735a3-3469-4518-9719-110965da928e",
+      "comment": "",
+      "command": "click",
+      "target": "name=product_name",
+      "targets": [
+        ["name=product_name", "name"],
+        ["css=.col-sm-4:nth-child(2) > input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='product_name']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ad005e8-4224-4413-8882-6d5e50a4d584",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_name",
+      "targets": [
+        ["name=product_name", "name"],
+        ["css=.col-sm-4:nth-child(2) > input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='product_name']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Earrings"
+    }, {
+      "id": "24dc8387-414c-4297-a49e-73f2a2a6f1fd",
+      "comment": "",
+      "command": "click",
+      "target": "name=product_code",
+      "targets": [
+        ["name=product_code", "name"],
+        ["css=input:nth-child(8)", "css:finder"],
+        ["xpath=//input[@name='product_code']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba1eecfe-be92-4e8a-989f-65719d764405",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_code",
+      "targets": [
+        ["name=product_code", "name"],
+        ["css=input:nth-child(8)", "css:finder"],
+        ["xpath=//input[@name='product_code']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "#123"
+    }, {
+      "id": "75c8187e-e35b-4597-84e2-97c6c57506dd",
+      "comment": "",
+      "command": "click",
+      "target": "name=product_price",
+      "targets": [
+        ["name=product_price", "name"],
+        ["css=input:nth-child(13)", "css:finder"],
+        ["xpath=//input[@name='product_price']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8311e44-b8c7-4bcc-8b4b-13f0997316de",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_price",
+      "targets": [
+        ["name=product_price", "name"],
+        ["css=input:nth-child(13)", "css:finder"],
+        ["xpath=//input[@name='product_price']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "1500"
+    }, {
+      "id": "7be7de8d-70e8-4962-a0b2-71e1a7ee5b03",
+      "comment": "",
+      "command": "click",
+      "target": "name=product_desc",
+      "targets": [
+        ["name=product_desc", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='product_desc']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ac07f08-0719-4e35-bce0-e5576369f385",
+      "comment": "",
+      "command": "type",
+      "target": "name=product_desc",
+      "targets": [
+        ["name=product_desc", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='product_desc']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Descr"
+    }, {
+      "id": "a77dec51-dc0f-451d-a31a-d27ea6dc136c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.SaveBtn",
+      "targets": [
+        ["css=.SaveBtn", "css:finder"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "171ee489-e7ee-4e18-b0d8-9be622636e43",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["db718f17-5592-4142-b99f-460c2c6eb2fe"]
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/Shop/index"],
+  "plugins": []
+}

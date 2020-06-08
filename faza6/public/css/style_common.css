@@ -1,0 +1,159 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 7, 2020, 4:02:19 PM
+    Author     : Simona
+*/
+
+html{
+    height:100%; 
+}
+.nav_color{
+
+    background-color:#9bbccf; 
+}
+body{
+    /*margin:0;
+    padding:0;
+    background: url("../images/giftChild.jpg");
+    background-size:cover;
+    background-position:center;
+    font-family:sans-serif;
+     height: 100%;
+    */
+
+    background-color:white; 
+
+}
+.log-box{
+
+    background-color:rgba(2,2,20,0.75);
+    border-radius: 20px;
+    color:#fff;
+
+
+    position:absolute;
+    margin:auto; 
+    box-sizing:border-box;
+    padding-left:30px; 
+    padding-right:30px; 
+}
+.log-box-center{
+
+    background-color:rgba(2,2,20,0.75);
+    border-radius: 20px;
+    color:#fff;
+}
+.errorMessage{
+
+    font-size:16px; 
+    color:red; 
+    font-weight: 200; 
+}
+.successMessage{
+    color:rgba(135, 211, 124, 1);
+    font-weight:bold;
+
+}
+
+.data_box{
+    background-color:#f0efeb;
+
+    /*background-color: #ededed;*/
+    border-radius:5px;
+    box-shadow:0 4px 8px  0 rgba(0,0,0,0.2);
+}
+
+.my_button{
+
+    color:white; 
+    background-color: #829aa8;
+    border:1px solid white;
+
+}
+.my_button:hover{
+    background-color: #c3d2db;
+    color:white; 
+
+
+}
+.right_corner{
+
+    position:absolute; 
+    bottom:10px; 
+    right:10px;
+}
+.right_corner_second{
+
+    position:absolute; 
+    bottom:10px; 
+    right:70px;
+}
+/*colors */
+.light_yellow{
+
+    background-color:#f0efeb;
+}
+.nav_blue{
+    background-color: #457b9d;
+
+}
+.orange{
+    background-color:#FF7F50;
+}
+.color_info{
+
+    background-color: #17a2b8;
+}
+.light_blue{
+
+    background-color:#d9e3d5;
+}
+.lighter_blue{
+
+    background-color:#f1faee !important;
+}
+.noPadding{
+
+    padding:0;
+
+}
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 14, 2020, 2:56:58 PM
+    Author     : Simona
+*/
+
+.myNav{
+
+
+    /*   background-color:#9bbccf; */
+    background-color:#457b9d;
+    color:white; 
+}
+.nav_button{
+
+    color:white; 
+    /*background-color: #829aa8;*/
+    background-color:#1d3557;
+    border:1px solid white;
+
+}
+.nav_button:hover{
+    /*  background-color: #c3d2db;*/
+
+
+    color:white; 
+
+
+}

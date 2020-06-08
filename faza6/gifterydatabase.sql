@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Jun 01, 2020 at 08:27 PM
+-- Generation Time: May 30, 2020 at 05:15 PM
 -- Server version: 5.7.28
 -- PHP Version: 7.3.12
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `addon` (
   `idShop` int(11) NOT NULL,
   PRIMARY KEY (`idA`),
   KEY `R_48` (`idShop`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `addon`
@@ -47,10 +47,7 @@ INSERT INTO `addon` (`name`, `price`, `idA`, `image`, `idShop`) VALUES
 ('Wrapping box', 300, 1, '1590756563_f9a4c32cddfc8e181003.jpg', 4),
 ('Customized notes', 50, 2, '1590756663_2dde6a47f18692979b25.jpg', 4),
 ('Wrapping Kiss', 200, 3, '1590773296_eeb4a3553558e657b45e.jpg', 9),
-('Wrapping Cake', 250, 5, '1590773394_57b83ab23b1e30f6f7c5.jpg', 9),
-(' Box', 350, 6, '1590882496_a11db7f3cefc27850764.jpeg', 24),
-(' Box with paper flowers', 400, 7, '1590882534_d9fca2b75789e09f1e0f.jpg', 24),
-(' Box with wrapping paper', 200, 8, '1590882577_a4f1adf346f943eec257.jpg', 24);
+('Wrapping Cake', 250, 5, '1590773394_57b83ab23b1e30f6f7c5.jpg', 9);
 
 -- --------------------------------------------------------
 
@@ -69,9 +66,9 @@ CREATE TABLE IF NOT EXISTS `administrator` (
 --
 
 INSERT INTO `administrator` (`id`) VALUES
+(1),
 (2),
-(3),
-(25);
+(3);
 
 -- --------------------------------------------------------
 
@@ -84,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `idC` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(18) NOT NULL,
   PRIMARY KEY (`idC`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `category`
@@ -165,8 +162,7 @@ INSERT INTO `category` (`idC`, `name`) VALUES
 (75, 'baby products'),
 (76, 'baby'),
 (77, 'travel equipment'),
-(78, 'travel books'),
-(79, 'ticket');
+(78, 'travel books');
 
 -- --------------------------------------------------------
 
@@ -184,29 +180,14 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`idComment`),
   KEY `R_46` (`idUser`),
   KEY `R_47` (`idShop`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `comment`
 --
 
 INSERT INTO `comment` (`idUser`, `idShop`, `commentField`, `idComment`, `submitDate`) VALUES
-(16, 11, 'Coffe here is amazing!', 2, '2020-05-30 11:43:17'),
-(18, 9, 'Very comfortable and high quality clothes', 3, '2020-05-30 17:14:03'),
-(19, 14, 'Very good choices!Which one was your favourite ?', 4, '2020-05-30 17:22:58'),
-(16, 14, 'I enjoy ballet very much now but i was sceptical about it at first :)', 5, '2020-05-30 17:26:56'),
-(20, 14, 'I always buy tickets here for our marriage anniversary, it became a traditon', 6, '2020-05-30 17:32:43'),
-(28, 11, 'I\'ve visited the shop itself, great service! Also ordered online: they are accurate and fair. Cool :) ', 7, '2020-05-30 19:36:06'),
-(28, 9, 'Ordered yellow dress for my girlfriend\'s birthday. One day late :( ', 8, '2020-05-30 19:37:22'),
-(28, 8, 'A bit overpriced, but good products. ', 9, '2020-05-30 19:38:21'),
-(27, 15, 'OMG, they have all the best concerts! Wonderful gift for loved ones! ', 10, '2020-05-30 19:40:10'),
-(26, 5, 'My friend loved the power bank! High quality products.', 11, '2020-05-30 19:53:11'),
-(29, 10, 'So funny! Great ideas. I will buy a turtle for my Chandler. ', 12, '2020-05-30 19:56:03'),
-(29, 6, 'Not very good quality, but fine price. ', 13, '2020-05-30 20:01:05'),
-(29, 4, 'My favorite shop on Giftery so far. Great quality, fine prices and nice and accurate people. Nature! ', 14, '2020-05-30 20:04:26'),
-(29, 15, 'I agree, @johnyy! Great shop! For everyone\'s taste. :) ', 15, '2020-05-30 20:08:33'),
-(16, 4, 'Like from my mom :) ', 16, '2020-05-31 07:49:07'),
-(16, 8, 'Good store!', 17, '2020-06-01 15:21:04');
+(16, 11, 'Coffe here is amazing!', 2, '2020-05-30 11:43:17');
 
 -- --------------------------------------------------------
 
@@ -222,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `deliveryaddon` (
   PRIMARY KEY (`idDelAdd`),
   KEY `R_53` (`idA`),
   KEY `R_54` (`idDelReq`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `deliveryaddon`
@@ -233,23 +214,7 @@ INSERT INTO `deliveryaddon` (`idA`, `idDelReq`, `idDelAdd`) VALUES
 (0, 2, 2),
 (0, 3, 3),
 (0, 4, 4),
-(0, 5, 5),
-(2, 6, 6),
-(0, 7, 7),
-(0, 8, 8),
-(0, 9, 9),
-(1, 10, 10),
-(0, 11, 11),
-(0, 12, 12),
-(7, 13, 13),
-(0, 14, 14),
-(0, 15, 15),
-(0, 16, 16),
-(0, 17, 17),
-(0, 18, 18),
-(0, 19, 19),
-(0, 20, 20),
-(0, 21, 21);
+(0, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -266,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `deliveryproduct` (
   PRIMARY KEY (`idDelProduct`),
   KEY `R_51` (`idProduct`),
   KEY `R_52` (`idDelReq`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `deliveryproduct`
@@ -285,30 +250,7 @@ INSERT INTO `deliveryproduct` (`idProduct`, `idDelReq`, `idDelProduct`, `quantit
 (158, 5, 10, 3),
 (163, 5, 11, 1),
 (166, 5, 12, 1),
-(175, 5, 13, 1),
-(11, 6, 14, 3),
-(10, 6, 15, 1),
-(38, 7, 16, 1),
-(34, 7, 17, 2),
-(84, 8, 18, 1),
-(181, 9, 19, 1),
-(187, 9, 20, 1),
-(186, 9, 21, 1),
-(14, 10, 22, 1),
-(6, 10, 23, 6),
-(126, 11, 24, 1),
-(66, 12, 25, 1),
-(221, 13, 26, 1),
-(110, 14, 27, 1),
-(17, 15, 28, 1),
-(38, 16, 29, 1),
-(55, 17, 30, 1),
-(60, 18, 31, 1),
-(139, 19, 32, 1),
-(145, 19, 33, 1),
-(141, 20, 34, 1),
-(143, 20, 35, 1),
-(56, 21, 36, 1);
+(175, 5, 13, 1);
 
 -- --------------------------------------------------------
 
@@ -336,32 +278,16 @@ CREATE TABLE IF NOT EXISTS `deliveryrequest` (
   KEY `R_38` (`idUser`),
   KEY `R_39` (`idProduct`),
   KEY `R_40` (`idShop`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `deliveryrequest`
 --
 
 INSERT INTO `deliveryrequest` (`idDelReq`, `idUser`, `idProduct`, `idShop`, `state`, `submitDate`, `payment`, `notes`, `address`, `submitTime`, `receiverName`, `receiverSurname`, `deliverDate`, `deliverTime`) VALUES
-(3, 16, 0, 11, 'delivered', '2020-04-20', 'pbd', 'Happy holidays!', 'Pozeska 115', '14:00:00', 'Marko', 'Pantelic', '2020-06-05', '12:00:00'),
-(4, 16, 0, 13, 'cancelled', '2020-05-30', 'pod', 'Enjoy!', 'Ace Joksimovica 55', '12:23:09', 'Tijana', 'Leontijevic', '2020-06-05', '14:00:00'),
-(5, 16, 0, 11, 'A', '2020-05-30', 'pbd', 'Happy holidays!', 'Ace Joksimovica 2', '18:54:13', 'Tijana', 'Pantelic', '2020-06-07', '14:00:00'),
-(6, 18, 0, 4, 'A', '2020-05-31', 'pod', 'Dear Stefan,get well soon!', 'Blagoja Parovica 12a', '00:04:43', 'Stefan', 'Petrovic', '2020-05-31', '15:00:00'),
-(7, 18, 0, 6, 'A', '2020-05-31', 'creditCard', 'For our long lasting friendship!', 'Ace Joksimovica 112', '00:07:26', 'Bosko', 'Denic', '2020-08-03', '12:30:00'),
-(8, 18, 0, 9, 'A', '2020-05-31', 'pbd', 'Seems like something you would wear,take care bro', 'Borcanska 15', '00:12:38', 'Aleksa', 'Papic', '2020-06-06', '17:00:00'),
-(9, 19, 0, 14, 'delivered', '2020-05-31', 'pod', 'I know you love them as mush as I do!Enjoy!', 'Radnicka 18', '00:18:22', 'Tijana', 'Rankovic', '2020-06-08', '18:30:00'),
-(10, 23, 0, 4, 'delivered', '2020-05-31', 'creditCard', 'Grandpa you have to try these!', 'Radnicka 110', '01:04:43', 'Zoran', 'Pantelic', '2020-06-03', '12:31:00'),
-(11, 17, 0, 13, 'A', '2020-05-31', 'creditCard', 'For my love.Happy anniversary!', 'Radnicka 23', '02:26:16', 'Slavica', 'Pantelic', '2020-06-01', '17:00:00'),
-(12, 26, 0, 8, 'A', '2020-05-31', 'pbd', 'For my dearest friend, happy birthday. ', 'Dragise Lapcevica 22a', '02:48:11', 'Jelena', 'Djenisic', '2020-06-03', '20:00:00'),
-(13, 26, 0, 24, 'A', '2020-05-31', 'pbd', 'Izvoli drugarice! ', 'Pozeska 115', '02:50:12', 'Tijana', 'Rankovic', '2020-05-31', '11:30:00'),
-(14, 26, 0, 10, 'A', '2020-05-31', 'pbd', 'Korljaca za korljacu', 'Stublenica bb', '02:51:47', 'Sara', 'Milovanovic', '2020-06-05', '15:00:00'),
-(15, 26, 0, 5, 'A', '2020-05-31', 'pod', 'Read', 'Pozeska 115', '02:53:57', 'Ognjen', 'Rankovic', '2020-06-07', '15:00:00'),
-(16, 29, 0, 6, 'A', '2020-05-31', 'pod', 'Be fit! Happy birthday!', 'Tesla Street 14b, Pancevo', '02:58:51', 'Mirka', 'Mork', '2020-06-06', '15:00:00'),
-(17, 29, 0, 7, 'cancelled', '2020-05-31', 'pod', 'Enjoy :) ', 'Kralja Petra 17, Beograd', '03:00:38', 'Milica', 'Markovic', '2020-07-03', '15:00:00'),
-(18, 29, 0, 7, 'A', '2020-05-31', 'pbd', 'Enjoy, friend. ', 'Bore Vukmirovica 14b', '03:03:14', 'Simona', 'Denic', '2020-06-06', '15:00:00'),
-(19, 29, 0, 12, 'A', '2020-05-31', 'creditCard', 'Enjoy in cute products. Love, Monica. ', 'NYC, Wallstreet 5', '03:07:00', 'Mark', 'Thompson', '2020-06-06', '15:00:00'),
-(20, 22, 0, 12, 'A', '2020-05-31', 'pbd', 'Try these grandma!', 'Nemanjina 20', '10:28:40', 'Zorana', 'Brkic', '2020-08-01', '11:15:00'),
-(21, 22, 0, 7, 'delivered', '2020-05-31', 'pod', 'To my dear hubby', 'Sarajevska 112', '10:30:08', 'Darko', 'Popovic', '2020-09-03', '10:45:00');
+(3, 16, 0, 11, 'A', '2020-04-20', 'pbd', 'Happy holidays!', 'Pozeska 115', '14:00:00', 'Marko', 'Pantelic', '2020-06-05', '12:00:00'),
+(4, 16, 0, 13, 'A', '2020-05-30', 'pod', 'Enjoy!', 'Ace Joksimovica 55', '12:23:09', 'Tijana', 'Leontijevic', '2020-06-05', '14:00:00'),
+(5, 16, 0, 11, 'A', '2020-05-30', 'pbd', 'Happy holidays!', 'Ace Joksimovica 2', '18:54:13', 'Tijana', 'Pantelic', '2020-06-07', '14:00:00');
 
 -- --------------------------------------------------------
 
@@ -382,13 +308,7 @@ CREATE TABLE IF NOT EXISTS `favshop` (
 --
 
 INSERT INTO `favshop` (`idUser`, `idShop`) VALUES
-(29, 4),
-(18, 6),
-(16, 8),
-(18, 9),
-(16, 11),
-(16, 12),
-(16, 24);
+(16, 11);
 
 -- --------------------------------------------------------
 
@@ -407,7 +327,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idProduct`),
   KEY `R_23` (`idShop`)
-) ENGINE=InnoDB AUTO_INCREMENT=238 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=220 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
@@ -624,24 +544,7 @@ INSERT INTO `product` (`idProduct`, `code`, `name`, `description`, `price`, `idS
 (216, '#119', 'Snoop Dogg', 'Snoop Dogg Toyota Arena · Ontario Nov 07 2020, 2 tickets', 11000, 15, '1590789866_1b2739fafa2befd63889.jpg'),
 (217, '#120', 'Sting', 'Sting The Colosseum At Caesars Palace · Las Vegas Jun 05 2020, 2 tickets', 24000, 15, '1590789892_1cbedf8d562434341aef.jpg'),
 (218, '#121', 'Styx', 'Styx Sweetwater Pavilion · Fort Wayne Jul 28 2020, 2 tickets', 23000, 15, '1590789915_779d275175eede1f2670.jpg'),
-(219, '#122', 'Taylor Swift', 'Taylor Swift SoFi Stadium · Inglewood Jul 09 2020, 2 tickets', 16000, 15, '1590789964_ffd94a64b495ac883f84.jpg'),
-(220, '2656', 'Birthday cake - strawberry', '1,5kg of strawberry flavored cake. ', 2500, 24, '1590881386_43b568bcf9a328f4edaa.jpg'),
-(221, '3326515', 'Cheesecake', 'Cheese cake with strawberries, blueberries and raspberries. :) ', 3000, 24, '1590881441_d4777f57a6933969f769.jpg'),
-(222, 'AAAA', 'Chocolate cake', 'Nugat chocolate cake, with finest Switz chocolate. 1.5kg. ', 2800, 24, '1590881485_1eecbbe274827fea717b.jpg'),
-(223, '234254', 'Chocolate milk cake', 'Mild taste cake with nougat, chocolate and nuts. 10 pieces of cake in the box. :) ', 3000, 24, '1590881617_7ee255187b6c8b94cea1.jpg'),
-(224, 'jsdfh', 'Fruit cake', 'Cake with mixed fruit. 1kg in the box. ', 2400, 24, '1590881645_68ce14933c140ac7be31.jpg'),
-(225, 'sdfsdf', 'Kinder Bueno cake', 'Kinder Bueno cake made with Nutella! ', 3200, 24, '1590881693_b434ab09992a47fcddde.jpg'),
-(226, '2165dc', 'Valentine', 'For your loved ones! White chocolate cake, with milky taste! ', 3200, 24, '1590881751_b5215c3e0f929a4f0291.jpg'),
-(227, 'sda', 'Macaroon', '4 macaroons per set. Colors in the notes! ', 390, 24, '1590881787_d769404831334ac786c7.jpg'),
-(228, 'dsfdsf', 'Cupcake - New Year ', 'New Year cupcake! Happy holidays!', 200, 24, '1590881834_7948c896bad7bc03bacc.jpg'),
-(229, '215d', 'Cupcake - New Year ', 'New Year cupcake! Happy holidays!', 200, 24, '1590881855_fd5a19cb779439b4613c.jpg'),
-(230, 'dfsdf', 'Cupcake - New Year ', 'New Year cupcake! Happy holidays!', 200, 24, '1590881874_f5f0b3b31ba1759fdd6d.jpg'),
-(231, '32sfd', 'New Year cupcake set', '4 New Year cupcake in the set. For every second set ordered, one cupcake for free! Happy holydays! ', 750, 24, '1590881950_106215761b0a92079796.jpg'),
-(233, 'dfssdf', 'Macaroon', 'Pick your color in the note! For every 5th macaroon ordered, you get one free! ', 120, 24, '1590882031_d6b3b3b84a2fe313541a.jpg'),
-(234, 'dfssdf1', 'Wedding cake ', 'Price is per kilogram of the cake. Call us for more information! ', 1800, 24, '1590882090_d7a75b41909163858366.jpg'),
-(235, 'sdfsdffdf', 'Wedding cake', 'Price is per 1kg of cake. Call us for more information or order and we will contact you! ', 1900, 24, '1590882129_cd1e00da184b364e317a.jpg'),
-(236, '234ccfc', 'Welcome, baby!', 'Welcome baby cake with chocolate flavor. 2kg. ', 4000, 24, '1590882343_9897ee7f8b3e73e56731.jpg'),
-(237, 'AAAAsdas', 'Welcome, baby!', 'Welcome baby with white chocolate, nuts and orange. 2kg', 4100, 24, '1590882392_7b524438081560a1fd37.jpg');
+(219, '#122', 'Taylor Swift', 'Taylor Swift SoFi Stadium · Inglewood Jul 09 2020, 2 tickets', 16000, 15, '1590789964_ffd94a64b495ac883f84.jpg');
 
 -- --------------------------------------------------------
 
@@ -658,43 +561,6 @@ CREATE TABLE IF NOT EXISTS `rating` (
   KEY `R_14` (`idShop`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `rating`
---
-
-INSERT INTO `rating` (`idUser`, `idShop`, `rating`) VALUES
-(16, 4, 4),
-(16, 8, 4),
-(16, 11, 5),
-(16, 12, 4),
-(16, 14, 5),
-(17, 4, 5),
-(17, 13, 4),
-(18, 9, 5),
-(19, 14, 4),
-(20, 14, 4),
-(21, 14, 3),
-(22, 10, 3),
-(22, 12, 2),
-(23, 4, 5),
-(26, 5, 5),
-(26, 6, 3),
-(26, 24, 5),
-(27, 15, 5),
-(28, 7, 5),
-(28, 8, 4),
-(28, 9, 3),
-(28, 11, 5),
-(28, 14, 3),
-(29, 4, 5),
-(29, 5, 4),
-(29, 6, 4),
-(29, 7, 4),
-(29, 10, 5),
-(29, 11, 4),
-(29, 12, 4),
-(29, 15, 4);
-
 -- --------------------------------------------------------
 
 --
@@ -707,8 +573,8 @@ CREATE TABLE IF NOT EXISTS `shop` (
   `description` varchar(400) NOT NULL,
   `shopName` char(40) NOT NULL,
   `state` char(18) NOT NULL,
-  `address` varchar(60) NOT NULL,
   `submitDate` date NOT NULL,
+  `address` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -716,20 +582,19 @@ CREATE TABLE IF NOT EXISTS `shop` (
 -- Dumping data for table `shop`
 --
 
-INSERT INTO `shop` (`id`, `description`, `shopName`, `state`, `address`, `submitDate`) VALUES
-(4, 'Grandma\'s kitchen is a place where you can buy homemade products such as jam, cookies, sweets and many other food. Visit us or order now!                        ', 'Grandma\'s kitchen', 'A', '11102 Briar Forest Dr Ste C, H', '2020-05-20'),
-(5, 'All your friend need for travel. Pack him up and send him to his favorite destination or at least surprise him with a book about travel.                               ', '80 days around the world', 'A', 'Geller Street, New York', '2020-05-13'),
-(6, 'Several lines of equipment for all different exercise goals. Decades of research and testing keep our products unrivaled in quality.Extensive experience in making purchasing and installation easy.Our home fitness products are just like those you’d see at the club                        ', 'How you doin\'?', 'A', '11102 Briar Forest Dr Ste C, Houston, SAD', '2020-05-28'),
-(7, 'Our story started in Brighton, England in 1976. It began with our founder, Anita Roddick, and her belief in something revolutionary: that business could be a force for good. Following her vision, we’ve been rule breaking, never faking and change making for over 40 years.                        ', 'Beauty and the beast', 'I', '123 Neigh\'s Dr Street C, Houston, SAD', '2020-04-29'),
-(8, ' Skippy\'s music shop is a company that sells musical instruments and accompanying equipment, sound systems for all types of events as well as for personal use.As part of our business, we also design and equip all types of premises that need sound systems - discos, cafes, clubs, business premises, mega markets, health facilities, schools, swimming pools, indoor and outdoor spaces.', 'Skippy\'s music shop', 'A', '11102 Briar Forest Dr Ste C, Houston, SAD', '2020-05-04'),
-(9, 'We are a family of brands, driven by our desire to make great design available to everyone in a sustainable way.', 'HM club', 'I', 'Geller Street, New York', '2020-05-26'),
-(10, 'We are a team of enthusiastic developers and entrepreneurs who decided to convert their common experience into this web store. We hope you’ll like it as much as we do and have a great shopping experience here.', 'FunnyFlash', 'A', '123 Neigh\'s Dr Street C, Houston, SAD', '2020-05-18'),
-(11, 'Bean Box hand picks coffee from Seattle’s world-renowned roasters.                         ', 'Bean Box', 'A', 'Santa Monica wn', '2020-05-27'),
-(12, 'From green tea to Rooibos, you will find over 120 varieties.', 'Harney and Sons Tea House', 'A', 'Malibu beach house', '2020-05-29'),
-(13, 'Godiva was appointed an official chocolatier to the Royal Court of Belgium.', 'GODIVA', 'A', 'Malibu beach house', '2020-05-22'),
-(14, 'Arts & Theatre Tickets - Buy tickets to an event they\'ll love.', 'Ticket Master', 'A', 'Malibu room', '2020-05-30'),
-(15, 'Buy tickets for upcoming concert tours and events, including rock, electronic, pop, festivals and more.', 'Concert Tickets', 'A', 'West Coast', '2020-05-04'),
-(24, 'Be fat, but be happy!                                                 ', 'Dreamy', 'A', 'Ace Joksimovica 15', '2020-05-09');
+INSERT INTO `shop` (`id`, `description`, `shopName`, `state`, `submitDate`, `address`) VALUES
+(4, 'Grandma\'s kitchen is a place where you can buy homemade products such as jam, cookies, sweets and many other food. Visit us or order now!                        ', 'Grandma\'s kitchen', 'A', '0000-00-00', '11102 Briar Forest Dr Ste C, H'),
+(5, 'All your friend need for travel. Pack him up and send him to his favorite destination or at least surprise him with a book about travel.                               ', '80 days around the world', 'A', '0000-00-00', 'Geller Street, New York'),
+(6, 'Several lines of equipment for all different exercise goals. Decades of research and testing keep our products unrivaled in quality.Extensive experience in making purchasing and installation easy.Our home fitness products are just like those you’d see at the club                        ', 'How you doin\'?', 'A', '0000-00-00', '11102 Briar Forest Dr Ste C, Houston, SAD'),
+(7, 'Our story started in Brighton, England in 1976. It began with our founder, Anita Roddick, and her belief in something revolutionary: that business could be a force for good. Following her vision, we’ve been rule breaking, never faking and change making for over 40 years.', 'Beauty and the beast', 'A', '0000-00-00', '123 Neigh\'s Dr Street C, Houston, SAD'),
+(8, ' Skippy\'s music shop is a company that sells musical instruments and accompanying equipment, sound systems for all types of events as well as for personal use.As part of our business, we also design and equip all types of premises that need sound systems - discos, cafes, clubs, business premises, mega markets, health facilities, schools, swimming pools, indoor and outdoor spaces.', 'Skippy\'s music shop', 'A', '0000-00-00', '11102 Briar Forest Dr Ste C, Houston, SAD'),
+(9, 'We are a family of brands, driven by our desire to make great design available to everyone in a sustainable way.', 'HM club', 'A', '0000-00-00', 'Geller Street, New York'),
+(10, 'We are a team of enthusiastic developers and entrepreneurs who decided to convert their common experience into this web store. We hope you’ll like it as much as we do and have a great shopping experience here.', 'FunnyFlash', 'A', '0000-00-00', '123 Neigh\'s Dr Street C, Houston, SAD'),
+(11, 'Bean Box hand picks coffee from Seattle’s world-renowned roasters. ', 'Bean Box', 'A', '0000-00-00', 'Santa Monica wn'),
+(12, 'From green tea to Rooibos, you will find over 120 varieties.', 'Harney and Sons Tea House', 'A', '0000-00-00', 'Malibu beach house'),
+(13, 'Godiva was appointed an official chocolatier to the Royal Court of Belgium.', 'GODIVA', 'A', '0000-00-00', 'Malibu beach house'),
+(14, 'Arts & Theatre Tickets - Buy tickets to an event they\'ll love.', 'Ticket Master', 'A', '0000-00-00', 'Malibu room'),
+(15, 'Buy tickets for upcoming concert tours and events, including rock, electronic, pop, festivals and more.', 'Concert Tickets', 'A', '0000-00-00', 'West Coast');
 
 -- --------------------------------------------------------
 
@@ -767,12 +632,6 @@ INSERT INTO `shopcat` (`idC`, `idShop`) VALUES
 (46, 6),
 (47, 6),
 (73, 6),
-(1, 7),
-(2, 7),
-(22, 7),
-(42, 7),
-(47, 7),
-(74, 7),
 (1, 9),
 (2, 9),
 (24, 9),
@@ -781,22 +640,7 @@ INSERT INTO `shopcat` (`idC`, `idShop`) VALUES
 (19, 10),
 (32, 10),
 (3, 11),
-(48, 11),
-(29, 13),
-(48, 13),
-(10, 14),
-(64, 14),
-(39, 15),
-(56, 15),
-(57, 15),
-(58, 15),
-(79, 15),
-(4, 24),
-(6, 24),
-(8, 24),
-(26, 24),
-(29, 24),
-(76, 24);
+(48, 11);
 
 -- --------------------------------------------------------
 
@@ -839,42 +683,30 @@ CREATE TABLE IF NOT EXISTS `systemuser` (
   `phoneNum` char(18) NOT NULL,
   `image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `systemuser`
 --
 
 INSERT INTO `systemuser` (`id`, `username`, `password`, `name`, `surname`, `email`, `phoneNum`, `image`) VALUES
+(1, 'ds170338d', '$2y$10$ZNDZ9zX2soQ9N8fRgnMBguY6Ce84o/GSMhwRsNN1CcLHYBrmV4SXC', 'Simona', 'Denic', 'denic.simona@gmail.com', '+381649415075', ''),
 (2, 'lm170392d', '$2y$10$eqDOMcA2qzqE9aRj3GYYQOorVL/tnLBAbwl43KKcvz7cgudXbd1nK', 'Milan', 'Lazic', 'lazic.milan@gmail.com', '+38164935965', ''),
 (3, 'rt170450d', '$2y$10$zsM7S3Qo1EvIFOMBVHEnv.kXYJneQZJHZb/BXp7s1v6DigrhiVdRu', 'Tijana', 'Rankovic', 'rankovic.tijana@gmail.com', '+38164935965', ''),
 (4, 'grandma', '$2y$10$yGbvnQquoachMVvXi2EnBOi.dw1DdiQZQa0uB4krixhYD.0Wylihq', 'Jolene', 'Newman', 'jolene.newman@gmail.com', '111555444', '1590751788_025b4d569d7c58bc25eb.png'),
 (5, 'muriel', '$2y$10$ye1LzMMb5cF9DMYeoO2qfeDI7n8YVodrplY7DJGEbOt4Jbxaxw51O', 'Chandler', 'Bing', 'chandler.bing@gmail.com', '+255555111', '1590759529_12bafd78add930165146.jpeg'),
 (6, 'joeyGym', '$2y$10$wcpS.Xm4tm8ceOvDjYuZVOsSo9kQKF4EKKPdbByRBdfxcz1kx2lSy', 'Joey', 'Tribiani', 'joey.howyoudoin@gmail.com', '+38164935965', '1590764442_ac02fe52e5d3d88c8e1d.jpg'),
-(7, 'regina', '$2y$10$Q2yYcm7NaUXs/Wcr4dZ3duguysELZ5BEA4t.QN44iPbFjEspUWDxu', 'Phoebe', 'Buffat', 'pheobs@gmail.com', '062415789', '1590768383_9e1f2645dcb4e7b41bea.jpg'),
+(7, 'regina', '$2y$10$Q2yYcm7NaUXs/Wcr4dZ3duguysELZ5BEA4t.QN44iPbFjEspUWDxu', 'Phoebe', 'Buffat', 'pheobs@gmail.com', '12230198932', '1590768383_9e1f2645dcb4e7b41bea.jpg'),
 (8, 'iknow', '$2y$10$B.bktbfBmeu0LIMu91zrPekXdsH7lH8oamUAfankjtfQbomQkaRJO', 'Monica', 'Geller', 'monica.geller@gmail.com', '1121232', '1590770284_ff6dd76ba91bc732a93d.jpg'),
 (9, 'potterHM', '$2y$10$XO250Y8nYDYmozVYBqYqjOQHDuzSqzjjforU7rxTTi46zgAs9Kr1C', 'Sandra', 'Potter', 'potter.mh@gmail.com', '+381650204789', '1590771734_93913d6b478bd1721848.png'),
 (10, 'funnyFlash', '$2y$10$o1c.oJfFNwVMEy/Q2UlAtON7k9htmZQ0X610PAFgyXMnXwG.Df3iO', 'Joey', 'Miles', 'miles.jo@gmail.com', '+381630205847', '1590774219_856aa121f7c6499c3f92.jpg'),
-(11, 'charlie', '$2y$10$E/UQ6SQEYhgwwta5ejIxmu8dVdkji3g1ENrQY9cwGLOIZAvDSl/Xa', 'Charlie', 'Harpery', 'ch.harper@gmail.com', '0665432345', '1590784160_87783c07c9fe8f753810.jpg'),
+(11, 'charlie', '$2y$10$E/UQ6SQEYhgwwta5ejIxmu8dVdkji3g1ENrQY9cwGLOIZAvDSl/Xa', 'Charlie', 'Harper', 'ch.harper@gmail.com', '0665432345', '1590784160_87783c07c9fe8f753810.jpg'),
 (12, 'alanharper', '$2y$10$iRKARh7363XfhvXplSCjb.eft3P8H4b2RjJkIewlkJGaFETnS55X2', 'Alan', 'Harper', 'alan.harper@gmail.com', '0665432345', '1590784519_715f012e112a67c01256.jpg'),
 (13, 'jakeharper', '$2y$10$ji8ncZi8ZeDrj465S0zWQOYQamBzkNxyWVYFuPs2GfAAMRyFkUorO', 'Jake', 'Harper', 'jake.H@gmail.com', '0665432345', '1590784889_227ed76ab765d517daae.png'),
 (14, 'evelyn', '$2y$10$.8uMW1aJeYDKQnHxrlLNrOzNHH0H9/jD623Bdfem43MawKUoqAit6', 'Evelyn', 'Harper', 'evelyn@gmail.com', '0665432345', '1590787809_aaa4970c3d069c3086f8.jpg'),
 (15, 'bertaxD', '$2y$10$LUSNgpHPsWqdqKuuqgNaiuftqrfH1mbKbyZPN.tXUnWxaKTBlEyNe', 'Berta', 'Cleaner', 'berta.xD@gmail.com', '0665432345', '1590789165_b70b288a06d55e984f91.jpg'),
 (16, 'petrica89', '$2y$10$lK23PblQB0U6chejNxJO.uIt4fR8cyf1RsAZFG3apoFZHhtrXivYm', 'Petra', 'Hristovski', 'petrica@gmail.com', '065148972', NULL),
-(17, 'pavle23', '$2y$10$AdPTMBNwK61LzRFAgWWqsOdmmL0j6PHflsg/3DGFPpctx63NQr292', 'Pavle', 'Mitrovic', 'mitrovicP23@gmail.com', '062418755', NULL),
-(18, 'papimare', '$2y$10$DXOZSIHvVYQq4E9ZAfy0UuwLs/K4lyJaG5tTIM4/IelnU6TrJ8Xj.', 'Marko', 'Papic', 'papicMare@gmail.com', '06234562', NULL),
-(19, 'savickaS', '$2y$10$vuDW5gQiIx4bN/gfMEgmB.7P9ac4ZCc4k7FzkuWJ.QfikjXdbBhpy', 'Sara', 'Savic', 'savicka21@gmail.com', '0612345717', NULL),
-(20, 'jojaMonkey', '$2y$10$Am0jw3NTsAPgErKvsueIIuQj/QV8KkMHkhRlFgYshmBtfJxporvH.', 'Janko', 'Savkovic', 'jankosav@gmail.com', '0612349152', NULL),
-(21, 'oliniko11', '$2y$10$L5wQUyL898rhP/zdnT.uUOD9LDeepUzeIA.RkMSLMsi56wElVqzAi', 'Olivera', 'Nikolic', 'oliniko@gmail.com', '0621347297', NULL),
-(22, 'zivkaAlek', '$2y$10$lp2pAVUrNTqe/h4jdvn4uuWvMOqVGtypWxiZo8F6JnBIOjxYJTGTK', 'Aleksandra', 'Zivic', 'zivka@gmail.com', '0631214198', NULL),
-(23, 'pavkic12', '$2y$10$wRK5wqiN6/oxpmUQeF7UNujslWyLURJZ43nYLGyRzNvEtP2SNJFC2', 'Milan', 'Pavic', 'pavki@gmail.com', '0624118978', NULL),
-(24, 'sajmonica', '$2y$10$fSTQ.P.eNxovU2ccfUq6k.2o9i2VCq4e9m3zDyU5hGmIrHzQFy3lK', 'Simona', 'Denic', 'denic.simona1@gmail.com', '06732894234', '1590880653_464bcd4dee270ad7da6e.jpg'),
-(25, 'ds170338d', '$2y$10$2wHEDfMcVCLjRXUz9nYhqOq94F87rZzyQlC9JvYjY6K8HS2f.nxQW', 'Simona', 'Denic', 'denic.simona@gmail.com', '23904820394', ''),
-(26, 'milanica', '$2y$10$8nf/yODx/6fExW/iuzEDROqFstQTf0aGYoRE15V3eQuDqWzfGTa3u', 'Milana', 'Jankovic', 'j.milana@gmail.com', '325656233', NULL),
-(27, 'johnyy', '$2y$10$Fs9GurUYsiiGUbKYA7xas.scTuXvXL4GbaHUH09emZE21UAeCD6Ve', 'John', 'Newman', 'newman.john.a@gmail.com', '932858023', NULL),
-(28, 'marky', '$2y$10$WR54jkyBPgtVy6TPvCUmpu4Nxs4eAbpS/NDainiESldrwTnw.OfoC', 'Mark', 'Tompson', 'tom.mark@yahoo.com', '23847392', NULL),
-(29, 'monicaa', '$2y$10$Z/B63pqi6wfqkGbdhFcKR.EhjlR.6gA0UU/rmET93rT8G2MXy1ijC', 'Monica', 'Geller', 'monicaa.geller@gmail.com', '38298904382', NULL),
-(32, 'simona', '$2y$10$KkAhaaprifJfgZ.h4HueSO9I7ZL27ukoNLjw3615uUF2lS73SNP.S', 'Simona', 'Denic', 'sajmon@gmail.com', '21434321', '1590922437_cf2726054cb7f3876d91.png');
+(17, 'pavle23', '$2y$10$AdPTMBNwK61LzRFAgWWqsOdmmL0j6PHflsg/3DGFPpctx63NQr292', 'Pavle', 'Mitrovic', 'mitrovicP23@gmail.com', '062418755', NULL);
 
 -- --------------------------------------------------------
 
@@ -895,17 +727,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `address`) VALUES
 (16, 'Ratka Mitrovica 112'),
-(17, 'Veljka Petrovica 12b'),
-(18, 'Bledska 25'),
-(19, 'Bore Markovica 22'),
-(20, 'Borova 14'),
-(21, 'Bitke Na Neretvi 1'),
-(22, 'Bore Papica'),
-(23, 'Mire Popare 22'),
-(26, 'Stublenica bb Ub '),
-(27, 'Register Streen NYC USA '),
-(28, 'Elton Street 2b,  Los Angeles,'),
-(29, 'I know Street, NY, Usa');
+(17, 'Veljka Petrovica 12b');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

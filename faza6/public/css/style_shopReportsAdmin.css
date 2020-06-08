@@ -1,0 +1,68 @@
+
+
+.myContainer{
+  
+    background:rgba(0,0,0,0.5);
+    color:white; 
+    font-size:20dp; 
+    min-height:100vh; 
+    padding:25px;  
+}
+.shop_report_container{
+
+    position: relative;
+    width:90%; 
+    margin:auto; 
+    padding:10px;
+
+}
+ .shop_report{
+
+    border: 1px solid white; 
+   padding:10px;
+    border-radius:5px;
+    background-color:rgba(25, 25, 25,0.853);
+   
+ }
+ .noPadding{
+     padding:0;
+ }
+ /*
+ .shopReport .comment{
+     border:thin solid white; 
+     padding:5px;
+ }*/
+ .options_div{
+      position:relative; 
+        width:90%;
+        margin:auto;
+  background-color:#FF7F50;
+
+    border-radius: 5px;
+    border:1px solid white; 
+    padding:0px;
+    color:white;
+
+ }
+ @media only screen and (max-width:768px){
+
+    .options_div{
+        position:relative; 
+        width:90%;
+        margin:auto;
+    }
+
+ }
+ .options_item{
+     padding:7px;
+ }
+ .options_item:hover{
+     cursor:pointer;
+     background-color:#d16943;
+ }
+ .options_div a{
+     
+     text-decoration:none; 
+     color:inherit;
+     
+ }

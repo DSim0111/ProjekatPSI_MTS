@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 10, 2020, 2:24:27 PM
+    Author     : Simona
+*/
+
+
+.comment_person{
+    position:absolute;
+    left:0; 
+    margin-left:10px;
+    
+}
+.comment_date{
+    position:absolute;
+    right:0; 
+    margin-right:10px; 
+
+
+}
+
+.comment_wrapper{
+   
+
+    position:relative; 
+    box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.3) inset, 0 6px 15px 0 rgba(0, 0, 0, 0.4) inset;
+    border:1px solid rgba(4, 1, 43, 0.222);
+    border-radius:10px; 
+        /*rgba(0, 100, 207, 0.2) ;*/
+    padding:10px; 
+    width:90%; 
+    margin:auto;
+
+}
+.comment_wrapper_bright{
+ /*   background-color:rgb(200, 212, 227);rgba(103, 120, 136, 0.11);*/
+
+
+}
+.add_comment_content{
+  
+    position:relative; 
+    width:90%; 
+    margin:auto;
+
+}
+
+.comment_text{
+
+
+        
+}
+.add_comment_area{
+    width: 100%; 
+    
+    
+    box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.3) inset, 0 6px 15px 0 rgba(0, 0, 0, 0.4) inset;
+    border:1px solid rgba(0, 0, 0, 0.222);
+    border-radius:10px; 
+    background-color:rgb(223, 236, 248);
+
+
+}

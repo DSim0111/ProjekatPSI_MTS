@@ -141,12 +141,10 @@ if (!isset($shop)) {
                             <div class='product_description text-left'> 
                                 <h3>$product->name</h3>
                                <p >$product->description</p>
-                               <p>$product->price RSD</p>";
-                               if (isset($userRole) && $userRole == "User"){
-                                echo "<input id='num{$product->idProduct}' type=number value='1' min='1' col='2' style='width: 50px'>"
-                                . "<input class='btn btn-info float-right' type='button' value='Add to cart'  onclick='addToCart({$product->idProduct},{$product->price},\"{$product->name}\");'>";
-                                }
-                        echo " </div>
+                               <p>$product->price RSD</p>
+                               <input id='num{$product->idProduct}' type=number value='1' min='1' col='2' style='width: 50px'>
+                               <input class='btn btn-info float-right' type='button' value='Add to cart'  onclick='addToCart({$product->idProduct},{$product->price},\"{$product->name}\");'>
+                            </div>
                            </div>
                            <br>
                            <br>

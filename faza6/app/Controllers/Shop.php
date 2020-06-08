@@ -42,26 +42,25 @@ class Shop extends BaseController {
     }
     
     public function submitNewData() {
-
+        $idShop = $this->session->get("user_id");
+            $shopModel = new ShopModel();
+            $shop = $shopModel->getShop($idShop);
         if (!$this->validate([
                     'password' => 'required|min_length[10]|max_length[255]',
                     'confirmPassword' => 'required|min_length[10]|max_length[255]',
                     'name' => 'required|max_length[18]',
                     'surname' => 'required|max_length[18]',
-                    'phoneNum' => 'required|max_length[18]',
+                    'phoneNum' => 'required|max_length[18]|numeric',
                     'address' => 'required|max_length[60]',
                     'shopName' => 'required|min_length[5]|max_length[40]',
                     'description' => 'required|min_length[10]'
                 ])) {
 
 
-            $idShop = $this->session->get("user_id");
-            $shopModel = new ShopModel();
-            $shop = $shopModel->getShop($idShop);
+            
 
             return $this->showPage("changeDataShop", array_merge($this->validator->getErrors(), ['shop' => $shop]));
-        } else {
-
+        } else  {
             if (strcmp($this->request->getVar('password'), $this->request->getVar('confirmPassword')) == 0) {
                 $newName = "newfileName";
 
@@ -79,9 +78,13 @@ class Shop extends BaseController {
                 $shopModel = new ShopModel();
 
                 $shopModel->updateDataShop($this->session->get("user_id"), $this->request->getVar('description'), $this->request->getVar('shopName'), $this->request->getVar('address'), $newName, $this->request->getVar('phoneNum'), $this->request->getVar('name'), $this->request->getVar('surname'), $this->request->getVar('password'));
-            }
+            }else return $this->showPage("changeDataShop", array_merge(['confirmPassword'=>"Password and Confirm Password must be the same length"],['password'=>"Password and Confirm Password must be the same length"], ['shop' => $shop]));
+
         }
-        return $this->changeData();
+      //  return $this->changeData();
+        $_SESSION["success"] = "You successfully changed your data!";
+        return redirect()->to(base_url("Shop/changeData"));
+        
     }
 
     public function addCategories() {

@@ -4,6 +4,7 @@ if (!isset($shop)) {
     echo "There has been an error, please return to the previous page and try again.";
     return;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +21,13 @@ if (!isset($shop)) {
             #for_hiding{
                 float:right;
             }
+            .success_change{
+                padding:5px;
+                background-color:greenyellow;
+                color:white;
+                text-align:center;
+                
+            }
         </style>
     </head> 
     <body> 
@@ -27,6 +35,14 @@ if (!isset($shop)) {
         if (isset($header)) {
 
             echo view($header);
+        }
+        if(isset($_SESSION["success"])){
+            echo "<div class='success_change'>";
+            echo $_SESSION["success"];
+            echo "</div>";
+            unset($_SESSION["success"]);
+            
+    
         }
         ?>  
         <br>

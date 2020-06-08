@@ -26,9 +26,7 @@ class AddOnModel extends Model {
     }
 
     public function AddOnBelongsToCurrShop($idShop, $idA) {
-        $addOn = $this->builder()->select()->where("idShop", $idShop)->where("idA", $idA)->get()->getResultObject();
-        if ($addOn==null)return false;
-        else return true;
+        return $this->builder()->select()->where("idShop", $idShop)->where("idA", $idA)->get()->getResultObject();
     }
 
 }

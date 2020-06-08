@@ -212,8 +212,8 @@ class User extends BaseController {
                 break;
             array_push($tmp, $shops[($page - 1) * 6 + $i]);
         }
-        $maxPage = intval(count($shops) / 6);
-        if (count($shops) % 6 != 0)
+        $maxPage = intval(count($shops) / 2);
+        if (count($shops) % 2 != 0)
             $maxPage += 1;
         $data = [
             "userRole" => $userRole,
@@ -349,10 +349,8 @@ class User extends BaseController {
             $deliveryProductsModel->save(['idDelReq' => $id, 'idProduct' => $product, 'quantity' => $numItems[$i]]);
             $i++;
         }
-        if ($addOns != null && $addOns != "" && $addOns[0] != "") {
-            foreach ($addOns as $addOn) {
-                $deliveryAddOn->insertData(['idDelReq' => $id, 'idA' => $addOn]);
-            }
+        foreach ($addOns as $addOn) {
+            $deliveryAddOn->insertData(['idDelReq' => $id, 'idA' => $addOn]);
         }
         return redirect()->to(base_url("/User/listShopsPaging")); //$this->listShops("Your order is sent!");
     }

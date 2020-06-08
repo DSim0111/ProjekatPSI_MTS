@@ -22,17 +22,12 @@ class ProductModel extends \CodeIgniter\Model {
  public function productBelongsToCurrShop($idShop,$idP){
             return $this->builder()->select()->where("idShop",$idShop)->where("idProduct",$idP)->get()->getResultObject();
         }
-    //TODO[miki]: ERROR handling if there is no product with given id
-    // find returns null if no row is matched 
     public function getProductsById($ids) {
-
-
-        $this->builder()->select();
+        $products = [];
         foreach ($ids as $id) {
-            $this->builder()->orWhere("idProduct", $id);
+            array_push($products,$this->find($id));
         }
-
-        return $this->builder()->get()->getResultObject();
+        return $products;
     }
 
     public function getAllProductsForShop($idShop) {

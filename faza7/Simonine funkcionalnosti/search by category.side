@@ -1,0 +1,131 @@
+{
+  "id": "fa311a0b-b6c7-4051-a9fd-a495de574a88",
+  "version": "2.0",
+  "name": "search by category",
+  "url": "http://localhost:8080/User/index",
+  "tests": [{
+    "id": "239fa6a7-0e44-4b21-9e06-3be16fd35209",
+    "name": "shops with search category exists",
+    "commands": [{
+      "id": "3c74b55a-e0e1-463e-a1fc-cd8645a154f5",
+      "comment": "",
+      "command": "open",
+      "target": "/User/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7e4ec506-f0cd-4f2e-a71d-9cb9e1c57558",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e1715ccf-06ab-47ef-9885-e3a70dfe716b",
+      "comment": "",
+      "command": "click",
+      "target": "id=2male",
+      "targets": [
+        ["id=2male", "id"],
+        ["name=categories[2]", "name"],
+        ["css=#\\32male", "css:finder"],
+        ["xpath=//input[@id='2male']", "xpath:attributes"],
+        ["xpath=//div[@id='filter_div']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23d66d77-eccc-47e3-9ba3-42d5e76cf3eb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-secondary",
+      "targets": [
+        ["css=.btn-secondary", "css:finder"],
+        ["xpath=//div[@id='filter_div']/div[76]/button", "xpath:idRelative"],
+        ["xpath=//div[76]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0ceba285-01c1-45c1-87f2-39483269628f",
+      "comment": "",
+      "command": "click",
+      "target": "id=1female",
+      "targets": [
+        ["id=1female", "id"],
+        ["name=categories[1]", "name"],
+        ["css=#\\31 female", "css:finder"],
+        ["xpath=//input[@id='1female']", "xpath:attributes"],
+        ["xpath=//div[@id='filter_div']/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "71beadbd-c558-4e38-9582-b94261f9e984",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-secondary",
+      "targets": [
+        ["css=.btn-secondary", "css:finder"],
+        ["xpath=//div[@id='filter_div']/div[76]/button", "xpath:idRelative"],
+        ["xpath=//div[76]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "a45691db-cb32-4a52-9eb7-fcba8f0bf625",
+    "name": "there is no shops with searched category",
+    "commands": [{
+      "id": "a204d305-c254-4a36-8b85-43fdb2d10e40",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/User/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "220482c3-a603-4941-b6e7-86cc2850ee2a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1537x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "207e14e0-70b2-45df-8378-c744968ab1c1",
+      "comment": "",
+      "command": "click",
+      "target": "id=26New Year",
+      "targets": [
+        ["id=26New Year", "id"],
+        ["name=categories[26]", "name"],
+        ["css=#\\32 6New\\ Year", "css:finder"],
+        ["xpath=//input[@id='26New Year']", "xpath:attributes"],
+        ["xpath=//div[@id='filter_div']/div[26]/input", "xpath:idRelative"],
+        ["xpath=//div[26]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23f83f5c-c199-4a16-8b90-b087f71529d0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-secondary",
+      "targets": [
+        ["css=.btn-secondary", "css:finder"],
+        ["xpath=//div[@id='filter_div']/div[76]/button", "xpath:idRelative"],
+        ["xpath=//div[76]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "08384984-8d21-4823-a5f5-a2d6e18c364b",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["239fa6a7-0e44-4b21-9e06-3be16fd35209"]
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/User/index"],
+  "plugins": []
+}

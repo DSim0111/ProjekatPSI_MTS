@@ -1,0 +1,134 @@
+{
+  "id": "d477b455-72fb-4ec0-b44f-22eef81f78ec",
+  "version": "2.0",
+  "name": "search by name",
+  "url": "http://localhost:8080/User/index",
+  "tests": [{
+    "id": "ddfab542-ea3f-4e6d-874b-7aa85404ff07",
+    "name": "shops with search name exists",
+    "commands": [{
+      "id": "a66208a7-2953-4aa3-a926-04f1a11d316d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/User/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed3771a2-b61c-4293-842a-08cb90f4bc61",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f41f1ad5-0e9e-4eaf-96dc-28fc81c3ccf6",
+      "comment": "",
+      "command": "click",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=.search_input", "css:finder"],
+        ["xpath=//input[@name='search']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "17f33533-4f96-4fe1-b821-0cda1716d277",
+      "comment": "",
+      "command": "type",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=.search_input", "css:finder"],
+        ["xpath=//input[@name='search']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "ticket"
+    }, {
+      "id": "f2064e9f-ac01-4a4a-a386-03d7ed633656",
+      "comment": "",
+      "command": "click",
+      "target": "id=search_icon",
+      "targets": [
+        ["id=search_icon", "id"],
+        ["css=#search_icon", "css:finder"],
+        ["xpath=//img[@id='search_icon']", "xpath:attributes"],
+        ["xpath=//button/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "7fb7a490-a5de-400b-bf20-0534a81a82ac",
+    "name": "there is no shops with search name",
+    "commands": [{
+      "id": "6ff3e81d-b6d3-43fb-9958-57d9919681f8",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/User/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f8397da-a79e-4158-b348-4a479404c2c4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9f190267-5940-49b7-b157-2881ac0cf73d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container-fluid",
+      "targets": [
+        ["css=.container-fluid", "css:finder"],
+        ["xpath=//body/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d003c8e-9800-4f22-8c15-8520f16cfb57",
+      "comment": "",
+      "command": "click",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=.search_input", "css:finder"],
+        ["xpath=//input[@name='search']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d17d4b0a-b53d-43ea-a78b-25b07d0c6dff",
+      "comment": "",
+      "command": "type",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=.search_input", "css:finder"],
+        ["xpath=//input[@name='search']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "buty"
+    }, {
+      "id": "ef2d7a16-58f2-4dc9-8897-50ef2e283aaa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.search_submit",
+      "targets": [
+        ["css=.search_submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "cbdef29b-796b-4c5a-8c41-b88c75d6e6c7",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/User/index"],
+  "plugins": []
+}

@@ -1,0 +1,617 @@
+{
+  "id": "5376f7b9-ba24-45b5-a04e-592134407aff",
+  "version": "2.0",
+  "name": "Testing cart",
+  "url": "http://localhost:8080/User/shopPage?shopId=15",
+  "tests": [{
+    "id": "ca91e0a8-243a-43d5-a861-7a42a6e31069",
+    "name": "add to cart(success)-testing",
+    "commands": [{
+      "id": "7a4f0081-afa5-4714-9b16-9f560ba6afd5",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3120d05c-1ff6-431d-97c0-b18461cd5a4f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1490x741",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a456738d-ee3f-4e27-8b5c-da03e265984a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.LoginBtn",
+      "targets": [
+        ["css=.LoginBtn", "css:finder"],
+        ["xpath=//a[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d26d0b65-a225-43d4-abbc-c87c6f6f998a",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=form > input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "097a5608-be6b-4268-a986-4ad01f1b19c0",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=form > input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "petrica89"
+    }, {
+      "id": "f7ce41b1-ae27-45a0-a0ad-956cfba46f48",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6250e997-d8f0-4646-bb5c-7c51b562953d",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form/input[2]", "xpath:position"]
+      ],
+      "value": "password123"
+    }, {
+      "id": "21482405-863c-448a-a6ee-fbb594ad1ab6",
+      "comment": "",
+      "command": "click",
+      "target": "name=submit",
+      "targets": [
+        ["name=submit", "name"],
+        ["css=.w-100:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='submit']", "xpath:attributes"],
+        ["xpath=//a/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ae84910-35c2-4a83-90bb-27d1c493a209",
+      "comment": "",
+      "command": "click",
+      "target": "css=#pageLink2 > .btn",
+      "targets": [
+        ["css=#pageLink2 > .btn", "css:finder"],
+        ["xpath=(//button[@value='Visit'])[3]", "xpath:attributes"],
+        ["xpath=//a[@id='pageLink2']/button", "xpath:idRelative"],
+        ["xpath=//div[3]/a/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d5d128e2-b01b-4453-8a55-80e51709ba66",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2) > .col-lg-3:nth-child(2) .btn",
+      "targets": [
+        ["css=.row:nth-child(2) > .col-lg-3:nth-child(2) .btn", "css:finder"],
+        ["xpath=(//input[@value='Add to cart'])[6]", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/div/div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "51b26e6b-123d-44b8-888e-8e9402fd01c0",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "You added 1 products Crema Blend",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "33ad42d7-a455-49d1-95a4-47c476206cb4",
+      "comment": "",
+      "command": "type",
+      "target": "id=num164",
+      "targets": [
+        ["id=num164", "id"],
+        ["css=#num164", "css:finder"],
+        ["xpath=//input[@id='num164']", "xpath:attributes"],
+        ["xpath=//div[2]/div[4]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "51b6bb1f-cbd8-4450-be96-e6f0a06d35ac",
+      "comment": "",
+      "command": "click",
+      "target": "id=num164",
+      "targets": [
+        ["id=num164", "id"],
+        ["css=#num164", "css:finder"],
+        ["xpath=//input[@id='num164']", "xpath:attributes"],
+        ["xpath=//div[2]/div[4]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c04563d2-7026-4b8e-9a76-e3d2265e0a3f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2) > .col-lg-3:nth-child(4) .btn",
+      "targets": [
+        ["css=.row:nth-child(2) > .col-lg-3:nth-child(4) .btn", "css:finder"],
+        ["xpath=(//input[@value='Add to cart'])[8]", "xpath:attributes"],
+        ["xpath=//div[2]/div[4]/div/div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a126be9-beaf-4a20-8e72-88ead956e9db",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "You added 2 products Drip Blend",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7aaf40d4-050e-4357-bd6c-09b71809c351",
+      "comment": "",
+      "command": "click",
+      "target": "id=butt",
+      "targets": [
+        ["id=butt", "id"],
+        ["css=#butt", "css:finder"],
+        ["xpath=//input[@id='butt']", "xpath:attributes"],
+        ["xpath=//form[@id='productsData']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "808c528c-7175-4459-8b03-9cbd51f795ed",
+    "name": "add to cart(fail)-testing(Alert answer:No)",
+    "commands": [{
+      "id": "2edff5f3-eafa-4e49-b1f8-b5e264d137e2",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/User/shopPage?shopId=15",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ea100d7-7799-4104-8f5c-3191f0463ba9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1490x741",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "71af2d1e-9cd8-4e80-b419-be16a19f26d8",
+      "comment": "",
+      "command": "click",
+      "target": "id=butt",
+      "targets": [
+        ["id=butt", "id"],
+        ["css=#butt", "css:finder"],
+        ["xpath=//input[@id='butt']", "xpath:attributes"],
+        ["xpath=//form[@id='productsData']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "059479ca-6748-4d7b-a9df-41bdc9c48271",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=.active > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/User/listShopsPaging']", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea5c3b3b-8e36-4bd6-b30c-6a2f7ec21842",
+      "comment": "",
+      "command": "click",
+      "target": "css=#pageLink4 > .btn",
+      "targets": [
+        ["css=#pageLink4 > .btn", "css:finder"],
+        ["xpath=(//button[@value='Visit'])[5]", "xpath:attributes"],
+        ["xpath=//a[@id='pageLink4']/button", "xpath:idRelative"],
+        ["xpath=//div[5]/a/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c5a3b838-29c0-46d5-93bf-adb41c81a6e0",
+      "comment": "",
+      "command": "type",
+      "target": "id=num20",
+      "targets": [
+        ["id=num20", "id"],
+        ["css=#num20", "css:finder"],
+        ["xpath=//input[@id='num20']", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "a988cc16-b576-4074-906e-9b4d93f59fc3",
+      "comment": "",
+      "command": "click",
+      "target": "id=num20",
+      "targets": [
+        ["id=num20", "id"],
+        ["css=#num20", "css:finder"],
+        ["xpath=//input[@id='num20']", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0a84cac1-f126-40f6-b268-058dc272a689",
+      "comment": "",
+      "command": "chooseCancelOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "33741f6a-3aaf-4ae7-8d89-d85a4a7e6386",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2) > .col-lg-3:nth-child(2) .btn",
+      "targets": [
+        ["css=.row:nth-child(2) > .col-lg-3:nth-child(2) .btn", "css:finder"],
+        ["xpath=(//input[@value='Add to cart'])[6]", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/div/div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae1c7232-1784-47c2-9c5a-841e77279dd5",
+      "comment": "",
+      "command": "chooseCancelOnNextConfirmation",
+      "target": "You already have items from another shop in you cart. Are you sure you want to delete them?",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ababe47c-6a57-486e-9515-e52a39c7ec37",
+      "comment": "",
+      "command": "webdriverChooseCancelOnVisibleConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ab2c28a-35d1-468d-b7f0-ff285dd1a6ba",
+      "comment": "",
+      "command": "click",
+      "target": "id=butt",
+      "targets": [
+        ["id=butt", "id"],
+        ["css=#butt", "css:finder"],
+        ["xpath=//input[@id='butt']", "xpath:attributes"],
+        ["xpath=//form[@id='productsData']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "62276559-c61c-47d2-9239-192928913e7b",
+    "name": "empty user cart-testing",
+    "commands": [{
+      "id": "5c636cdc-c1c7-4a9a-8543-2cf1afda9e0b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/User/shopPage?shopId=15",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1b6d3bdf-1483-45d7-9a6b-b3b97ea18800",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "930x741",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d6f29ff1-7bee-41b2-9694-017589cef3b1",
+      "comment": "",
+      "command": "type",
+      "target": "id=num205",
+      "targets": [
+        ["id=num205", "id"],
+        ["css=#num205", "css:finder"],
+        ["xpath=//input[@id='num205']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "3ca7b27c-84fc-41fc-8939-c2cc809cb36e",
+      "comment": "",
+      "command": "click",
+      "target": "id=num205",
+      "targets": [
+        ["id=num205", "id"],
+        ["css=#num205", "css:finder"],
+        ["xpath=//input[@id='num205']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "39796b80-24ee-4068-825c-af177227d296",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) > .col-lg-3:nth-child(1) .btn",
+      "targets": [
+        ["css=.row:nth-child(3) > .col-lg-3:nth-child(1) .btn", "css:finder"],
+        ["xpath=(//input[@value='Add to cart'])[9]", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b56dd72f-dc68-4aee-850c-10b87a1c64d3",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "You added 2 products Justin Bieber",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5ac3648b-5b7e-4167-ba85-6eab71b32293",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(4) > .col-lg-3:nth-child(2) .btn",
+      "targets": [
+        ["css=.row:nth-child(4) > .col-lg-3:nth-child(2) .btn", "css:finder"],
+        ["xpath=(//input[@value='Add to cart'])[14]", "xpath:attributes"],
+        ["xpath=//div[4]/div[2]/div/div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ec326a8-f6ce-496d-9ad7-bbbb41d495db",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "You added 1 products Nickelback",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24be7f29-43d8-455a-916b-775d7841958d",
+      "comment": "",
+      "command": "click",
+      "target": "id=butt",
+      "targets": [
+        ["id=butt", "id"],
+        ["css=#butt", "css:finder"],
+        ["xpath=//input[@id='butt']", "xpath:attributes"],
+        ["xpath=//form[@id='productsData']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c507685-4557-4d3a-b44a-349853870d1c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.emptyCartBtn",
+      "targets": [
+        ["css=.emptyCartBtn", "css:finder"],
+        ["xpath=//button[@onclick='emptyCart()']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Empty your cart')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "00b92e33-7ae2-4ab8-a874-7b71b22dd20b",
+    "name": "add to cart(fail)-(Alert answer:Yes)",
+    "commands": [{
+      "id": "0ec02ad5-d2f8-47db-9a81-d90f28306d73",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/User/shopPage?shopId=15",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5e0d69c8-1a6f-4759-bea4-d3bfadc13223",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1493x743",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca13013d-186f-47c2-af65-a446d6a06c42",
+      "comment": "",
+      "command": "click",
+      "target": "id=butt",
+      "targets": [
+        ["id=butt", "id"],
+        ["css=#butt", "css:finder"],
+        ["xpath=//input[@id='butt']", "xpath:attributes"],
+        ["xpath=//form[@id='productsData']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a25a921-5ffa-4cce-979a-65dcd0fcde0a",
+      "comment": "",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "42d187e8-7837-4ee8-8467-e00930e60f42",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2) > .col-lg-3:nth-child(1) .btn",
+      "targets": [
+        ["css=.row:nth-child(2) > .col-lg-3:nth-child(1) .btn", "css:finder"],
+        ["xpath=(//input[@value='Add to cart'])[5]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c095c166-c968-41e0-82be-0c1d72bbf8b3",
+      "comment": "",
+      "command": "assertConfirmation",
+      "target": "You already have items from another shop in you cart. Are you sure you want to delete them?",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5f2a4a18-e1b5-4c1e-a3e9-a98c0519eca5",
+      "comment": "",
+      "command": "webdriverChooseOkOnVisibleConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "73291f59-7bd0-4c2f-82c2-6b1e6c97dc60",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "You added 1 products Bruno Mars",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98f87178-9f53-4881-8052-6b3c93425ffb",
+      "comment": "",
+      "command": "click",
+      "target": "id=butt",
+      "targets": [
+        ["id=butt", "id"],
+        ["css=#butt", "css:finder"],
+        ["xpath=//input[@id='butt']", "xpath:attributes"],
+        ["xpath=//form[@id='productsData']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "fec43573-26c4-474d-90b1-38b33ce76f77",
+    "name": "delete product from cart-testing",
+    "commands": [{
+      "id": "9606ee7b-e5a8-4967-80eb-2b027dc006d9",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/User/shopPage?shopId=15",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8fd3bf8c-5a45-4c75-9b5a-d4583ca64b43",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1494x745",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ea7c397-eb2b-45be-8aa5-bb5b67f54d78",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(3) > .col-lg-3:nth-child(4) .btn",
+      "targets": [
+        ["css=.row:nth-child(3) > .col-lg-3:nth-child(4) .btn", "css:finder"],
+        ["xpath=(//input[@value='Add to cart'])[12]", "xpath:attributes"],
+        ["xpath=//div[3]/div[4]/div/div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "42cc5981-6964-47b8-8135-b59411f71840",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "You added 1 products Lana Del Rey",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3d8253a2-1600-4670-b871-3c5d4e89fc4a",
+      "comment": "",
+      "command": "type",
+      "target": "id=num210",
+      "targets": [
+        ["id=num210", "id"],
+        ["css=#num210", "css:finder"],
+        ["xpath=//input[@id='num210']", "xpath:attributes"],
+        ["xpath=//div[4]/div[2]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "d41030c5-17fa-4860-8684-15bb2a3c6bb1",
+      "comment": "",
+      "command": "click",
+      "target": "id=num210",
+      "targets": [
+        ["id=num210", "id"],
+        ["css=#num210", "css:finder"],
+        ["xpath=//input[@id='num210']", "xpath:attributes"],
+        ["xpath=//div[4]/div[2]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "39c4dbd2-0ace-4f1f-b35f-b7071b1d4884",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(4) > .col-lg-3:nth-child(2) .btn",
+      "targets": [
+        ["css=.row:nth-child(4) > .col-lg-3:nth-child(2) .btn", "css:finder"],
+        ["xpath=(//input[@value='Add to cart'])[14]", "xpath:attributes"],
+        ["xpath=//div[4]/div[2]/div/div[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc452b5c-89a6-4281-b2be-bc2c41f88b99",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "You added 2 products Nickelback",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff952ffd-f3de-49e4-9760-56440628b475",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9afe0a06-da76-437e-b0de-a81ecca18362",
+      "comment": "",
+      "command": "click",
+      "target": "id=butt",
+      "targets": [
+        ["id=butt", "id"],
+        ["css=#butt", "css:finder"],
+        ["xpath=//input[@id='butt']", "xpath:attributes"],
+        ["xpath=//form[@id='productsData']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b546fd3d-8b92-488d-af07-a9ec8346a32e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-sm-3:nth-child(1) .btn",
+      "targets": [
+        ["css=.col-sm-3:nth-child(1) .btn", "css:finder"],
+        ["xpath=//button[@onclick='decrease(208)']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'-')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "997876bb-b33d-4dce-bd48-8f521f9848fb",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["ca91e0a8-243a-43d5-a861-7a42a6e31069"]
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/User/shopPage?shopId=15", "http://localhost:8080/User/index"],
+  "plugins": []
+}

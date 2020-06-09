@@ -1,0 +1,89 @@
+{
+  "id": "85f38ac5-d68a-4ead-94ec-8b2968f04829",
+  "version": "2.0",
+  "name": "adding shops to favourite",
+  "url": "http://localhost:8080/User/index",
+  "tests": [{
+    "id": "3bf892d5-ba7f-4b47-8e81-c288374a60f3",
+    "name": "adding to favourite",
+    "commands": [{
+      "id": "6b51ffcd-8502-4d84-9143-d66da050e4d2",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/User/index",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8a4e5cd6-01b6-420b-94b3-2662323ebbe0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1492x743",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "97982d9b-6af9-49b1-93d5-71892f837f40",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=My favorite shops",
+      "targets": [
+        ["linkText=My favorite shops", "linkText"],
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'My favorite shops')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/User/listFavShops']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'My favorite shops')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "294eb318-8fcd-4e4c-85ea-3c0794d72fc1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=.active > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/User/listShopsPaging']", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "96d029f8-6b77-4ff8-8963-d037ce610d9d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#addToFav4 > svg",
+      "targets": [
+        ["css=#addToFav4 > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "5536d449-a675-44c9-b23a-1416282400a4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=My favorite shops",
+      "targets": [
+        ["linkText=My favorite shops", "linkText"],
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'My favorite shops')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/User/listFavShops']", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'My favorite shops')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "5c040f0e-5d15-4514-b5f8-c4a219be331d",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/User/index", "http://localhost:8080/User/listShopsPaging"],
+  "plugins": []
+}
